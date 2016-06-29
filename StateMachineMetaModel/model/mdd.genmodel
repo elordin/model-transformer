@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/MDD/src" modelPluginID="MDD" modelName="Mdd" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>mdd.ecore</foreignModel>
+  <genPackages prefix="Mdd" disposableProviderFactory="true" ecorePackage="mdd.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mdd.ecore#//TransitionKind">
+      <genEnumLiterals ecoreEnumLiteral="mdd.ecore#//TransitionKind/internal"/>
+      <genEnumLiterals ecoreEnumLiteral="mdd.ecore#//TransitionKind/local"/>
+      <genEnumLiterals ecoreEnumLiteral="mdd.ecore#//TransitionKind/external"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mdd.ecore#//PseudoStateKind">
+      <genEnumLiterals ecoreEnumLiteral="mdd.ecore#//PseudoStateKind/initial"/>
+      <genEnumLiterals ecoreEnumLiteral="mdd.ecore#//PseudoStateKind/join"/>
+      <genEnumLiterals ecoreEnumLiteral="mdd.ecore#//PseudoStateKind/fork"/>
+      <genEnumLiterals ecoreEnumLiteral="mdd.ecore#//PseudoStateKind/junction"/>
+      <genEnumLiterals ecoreEnumLiteral="mdd.ecore#//PseudoStateKind/choice"/>
+      <genEnumLiterals ecoreEnumLiteral="mdd.ecore#//PseudoStateKind/entryPoint"/>
+      <genEnumLiterals ecoreEnumLiteral="mdd.ecore#//PseudoStateKind/exitPoint"/>
+      <genEnumLiterals ecoreEnumLiteral="mdd.ecore#//PseudoStateKind/terminate"/>
+      <genEnumLiterals ecoreEnumLiteral="mdd.ecore#//PseudoStateKind/deepHistory"/>
+      <genEnumLiterals ecoreEnumLiteral="mdd.ecore#//PseudoStateKind/shallowHistory"/>
+    </genEnums>
+    <genClasses ecoreClass="mdd.ecore#//State">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mdd.ecore#//State/isComposite"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mdd.ecore#//State/isOrthogonal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mdd.ecore#//State/isSimple"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mdd.ecore#//State/isSubmachineState"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mdd.ecore#//State/region"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mdd.ecore#//State/deferrableTrigger"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mdd.ecore#//State/entry"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mdd.ecore#//State/exit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mdd.ecore#//State/doActivity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mdd.ecore#//State/stateInvariant"/>
+    </genClasses>
+    <genClasses ecoreClass="mdd.ecore#//Transition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mdd.ecore#//Transition/kind"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mdd.ecore#//Transition/guard"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mdd.ecore#//Transition/trigger"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mdd.ecore#//Transition/effect"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mdd.ecore#//Transition/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mdd.ecore#//Transition/target"/>
+    </genClasses>
+    <genClasses ecoreClass="mdd.ecore#//StateMachine">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mdd.ecore#//StateMachine/region"/>
+    </genClasses>
+    <genClasses ecoreClass="mdd.ecore#//Region">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mdd.ecore#//Region/subvertex"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mdd.ecore#//Region/transition"/>
+    </genClasses>
+    <genClasses ecoreClass="mdd.ecore#//Trigger"/>
+    <genClasses ecoreClass="mdd.ecore#//Constraint"/>
+    <genClasses ecoreClass="mdd.ecore#//Vertex">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mdd.ecore#//Vertex/outgoing"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mdd.ecore#//Vertex/incoming"/>
+    </genClasses>
+    <genClasses ecoreClass="mdd.ecore#//PseudoState">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mdd.ecore#//PseudoState/pseudoStateKind"/>
+    </genClasses>
+    <genClasses ecoreClass="mdd.ecore#//FinalState"/>
+    <genClasses ecoreClass="mdd.ecore#//Behavior"/>
+  </genPackages>
+</genmodel:GenModel>
