@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="">
+  <eClassifiers xsi:type="ecore:EEnum" name="InteractionOperatorKind">
+    <eLiterals name="seq"/>
+    <eLiterals name="alt" value="1"/>
+    <eLiterals name="opt" value="2"/>
+    <eLiterals name="break" value="3"/>
+    <eLiterals name="par" value="4"/>
+    <eLiterals name="strict" value="5"/>
+    <eLiterals name="loop" value="6"/>
+    <eLiterals name="critical" value="7"/>
+    <eLiterals name="neg" value="8"/>
+    <eLiterals name="assert" value="9"/>
+    <eLiterals name="ignore" value="10"/>
+    <eLiterals name="consider" value="11"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageOccurenceSpecification" eSuperTypes="#//MessageEnd #//OccurrenceSpecification"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageEnd"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Message">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sendEvent" eType="#//MessageEnd"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="receiveEvent" eType="#//MessageEnd"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageSort" eType="#//MessageSort"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Interaction" eSuperTypes="#//InteractionFragment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="message" upperBound="-1"
+        eType="#//Message" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lifeline" upperBound="-1"
+        eType="#//Lifeline" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Lifeline"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InteractionFragment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OccurrenceSpecification" eSuperTypes="#//InteractionFragment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lifeline" lowerBound="1"
+        eType="#//Lifeline"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CombinedFragment" eSuperTypes="#//InteractionFragment">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interactionOperator" eType="#//InteractionOperatorKind"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interactionoperand" lowerBound="1"
+        upperBound="-1" eType="#//InteractionOperand" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InteractionOperand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interactionfragment" upperBound="-1"
+        eType="#//InteractionFragment" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StateInvariant" eSuperTypes="#//InteractionFragment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lifeline" eType="#//Lifeline"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MessageSort">
+    <eLiterals name="synchCall"/>
+    <eLiterals name="asynchCall" value="1"/>
+    <eLiterals name="asynchSignal" value="2"/>
+    <eLiterals name="createMessage" value="3"/>
+    <eLiterals name="deleteMessage" value="4"/>
+    <eLiterals name="reply" value="5"/>
+  </eClassifiers>
+</ecore:EPackage>
