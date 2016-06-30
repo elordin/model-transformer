@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/viewpoints/policy/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_2EppoDr2Eeak-76QglXo-w" type="PapyrusUMLSequenceDiagram" name="Sequence Diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_2EppoTr2Eeak-76QglXo-w" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_2Eppojr2Eeak-76QglXo-w" type="5001"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_2Eppozr2Eeak-76QglXo-w" type="7001">
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2EpppDr2Eeak-76QglXo-w"/>
+    </children>
+    <element xmi:type="uml:Interaction" href="BadAccount.uml#_2EobgDr2Eeak-76QglXo-w"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2EpppTr2Eeak-76QglXo-w"/>
+  </children>
+  <styles xmi:type="notation:StringValueStyle" xmi:id="_2Epppjr2Eeak-76QglXo-w" name="diagram_compatibility_version" stringValue="1.1.0"/>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_2Epppzr2Eeak-76QglXo-w"/>
+  <styles xmi:type="style:PapyrusViewStyle" xmi:id="_2EppqDr2Eeak-76QglXo-w">
+    <owner xmi:type="uml:Model" href="BadAccount.uml#_2El_QDr2Eeak-76QglXo-w"/>
+  </styles>
+  <element xmi:type="uml:Interaction" href="BadAccount.uml#_2EobgDr2Eeak-76QglXo-w"/>
+</notation:Diagram>
