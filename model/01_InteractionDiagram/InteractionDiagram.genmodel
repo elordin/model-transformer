@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/model-transformer/src" modelPluginID="model-transformer"
+    modelName="InteractionDiagram" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>InteractionDiagram.ecore</foreignModel>
+  <genPackages prefix="InteractionDiagram" disposableProviderFactory="true" ecorePackage="InteractionDiagram.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="InteractionDiagram.ecore#//InteractionOperatorKind">
+      <genEnumLiterals ecoreEnumLiteral="InteractionDiagram.ecore#//InteractionOperatorKind/seq"/>
+      <genEnumLiterals ecoreEnumLiteral="InteractionDiagram.ecore#//InteractionOperatorKind/alt"/>
+      <genEnumLiterals ecoreEnumLiteral="InteractionDiagram.ecore#//InteractionOperatorKind/opt"/>
+      <genEnumLiterals ecoreEnumLiteral="InteractionDiagram.ecore#//InteractionOperatorKind/break"/>
+      <genEnumLiterals ecoreEnumLiteral="InteractionDiagram.ecore#//InteractionOperatorKind/par"/>
+      <genEnumLiterals ecoreEnumLiteral="InteractionDiagram.ecore#//InteractionOperatorKind/strict"/>
+      <genEnumLiterals ecoreEnumLiteral="InteractionDiagram.ecore#//InteractionOperatorKind/loop"/>
+      <genEnumLiterals ecoreEnumLiteral="InteractionDiagram.ecore#//InteractionOperatorKind/critical"/>
+      <genEnumLiterals ecoreEnumLiteral="InteractionDiagram.ecore#//InteractionOperatorKind/neg"/>
+      <genEnumLiterals ecoreEnumLiteral="InteractionDiagram.ecore#//InteractionOperatorKind/assert"/>
+      <genEnumLiterals ecoreEnumLiteral="InteractionDiagram.ecore#//InteractionOperatorKind/ignore"/>
+      <genEnumLiterals ecoreEnumLiteral="InteractionDiagram.ecore#//InteractionOperatorKind/consider"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="InteractionDiagram.ecore#//MessageSort">
+      <genEnumLiterals ecoreEnumLiteral="InteractionDiagram.ecore#//MessageSort/synchCall"/>
+      <genEnumLiterals ecoreEnumLiteral="InteractionDiagram.ecore#//MessageSort/asynchCall"/>
+      <genEnumLiterals ecoreEnumLiteral="InteractionDiagram.ecore#//MessageSort/asynchSignal"/>
+      <genEnumLiterals ecoreEnumLiteral="InteractionDiagram.ecore#//MessageSort/createMessage"/>
+      <genEnumLiterals ecoreEnumLiteral="InteractionDiagram.ecore#//MessageSort/deleteMessage"/>
+      <genEnumLiterals ecoreEnumLiteral="InteractionDiagram.ecore#//MessageSort/reply"/>
+    </genEnums>
+    <genClasses ecoreClass="InteractionDiagram.ecore#//MessageOccurenceSpecification"/>
+    <genClasses ecoreClass="InteractionDiagram.ecore#//MessageEnd"/>
+    <genClasses ecoreClass="InteractionDiagram.ecore#//Message">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference InteractionDiagram.ecore#//Message/sendEvent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference InteractionDiagram.ecore#//Message/receiveEvent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute InteractionDiagram.ecore#//Message/messageSort"/>
+    </genClasses>
+    <genClasses ecoreClass="InteractionDiagram.ecore#//Interaction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference InteractionDiagram.ecore#//Interaction/message"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference InteractionDiagram.ecore#//Interaction/lifeline"/>
+    </genClasses>
+    <genClasses ecoreClass="InteractionDiagram.ecore#//Lifeline"/>
+    <genClasses ecoreClass="InteractionDiagram.ecore#//InteractionFragment"/>
+    <genClasses ecoreClass="InteractionDiagram.ecore#//OccurrenceSpecification">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference InteractionDiagram.ecore#//OccurrenceSpecification/lifeline"/>
+    </genClasses>
+    <genClasses ecoreClass="InteractionDiagram.ecore#//CombinedFragment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute InteractionDiagram.ecore#//CombinedFragment/interactionOperator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference InteractionDiagram.ecore#//CombinedFragment/interactionoperand"/>
+    </genClasses>
+    <genClasses ecoreClass="InteractionDiagram.ecore#//InteractionOperand">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference InteractionDiagram.ecore#//InteractionOperand/interactionfragment"/>
+    </genClasses>
+    <genClasses ecoreClass="InteractionDiagram.ecore#//StateInvariant">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference InteractionDiagram.ecore#//StateInvariant/lifeline"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
