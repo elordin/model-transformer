@@ -17,11 +17,16 @@
     <eLiterals name="consider" value="11"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MessageOccurenceSpecification" eSuperTypes="#//MessageEnd #//OccurrenceSpecification"/>
-  <eClassifiers xsi:type="ecore:EClass" name="MessageEnd"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageEnd">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="message" eType="#//Message"
+        eOpposite="#//Message/messageEnd"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Message">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sendEvent" eType="#//MessageEnd"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="receiveEvent" eType="#//MessageEnd"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageSort" eType="#//MessageSort"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messageEnd" upperBound="2"
+        eType="#//MessageEnd" eOpposite="#//MessageEnd/message"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Interaction" eSuperTypes="#//InteractionFragment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="message" upperBound="-1"
@@ -46,6 +51,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StateInvariant" eSuperTypes="#//InteractionFragment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="lifeline" eType="#//Lifeline"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="invariant" lowerBound="1"
+        eType="#//Constraint" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="MessageSort">
     <eLiterals name="synchCall"/>
@@ -54,5 +61,15 @@
     <eLiterals name="createMessage" value="3"/>
     <eLiterals name="deleteMessage" value="4"/>
     <eLiterals name="reply" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExecutionOccurenceSpecification" eSuperTypes="#//OccurrenceSpecification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="execution" lowerBound="1"
+        eType="#//ExecutionSpecification" eOpposite="#//ExecutionSpecification/executionOccurenceSpecification"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BehaviorExecutionSpecification" eSuperTypes="#//ExecutionSpecification"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExecutionSpecification" eSuperTypes="#//InteractionFragment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="executionOccurenceSpecification"
+        upperBound="2" eType="#//ExecutionOccurenceSpecification" eOpposite="#//ExecutionOccurenceSpecification/execution"/>
   </eClassifiers>
 </ecore:EPackage>
