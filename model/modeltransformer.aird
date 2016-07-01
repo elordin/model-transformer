@@ -5338,6 +5338,7 @@
         <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_TVcwoz8dEeam0OTrYZI3nw" description="_TVcwoD8dEeam0OTrYZI3nw" routingStyle="manhattan" strokeColor="0,0,0">
           <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_TVcwpD8dEeam0OTrYZI3nw" showIcon="false">
             <customFeatures>labelSize</customFeatures>
+            <labelFormat>bold</labelFormat>
           </centerLabelStyle>
           <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_TVcwpT8dEeam0OTrYZI3nw" showIcon="false" labelColor="39,76,114">
             <customFeatures>labelSize</customFeatures>
@@ -5351,6 +5352,7 @@
         <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_TVdXsT8dEeam0OTrYZI3nw" description="_TVcwoD8dEeam0OTrYZI3nw" routingStyle="manhattan" strokeColor="0,0,0">
           <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_TVdXsj8dEeam0OTrYZI3nw" showIcon="false">
             <customFeatures>labelSize</customFeatures>
+            <labelFormat>bold</labelFormat>
           </centerLabelStyle>
           <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_TVdXsz8dEeam0OTrYZI3nw" showIcon="false" labelColor="39,76,114">
             <customFeatures>labelSize</customFeatures>
@@ -5364,6 +5366,7 @@
         <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_TVdXtT8dEeam0OTrYZI3nw" description="_TVcwoD8dEeam0OTrYZI3nw" routingStyle="manhattan" strokeColor="0,0,0">
           <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_TVdXtj8dEeam0OTrYZI3nw" showIcon="false">
             <customFeatures>labelSize</customFeatures>
+            <labelFormat>bold</labelFormat>
           </centerLabelStyle>
           <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_TVdXtz8dEeam0OTrYZI3nw" showIcon="false" labelColor="39,76,114">
             <customFeatures>labelSize</customFeatures>
@@ -5377,6 +5380,7 @@
         <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_TVd-wD8dEeam0OTrYZI3nw" description="_TVcwoD8dEeam0OTrYZI3nw" routingStyle="manhattan" strokeColor="0,0,0">
           <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_TVd-wT8dEeam0OTrYZI3nw" showIcon="false">
             <customFeatures>labelSize</customFeatures>
+            <labelFormat>bold</labelFormat>
           </centerLabelStyle>
           <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_TVd-wj8dEeam0OTrYZI3nw" showIcon="false" labelColor="39,76,114">
             <customFeatures>labelSize</customFeatures>
@@ -5390,6 +5394,7 @@
         <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_TVd-xD8dEeam0OTrYZI3nw" description="_TVcwoD8dEeam0OTrYZI3nw" routingStyle="manhattan" strokeColor="0,0,0">
           <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_TVd-xT8dEeam0OTrYZI3nw" showIcon="false">
             <customFeatures>labelSize</customFeatures>
+            <labelFormat>bold</labelFormat>
           </centerLabelStyle>
           <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_TVd-xj8dEeam0OTrYZI3nw" showIcon="false" labelColor="39,76,114">
             <customFeatures>labelSize</customFeatures>
@@ -5403,6 +5408,7 @@
         <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_TVd-yD8dEeam0OTrYZI3nw" description="_TVcwoD8dEeam0OTrYZI3nw" routingStyle="manhattan" strokeColor="0,0,0">
           <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_TVd-yT8dEeam0OTrYZI3nw" showIcon="false">
             <customFeatures>labelSize</customFeatures>
+            <labelFormat>bold</labelFormat>
           </centerLabelStyle>
           <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_TVd-yj8dEeam0OTrYZI3nw" showIcon="false" labelColor="39,76,114">
             <customFeatures>labelSize</customFeatures>
@@ -5416,6 +5422,7 @@
         <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_TVd-zD8dEeam0OTrYZI3nw" description="_TVcwoD8dEeam0OTrYZI3nw" routingStyle="manhattan" strokeColor="0,0,0">
           <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_TVd-zT8dEeam0OTrYZI3nw" showIcon="false">
             <customFeatures>labelSize</customFeatures>
+            <labelFormat>bold</labelFormat>
           </centerLabelStyle>
           <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_TVd-zj8dEeam0OTrYZI3nw" showIcon="false" labelColor="39,76,114">
             <customFeatures>labelSize</customFeatures>
@@ -5429,6 +5436,7 @@
         <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_TVel0T8dEeam0OTrYZI3nw" description="_TVcwoD8dEeam0OTrYZI3nw" routingStyle="manhattan" strokeColor="0,0,0">
           <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_TVel0j8dEeam0OTrYZI3nw" showIcon="false">
             <customFeatures>labelSize</customFeatures>
+            <labelFormat>bold</labelFormat>
           </centerLabelStyle>
           <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_TVel0z8dEeam0OTrYZI3nw" showIcon="false" labelColor="39,76,114">
             <customFeatures>labelSize</customFeatures>
@@ -5442,6 +5450,7 @@
         <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_TVel1T8dEeam0OTrYZI3nw" description="_TVcwoD8dEeam0OTrYZI3nw" routingStyle="manhattan" strokeColor="0,0,0">
           <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_TVel1j8dEeam0OTrYZI3nw" showIcon="false">
             <customFeatures>labelSize</customFeatures>
+            <labelFormat>bold</labelFormat>
           </centerLabelStyle>
           <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_TVel1z8dEeam0OTrYZI3nw" showIcon="false" labelColor="39,76,114">
             <customFeatures>labelSize</customFeatures>
@@ -5455,6 +5464,7 @@
         <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_TVel2T8dEeam0OTrYZI3nw" description="_TVcwoD8dEeam0OTrYZI3nw" routingStyle="manhattan" strokeColor="0,0,0">
           <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_TVel2j8dEeam0OTrYZI3nw" showIcon="false">
             <customFeatures>labelSize</customFeatures>
+            <labelFormat>bold</labelFormat>
           </centerLabelStyle>
           <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_TVel2z8dEeam0OTrYZI3nw" showIcon="false" labelColor="39,76,114">
             <customFeatures>labelSize</customFeatures>
@@ -5468,6 +5478,7 @@
         <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_TVfM4D8dEeam0OTrYZI3nw" description="_TVcwoD8dEeam0OTrYZI3nw" routingStyle="manhattan" strokeColor="0,0,0">
           <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_TVfM4T8dEeam0OTrYZI3nw" showIcon="false">
             <customFeatures>labelSize</customFeatures>
+            <labelFormat>bold</labelFormat>
           </centerLabelStyle>
           <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_TVfM4j8dEeam0OTrYZI3nw" showIcon="false" labelColor="39,76,114">
             <customFeatures>labelSize</customFeatures>
