@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdd-sm:StateMachine xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdd-sm="se.studieren.mdd.transformer.StateMachine" name="ATM">
+  <region name="ATMMainRegion">
+    <subvertex xsi:type="mdd-sm:PseudoState" outgoing="//@region.0/@transition.0" name="ATMEntry"/>
+    <subvertex xsi:type="mdd-sm:State" outgoing="//@region.0/@transition.1" incoming="//@region.0/@transition.0" name="WaitCard"/>
+    <subvertex xsi:type="mdd-sm:State" incoming="//@region.0/@transition.1" name="insertCard"/>
+    <subvertex xsi:type="mdd-sm:State" outgoing="//@region.0/@transition.2 //@region.0/@transition.3" name="WaitPassword">
+      <incoming href="enterPassword.statemachine#//@region.0/@transition.4"/>
+    </subvertex>
+    <subvertex xsi:type="mdd-sm:State" incoming="//@region.0/@transition.3" name="cancel"/>
+    <subvertex xsi:type="mdd-sm:State" incoming="//@region.0/@transition.2" name="enterPassword">
+      <submachine href="enterPassword.statemachine#/"/>
+    </subvertex>
+    <subvertex xsi:type="mdd-sm:State" outgoing="//@region.0/@transition.4" name="WaitTakeCard">
+      <incoming href="enterPassword.statemachine#//@region.0/@transition.3"/>
+    </subvertex>
+    <subvertex xsi:type="mdd-sm:State" incoming="//@region.0/@transition.4" name="takeCard"/>
+    <transition source="//@region.0/@subvertex.0" target="//@region.0/@subvertex.1"/>
+    <transition source="//@region.0/@subvertex.1" target="//@region.0/@subvertex.2">
+      <trigger trigger="insertCard"/>
+    </transition>
+    <transition source="//@region.0/@subvertex.3" target="//@region.0/@subvertex.5">
+      <trigger trigger="enterPassword"/>
+    </transition>
+    <transition source="//@region.0/@subvertex.3" target="//@region.0/@subvertex.4">
+      <trigger trigger="cancel"/>
+    </transition>
+    <transition source="//@region.0/@subvertex.6" target="//@region.0/@subvertex.7">
+      <trigger trigger="takeCard"/>
+    </transition>
+  </region>
+</mdd-sm:StateMachine>

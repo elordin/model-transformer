@@ -16,26 +16,28 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="entry" eType="#//Behavior"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isComposite" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
-        changeable="false" volatile="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isOrthogonal" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
-        changeable="false" volatile="true" derived="true"/>
+        changeable="false" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSimple" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
-        changeable="false" volatile="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isCompositeState" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
-        changeable="false" volatile="true" derived="true"/>
+        changeable="false" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSubmachineState" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        changeable="false" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="submachine" eType="#//StateMachine"
+        eOpposite="#//StateMachine/submachineState"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Vertex">
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" upperBound="-1"
         eType="#//Transition" eOpposite="#//Transition/source"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="incoming" upperBound="-1"
         eType="#//Transition" eOpposite="#//Transition/target"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FinalState" eSuperTypes="#//State"/>
   <eClassifiers xsi:type="ecore:EClass" name="Region">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="subvertex" lowerBound="1"
-        upperBound="-1" eType="#//Vertex" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subvertex" upperBound="-1"
+        eType="#//Vertex" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transition" upperBound="-1"
         eType="#//Transition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PseudoState" eSuperTypes="#//Vertex">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pseudoStateKind" eType="#//PseudoStateKind"/>
@@ -43,24 +45,31 @@
   <eClassifiers xsi:type="ecore:EClass" name="StateMachine" eSuperTypes="#//Behavior">
     <eStructuralFeatures xsi:type="ecore:EReference" name="region" lowerBound="1"
         upperBound="-1" eType="#//Region" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="submachineState" upperBound="-1"
+        eType="#//State" eOpposite="#//State/submachine"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
         eType="#//Vertex" eOpposite="#//Vertex/outgoing"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         eType="#//Vertex" eOpposite="#//Vertex/incoming"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="effect" upperBound="-1"
-        eType="#//Behavior" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="effect" eType="#//Behavior"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" upperBound="-1"
         eType="#//Trigger" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="guard" upperBound="-1"
-        eType="#//Constraint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="guard" eType="#//Constraint"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//TransitionKind"
         defaultValueLiteral="external"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Behavior"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Trigger"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Constraint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Trigger">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trigger" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="constraint" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TransitionKind">
     <eLiterals name="internal"/>
     <eLiterals name="local" value="1"/>
@@ -77,5 +86,8 @@
     <eLiterals name="terminate" value="7"/>
     <eLiterals name="deepHistory" value="8"/>
     <eLiterals name="shallowHistory" value="9"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CodeBlock" eSuperTypes="#//Behavior">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="desc" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
   </eClassifiers>
 </ecore:EPackage>

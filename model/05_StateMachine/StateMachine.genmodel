@@ -30,25 +30,29 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//State/stateInvariant"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//State/exit"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//State/entry"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//State/isComposite"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//State/isOrthogonal"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//State/isSimple"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//State/isCompositeState"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//State/isComposite"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//State/isSimple"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//State/isSubmachineState"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StateMachine.ecore#//State/submachine"/>
     </genClasses>
     <genClasses ecoreClass="StateMachine.ecore#//Vertex">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Vertex/outgoing"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Vertex/incoming"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//Vertex/name"/>
     </genClasses>
     <genClasses ecoreClass="StateMachine.ecore#//FinalState"/>
     <genClasses ecoreClass="StateMachine.ecore#//Region">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Region/subvertex"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Region/transition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//Region/name"/>
     </genClasses>
     <genClasses ecoreClass="StateMachine.ecore#//PseudoState">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//PseudoState/pseudoStateKind"/>
     </genClasses>
     <genClasses ecoreClass="StateMachine.ecore#//StateMachine">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//StateMachine/region"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//StateMachine/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StateMachine.ecore#//StateMachine/submachineState"/>
     </genClasses>
     <genClasses ecoreClass="StateMachine.ecore#//Transition">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Transition/source"/>
@@ -59,7 +63,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//Transition/kind"/>
     </genClasses>
     <genClasses ecoreClass="StateMachine.ecore#//Behavior"/>
-    <genClasses ecoreClass="StateMachine.ecore#//Trigger"/>
-    <genClasses ecoreClass="StateMachine.ecore#//Constraint"/>
+    <genClasses ecoreClass="StateMachine.ecore#//Trigger">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//Trigger/trigger"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//Constraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//Constraint/constraint"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//CodeBlock">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//CodeBlock/desc"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
