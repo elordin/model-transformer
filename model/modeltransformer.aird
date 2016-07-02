@@ -12,6 +12,15 @@
   <semanticResources>02_ScenarioTable/Scenario2.ecore</semanticResources>
   <semanticResources>05_StateMachine/StateMachine.genmodel</semanticResources>
   <semanticResources>http://www.eclipse.org/emf/2003/XMLType</semanticResources>
+  <semanticResources>http://www.eclipse.org/m2m/qvt/oml/1.0.0/Stdlib</semanticResources>
+  <semanticResources>http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore</semanticResources>
+  <semanticResources>http://www.eclipse.org/uml2/5.0.0/UML</semanticResources>
+  <semanticResources>../transformation/mdd/Step01.qvto</semanticResources>
+  <semanticResources>../transformation/mdd/Step05.qvto</semanticResources>
+  <semanticResources>../transformation/mdd/Step06.qvto</semanticResources>
+  <semanticResources>../transformation/mdd/Step02.qvto</semanticResources>
+  <semanticResources>../transformation/mdd/Step03.qvto</semanticResources>
+  <semanticResources>../transformation/mdd/Step04.qvto</semanticResources>
   <ownedViews xmi:type="viewpoint:DView" xmi:id="_-fqwAD7ZEeaQUceOPN4kTg">
     <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_r_tiMD7hEeaQUceOPN4kTg" name="StateMachine">

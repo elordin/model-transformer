@@ -1,0 +1,8 @@
+modeltype ScenarioTable uses ScenarioTable('se.studieren.mdd.transformer.ScenarioTable');
+modeltype BehaviorTable uses BehaviorTable('se.studieren.mdd.transformer.BehaviorTable');
+
+transformation Step03();
+
+main() {
+
+}

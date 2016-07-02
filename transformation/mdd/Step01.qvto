@@ -1,0 +1,8 @@
+modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
+modeltype InteractionDiagram uses InteractionDiagram('se.studieren.mdd.transformer.InteractionDiagram');
+
+transformation Step01(in umlInteraction: UML, out customInteraction: InteractionDiagram);
+
+main() {
+
+}

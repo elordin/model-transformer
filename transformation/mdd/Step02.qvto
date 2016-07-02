@@ -1,0 +1,8 @@
+modeltype InteractionDiagram uses InteractionDiagram('se.studieren.mdd.transformer.InteractionDiagram');
+modeltype ScenarioTable uses ScenarioTable('se.studieren.mdd.transformer.ScenarioTable');
+
+transformation Step02();
+
+main() {
+
+}

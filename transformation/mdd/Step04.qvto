@@ -1,0 +1,8 @@
+modeltype BehaviorTable uses BehaviorTable('se.studieren.mdd.transformer.BehaviorTable');
+modeltype IOAutomaton uses IOAutomaton('se.studieren.mdd.transformer.IOAutomaton');
+
+transformation Step04();
+
+main() {
+
+}

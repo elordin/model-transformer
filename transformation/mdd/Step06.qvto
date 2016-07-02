@@ -1,0 +1,8 @@
+modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
+modeltype StateMachine uses StateMachine('se.studieren.mdd.transformer.StateMachine');
+
+transformation Step06(in stateMachine: StateMachine, out umlStateMachine: UML);
+
+main() {
+
+}
