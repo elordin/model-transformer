@@ -1,7 +1,9 @@
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
+modeltype InteractionDiagram uses InteractionDiagram('se.studieren.mdd.transformer.InteractionDiagram');
 modeltype ScenarioTable uses ScenarioTable('se.studieren.mdd.transformer.ScenarioTable');
 
 transformation Step02(in interactionDiagram: UML, out scenarioTable: ScenarioTable);
+// transformation Step02(in interactionDiagram: InteractionDiagram, out scenarioTable: ScenarioTable);
 
 main() {
 	interactionDiagram.objectsOfType(Model).map toScenarioTable();
