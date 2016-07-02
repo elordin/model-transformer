@@ -1,5 +1,5 @@
 modeltype ScenarioTable uses ScenarioTable('se.studieren.mdd.transformer.ScenarioTable');
-modeltype BehaviorTable uses BehaviorTable('se.studieren.mdd.transformer.BehaviourTable');
+modeltype BehaviourTable uses BehaviourTable('se.studieren.mdd.transformer.BehaviourTable');
 
 transformation Step03(in scenarioTable: ScenarioTable, out behaviorTable: BehaviourTable);
 

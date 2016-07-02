@@ -4,4 +4,5 @@
   <mapping sourceURI="se.studieren.mdd.transformer.ScenarioTable" targetURI="platform:/resource/model-transformer/model/02_ScenarioTable/Scenario.ecore"/>
   <mapping sourceURI="se.studieren.mdd.transformer.IOAutomaton" targetURI="platform:/resource/model-transformer/model/04_IOAutomaton/IOAutomaton.ecore"/>
   <mapping sourceURI="se.studieren.mdd.transformer.StateMachine" targetURI="platform:/resource/model-transformer/model/05_StateMachine/StateMachine.ecore"/>
+  <mapping sourceURI="se.studieren.mdd.transformer.BehaviourTable" targetURI="platform:/resource/model-transformer/model/03_BehaviourTables/BehaviourTable.ecore"/>
 </uriMap:MappingContainer>
