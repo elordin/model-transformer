@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<uriMap:MappingContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:uriMap="http:///www.eclipse.org/m2m/qvt/oml/MModelUriMap/1.0.0">
+  <mapping sourceURI="se.studieren.mdd.transformer.InteractionDiagram" targetURI="platform:/resource/model-transformer/model/01_InteractionDiagram/InteractionDiagram.ecore"/>
+  <mapping sourceURI="se.studieren.mdd.transformer.ScenarioTable" targetURI="platform:/resource/model-transformer/model/02_ScenarioTable/Scenario.ecore"/>
+  <mapping sourceURI="se.studieren.mdd.transformer.IOAutomaton" targetURI="platform:/resource/model-transformer/model/04_IOAutomaton/IOAutomaton.ecore"/>
+  <mapping sourceURI="se.studieren.mdd.transformer.StateMachine" targetURI="platform:/resource/model-transformer/model/05_StateMachine/StateMachine.ecore"/>
+</uriMap:MappingContainer>

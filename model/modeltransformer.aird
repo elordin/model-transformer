@@ -21,6 +21,8 @@
   <semanticResources>../transformation/mdd/Step02.qvto</semanticResources>
   <semanticResources>../transformation/mdd/Step03.qvto</semanticResources>
   <semanticResources>../transformation/mdd/Step04.qvto</semanticResources>
+  <semanticResources>../.settings/org.eclipse.m2m.qvt.oml.mmodel.urimap</semanticResources>
+  <semanticResources>../transformation/mdd/FullTransformation.qvto</semanticResources>
   <ownedViews xmi:type="viewpoint:DView" xmi:id="_-fqwAD7ZEeaQUceOPN4kTg">
     <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_r_tiMD7hEeaQUceOPN4kTg" name="StateMachine">

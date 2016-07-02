@@ -1,0 +1,7 @@
+modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
+
+transformation FullTransformation(in umlInteractionDiagram: UML, out umlStateMachine: UML);
+
+main() {
+
+}
