@@ -10,30 +10,33 @@
   <eClassifiers xsi:type="ecore:EClass" name="UserCommunication" eSuperTypes="#//Communication">
     <eStructuralFeatures xsi:type="ecore:EReference" name="usermessage" lowerBound="1"
         eType="#//UserMessage"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="return" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="returned" lowerBound="1"
         eType="#//Return"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SystemCommunication" eSuperTypes="#//Communication">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="state" lowerBound="2" upperBound="2"
-        eType="#//State"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="return" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="returned" lowerBound="1"
         eType="#//Return"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="systemmessage" lowerBound="1"
         eType="#//SystemMessage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prestate" lowerBound="1"
+        eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="poststate" lowerBound="1"
+        eType="#//State"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UserMessage" eSuperTypes="#//Message">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="object" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sender" lowerBound="1"
         eType="#//Object"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
         eType="#//Operation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="user" lowerBound="1" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" lowerBound="1"
+        eType="#//User"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SystemMessage" eSuperTypes="#//Message">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="object" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sender" lowerBound="1"
         eType="#//Object"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
         eType="#//Operation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="systemobject" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" lowerBound="1"
         eType="#//SystemObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Message" abstract="true"/>
@@ -44,7 +47,5 @@
   <eClassifiers xsi:type="ecore:EClass" name="Operation"/>
   <eClassifiers xsi:type="ecore:EClass" name="SystemObject" eSuperTypes="#//Object"/>
   <eClassifiers xsi:type="ecore:EClass" name="User" eSuperTypes="#//Object"/>
-  <eClassifiers xsi:type="ecore:EClass" name="State">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="preState" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="State"/>
 </ecore:EPackage>

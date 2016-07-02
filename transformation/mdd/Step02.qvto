@@ -1,8 +1,37 @@
-modeltype InteractionDiagram uses InteractionDiagram('se.studieren.mdd.transformer.InteractionDiagram');
+modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 modeltype ScenarioTable uses ScenarioTable('se.studieren.mdd.transformer.ScenarioTable');
 
-transformation Step02(in interactionDiagram: InteractionDiagram, out scenarioTable: ScenarioTable);
+transformation Step02(in interactionDiagram: UML, out scenarioTable: ScenarioTable);
 
 main() {
+	interactionDiagram.objectsOfType(Model).map toScenarioTable();
+}
 
+mapping UML::Model::toScenarioTable() : ScenarioTable::Scenario {
+	communication += self.ownedElement[UML::Message]->select(m | true).map toUserCommunication(); // TODO Select messages to users
+	communication += self.ownedElement[UML::Message]->select(m | true).map toSystemCommunication(); // TODO Select messages to non-users
+}
+
+mapping UML::Message::toUserCommunication() : ScenarioTable::UserCommunication {
+	usermessage := null; // .map toUserMessage();
+	returned := null;
+}
+
+mapping toUserMessage() : ScenarioTable::UserMessage {
+	sender := null;
+	operation := null;
+	receiver := null;
+}
+
+mapping UML::Message::toSystemCommunication() : ScenarioTable::SystemCommunication {
+	prestate := null;
+	poststate := null;
+	systemmessage := null; // .map toSystemMessage();
+	returned := null;
+}
+
+mapping toSystemMessage() : ScenarioTable::SystemMessage {
+	sender := null;
+	operation := null;
+	receiver := null;
 }
