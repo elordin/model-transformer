@@ -9,7 +9,10 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: StateMachine,
  StateMachine.impl,
- StateMachine.util
+ StateMachine.util,
+ IOAutomaton,
+ IOAutomaton.impl,
+ IOAutomaton.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy

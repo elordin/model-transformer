@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdd:IOAutomaton xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdd="se.studieren.mdd.transformer.IOAutomaton">
+  <vertex xsi:type="mdd:InitialState"/>
+  <vertex xsi:type="mdd:State" name="WaitVerify"/>
+  <transition target="//@vertex.1" source="//@vertex.0"/>
+  <transition target="//@vertex.1" source="//@vertex.0">
+    <inmessage>
+      <operation Name="verifyAccount"/>
+    </inmessage>
+    <outmessage>
+      <operation Name="verifyCardWithBank"/>
+      <object xsi:type="mdd:SystemObject" name="bank"/>
+      <returnvalue xsi:type="mdd:Value" name="badBankPassword"/>
+    </outmessage>
+    <returnvalue xsi:type="mdd:Value" name="badPassword"/>
+  </transition>
+  <transition target="//@vertex.1" source="//@vertex.0">
+    <inmessage>
+      <operation Name="verifyAccount"/>
+    </inmessage>
+    <outmessage>
+      <operation Name="verifyCardWithBank"/>
+      <object xsi:type="mdd:SystemObject" name="bank"/>
+      <returnvalue xsi:type="mdd:Value" name="badBankAccount"/>
+    </outmessage>
+    <returnvalue xsi:type="mdd:Value" name="badAccount"/>
+  </transition>  
+</mdd:IOAutomaton>

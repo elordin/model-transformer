@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdd:IOAutomaton xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdd="se.studieren.mdd.transformer.IOAutomaton">
+  <vertex xsi:type="mdd:InitialState"/>
+  <vertex xsi:type="mdd:State" name="WaitCard"/>
+  <vertex xsi:type="mdd:State" name="WaitPassword"/>
+  <vertex xsi:type="mdd:State" name="WaitTakeCard"/>
+  <transition target="//@vertex.1" source="//@vertex.0"/>
+  <transition target="//@vertex.2" source="//@vertex.1">
+    <inmessage>
+      <operation Name="insertCard"/>
+    </inmessage>
+    <outmessage>
+      <operation Name="requestPassword"/>
+      <object xsi:type="mdd:User"/>
+      <returnvalue xsi:type="mdd:VoidValue"/>
+    </outmessage>
+    <returnvalue xsi:type="mdd:VoidValue"/>
+  </transition>
+  <transition target="//@vertex.2" source="//@vertex.2">
+    <inmessage>
+      <operation Name="enterPassword"/>
+    </inmessage>
+    <outmessage>
+      <operation Name="verifyAccount"/>
+      <object xsi:type="mdd:SystemObject" name="consortium"/>
+      <returnvalue xsi:type="mdd:Value" name="badPassword"/>
+    </outmessage>
+    <outmessage>
+      <operation Name="requestPassword"/>
+      <object xsi:type="mdd:User"/>
+      <returnvalue xsi:type="mdd:VoidValue"/>
+    </outmessage>
+    <returnvalue xsi:type="mdd:VoidValue"/>
+  </transition>
+  <transition target="//@vertex.3" source="//@vertex.2">
+    <inmessage>
+      <operation Name="enterPassword"/>
+    </inmessage>
+    <outmessage>
+      <operation Name="verifyAccount"/>
+      <object xsi:type="mdd:SystemObject" name="consortium"/>
+      <returnvalue xsi:type="mdd:Value" name="badAccount"/>
+    </outmessage>
+    <outmessage>
+      <operation Name="badAccountMessage"/>
+      <object xsi:type="mdd:User"/>
+      <returnvalue xsi:type="mdd:VoidValue"/>
+    </outmessage>
+    <outmessage>
+      <operation Name="printReceipt"/>
+      <object xsi:type="mdd:User"/>
+      <returnvalue xsi:type="mdd:VoidValue"/>
+    </outmessage>
+    <outmessage>
+      <operation Name="ejectCard"/>
+      <object xsi:type="mdd:User"/>
+      <returnvalue xsi:type="mdd:VoidValue"/>
+    </outmessage>
+    <outmessage>
+      <operation Name="requestTakeCard"/>
+      <object xsi:type="mdd:User"/>
+      <returnvalue xsi:type="mdd:VoidValue"/>
+    </outmessage>
+    <returnvalue xsi:type="mdd:VoidValue"/>
+  </transition>
+  <transition target="//@vertex.3" source="//@vertex.2">
+    <inmessage>
+      <operation Name="cancel"/>
+    </inmessage>
+    <outmessage>
+      <operation Name="canceledMessage"/>
+      <object xsi:type="mdd:User"/>
+      <returnvalue xsi:type="mdd:VoidValue"/>
+    </outmessage>
+    <outmessage>
+      <operation Name="ejectCard"/>
+      <object xsi:type="mdd:User"/>
+      <returnvalue xsi:type="mdd:VoidValue"/>
+    </outmessage>
+    <outmessage>
+      <operation Name="requestTakeCard"/>
+      <object xsi:type="mdd:User"/>
+      <returnvalue xsi:type="mdd:VoidValue"/>
+    </outmessage>
+    <returnvalue xsi:type="mdd:VoidValue"/>
+  </transition>
+  <transition target="//@vertex.1" source="//@vertex.3">
+    <inmessage>
+      <operation Name="takeCard"/>
+    </inmessage>
+    <outmessage>
+      <operation Name="displayMainScreen"/>
+      <object xsi:type="mdd:User"/>
+      <returnvalue xsi:type="mdd:VoidValue"/>
+    </outmessage>
+    <returnvalue xsi:type="mdd:VoidValue"/>
+  </transition>
+</mdd:IOAutomaton>
