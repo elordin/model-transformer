@@ -2431,9 +2431,9 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_YjMfwED9EeaWA-ym0uz3JQ" name="[1..*] outmessage" sourceNode="_FDjXkED6EeaWA-ym0uz3JQ" targetNode="_aRH2oED8EeaWA-ym0uz3JQ">
-        <target xmi:type="ecore:EReference" href="model/04_IOAutomaton/IOAutomaton.ecore#//Transition/outmessage"/>
-        <semanticElements xmi:type="ecore:EReference" href="model/04_IOAutomaton/IOAutomaton.ecore#//Transition/outmessage"/>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_YjMfwED9EeaWA-ym0uz3JQ" name="[1..*] outmessages" sourceNode="_FDjXkED6EeaWA-ym0uz3JQ" targetNode="_aRH2oED8EeaWA-ym0uz3JQ">
+        <target xmi:type="ecore:EReference" href="model/04_IOAutomaton/IOAutomaton.ecore#//Transition/outmessages"/>
+        <semanticElements xmi:type="ecore:EReference" href="model/04_IOAutomaton/IOAutomaton.ecore#//Transition/outmessages"/>
         <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_M5BiMED-EeaWA-ym0uz3JQ" description="_tji0cED6EeaWA-ym0uz3JQ" routingStyle="manhattan" strokeColor="0,0,0">
           <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_M5BiMUD-EeaWA-ym0uz3JQ" showIcon="false">
             <labelFormat>bold</labelFormat>
