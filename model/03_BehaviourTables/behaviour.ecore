@@ -36,6 +36,8 @@
         eType="#//Object"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
         eType="#//Operation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="return" lowerBound="1"
+        eType="#//Return"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Return" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Void" eSuperTypes="#//Return"/>
