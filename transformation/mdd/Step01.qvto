@@ -3,6 +3,4 @@ modeltype InteractionDiagram uses InteractionDiagram('se.studieren.mdd.transform
 
 transformation Step01(in umlInteraction: UML, out customInteraction: InteractionDiagram);
 
-main() {
-
-}
+main() {}
