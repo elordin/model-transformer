@@ -11,11 +11,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="usermessage" lowerBound="1"
         eType="#//UserMessage"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returned" lowerBound="1"
-        eType="#//Return"/>
+        eType="#//ReturnValue"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SystemCommunication" eSuperTypes="#//Communication">
     <eStructuralFeatures xsi:type="ecore:EReference" name="returned" lowerBound="1"
-        eType="#//Return"/>
+        eType="#//ReturnValue"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="systemmessage" lowerBound="1"
         eType="#//SystemMessage"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="prestate" lowerBound="1"
@@ -25,7 +25,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UserMessage" eSuperTypes="#//Message">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sender" lowerBound="1"
-        eType="#//Object"/>
+        eType="#//ActorObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
         eType="#//Operation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" lowerBound="1"
@@ -33,19 +33,19 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SystemMessage" eSuperTypes="#//Message">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sender" lowerBound="1"
-        eType="#//Object"/>
+        eType="#//ActorObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
         eType="#//Operation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" lowerBound="1"
         eType="#//SystemObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Message" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Return" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Value" eSuperTypes="#//Return"/>
-  <eClassifiers xsi:type="ecore:EClass" name="void" eSuperTypes="#//Return"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Object" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ReturnValue" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Value" eSuperTypes="#//ReturnValue"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VoidValue" eSuperTypes="#//ReturnValue"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ActorObject" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Operation"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SystemObject" eSuperTypes="#//Object"/>
-  <eClassifiers xsi:type="ecore:EClass" name="User" eSuperTypes="#//Object"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemObject" eSuperTypes="#//ActorObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="User" eSuperTypes="#//ActorObject"/>
   <eClassifiers xsi:type="ecore:EClass" name="State"/>
 </ecore:EPackage>

@@ -4,48 +4,51 @@
     nsPrefix="mdd">
   <eClassifiers xsi:type="ecore:EClass" name="Behaviour">
     <eStructuralFeatures xsi:type="ecore:EReference" name="block" upperBound="-1"
-        eType="#//Block"/>
+        eType="#//Block" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Block">
     <eStructuralFeatures xsi:type="ecore:EReference" name="preState" lowerBound="1"
-        eType="#//State"/>
+        eType="#//State" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="postState" lowerBound="1"
-        eType="#//State"/>
+        eType="#//State" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inmessage" lowerBound="1"
-        eType="#//InMessage"/>
+        eType="#//InMessage" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="activation" lowerBound="1"
-        eType="#//Activation"/>
+        eType="#//Activation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InMessage">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" upperBound="-1"
-        eType="#//Operation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
+        eType="#//Operation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Activation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="outmessages" upperBound="-1"
-        eType="#//OutMessage"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="returned" eType="#//Return"/>
+        eType="#//OutMessage" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="return" lowerBound="1"
+        eType="#//ReturnValue" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Operation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutMessage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" lowerBound="1"
-        eType="#//Object"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="object" lowerBound="1"
+        eType="#//ActorObject" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
-        eType="#//Operation"/>
+        eType="#//Operation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="return" lowerBound="1"
+        eType="#//ReturnValue" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Return" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Void" eSuperTypes="#//Return"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Value" eSuperTypes="#//Return">
+  <eClassifiers xsi:type="ecore:EClass" name="ReturnValue" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VoidValue" eSuperTypes="#//ReturnValue"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Value" eSuperTypes="#//ReturnValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Object" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="User" eSuperTypes="#//Object"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SystemObject" eSuperTypes="#//Object">
+  <eClassifiers xsi:type="ecore:EClass" name="ActorObject" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="User" eSuperTypes="#//ActorObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemObject" eSuperTypes="#//ActorObject">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>
