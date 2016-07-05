@@ -1,15 +1,34 @@
 modeltype IOAutomaton uses IOAutomaton('se.studieren.mdd.transformer.IOAutomaton');
-// modeltype StateMachine uses StateMachine('se.studieren.mdd.transformer.StateMachine');
-modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
+modeltype StateMachine uses StateMachine('se.studieren.mdd.transformer.StateMachine');
+// modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 
-transformation Step05(in ioAutomaton : IOAutomaton, out stateMachine : UML);
+transformation Step05(in ioAutomaton : IOAutomaton, out stateMachine : StateMachine);
 
 main() {
 	ioAutomaton.map toStateMachine();
 }
 
-mapping IOAutomaton::toStateMachine() : UML::StateMachine {
-	name := null;
+mapping IOAutomaton::toStateMachine() : StateMachine::StateMachine {
+	name := null; // self.name;
+	region += self.map toRegion();	
+}
+
+mapping IOAutomaton::toRegion() : StateMachine::Region {
+	name := "Main Region";
+
+	subvertex += self.objectsOfType(InitialState).map toInitialState();
+	subvertex += self.objectsOfType(State).map toStableState();
 	
-	region += null;	
+	// TODO Create Activity Diagrams 
+	// TODO Create Submachines
+	// TODO Create Transitions
+}
+
+mapping IOAutomaton::InitialState::toInitialState() : StateMachine::PseudoState {
+	name := "entry";
+	pseudoStateKind := PseudoStateKind::initial;
+}
+
+mapping IOAutomaton::State::toStableState() : StateMachine::State {
+	name := self.name;
 }
