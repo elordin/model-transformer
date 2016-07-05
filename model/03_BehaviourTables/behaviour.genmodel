@@ -6,37 +6,37 @@
   <foreignModel>behaviour.ecore</foreignModel>
   <genPackages prefix="Behaviour" disposableProviderFactory="true" ecorePackage="behaviour.ecore#/">
     <genClasses ecoreClass="behaviour.ecore#//Behaviour">
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Behaviour/block"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Behaviour/block"/>
     </genClasses>
     <genClasses ecoreClass="behaviour.ecore#//Block">
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Block/preState"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Block/postState"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Block/inmessage"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Block/activation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Block/preState"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Block/postState"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Block/inmessage"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Block/activation"/>
     </genClasses>
     <genClasses ecoreClass="behaviour.ecore#//State">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//State/name"/>
     </genClasses>
     <genClasses ecoreClass="behaviour.ecore#//InMessage">
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//InMessage/operation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//InMessage/operation"/>
     </genClasses>
     <genClasses ecoreClass="behaviour.ecore#//Activation">
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Activation/outmessages"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Activation/return"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Activation/outmessages"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Activation/return"/>
     </genClasses>
     <genClasses ecoreClass="behaviour.ecore#//Operation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//Operation/name"/>
     </genClasses>
     <genClasses ecoreClass="behaviour.ecore#//OutMessage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//OutMessage/name"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//OutMessage/object"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//OutMessage/operation"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//OutMessage/return"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//OutMessage/object"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//OutMessage/operation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//OutMessage/return"/>
     </genClasses>
     <genClasses ecoreClass="behaviour.ecore#//Return"/>
     <genClasses ecoreClass="behaviour.ecore#//Void"/>
     <genClasses ecoreClass="behaviour.ecore#//Value">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//Value/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//Value/name"/>
     </genClasses>
     <genClasses ecoreClass="behaviour.ecore#//Object"/>
     <genClasses ecoreClass="behaviour.ecore#//User"/>
