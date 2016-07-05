@@ -6,6 +6,9 @@
   <semanticResources>model/05_StateMachine/StateMachine.ecore</semanticResources>
   <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
   <semanticResources>http://www.eclipse.org/emf/2003/XMLType</semanticResources>
+  <semanticResources>model/03_BehaviourTables/behaviour.ecore</semanticResources>
+  <semanticResources>model/03_BehaviourTables/behaviour.genmodel</semanticResources>
+  <semanticResources>model/03_BehaviourTables/example/atm_badAccount.xmi</semanticResources>
   <ownedViews xmi:type="viewpoint:DView" xmi:id="_0r2-YEBfEeakZa3xAzqd_Q">
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_2qDJYEBfEeakZa3xAzqd_Q" name="BehaviourTable">
       <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_2qDJYUBfEeakZa3xAzqd_Q" source="DANNOTATION_CUSTOMIZATION_KEY">
