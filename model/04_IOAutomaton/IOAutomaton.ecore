@@ -49,5 +49,7 @@
         upperBound="-1" eType="#//Vertex" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transition" lowerBound="1"
         upperBound="-1" eType="#//Transition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="systemobject" lowerBound="1"
+        eType="#//SystemObject" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

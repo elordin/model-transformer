@@ -41,7 +41,6 @@
         eType="#//Return" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Return" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Void" eSuperTypes="#//Return"/>
   <eClassifiers xsi:type="ecore:EClass" name="Value" eSuperTypes="#//Return">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

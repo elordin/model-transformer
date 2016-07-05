@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mdd:IOAutomaton xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdd="se.studieren.mdd.transformer.IOAutomaton">
+<mdd:IOAutomaton
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mdd="se.studieren.mdd.transformer.IOAutomaton"
+    xsi:schemaLocation="se.studieren.mdd.transformer.IOAutomaton ../IOAutomaton.ecore">
+  <systemobject name="consortium"/>
   <vertex xsi:type="mdd:InitialState"/>
   <vertex xsi:type="mdd:State" name="WaitVerify"/>
   <transition target="//@vertex.1" source="//@vertex.0"/>
