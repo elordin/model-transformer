@@ -46,18 +46,15 @@ mapping InteractionDiagram::Message::transformMessage() : ScenarioTable::Communi
 
 mapping InteractionDiagram::Message::toUserCommunication() : ScenarioTable::UserCommunication 
 when {
-	// TODO
-	false
+	isUserMessage(self);
 }{
-	log("UserCommunication" + self.receiveEvent[InteractionDiagram::MessageOccurenceSpecification]->any(true).name);
 	usermessage := self.map toUserMessage();
 	returned := returnValue(self);
 }
 
 mapping InteractionDiagram::Message::toUserMessage() : ScenarioTable::UserMessage 
 when {
-	// TODO
-	false
+	isUserMessage(self);
 }{
 	name := self.name;
 	receiver := self.receiveEvent[InteractionDiagram::MessageOccurenceSpecification]->any(true).covered.map toUserObject();
@@ -67,9 +64,21 @@ when {
 	sender := self.sendEvent[InteractionDiagram::MessageOccurenceSpecification]->any(true).covered.map transformLifeline();
 }
 
+query isUserMessage(in m : InteractionDiagram::Message) : Boolean {
+	var name = m.receiveEvent[InteractionDiagram::MessageOccurenceSpecification]->any(true).covered.name;
+	return name = "User" or name = "user";
+}
+
 mapping InteractionDiagram::Message::toSystemCommunication() : ScenarioTable::SystemCommunication {
-	prestate := null; // TODO
-	poststate := null; // TODO
+
+	var recipient : InteractionDiagram::Lifeline = self.receiveEvent[InteractionDiagram::MessageOccurenceSpecification]->any(true).covered;
+	
+	var receiveIndex = recipient.coveredBy->indexOf(self.receiveEvent);
+	var preReceiveSIs : OrderedSet(InteractionDiagram::StateInvariant) = recipient.coveredBy[InteractionDiagram::StateInvariant];
+	var postReceiveSIs : OrderedSet(InteractionDiagram::StateInvariant) = recipient.coveredBy[InteractionDiagram::StateInvariant];
+		
+	prestate := preReceiveSIs->last().map transformStateInvariant();
+	poststate := postReceiveSIs->first().map transformStateInvariant();
 	systemmessage := self.map toSystemMessage();
 	returned := returnValue(self);
 }

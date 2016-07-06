@@ -31,8 +31,8 @@ mapping UML::MessageEnd::transformMessageEnd() : InteractionDiagram::MessageEnd
 	disjuncts UML::MessageOccurrenceSpecification::transformMessageOccurenceSpecification;
 	
 mapping UML::MessageOccurrenceSpecification::transformMessageOccurenceSpecification() : InteractionDiagram::MessageOccurenceSpecification {
-	log("MOS: " + self.name);
 	name := self.name;
+	// covered := self.covered->any(true).map transformLifeline();
 }
 
 helper UML::Message::transformMessageSort(in s : UML::MessageSort) : InteractionDiagram::MessageSort {
@@ -73,6 +73,8 @@ helper UML::CombinedFragment::transformOperatorKind(in k : UML::InteractionOpera
   
 mapping UML::BehaviorExecutionSpecification::transformBehaviourExecutionSpecification() : InteractionDiagram::BehaviorExecutionSpecification {
 	name := self.name;
+	start := self.start.map transformOccurrenceSpecification();
+	finish := self.finish.map transformOccurrenceSpecification();
 }
   
 mapping UML::ExecutionSpecification::transformExecutionSpecification() : InteractionDiagram::ExecutionSpecification {
