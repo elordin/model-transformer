@@ -10,6 +10,27 @@ main() {
 
 mapping BehaviourTable::Behaviour::toIOAutomaton() : IOAutomaton::IOAutomaton
 {
-	systemobject := self.
+	systemobject := self.systemobject.map toSystemObject();
+	vertex += self.block.preState->union(self.block.postState).map toState();
 
+	//vertex += .map toState();
 }
+
+helper BehaviourTable::State::copyState(in b :BehaviourTable::Behaviour) : IOAutomaton::State
+{ 
+	var state := object IOAutomaton::State {
+		name := self.name;
+	};
+	return state;
+}
+
+mapping BehaviourTable::SystemObject::toSystemObject() : IOAutomaton::SystemObject
+{
+	name := self.name;
+}
+
+mapping BehaviourTable::State::toState() : IOAutomaton::State
+{
+	name := self.name;	
+}
+
