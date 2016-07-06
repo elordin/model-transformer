@@ -5,8 +5,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:behaviour="http://www.example.org/behaviour"
     xsi:schemaLocation="http://www.example.org/behaviour ../behaviour.ecore">
-  <block preState="//@states.0"
-      postState="//@states.1">
+  <block preState="//@state.0"
+      postState="//@state.1">
     <inmessage>
       <operation
           name="insertCard"/>
@@ -17,15 +17,15 @@
             xsi:type="behaviour:User"/>
         <operation
             name="requestPassword"/>
-        <returned
+        <returnvalue
             xsi:type="behaviour:VoidValue"/>
       </outmessages>
-      <returned
+      <returnvalue
           xsi:type="behaviour:VoidValue"/>
     </activation>
   </block>
-  <block preState="//@states.1"
-      postState="//@states.2">
+  <block preState="//@state.1"
+      postState="//@state.2">
     <inmessage>
       <operation
           name="enterPassword"/>
@@ -37,7 +37,7 @@
             name="consortium"/>
         <operation
             name="verifyAccount"/>
-        <returned
+        <returnvalue
             xsi:type="behaviour:Value"
             value="badAccount"/>
       </outmessages>
@@ -46,7 +46,7 @@
             xsi:type="behaviour:User"/>
         <operation
             name="badAccountMessage"/>
-        <returned
+        <returnvalue
             xsi:type="behaviour:VoidValue"/>
       </outmessages>
       <outmessages>
@@ -54,7 +54,7 @@
             xsi:type="behaviour:User"/>
         <operation
             name="printReceipt"/>
-        <returned
+        <returnvalue
             xsi:type="behaviour:VoidValue"/>
       </outmessages>
       <outmessages>
@@ -62,7 +62,7 @@
             xsi:type="behaviour:User"/>
         <operation
             name="ejectCard"/>
-        <returned
+        <returnvalue
             xsi:type="behaviour:VoidValue"/>
       </outmessages>
       <outmessages>
@@ -70,15 +70,15 @@
             xsi:type="behaviour:User"/>
         <operation
             name="requestTakeCard"/>
-        <returned
+        <returnvalue
             xsi:type="behaviour:VoidValue"/>
       </outmessages>
-      <returned
+      <returnvalue
           xsi:type="behaviour:VoidValue"/>
     </activation>
   </block>
-  <block preState="//@states.2"
-      postState="//@states.0">
+  <block preState="//@state.2"
+      postState="//@state.0">
     <inmessage>
       <operation
           name="takeCard"/>
@@ -89,16 +89,16 @@
             xsi:type="behaviour:User"/>
         <operation
             name="displayMainScreen"/>
-        <returned
+        <returnvalue
             xsi:type="behaviour:VoidValue"/>
       </outmessages>
-      <returned
+      <returnvalue
           xsi:type="behaviour:VoidValue"/>
     </activation>
   </block>
   <systemactorobject
       name="atm"/>
-  <states name="WaitCard"/>
-  <states name="WaitPassword"/>
-  <states name="WaitTakeCard"/>
+  <state name="WaitCard"/>
+  <state name="WaitPassword"/>
+  <state name="WaitTakeCard"/>
 </behaviour:Behaviour>

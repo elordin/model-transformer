@@ -8,7 +8,7 @@
     <genClasses ecoreClass="behaviour.ecore#//Behaviour">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Behaviour/block"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Behaviour/systemobject"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Behaviour/states"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Behaviour/state"/>
     </genClasses>
     <genClasses ecoreClass="behaviour.ecore#//Block">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Block/preState"/>
@@ -24,15 +24,15 @@
     </genClasses>
     <genClasses ecoreClass="behaviour.ecore#//Activation">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Activation/outmessages"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Activation/returned"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Activation/returnvalue"/>
     </genClasses>
     <genClasses ecoreClass="behaviour.ecore#//Operation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//Operation/name"/>
     </genClasses>
     <genClasses ecoreClass="behaviour.ecore#//OutMessage">
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//OutMessage/object"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//OutMessage/actorobject"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//OutMessage/operation"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//OutMessage/returned"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//OutMessage/returnvalue"/>
     </genClasses>
     <genClasses ecoreClass="behaviour.ecore#//ReturnValue"/>
     <genClasses ecoreClass="behaviour.ecore#//VoidValue"/>
