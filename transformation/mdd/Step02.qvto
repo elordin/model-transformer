@@ -12,12 +12,11 @@ mapping InteractionDiagram::Interaction::toScenarioTable() : ScenarioTable::Scen
 	state += self.fragment[InteractionDiagram::StateInvariant].map transformStateInvariant();
 	actor += self.lifeline.map transformLifeline();
 	
-	// communication += self.message->select(m : InteractionDiagram::Message | m.receiveEvent[InteractionDiagram::MessageOccurenceSpecification]->forAll(mos | isUser(mos.covered))).map toUserCommunication();
-	// communication += self.message->select(m : InteractionDiagram::Message | m.receiveEvent[InteractionDiagram::MessageOccurenceSpecification]->forAll(mos | not isUser(mos.covered))).map toSystemCommunication();
+	communication += self.message.map transformMessage();
 }
 
-query isUser(in o : InteractionDiagram::Lifeline) : Boolean {
-	return o.name = "User" or o.name = "user";
+query isUser(in l : InteractionDiagram::Lifeline) : Boolean {
+	return (l.name = "User") or (l.name = "user");
 }
 
 mapping InteractionDiagram::StateInvariant::transformStateInvariant() : ScenarioTable::State {
@@ -41,22 +40,26 @@ mapping InteractionDiagram::Lifeline::toSystemObject() : ScenarioTable::SystemOb
 	name := self.name;
 }
 
+mapping InteractionDiagram::Message::transformMessage() : ScenarioTable::Communication
+	disjuncts InteractionDiagram::Message::toUserCommunication,
+			  InteractionDiagram::Message::toSystemCommunication;
 
-
-mapping InteractionDiagram::Message::toUserCommunication() : ScenarioTable::UserCommunication {
+mapping InteractionDiagram::Message::toUserCommunication() : ScenarioTable::UserCommunication 
+when {
+	// TODO
+	false
+}{
+	log("UserCommunication" + self.receiveEvent[InteractionDiagram::MessageOccurenceSpecification]->any(true).name);
 	usermessage := self.map toUserMessage();
 	returned := returnValue(self);
 }
 
-helper returnValue(in m : Message) : ScenarioTable::ReturnValue {
-	if (m.messageSort = InteractionDiagram::MessageSort::reply) 
-		return object ScenarioTable::Value{
-			value := m.name;
-		}
-	else return object ScenarioTable::VoidValue{};
-}
-
-mapping InteractionDiagram::Message::toUserMessage() : ScenarioTable::UserMessage {
+mapping InteractionDiagram::Message::toUserMessage() : ScenarioTable::UserMessage 
+when {
+	// TODO
+	false
+}{
+	name := self.name;
 	receiver := self.receiveEvent[InteractionDiagram::MessageOccurenceSpecification]->any(true).covered.map toUserObject();
 	operation := object ScenarioTable::Operation{
 		name := self.name;
@@ -65,16 +68,25 @@ mapping InteractionDiagram::Message::toUserMessage() : ScenarioTable::UserMessag
 }
 
 mapping InteractionDiagram::Message::toSystemCommunication() : ScenarioTable::SystemCommunication {
-	prestate := null;
-	poststate := null;
+	prestate := null; // TODO
+	poststate := null; // TODO
 	systemmessage := self.map toSystemMessage();
 	returned := returnValue(self);
 }
 
 mapping InteractionDiagram::Message::toSystemMessage() : ScenarioTable::SystemMessage {
+	name := self.name;
 	sender := self.sendEvent[InteractionDiagram::MessageOccurenceSpecification]->any(true).covered.map transformLifeline();
 	operation := object ScenarioTable::Operation{
 		name := self.name;
 	};
 	receiver := self.receiveEvent[InteractionDiagram::MessageOccurenceSpecification]->any(true).covered.map toSystemObject();
+}
+
+helper returnValue(in m : Message) : ScenarioTable::ReturnValue {
+	if (m.messageSort = InteractionDiagram::MessageSort::reply) 
+		return object ScenarioTable::Value{
+			value := m.name;
+		}
+	else return object ScenarioTable::VoidValue{};
 }

@@ -31,6 +31,7 @@ mapping UML::MessageEnd::transformMessageEnd() : InteractionDiagram::MessageEnd
 	disjuncts UML::MessageOccurrenceSpecification::transformMessageOccurenceSpecification;
 	
 mapping UML::MessageOccurrenceSpecification::transformMessageOccurenceSpecification() : InteractionDiagram::MessageOccurenceSpecification {
+	log("MOS: " + self.name);
 	name := self.name;
 }
 

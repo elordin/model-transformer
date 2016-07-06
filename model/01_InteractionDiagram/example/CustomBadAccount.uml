@@ -1,95 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mdd:Interaction xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdd="se.studieren.mdd.transformer.InteractionDiagram" xsi:schemaLocation="se.studieren.mdd.transformer.InteractionDiagram ../InteractionDiagram.ecore" xmi:id="_eFTS4ENtEea22rWCU7pfqw">
-  <message xmi:id="_eFTS4UNtEea22rWCU7pfqw" sendEvent="_eFTTCkNtEea22rWCU7pfqw" name="verifyCardWithBank"/>
-  <message xmi:id="_eFTS4kNtEea22rWCU7pfqw" sendEvent="_eFTTKENtEea22rWCU7pfqw" name="displayMainScreen"/>
-  <message xmi:id="_eFTS40NtEea22rWCU7pfqw" sendEvent="_eFTTF0NtEea22rWCU7pfqw" name="printReceipt"/>
-  <message xmi:id="_eFTS5ENtEea22rWCU7pfqw" sendEvent="_eFTTB0NtEea22rWCU7pfqw" name="verifyAccount"/>
-  <message xmi:id="_eFTS5UNtEea22rWCU7pfqw" sendEvent="_eFTTEENtEea22rWCU7pfqw" messageSort="reply" name=":badAccount"/>
-  <message xmi:id="_eFTS5kNtEea22rWCU7pfqw" sendEvent="_eFTS-kNtEea22rWCU7pfqw" name="insertCard"/>
-  <message xmi:id="_eFTS50NtEea22rWCU7pfqw" sendEvent="_eFTTDUNtEea22rWCU7pfqw" messageSort="reply" name=":badBankAccount"/>
-  <message xmi:id="_eFTS6ENtEea22rWCU7pfqw" sendEvent="_eFTS_UNtEea22rWCU7pfqw" name="requestPassword"/>
-  <message xmi:id="_eFTS6UNtEea22rWCU7pfqw" sendEvent="_eFTTE0NtEea22rWCU7pfqw" name="badAccountMessage"/>
-  <message xmi:id="_eFTS6kNtEea22rWCU7pfqw" sendEvent="_eFTTJUNtEea22rWCU7pfqw" name="takeCard"/>
-  <message xmi:id="_eFTS60NtEea22rWCU7pfqw" sendEvent="_eFTTH0NtEea22rWCU7pfqw" name="requestTakeCard"/>
-  <message xmi:id="_eFTS7ENtEea22rWCU7pfqw" sendEvent="_eFTTG0NtEea22rWCU7pfqw" name="ejectCard"/>
-  <message xmi:id="_eFTS7UNtEea22rWCU7pfqw" sendEvent="_eFTTBENtEea22rWCU7pfqw" name="enterPassword"/>
-  <lifeline xmi:id="_eFTS7kNtEea22rWCU7pfqw" name="consortium" coveredBy="_eFTTEUNtEea22rWCU7pfqw _eFTTCkNtEea22rWCU7pfqw _eFTTL0NtEea22rWCU7pfqw _eFTS9ENtEea22rWCU7pfqw _eFTTCENtEea22rWCU7pfqw _eFTTD0NtEea22rWCU7pfqw _eFTTEENtEea22rWCU7pfqw _eFTTCUNtEea22rWCU7pfqw"/>
-  <lifeline xmi:id="_eFTS70NtEea22rWCU7pfqw" name="User" coveredBy="_eFTS-kNtEea22rWCU7pfqw _eFTS-UNtEea22rWCU7pfqw _eFTTBENtEea22rWCU7pfqw _eFTTNENtEea22rWCU7pfqw _eFTTJUNtEea22rWCU7pfqw _eFTS-ENtEea22rWCU7pfqw _eFTTM0NtEea22rWCU7pfqw"/>
-  <lifeline xmi:id="_eFTS8ENtEea22rWCU7pfqw" name="atm" coveredBy="_eFTS_ENtEea22rWCU7pfqw _eFTTH0NtEea22rWCU7pfqw _eFTTBUNtEea22rWCU7pfqw _eFTTI0NtEea22rWCU7pfqw _eFTTEkNtEea22rWCU7pfqw _eFTTMUNtEea22rWCU7pfqw _eFTTAkNtEea22rWCU7pfqw _eFTTBkNtEea22rWCU7pfqw _eFTTF0NtEea22rWCU7pfqw _eFTTKENtEea22rWCU7pfqw _eFTTJkNtEea22rWCU7pfqw _eFTTJ0NtEea22rWCU7pfqw _eFTTE0NtEea22rWCU7pfqw _eFTTG0NtEea22rWCU7pfqw _eFTTB0NtEea22rWCU7pfqw _eFTS-0NtEea22rWCU7pfqw _eFTTK0NtEea22rWCU7pfqw _eFTS_UNtEea22rWCU7pfqw _eFTTAENtEea22rWCU7pfqw _eFTS9kNtEea22rWCU7pfqw"/>
-  <lifeline xmi:id="_eFTS8UNtEea22rWCU7pfqw" name="bank" coveredBy="_eFTTDENtEea22rWCU7pfqw _eFTTLUNtEea22rWCU7pfqw _eFTTC0NtEea22rWCU7pfqw _eFTTDUNtEea22rWCU7pfqw _eFTTDkNtEea22rWCU7pfqw _eFTS8kNtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:StateInvariant" xmi:id="_eFTS8kNtEea22rWCU7pfqw" name="WaitBankVerify" covered="_eFTS8UNtEea22rWCU7pfqw">
-    <invariant xmi:id="_eFTS80NtEea22rWCU7pfqw"/>
+<mdd:Interaction xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdd="se.studieren.mdd.transformer.InteractionDiagram" xsi:schemaLocation="se.studieren.mdd.transformer.InteractionDiagram ../InteractionDiagram.ecore" xmi:id="_fM_vYEOcEeaT2Jyolhj0qA">
+  <message xmi:id="_fM_vYUOcEeaT2Jyolhj0qA" sendEvent="_fM_vfUOcEeaT2Jyolhj0qA" receiveEvent="_fM_vf0OcEeaT2Jyolhj0qA" name="requestPassword"/>
+  <message xmi:id="_fM_vYkOcEeaT2Jyolhj0qA" sendEvent="_fM_vqEOcEeaT2Jyolhj0qA" receiveEvent="_fM_vqkOcEeaT2Jyolhj0qA" name="displayMainScreen"/>
+  <message xmi:id="_fM_vY0OcEeaT2Jyolhj0qA" sendEvent="_fM_vm0OcEeaT2Jyolhj0qA" receiveEvent="_fM_vnUOcEeaT2Jyolhj0qA" name="ejectCard"/>
+  <message xmi:id="_fM_vZEOcEeaT2Jyolhj0qA" sendEvent="_fM_vh0OcEeaT2Jyolhj0qA" receiveEvent="_fM_viUOcEeaT2Jyolhj0qA" name="verifyAccount"/>
+  <message xmi:id="_fM_vZUOcEeaT2Jyolhj0qA" sendEvent="_fM_vekOcEeaT2Jyolhj0qA" receiveEvent="_fM_vfEOcEeaT2Jyolhj0qA" name="insertCard"/>
+  <message xmi:id="_fM_vZkOcEeaT2Jyolhj0qA" sendEvent="_fM_vpUOcEeaT2Jyolhj0qA" receiveEvent="_fM_vp0OcEeaT2Jyolhj0qA" name="takeCard"/>
+  <message xmi:id="_fM_vZ0OcEeaT2Jyolhj0qA" sendEvent="_fM_vhEOcEeaT2Jyolhj0qA" receiveEvent="_fM_vhkOcEeaT2Jyolhj0qA" name="enterPassword"/>
+  <message xmi:id="_fM_vaEOcEeaT2Jyolhj0qA" sendEvent="_fM_vl0OcEeaT2Jyolhj0qA" receiveEvent="_fM_vmUOcEeaT2Jyolhj0qA" name="printReceipt"/>
+  <message xmi:id="_fM_vaUOcEeaT2Jyolhj0qA" sendEvent="_fM_vn0OcEeaT2Jyolhj0qA" receiveEvent="_fM_voUOcEeaT2Jyolhj0qA" name="requestTakeCard"/>
+  <message xmi:id="_fM_vakOcEeaT2Jyolhj0qA" sendEvent="_fM_vjUOcEeaT2Jyolhj0qA" receiveEvent="_fM_vj0OcEeaT2Jyolhj0qA" messageSort="reply" name=":badBankAccount"/>
+  <message xmi:id="_fM_va0OcEeaT2Jyolhj0qA" sendEvent="_fM_vikOcEeaT2Jyolhj0qA" receiveEvent="_fM_vjEOcEeaT2Jyolhj0qA" name="verifyCardWithBank"/>
+  <message xmi:id="_fM_vbEOcEeaT2Jyolhj0qA" sendEvent="_fM_vk0OcEeaT2Jyolhj0qA" receiveEvent="_fM_vlUOcEeaT2Jyolhj0qA" name="badAccountMessage"/>
+  <message xmi:id="_fM_vbUOcEeaT2Jyolhj0qA" sendEvent="_fM_vkEOcEeaT2Jyolhj0qA" receiveEvent="_fM_vkkOcEeaT2Jyolhj0qA" messageSort="reply" name=":badAccount"/>
+  <lifeline xmi:id="_fM_vbkOcEeaT2Jyolhj0qA" name="User" coveredBy="_fM_veEOcEeaT2Jyolhj0qA _fM_vpUOcEeaT2Jyolhj0qA _fM_vhEOcEeaT2Jyolhj0qA _fM_vtEOcEeaT2Jyolhj0qA _fM_veUOcEeaT2Jyolhj0qA _fM_vs0OcEeaT2Jyolhj0qA _fM_vekOcEeaT2Jyolhj0qA"/>
+  <lifeline xmi:id="_fM_vb0OcEeaT2Jyolhj0qA" name="atm" coveredBy="_fM_vn0OcEeaT2Jyolhj0qA _fM_vgEOcEeaT2Jyolhj0qA _fM_vdkOcEeaT2Jyolhj0qA _fM_vl0OcEeaT2Jyolhj0qA _fM_vp0OcEeaT2Jyolhj0qA _fM_vpkOcEeaT2Jyolhj0qA _fM_vhkOcEeaT2Jyolhj0qA _fM_vq0OcEeaT2Jyolhj0qA _fM_vfEOcEeaT2Jyolhj0qA _fM_ve0OcEeaT2Jyolhj0qA _fM_vqEOcEeaT2Jyolhj0qA _fM_vgkOcEeaT2Jyolhj0qA _fM_vm0OcEeaT2Jyolhj0qA _fM_vfUOcEeaT2Jyolhj0qA _fM_vo0OcEeaT2Jyolhj0qA _fM_vk0OcEeaT2Jyolhj0qA _fM_vkkOcEeaT2Jyolhj0qA _fM_vhUOcEeaT2Jyolhj0qA _fM_vsUOcEeaT2Jyolhj0qA _fM_vh0OcEeaT2Jyolhj0qA"/>
+  <lifeline xmi:id="_fM_vcEOcEeaT2Jyolhj0qA" name="consortium" coveredBy="_fM_vj0OcEeaT2Jyolhj0qA _fM_vkEOcEeaT2Jyolhj0qA _fM_vr0OcEeaT2Jyolhj0qA _fM_vikOcEeaT2Jyolhj0qA _fM_viUOcEeaT2Jyolhj0qA _fM_vdEOcEeaT2Jyolhj0qA _fM_viEOcEeaT2Jyolhj0qA _fM_vkUOcEeaT2Jyolhj0qA"/>
+  <lifeline xmi:id="_fM_vcUOcEeaT2Jyolhj0qA" name="bank" coveredBy="_fM_vckOcEeaT2Jyolhj0qA _fM_vjEOcEeaT2Jyolhj0qA _fM_vrUOcEeaT2Jyolhj0qA _fM_vi0OcEeaT2Jyolhj0qA _fM_vjkOcEeaT2Jyolhj0qA _fM_vjUOcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:StateInvariant" xmi:id="_fM_vckOcEeaT2Jyolhj0qA" name="WaitBankVerify" covered="_fM_vcUOcEeaT2Jyolhj0qA">
+    <invariant xmi:id="_fM_vc0OcEeaT2Jyolhj0qA"/>
   </fragment>
-  <fragment xmi:type="mdd:StateInvariant" xmi:id="_eFTS9ENtEea22rWCU7pfqw" name="WaitVerify" covered="_eFTS7kNtEea22rWCU7pfqw">
-    <invariant xmi:id="_eFTS9UNtEea22rWCU7pfqw"/>
+  <fragment xmi:type="mdd:StateInvariant" xmi:id="_fM_vdEOcEeaT2Jyolhj0qA" name="WaitVerify" covered="_fM_vcEOcEeaT2Jyolhj0qA">
+    <invariant xmi:id="_fM_vdUOcEeaT2Jyolhj0qA"/>
   </fragment>
-  <fragment xmi:type="mdd:StateInvariant" xmi:id="_eFTS9kNtEea22rWCU7pfqw" name="WaitCard" covered="_eFTS8ENtEea22rWCU7pfqw">
-    <invariant xmi:id="_eFTS90NtEea22rWCU7pfqw"/>
+  <fragment xmi:type="mdd:StateInvariant" xmi:id="_fM_vdkOcEeaT2Jyolhj0qA" name="WaitCard" covered="_fM_vb0OcEeaT2Jyolhj0qA">
+    <invariant xmi:id="_fM_vd0OcEeaT2Jyolhj0qA"/>
   </fragment>
-  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_eFTS-ENtEea22rWCU7pfqw" name="BehaviorExecSpecStart" covered="_eFTS70NtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_eFTS-UNtEea22rWCU7pfqw" name="BehaviorExecSpec" covered="_eFTS70NtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTS-kNtEea22rWCU7pfqw" name="MessageSend" covered="_eFTS70NtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_eFTS-0NtEea22rWCU7pfqw" name="BehaviorExecSpec0" covered="_eFTS8ENtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTS_ENtEea22rWCU7pfqw" name="MessageRecv" covered="_eFTS8ENtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTS_UNtEea22rWCU7pfqw" name="MessageSend0" covered="_eFTS8ENtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_eFTS_kNtEea22rWCU7pfqw" name="BehaviorExecSpec1"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTS_0NtEea22rWCU7pfqw" name="MessageRecv0"/>
-  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_eFTTAENtEea22rWCU7pfqw" name="BehaviorExecSpec0Finish" covered="_eFTS8ENtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_eFTTAUNtEea22rWCU7pfqw" name="BehaviorExecSpec1Finish"/>
-  <fragment xmi:type="mdd:StateInvariant" xmi:id="_eFTTAkNtEea22rWCU7pfqw" name="WaitPassword" covered="_eFTS8ENtEea22rWCU7pfqw">
-    <invariant xmi:id="_eFTTA0NtEea22rWCU7pfqw"/>
+  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_fM_veEOcEeaT2Jyolhj0qA" name="BehaviorExecSpecStart" covered="_fM_vbkOcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_fM_veUOcEeaT2Jyolhj0qA" name="BehaviorExecSpec" covered="_fM_vbkOcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vekOcEeaT2Jyolhj0qA" name="MessageSend" covered="_fM_vbkOcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_fM_ve0OcEeaT2Jyolhj0qA" name="BehaviorExecSpec0" covered="_fM_vb0OcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vfEOcEeaT2Jyolhj0qA" name="MessageRecv" covered="_fM_vb0OcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vfUOcEeaT2Jyolhj0qA" name="MessageSend0" covered="_fM_vb0OcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_fM_vfkOcEeaT2Jyolhj0qA" name="BehaviorExecSpec1"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vf0OcEeaT2Jyolhj0qA" name="MessageRecv0"/>
+  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_fM_vgEOcEeaT2Jyolhj0qA" name="BehaviorExecSpec0Finish" covered="_fM_vb0OcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_fM_vgUOcEeaT2Jyolhj0qA" name="BehaviorExecSpec1Finish"/>
+  <fragment xmi:type="mdd:StateInvariant" xmi:id="_fM_vgkOcEeaT2Jyolhj0qA" name="WaitPassword" covered="_fM_vb0OcEeaT2Jyolhj0qA">
+    <invariant xmi:id="_fM_vg0OcEeaT2Jyolhj0qA"/>
   </fragment>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTTBENtEea22rWCU7pfqw" name="MessageSend1" covered="_eFTS70NtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_eFTTBUNtEea22rWCU7pfqw" name="BehaviorExecSpec2" covered="_eFTS8ENtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTTBkNtEea22rWCU7pfqw" name="MessageRecv1" covered="_eFTS8ENtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTTB0NtEea22rWCU7pfqw" name="MessageSend2" covered="_eFTS8ENtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_eFTTCENtEea22rWCU7pfqw" name="BehaviorExecSpec3" covered="_eFTS7kNtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTTCUNtEea22rWCU7pfqw" name="MessageRecv2" covered="_eFTS7kNtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTTCkNtEea22rWCU7pfqw" name="MessageSend3" covered="_eFTS7kNtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_eFTTC0NtEea22rWCU7pfqw" name="BehaviorExecSpec4" covered="_eFTS8UNtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTTDENtEea22rWCU7pfqw" name="MessageRecv3" covered="_eFTS8UNtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTTDUNtEea22rWCU7pfqw" name="MessageSend4" covered="_eFTS8UNtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_eFTTDkNtEea22rWCU7pfqw" name="BehaviorExecSpec4Finish" covered="_eFTS8UNtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTTD0NtEea22rWCU7pfqw" name="MessageRecv4" covered="_eFTS7kNtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTTEENtEea22rWCU7pfqw" name="MessageSend5" covered="_eFTS7kNtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_eFTTEUNtEea22rWCU7pfqw" name="BehaviorExecSpec3Finish" covered="_eFTS7kNtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTTEkNtEea22rWCU7pfqw" name="MessageRecv5" covered="_eFTS8ENtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTTE0NtEea22rWCU7pfqw" name="MessageSend6" covered="_eFTS8ENtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_eFTTFENtEea22rWCU7pfqw" name="BehaviorExecSpec5"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTTFUNtEea22rWCU7pfqw" name="MessageRecv6"/>
-  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_eFTTFkNtEea22rWCU7pfqw" name="BehaviorExecSpec5Finish"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTTF0NtEea22rWCU7pfqw" name="MessageSend7" covered="_eFTS8ENtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_eFTTGENtEea22rWCU7pfqw" name="BehaviorExecSpec6"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTTGUNtEea22rWCU7pfqw" name="MessageRecv7"/>
-  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_eFTTGkNtEea22rWCU7pfqw" name="BehaviorExecSpec6Finish"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTTG0NtEea22rWCU7pfqw" name="MessageSend8" covered="_eFTS8ENtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_eFTTHENtEea22rWCU7pfqw" name="BehaviorExecSpec7"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTTHUNtEea22rWCU7pfqw" name="MessageRecv8"/>
-  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_eFTTHkNtEea22rWCU7pfqw" name="BehaviorExecSpec7Finish"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTTH0NtEea22rWCU7pfqw" name="MessageSend9" covered="_eFTS8ENtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_eFTTIENtEea22rWCU7pfqw" name="BehaviorExecSpec8"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTTIUNtEea22rWCU7pfqw" name="MessageRecv9"/>
-  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_eFTTIkNtEea22rWCU7pfqw" name="BehaviorExecSpec8Finish"/>
-  <fragment xmi:type="mdd:StateInvariant" xmi:id="_eFTTI0NtEea22rWCU7pfqw" name="WaitTakeCard" covered="_eFTS8ENtEea22rWCU7pfqw">
-    <invariant xmi:id="_eFTTJENtEea22rWCU7pfqw"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vhEOcEeaT2Jyolhj0qA" name="MessageSend1" covered="_fM_vbkOcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_fM_vhUOcEeaT2Jyolhj0qA" name="BehaviorExecSpec2" covered="_fM_vb0OcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vhkOcEeaT2Jyolhj0qA" name="MessageRecv1" covered="_fM_vb0OcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vh0OcEeaT2Jyolhj0qA" name="MessageSend2" covered="_fM_vb0OcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_fM_viEOcEeaT2Jyolhj0qA" name="BehaviorExecSpec3" covered="_fM_vcEOcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_viUOcEeaT2Jyolhj0qA" name="MessageRecv2" covered="_fM_vcEOcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vikOcEeaT2Jyolhj0qA" name="MessageSend3" covered="_fM_vcEOcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_fM_vi0OcEeaT2Jyolhj0qA" name="BehaviorExecSpec4" covered="_fM_vcUOcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vjEOcEeaT2Jyolhj0qA" name="MessageRecv3" covered="_fM_vcUOcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vjUOcEeaT2Jyolhj0qA" name="MessageSend4" covered="_fM_vcUOcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_fM_vjkOcEeaT2Jyolhj0qA" name="BehaviorExecSpec4Finish" covered="_fM_vcUOcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vj0OcEeaT2Jyolhj0qA" name="MessageRecv4" covered="_fM_vcEOcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vkEOcEeaT2Jyolhj0qA" name="MessageSend5" covered="_fM_vcEOcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_fM_vkUOcEeaT2Jyolhj0qA" name="BehaviorExecSpec3Finish" covered="_fM_vcEOcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vkkOcEeaT2Jyolhj0qA" name="MessageRecv5" covered="_fM_vb0OcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vk0OcEeaT2Jyolhj0qA" name="MessageSend6" covered="_fM_vb0OcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_fM_vlEOcEeaT2Jyolhj0qA" name="BehaviorExecSpec5"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vlUOcEeaT2Jyolhj0qA" name="MessageRecv6"/>
+  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_fM_vlkOcEeaT2Jyolhj0qA" name="BehaviorExecSpec5Finish"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vl0OcEeaT2Jyolhj0qA" name="MessageSend7" covered="_fM_vb0OcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_fM_vmEOcEeaT2Jyolhj0qA" name="BehaviorExecSpec6"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vmUOcEeaT2Jyolhj0qA" name="MessageRecv7"/>
+  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_fM_vmkOcEeaT2Jyolhj0qA" name="BehaviorExecSpec6Finish"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vm0OcEeaT2Jyolhj0qA" name="MessageSend8" covered="_fM_vb0OcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_fM_vnEOcEeaT2Jyolhj0qA" name="BehaviorExecSpec7"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vnUOcEeaT2Jyolhj0qA" name="MessageRecv8"/>
+  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_fM_vnkOcEeaT2Jyolhj0qA" name="BehaviorExecSpec7Finish"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vn0OcEeaT2Jyolhj0qA" name="MessageSend9" covered="_fM_vb0OcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_fM_voEOcEeaT2Jyolhj0qA" name="BehaviorExecSpec8"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_voUOcEeaT2Jyolhj0qA" name="MessageRecv9"/>
+  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_fM_vokOcEeaT2Jyolhj0qA" name="BehaviorExecSpec8Finish"/>
+  <fragment xmi:type="mdd:StateInvariant" xmi:id="_fM_vo0OcEeaT2Jyolhj0qA" name="WaitTakeCard" covered="_fM_vb0OcEeaT2Jyolhj0qA">
+    <invariant xmi:id="_fM_vpEOcEeaT2Jyolhj0qA"/>
   </fragment>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTTJUNtEea22rWCU7pfqw" name="MessageSend10" covered="_eFTS70NtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_eFTTJkNtEea22rWCU7pfqw" name="BehaviorExecSpec9" covered="_eFTS8ENtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTTJ0NtEea22rWCU7pfqw" name="MessageRecv10" covered="_eFTS8ENtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTTKENtEea22rWCU7pfqw" name="MessageSend11" covered="_eFTS8ENtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_eFTTKUNtEea22rWCU7pfqw" name="BehaviorExecSpec10"/>
-  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_eFTTKkNtEea22rWCU7pfqw" name="MessageRecv11"/>
-  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_eFTTK0NtEea22rWCU7pfqw" name="BehaviorExecSpec9Finish" covered="_eFTS8ENtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_eFTTLENtEea22rWCU7pfqw" name="BehaviorExecSpec10Finish"/>
-  <fragment xmi:type="mdd:StateInvariant" xmi:id="_eFTTLUNtEea22rWCU7pfqw" name="WaitBankVerify" covered="_eFTS8UNtEea22rWCU7pfqw">
-    <invariant xmi:id="_eFTTLkNtEea22rWCU7pfqw"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vpUOcEeaT2Jyolhj0qA" name="MessageSend10" covered="_fM_vbkOcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_fM_vpkOcEeaT2Jyolhj0qA" name="BehaviorExecSpec9" covered="_fM_vb0OcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vp0OcEeaT2Jyolhj0qA" name="MessageRecv10" covered="_fM_vb0OcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vqEOcEeaT2Jyolhj0qA" name="MessageSend11" covered="_fM_vb0OcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:ExecutionSpecification" xmi:id="_fM_vqUOcEeaT2Jyolhj0qA" name="BehaviorExecSpec10"/>
+  <fragment xmi:type="mdd:MessageOccurenceSpecification" xmi:id="_fM_vqkOcEeaT2Jyolhj0qA" name="MessageRecv11"/>
+  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_fM_vq0OcEeaT2Jyolhj0qA" name="BehaviorExecSpec9Finish" covered="_fM_vb0OcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_fM_vrEOcEeaT2Jyolhj0qA" name="BehaviorExecSpec10Finish"/>
+  <fragment xmi:type="mdd:StateInvariant" xmi:id="_fM_vrUOcEeaT2Jyolhj0qA" name="WaitBankVerify" covered="_fM_vcUOcEeaT2Jyolhj0qA">
+    <invariant xmi:id="_fM_vrkOcEeaT2Jyolhj0qA"/>
   </fragment>
-  <fragment xmi:type="mdd:StateInvariant" xmi:id="_eFTTL0NtEea22rWCU7pfqw" name="WaitVerify" covered="_eFTS7kNtEea22rWCU7pfqw">
-    <invariant xmi:id="_eFTTMENtEea22rWCU7pfqw"/>
+  <fragment xmi:type="mdd:StateInvariant" xmi:id="_fM_vr0OcEeaT2Jyolhj0qA" name="WaitVerify" covered="_fM_vcEOcEeaT2Jyolhj0qA">
+    <invariant xmi:id="_fM_vsEOcEeaT2Jyolhj0qA"/>
   </fragment>
-  <fragment xmi:type="mdd:StateInvariant" xmi:id="_eFTTMUNtEea22rWCU7pfqw" name="WaitCard" covered="_eFTS8ENtEea22rWCU7pfqw">
-    <invariant xmi:id="_eFTTMkNtEea22rWCU7pfqw"/>
+  <fragment xmi:type="mdd:StateInvariant" xmi:id="_fM_vsUOcEeaT2Jyolhj0qA" name="WaitCard" covered="_fM_vb0OcEeaT2Jyolhj0qA">
+    <invariant xmi:id="_fM_vskOcEeaT2Jyolhj0qA"/>
   </fragment>
-  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_eFTTM0NtEea22rWCU7pfqw" name="BehaviorExecSpecStart" covered="_eFTS70NtEea22rWCU7pfqw"/>
-  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_eFTTNENtEea22rWCU7pfqw" name="BehaviorExecSpecFinish" covered="_eFTS70NtEea22rWCU7pfqw"/>
+  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_fM_vs0OcEeaT2Jyolhj0qA" name="BehaviorExecSpecStart" covered="_fM_vbkOcEeaT2Jyolhj0qA"/>
+  <fragment xmi:type="mdd:OccurrenceSpecification" xmi:id="_fM_vtEOcEeaT2Jyolhj0qA" name="BehaviorExecSpecFinish" covered="_fM_vbkOcEeaT2Jyolhj0qA"/>
 </mdd:Interaction>
