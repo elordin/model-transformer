@@ -4,5 +4,11 @@ modeltype IOAutomaton uses IOAutomaton('se.studieren.mdd.transformer.IOAutomaton
 transformation Step04(in behaviorTable: BehaviourTable, out ioAutomaton: IOAutomaton);
 
 main() {
+	behaviorTable.map toIOAutomaton();
+}
+
+mapping BehaviourTable::toIOAutomaton() : IOAutomaton::IOAutomaton
+{
+	systemobject := self.
 
 }
