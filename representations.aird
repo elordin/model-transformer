@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_0S8vIEBfEeakZa3xAzqd_Q" selectedViews="_0r2-YEBfEeakZa3xAzqd_Q" version="11.0.0.201604141600">
   <semanticResources>model/01_InteractionDiagram/InteractionDiagram.ecore</semanticResources>
+    <semanticResources>model/01_InteractionDiagram/example/CustomBadAccount.uml</semanticResources>
+    <semanticResources>model/01_InteractionDiagram/example/CustomBadPassword.uml</semanticResources>
+
   <semanticResources>model/02_ScenarioTable/Scenario.ecore</semanticResources>
+
+  <semanticResources>model/03_BehaviourTables/behaviour.ecore</semanticResources>
+  <semanticResources>model/03_BehaviourTables/behaviour.genmodel</semanticResources>
+    <semanticResources>model/03_BehaviourTables/example/atm_badAccount.xmi</semanticResources>
+    <semanticResources>model/03_BehaviourTables/example/atm_badPassword.xmi</semanticResources>
+    <semanticResources>model/03_BehaviourTables/example/consortium_badAccount.xmi</semanticResources>
+    <semanticResources>model/03_BehaviourTables/example/consortium_badPassword.xmi</semanticResources>
+
   <semanticResources>model/04_IOAutomaton/IOAutomaton.ecore</semanticResources>
+    <semanticResources>model/04_IOAutomaton/example/atm.xmi</semanticResources>
+    <semanticResources>model/04_IOAutomaton/example/consortium.xmi</semanticResources>
+    <semanticResources>model/04_IOAutomaton/example/test.xmi</semanticResources>
+
   <semanticResources>model/05_StateMachine/StateMachine.ecore</semanticResources>
+    <semanticResources>model/05_StateMachine/example/StateMachine.xmi</semanticResources>
+
   <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
   <semanticResources>http://www.eclipse.org/emf/2003/XMLType</semanticResources>
-  <semanticResources>model/03_BehaviourTables/behaviour.ecore</semanticResources>
-  <semanticResources>model/03_BehaviourTables/example/atm_badAccount.xmi</semanticResources>
-  <semanticResources>model/03_BehaviourTables/example/atm_badPassword.xmi</semanticResources>
-  <semanticResources>model/03_BehaviourTables/example/consortium_badAccount.xmi</semanticResources>
-  <semanticResources>model/03_BehaviourTables/example/consortium_badPassword.xmi</semanticResources>
-  <semanticResources>model/05_StateMachine/example/StateMachine.xmi</semanticResources>
-  <semanticResources>model/04_IOAutomaton/example/test.xmi</semanticResources>
-  <semanticResources>model/04_IOAutomaton/example/atm.xmi</semanticResources>
-  <semanticResources>model/04_IOAutomaton/example/consortium.xmi</semanticResources>
-  <semanticResources>model/01_InteractionDiagram/example/CustomBadPassword.uml</semanticResources>
-  <semanticResources>model/01_InteractionDiagram/example/CustomBadAccount.uml</semanticResources>
   <ownedViews xmi:type="viewpoint:DView" xmi:id="_0r2-YEBfEeakZa3xAzqd_Q">
     <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_2qDJYEBfEeakZa3xAzqd_Q" name="BehaviourTable">
