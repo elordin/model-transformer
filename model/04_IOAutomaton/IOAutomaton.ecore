@@ -26,13 +26,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InMessage" eSuperTypes="#//Message"/>
   <eClassifiers xsi:type="ecore:EClass" name="OutMessage" eSuperTypes="#//Message">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="object" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actorobject" lowerBound="1"
         eType="#//ActorObject" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnvalue" lowerBound="1"
         eType="#//ReturnValue" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Operation">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActorObject" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="User" eSuperTypes="#//ActorObject"/>
@@ -44,7 +44,7 @@
         eType="#//Operation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IOAutomaton">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="vertex" lowerBound="2"
         upperBound="-1" eType="#//Vertex" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transition" lowerBound="1"

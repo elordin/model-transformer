@@ -7,12 +7,14 @@
         eType="#//Block" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="systemobject" lowerBound="1"
         eType="#//SystemObject" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="state" upperBound="-1"
+        eType="#//State" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Block">
     <eStructuralFeatures xsi:type="ecore:EReference" name="preState" lowerBound="1"
-        eType="#//State" containment="true"/>
+        eType="#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="postState" lowerBound="1"
-        eType="#//State" containment="true"/>
+        eType="#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inmessage" lowerBound="1"
         eType="#//InMessage" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="activation" lowerBound="1"
@@ -28,18 +30,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="Activation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="outmessages" upperBound="-1"
         eType="#//OutMessage" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="returned" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="returnvalue" lowerBound="1"
         eType="#//ReturnValue" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Operation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutMessage">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="object" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actorobject" lowerBound="1"
         eType="#//ActorObject" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
         eType="#//Operation" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="returned" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="returnvalue" lowerBound="1"
         eType="#//ReturnValue" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReturnValue" abstract="true"/>

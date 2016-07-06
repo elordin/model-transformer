@@ -13,90 +13,90 @@
   <transition target="//@vertex.1" source="//@vertex.0"/>
   <transition target="//@vertex.2" source="//@vertex.1">
     <inmessage>
-      <operation Name="insertCard"/>
+      <operation name="insertCard"/>
     </inmessage>
     <outmessage>
-      <operation Name="requestPassword"/>
-      <object xsi:type="mdd:User"/>
+      <operation name="requestPassword"/>
+      <actorobject xsi:type="mdd:User"/>
       <returnvalue xsi:type="mdd:VoidValue"/>
     </outmessage>
     <returnvalue xsi:type="mdd:VoidValue"/>
   </transition>
   <transition target="//@vertex.2" source="//@vertex.2">
     <inmessage>
-      <operation Name="enterPassword"/>
+      <operation name="enterPassword"/>
     </inmessage>
     <outmessage>
-      <operation Name="verifyAccount"/>
-      <object xsi:type="mdd:SystemObject" name="consortium"/>
+      <operation name="verifyAccount"/>
+      <actorobject xsi:type="mdd:SystemObject" name="consortium"/>
       <returnvalue xsi:type="mdd:Value" name="badPassword"/>
     </outmessage>
     <outmessage>
-      <operation Name="requestPassword"/>
-      <object xsi:type="mdd:User"/>
+      <operation name="requestPassword"/>
+      <actorobject xsi:type="mdd:User"/>
       <returnvalue xsi:type="mdd:VoidValue"/>
     </outmessage>
     <returnvalue xsi:type="mdd:VoidValue"/>
   </transition>
   <transition target="//@vertex.3" source="//@vertex.2">
     <inmessage>
-      <operation Name="enterPassword"/>
+      <operation name="enterPassword"/>
     </inmessage>
     <outmessage>
-      <operation Name="verifyAccount"/>
-      <object xsi:type="mdd:SystemObject" name="consortium"/>
+      <operation name="verifyAccount"/>
+      <actorobject xsi:type="mdd:SystemObject" name="consortium"/>
       <returnvalue xsi:type="mdd:Value" name="badAccount"/>
     </outmessage>
     <outmessage>
-      <operation Name="badAccountMessage"/>
-      <object xsi:type="mdd:User"/>
+      <operation name="badAccountMessage"/>
+      <actorobject xsi:type="mdd:User"/>
       <returnvalue xsi:type="mdd:VoidValue"/>
     </outmessage>
     <outmessage>
-      <operation Name="printReceipt"/>
-      <object xsi:type="mdd:User"/>
+      <operation name="printReceipt"/>
+      <actorobject xsi:type="mdd:User"/>
       <returnvalue xsi:type="mdd:VoidValue"/>
     </outmessage>
     <outmessage>
-      <operation Name="ejectCard"/>
-      <object xsi:type="mdd:User"/>
+      <operation name="ejectCard"/>
+      <actorobject xsi:type="mdd:User"/>
       <returnvalue xsi:type="mdd:VoidValue"/>
     </outmessage>
     <outmessage>
-      <operation Name="requestTakeCard"/>
-      <object xsi:type="mdd:User"/>
+      <operation name="requestTakeCard"/>
+      <actorobject xsi:type="mdd:User"/>
       <returnvalue xsi:type="mdd:VoidValue"/>
     </outmessage>
     <returnvalue xsi:type="mdd:VoidValue"/>
   </transition>
   <transition target="//@vertex.3" source="//@vertex.2">
     <inmessage>
-      <operation Name="cancel"/>
+      <operation name="cancel"/>
     </inmessage>
     <outmessage>
-      <operation Name="canceledMessage"/>
-      <object xsi:type="mdd:User"/>
+      <operation name="canceledMessage"/>
+      <actorobject xsi:type="mdd:User"/>
       <returnvalue xsi:type="mdd:VoidValue"/>
     </outmessage>
     <outmessage>
-      <operation Name="ejectCard"/>
-      <object xsi:type="mdd:User"/>
+      <operation name="ejectCard"/>
+      <actorobject xsi:type="mdd:User"/>
       <returnvalue xsi:type="mdd:VoidValue"/>
     </outmessage>
     <outmessage>
-      <operation Name="requestTakeCard"/>
-      <object xsi:type="mdd:User"/>
+      <operation name="requestTakeCard"/>
+      <actorobject xsi:type="mdd:User"/>
       <returnvalue xsi:type="mdd:VoidValue"/>
     </outmessage>
     <returnvalue xsi:type="mdd:VoidValue"/>
   </transition>
   <transition target="//@vertex.1" source="//@vertex.3">
     <inmessage>
-      <operation Name="takeCard"/>
+      <operation name="takeCard"/>
     </inmessage>
     <outmessage>
-      <operation Name="displayMainScreen"/>
-      <object xsi:type="mdd:User"/>
+      <operation name="displayMainScreen"/>
+      <actorobject xsi:type="mdd:User"/>
       <returnvalue xsi:type="mdd:VoidValue"/>
     </outmessage>
     <returnvalue xsi:type="mdd:VoidValue"/>

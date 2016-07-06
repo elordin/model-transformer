@@ -5,106 +5,100 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:behaviour="http://www.example.org/behaviour"
     xsi:schemaLocation="http://www.example.org/behaviour ../behaviour.ecore">
-  <block>
-    <preState
-        name="WaitCard"/>
-    <postState
-        name="WaitPassword"/>
+  <block preState="//@state.0"
+      postState="//@state.1">
     <inmessage>
       <operation
           name="insertCard"/>
     </inmessage>
     <activation>
       <outmessages>
-        <object
+        <actorobject
             xsi:type="behaviour:User"/>
         <operation
             name="requestPassword"/>
-        <returned
+        <returnvalue
             xsi:type="behaviour:VoidValue"/>
       </outmessages>
-      <returned
+      <returnvalue
           xsi:type="behaviour:VoidValue"/>
     </activation>
   </block>
-  <block>
-    <preState
-        name="WaitPassword"/>
-    <postState
-        name="WaitTakeCard"/>
+  <block preState="//@state.1"
+      postState="//@state.2">
     <inmessage>
       <operation
           name="enterPassword"/>
     </inmessage>
     <activation>
       <outmessages>
-        <object
+        <actorobject
             xsi:type="behaviour:SystemObject"
             name="consortium"/>
         <operation
             name="verifyAccount"/>
-        <returned
+        <returnvalue
             xsi:type="behaviour:Value"
             value="badAccount"/>
       </outmessages>
       <outmessages>
-        <object
+        <actorobject
             xsi:type="behaviour:User"/>
         <operation
             name="badAccountMessage"/>
-        <returned
+        <returnvalue
             xsi:type="behaviour:VoidValue"/>
       </outmessages>
       <outmessages>
-        <object
+        <actorobject
             xsi:type="behaviour:User"/>
         <operation
             name="printReceipt"/>
-        <returned
+        <returnvalue
             xsi:type="behaviour:VoidValue"/>
       </outmessages>
       <outmessages>
-        <object
+        <actorobject
             xsi:type="behaviour:User"/>
         <operation
             name="ejectCard"/>
-        <returned
+        <returnvalue
             xsi:type="behaviour:VoidValue"/>
       </outmessages>
       <outmessages>
-        <object
+        <actorobject
             xsi:type="behaviour:User"/>
         <operation
             name="requestTakeCard"/>
-        <returned
+        <returnvalue
             xsi:type="behaviour:VoidValue"/>
       </outmessages>
-      <returned
+      <returnvalue
           xsi:type="behaviour:VoidValue"/>
     </activation>
   </block>
-  <block>
-    <preState
-        name="WaitTakeCard"/>
-    <postState
-        name="WaitCard"/>
+  <block preState="//@state.2"
+      postState="//@state.0">
     <inmessage>
       <operation
           name="takeCard"/>
     </inmessage>
     <activation>
       <outmessages>
-        <object
+        <actorobject
             xsi:type="behaviour:User"/>
         <operation
             name="displayMainScreen"/>
-        <returned
+        <returnvalue
             xsi:type="behaviour:VoidValue"/>
       </outmessages>
-      <returned
+      <returnvalue
           xsi:type="behaviour:VoidValue"/>
     </activation>
   </block>
   <systemobject
       name="atm"/>
+  <state name="WaitCard"/>
+  <state name="WaitPassword"/>
+  <state name="WaitTakeCard"/>
 </behaviour:Behaviour>

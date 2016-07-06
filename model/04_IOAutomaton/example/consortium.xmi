@@ -11,22 +11,22 @@
   <transition target="//@vertex.1" source="//@vertex.0"/>
   <transition target="//@vertex.1" source="//@vertex.0">
     <inmessage>
-      <operation Name="verifyAccount"/>
+      <operation name="verifyAccount"/>
     </inmessage>
     <outmessage>
-      <operation Name="verifyCardWithBank"/>
-      <object xsi:type="mdd:SystemObject" name="bank"/>
+      <operation name="verifyCardWithBank"/>
+      <actorobject xsi:type="mdd:SystemObject" name="bank"/>
       <returnvalue xsi:type="mdd:Value" name="badBankPassword"/>
     </outmessage>
     <returnvalue xsi:type="mdd:Value" name="badPassword"/>
   </transition>
   <transition target="//@vertex.1" source="//@vertex.0">
     <inmessage>
-      <operation Name="verifyAccount"/>
+      <operation name="verifyAccount"/>
     </inmessage>
     <outmessage>
-      <operation Name="verifyCardWithBank"/>
-      <object xsi:type="mdd:SystemObject" name="bank"/>
+      <operation name="verifyCardWithBank"/>
+      <actorobject xsi:type="mdd:SystemObject" name="bank"/>
       <returnvalue xsi:type="mdd:Value" name="badBankAccount"/>
     </outmessage>
     <returnvalue xsi:type="mdd:Value" name="badAccount"/>
