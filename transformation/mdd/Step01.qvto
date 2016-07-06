@@ -22,8 +22,8 @@ mapping UML::Lifeline::transformLifeline() : InteractionDiagram::Lifeline {
 
 mapping UML::Message::transformMessage() : InteractionDiagram::Message {
 	name := self.name;
-	sendEvent := self.sendEvent.map transformMessageEnd(); // TODO
-	receiveEvent := null; // TODO
+	sendEvent := self.sendEvent.map transformMessageEnd();
+	receiveEvent := self.receiveEvent.map transformMessageEnd();
 	messageSort := self.transformMessageSort(self.messageSort);
 }
 

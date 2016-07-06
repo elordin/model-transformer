@@ -8,8 +8,7 @@ main() {
 	bt.rootObjects()[BehaviourTable::Behaviour].map toIOAutomaton();
 }
 
-mapping BehaviourTable::Behaviour::toIOAutomaton() : IOAutomaton::IOAutomaton
-{
-	systemobject := self.
+mapping BehaviourTable::Behaviour::toIOAutomaton() : IOAutomaton::IOAutomaton {
+	// systemobject := self.
 
 }
