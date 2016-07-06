@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<behaviour:Behaviour
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:behaviour="http://www.example.org/behaviour"
-    xsi:schemaLocation="http://www.example.org/behaviour ../behaviour.ecore">
-  <block>
+<behaviour:Behaviour xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:behaviour="http://www.example.org/behaviour" xsi:schemaLocation="http://www.example.org/behaviour ../behaviour.ecore">
+    <block>
     <preState
         name="WaitCard"/>
     <postState
@@ -20,11 +16,11 @@
             xsi:type="behaviour:User"/>
         <operation
             name="requestPassword"/>
-        <returned
-            xsi:type="behaviour:VoidValue"/>
+        <return
+            xsi:type="behaviour:Void"/>
       </outmessages>
-      <returned
-          xsi:type="behaviour:VoidValue"/>
+      <return
+          xsi:type="behaviour:Void"/>
     </activation>
   </block>
   <block>
@@ -43,7 +39,7 @@
             name="consortium"/>
         <operation
             name="verifyAccount"/>
-        <returned
+        <return
             xsi:type="behaviour:Value"
             value="badAccount"/>
       </outmessages>
@@ -52,35 +48,35 @@
             xsi:type="behaviour:User"/>
         <operation
             name="badAccountMessage"/>
-        <returned
-            xsi:type="behaviour:VoidValue"/>
+        <return
+            xsi:type="behaviour:Void"/>
       </outmessages>
       <outmessages>
         <object
             xsi:type="behaviour:User"/>
         <operation
             name="printReceipt"/>
-        <returned
-            xsi:type="behaviour:VoidValue"/>
+        <return
+            xsi:type="behaviour:Void"/>
       </outmessages>
       <outmessages>
         <object
             xsi:type="behaviour:User"/>
         <operation
             name="ejectCard"/>
-        <returned
-            xsi:type="behaviour:VoidValue"/>
+        <return
+            xsi:type="behaviour:Void"/>
       </outmessages>
       <outmessages>
         <object
             xsi:type="behaviour:User"/>
         <operation
             name="requestTakeCard"/>
-        <returned
-            xsi:type="behaviour:VoidValue"/>
+        <return
+            xsi:type="behaviour:Void"/>
       </outmessages>
-      <returned
-          xsi:type="behaviour:VoidValue"/>
+      <return
+          xsi:type="behaviour:Void"/>
     </activation>
   </block>
   <block>
@@ -98,13 +94,11 @@
             xsi:type="behaviour:User"/>
         <operation
             name="displayMainScreen"/>
-        <returned
-            xsi:type="behaviour:VoidValue"/>
+        <return
+            xsi:type="behaviour:Void"/>
       </outmessages>
-      <returned
-          xsi:type="behaviour:VoidValue"/>
+      <return
+          xsi:type="behaviour:Void"/>
     </activation>
   </block>
-  <systemobject
-      name="atm"/>
-</behaviour:Behaviour>
+ </behaviour:Behaviour>
