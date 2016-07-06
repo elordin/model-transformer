@@ -11,8 +11,8 @@ mapping InteractionDiagram::Interaction::toScenarioTable() : ScenarioTable::Scen
 
 	state += self.fragment[InteractionDiagram::StateInvariant].map transformStateInvariant();
 	actor += self.lifeline.map transformLifeline();
-	
 	communication += self.message.map transformMessage();
+	
 }
 
 query isUser(in l : InteractionDiagram::Lifeline) : Boolean {
@@ -74,8 +74,10 @@ mapping InteractionDiagram::Message::toSystemCommunication() : ScenarioTable::Sy
 	var recipient : InteractionDiagram::Lifeline = self.receiveEvent[InteractionDiagram::MessageOccurenceSpecification]->any(true).covered;
 	
 	var receiveIndex = recipient.coveredBy->indexOf(self.receiveEvent);
-	var preReceiveSIs : OrderedSet(InteractionDiagram::StateInvariant) = recipient.coveredBy[InteractionDiagram::StateInvariant];
-	var postReceiveSIs : OrderedSet(InteractionDiagram::StateInvariant) = recipient.coveredBy[InteractionDiagram::StateInvariant];
+	var preReceiveSIs : OrderedSet(InteractionDiagram::StateInvariant) = 
+		recipient.coveredBy[InteractionDiagram::StateInvariant]->select(s | recipient.coveredBy->indexOf(s) < receiveIndex);
+	var postReceiveSIs : OrderedSet(InteractionDiagram::StateInvariant) = 
+		recipient.coveredBy[InteractionDiagram::StateInvariant]->select(s | recipient.coveredBy->indexOf(s) > receiveIndex);
 		
 	prestate := preReceiveSIs->last().map transformStateInvariant();
 	poststate := postReceiveSIs->first().map transformStateInvariant();
