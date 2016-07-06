@@ -96,7 +96,7 @@
           xsi:type="behaviour:VoidValue"/>
     </activation>
   </block>
-  <systemactorobject
+  <systemobject
       name="atm"/>
   <state name="WaitCard"/>
   <state name="WaitPassword"/>

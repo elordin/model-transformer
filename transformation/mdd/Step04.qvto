@@ -3,17 +3,21 @@ modeltype IOAutomaton uses IOAutomaton('se.studieren.mdd.transformer.IOAutomaton
 
 transformation Step04(in bt: BehaviourTable, out ioa: IOAutomaton);
 
+
 main() {
-	//bt.map toIOAutomaton();
 	bt.rootObjects()[BehaviourTable::Behaviour].map toIOAutomaton();
 }
 
 mapping BehaviourTable::Behaviour::toIOAutomaton() : IOAutomaton::IOAutomaton
 {
 	systemobject := self.systemobject.map toSystemObject();
-	vertex += self.states.map toState();
+	vertex += self.state.map toState();
 	transition += self.block.map toTransition();
-
+	
+	//var test2 = Set{};
+	var test := self.state->asSet();
+	//test2 += self.state->asSet();
+	
 }
 
 mapping BehaviourTable::SystemObject::toSystemObject() : IOAutomaton::SystemObject
@@ -26,10 +30,13 @@ mapping BehaviourTable::State::toState() : IOAutomaton::State
 	name := self.name;	
 }
 
-mapping BehaviourTable::Block::toState() : IOAutomaton::Transition
+mapping BehaviourTable::Block::toTransition() : IOAutomaton::Transition
 {
 	inmessage := self.inmessage.map toInMessage();
 	outmessage += self.activation.outmessages.map toOutMessage();
+	returnvalue := self.activation.returnvalue.map toReturnValue();
+	source :=  self.preState.resolveoneIn(BehaviourTable::State::toState, IOAutomaton::State);
+	target :=  self.postState.resolveoneIn(BehaviourTable::State::toState, IOAutomaton::State);
 }
 
 mapping BehaviourTable::InMessage::toInMessage() : IOAutomaton::InMessage
@@ -45,7 +52,28 @@ mapping BehaviourTable::Operation::toOperation() : IOAutomaton::Operation
 mapping BehaviourTable::OutMessage::toOutMessage() : IOAutomaton::OutMessage
 {
 	operation := self.operation.map toOperation();
-	returnvalue := self.returned.map toReturnValue();
-	object := self._object.map toActorObject();
+	returnvalue := self.returnvalue.map toReturnValue();
+	actorobject := self.actorobject.map toActorObject();
 }
+
+mapping BehaviourTable::ReturnValue::toReturnValue() : IOAutomaton::ReturnValue
+disjuncts BehaviourTable::VoidValue::toVoidValue, BehaviourTable::Value::toValue
+{}
+
+mapping BehaviourTable::VoidValue::toVoidValue() : IOAutomaton::VoidValue
+{}
+
+mapping BehaviourTable::Value::toValue() : IOAutomaton::Value
+{	
+	name:=self.value;
+}
+
+mapping BehaviourTable::ActorObject::toActorObject() : IOAutomaton::ActorObject
+disjuncts BehaviourTable::User::toUser, BehaviourTable::SystemObject::toSystemObject
+{}
+
+mapping BehaviourTable::User::toUser() : IOAutomaton::User
+{}
+
+
 
