@@ -13,7 +13,7 @@
     </inmessage>
     <activation>
       <outmessages>
-        <object
+        <actorobject
             xsi:type="behaviour:User"/>
         <operation
             name="requestPassword"/>
@@ -32,7 +32,7 @@
     </inmessage>
     <activation>
       <outmessages>
-        <object
+        <actorobject
             xsi:type="behaviour:SystemObject"
             name="consortium"/>
         <operation
@@ -42,7 +42,7 @@
             value="badAccount"/>
       </outmessages>
       <outmessages>
-        <object
+        <actorobject
             xsi:type="behaviour:User"/>
         <operation
             name="badAccountMessage"/>
@@ -50,7 +50,7 @@
             xsi:type="behaviour:VoidValue"/>
       </outmessages>
       <outmessages>
-        <object
+        <actorobject
             xsi:type="behaviour:User"/>
         <operation
             name="printReceipt"/>
@@ -58,7 +58,7 @@
             xsi:type="behaviour:VoidValue"/>
       </outmessages>
       <outmessages>
-        <object
+        <actorobject
             xsi:type="behaviour:User"/>
         <operation
             name="ejectCard"/>
@@ -66,7 +66,7 @@
             xsi:type="behaviour:VoidValue"/>
       </outmessages>
       <outmessages>
-        <object
+        <actorobject
             xsi:type="behaviour:User"/>
         <operation
             name="requestTakeCard"/>
@@ -85,7 +85,7 @@
     </inmessage>
     <activation>
       <outmessages>
-        <object
+        <actorobject
             xsi:type="behaviour:User"/>
         <operation
             name="displayMainScreen"/>
@@ -96,7 +96,7 @@
           xsi:type="behaviour:VoidValue"/>
     </activation>
   </block>
-  <systemobject
+  <systemactorobject
       name="atm"/>
   <states name="WaitCard"/>
   <states name="WaitPassword"/>

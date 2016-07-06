@@ -11,17 +11,9 @@ main() {
 mapping BehaviourTable::Behaviour::toIOAutomaton() : IOAutomaton::IOAutomaton
 {
 	systemobject := self.systemobject.map toSystemObject();
-	vertex += self.block.preState->union(self.block.postState).map toState();
+	vertex += self.states.map toState();
+	transition += self.block.map toTransition();
 
-	//vertex += .map toState();
-}
-
-helper BehaviourTable::State::copyState(in b :BehaviourTable::Behaviour) : IOAutomaton::State
-{ 
-	var state := object IOAutomaton::State {
-		name := self.name;
-	};
-	return state;
 }
 
 mapping BehaviourTable::SystemObject::toSystemObject() : IOAutomaton::SystemObject
@@ -32,5 +24,28 @@ mapping BehaviourTable::SystemObject::toSystemObject() : IOAutomaton::SystemObje
 mapping BehaviourTable::State::toState() : IOAutomaton::State
 {
 	name := self.name;	
+}
+
+mapping BehaviourTable::Block::toState() : IOAutomaton::Transition
+{
+	inmessage := self.inmessage.map toInMessage();
+	outmessage += self.activation.outmessages.map toOutMessage();
+}
+
+mapping BehaviourTable::InMessage::toInMessage() : IOAutomaton::InMessage
+{
+	operation := self.operation.map toOperation();	
+}
+
+mapping BehaviourTable::Operation::toOperation() : IOAutomaton::Operation
+{
+	name := self.name;	
+}
+
+mapping BehaviourTable::OutMessage::toOutMessage() : IOAutomaton::OutMessage
+{
+	operation := self.operation.map toOperation();
+	returnvalue := self.returned.map toReturnValue();
+	object := self._object.map toActorObject();
 }
 
