@@ -6,12 +6,14 @@
         eType="#//Block" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="systemobject" lowerBound="1"
         eType="#//SystemObject" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
+        eType="#//State" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Block">
     <eStructuralFeatures xsi:type="ecore:EReference" name="preState" lowerBound="1"
-        eType="#//State" containment="true"/>
+        eType="#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="postState" lowerBound="1"
-        eType="#//State" containment="true"/>
+        eType="#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inmessage" lowerBound="1"
         eType="#//InMessage" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="activation" lowerBound="1"

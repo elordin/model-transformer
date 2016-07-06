@@ -5,11 +5,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:behaviour="http://www.example.org/behaviour"
     xsi:schemaLocation="http://www.example.org/behaviour ../behaviour.ecore">
-  <block>
-    <preState
-        name="WaitCard"/>
-    <postState
-        name="WaitPassword"/>
+  <block preState="//@states.0"
+      postState="//@states.1">
     <inmessage>
       <operation
           name="insertCard"/>
@@ -27,11 +24,8 @@
           xsi:type="behaviour:VoidValue"/>
     </activation>
   </block>
-  <block>
-    <preState
-        name="WaitPassword"/>
-    <postState
-        name="WaitTakeCard"/>
+  <block preState="//@states.1"
+      postState="//@states.2">
     <inmessage>
       <operation
           name="enterPassword"/>
@@ -83,11 +77,8 @@
           xsi:type="behaviour:VoidValue"/>
     </activation>
   </block>
-  <block>
-    <preState
-        name="WaitTakeCard"/>
-    <postState
-        name="WaitCard"/>
+  <block preState="//@states.2"
+      postState="//@states.0">
     <inmessage>
       <operation
           name="takeCard"/>
@@ -107,4 +98,7 @@
   </block>
   <systemobject
       name="atm"/>
+  <states name="WaitCard"/>
+  <states name="WaitPassword"/>
+  <states name="WaitTakeCard"/>
 </behaviour:Behaviour>
