@@ -4,20 +4,24 @@
     nsPrefix="mdd">
   <eClassifiers xsi:type="ecore:EClass" name="Scenario">
     <eStructuralFeatures xsi:type="ecore:EReference" name="communication" lowerBound="1"
-        upperBound="-1" eType="#//Communication"/>
+        upperBound="-1" eType="#//Communication" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="state" upperBound="-1"
+        eType="#//State" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" upperBound="-1"
+        eType="#//ActorObject" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Communication" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="UserCommunication" eSuperTypes="#//Communication">
     <eStructuralFeatures xsi:type="ecore:EReference" name="usermessage" lowerBound="1"
-        eType="#//UserMessage"/>
+        eType="#//UserMessage" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returned" lowerBound="1"
-        eType="#//ReturnValue"/>
+        eType="#//ReturnValue" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SystemCommunication" eSuperTypes="#//Communication">
     <eStructuralFeatures xsi:type="ecore:EReference" name="returned" lowerBound="1"
-        eType="#//ReturnValue"/>
+        eType="#//ReturnValue" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="systemmessage" lowerBound="1"
-        eType="#//SystemMessage"/>
+        eType="#//SystemMessage" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="prestate" lowerBound="1"
         eType="#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="poststate" lowerBound="1"
@@ -27,7 +31,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="sender" lowerBound="1"
         eType="#//ActorObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
-        eType="#//Operation"/>
+        eType="#//Operation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" lowerBound="1"
         eType="#//User"/>
   </eClassifiers>
@@ -35,17 +39,29 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="sender" lowerBound="1"
         eType="#//ActorObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
-        eType="#//Operation"/>
+        eType="#//Operation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" lowerBound="1"
         eType="#//SystemObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Message" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="ReturnValue" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Value" eSuperTypes="#//ReturnValue"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Value" eSuperTypes="#//ReturnValue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="null"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VoidValue" eSuperTypes="#//ReturnValue"/>
   <eClassifiers xsi:type="ecore:EClass" name="ActorObject" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Operation"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SystemObject" eSuperTypes="#//ActorObject"/>
-  <eClassifiers xsi:type="ecore:EClass" name="User" eSuperTypes="#//ActorObject"/>
-  <eClassifiers xsi:type="ecore:EClass" name="State"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemObject" eSuperTypes="#//ActorObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="User" eSuperTypes="#//ActorObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="User"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="State">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

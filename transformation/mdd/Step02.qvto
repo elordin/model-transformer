@@ -8,30 +8,73 @@ main() {
 }
 
 mapping InteractionDiagram::Interaction::toScenarioTable() : ScenarioTable::Scenario {
-	communication += self.message->select(m | true).map toUserCommunication(); // TODO Select messages to users
-	communication += self.message->select(m | true).map toSystemCommunication(); // TODO Select messages to non-users
+
+	state += self.fragment[InteractionDiagram::StateInvariant].map transformStateInvariant();
+	actor += self.lifeline.map transformLifeline();
+	
+	// communication += self.message->select(m : InteractionDiagram::Message | m.receiveEvent[InteractionDiagram::MessageOccurenceSpecification]->forAll(mos | isUser(mos.covered))).map toUserCommunication();
+	// communication += self.message->select(m : InteractionDiagram::Message | m.receiveEvent[InteractionDiagram::MessageOccurenceSpecification]->forAll(mos | not isUser(mos.covered))).map toSystemCommunication();
 }
+
+query isUser(in o : InteractionDiagram::Lifeline) : Boolean {
+	return o.name = "User" or o.name = "user";
+}
+
+mapping InteractionDiagram::StateInvariant::transformStateInvariant() : ScenarioTable::State {
+	name := self.name;
+}
+
+mapping InteractionDiagram::Lifeline::transformLifeline() : ScenarioTable::ActorObject
+	disjuncts InteractionDiagram::Lifeline::toUserObject,
+	          InteractionDiagram::Lifeline::toSystemObject;
+    
+mapping InteractionDiagram::Lifeline::toUserObject() : ScenarioTable::User 
+when {
+	isUser(self);		
+}{
+	log("Lifeline to User: " + self.name);
+	name := "User"; // Note that this will not show up in the XMI since it is the default value.
+}
+
+mapping InteractionDiagram::Lifeline::toSystemObject() : ScenarioTable::SystemObject {
+	log("Lifeline to SystemObject: " + self.name);
+	name := self.name;
+}
+
+
 
 mapping InteractionDiagram::Message::toUserCommunication() : ScenarioTable::UserCommunication {
-	usermessage := null; // .map toUserMessage();
-	returned := null;
+	usermessage := self.map toUserMessage();
+	returned := returnValue(self);
 }
 
-mapping toUserMessage() : ScenarioTable::UserMessage {
-	sender := null;
-	operation := null;
-	receiver := null;
+helper returnValue(in m : Message) : ScenarioTable::ReturnValue {
+	if (m.messageSort = InteractionDiagram::MessageSort::reply) 
+		return object ScenarioTable::Value{
+			value := m.name;
+		}
+	else return object ScenarioTable::VoidValue{};
+}
+
+mapping InteractionDiagram::Message::toUserMessage() : ScenarioTable::UserMessage {
+	receiver := self.receiveEvent[InteractionDiagram::MessageOccurenceSpecification]->any(true).covered.map toUserObject();
+	operation := object ScenarioTable::Operation{
+		name := self.name;
+	};
+	sender := self.sendEvent[InteractionDiagram::MessageOccurenceSpecification]->any(true).covered.map transformLifeline();
 }
 
 mapping InteractionDiagram::Message::toSystemCommunication() : ScenarioTable::SystemCommunication {
 	prestate := null;
 	poststate := null;
-	systemmessage := null; // .map toSystemMessage();
-	returned := null;
+	systemmessage := self.map toSystemMessage();
+	returned := returnValue(self);
 }
 
-mapping toSystemMessage() : ScenarioTable::SystemMessage {
-	sender := null;
-	operation := null;
-	receiver := null;
+mapping InteractionDiagram::Message::toSystemMessage() : ScenarioTable::SystemMessage {
+	sender := self.sendEvent[InteractionDiagram::MessageOccurenceSpecification]->any(true).covered.map transformLifeline();
+	operation := object ScenarioTable::Operation{
+		name := self.name;
+	};
+	receiver := self.receiveEvent[InteractionDiagram::MessageOccurenceSpecification]->any(true).covered.map toSystemObject();
 }

@@ -1,4 +1,15 @@
+import Step01;
+import Step02;
+import Step03;
+import Step04;
+import Step05;
+
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
+modeltype InteractionDiagram uses InteractionDiagram('se.studieren.mdd.transformer.InteractionDiagram');
+modeltype ScenarioTable uses ScenarioTable('se.studieren.mdd.transformer.ScenarioTable');
+modeltype BehaviourTable uses BehaviourTable('se.studieren.mdd.transformer.BehaviourTable');
+modeltype IOAutomaton uses IOAutomaton('se.studieren.mdd.transformer.IOAutomaton');
+modeltype StateMachine uses StateMachine('se.studieren.mdd.transformer.StateMachine');
 
 transformation FullTransformation(in umlInteractionDiagram: UML, out umlStateMachine: UML);
 
