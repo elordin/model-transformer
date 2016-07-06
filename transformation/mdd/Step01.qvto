@@ -10,7 +10,7 @@ main() {
 mapping UML::Interaction::transformInteraction() : InteractionDiagram::Interaction {
 	lifeline += self.ownedElement[UML::Lifeline].map transformLifeline();
 	
-	fragment += self.fragment.map transformInteractionFragment();
+	fragment += self.fragment->asOrderedSet().map transformInteractionFragment();
 
 	message += self.message.map transformMessage();
 }
@@ -48,6 +48,7 @@ helper UML::Message::transformMessageSort(in s : UML::MessageSort) : Interaction
 
 mapping UML::InteractionFragment::transformInteractionFragment() : InteractionDiagram::InteractionFragment
 	disjuncts UML::MessageOccurrenceSpecification::transformMessageOccurenceSpecification,
+			  UML::BehaviorExecutionSpecification::transformBehaviourExecutionSpecification,
 			  UML::InteractionOperand::transformInteractionOperand, 
 			  UML::CombinedFragment::transformCombinedFragment,
 			  UML::ExecutionSpecification::transformExecutionSpecification,
@@ -68,6 +69,10 @@ mapping UML::CombinedFragment::transformCombinedFragment() : InteractionDiagram:
 
 helper UML::CombinedFragment::transformOperatorKind(in k : UML::InteractionOperatorKind) : InteractionDiagram::InteractionOperatorKind {
 	return null; // TODO
+}
+  
+mapping UML::BehaviorExecutionSpecification::transformBehaviourExecutionSpecification() : InteractionDiagram::BehaviorExecutionSpecification {
+	name := self.name;
 }
   
 mapping UML::ExecutionSpecification::transformExecutionSpecification() : InteractionDiagram::ExecutionSpecification {
