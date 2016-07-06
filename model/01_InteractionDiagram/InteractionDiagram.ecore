@@ -17,40 +17,51 @@
     <eLiterals name="consider" value="11"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MessageOccurenceSpecification" eSuperTypes="#//MessageEnd #//OccurrenceSpecification"/>
-  <eClassifiers xsi:type="ecore:EClass" name="MessageEnd">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="message" eType="#//Message"
-        eOpposite="#//Message/messageEnd"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageEnd" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Message">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sendEvent" eType="#//MessageEnd"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="receiveEvent" eType="#//MessageEnd"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageSort" eType="#//MessageSort"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="messageEnd" upperBound="2"
-        eType="#//MessageEnd" eOpposite="#//MessageEnd/message"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Interaction" eSuperTypes="#//InteractionFragment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="message" upperBound="-1"
         eType="#//Message" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="lifeline" upperBound="-1"
         eType="#//Lifeline" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fragment" upperBound="-1"
+        eType="#//InteractionFragment" containment="true" eOpposite="#//InteractionFragment/enclosingInteraction"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Lifeline"/>
-  <eClassifiers xsi:type="ecore:EClass" name="InteractionFragment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Lifeline">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="coveredBy" upperBound="-1"
+        eType="#//InteractionFragment" eOpposite="#//InteractionFragment/covered"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InteractionFragment" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enclosingInteraction" eType="#//Interaction"
+        eOpposite="#//Interaction/fragment"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="covered" lowerBound="1"
+        eType="#//Lifeline" eOpposite="#//Lifeline/coveredBy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="generalordering" upperBound="-1"
+        eType="#//GeneralOrdering" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OccurrenceSpecification" eSuperTypes="#//InteractionFragment">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="lifeline" lowerBound="1"
-        eType="#//Lifeline"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="toAfter" upperBound="-1"
+        eType="#//GeneralOrdering" eOpposite="#//GeneralOrdering/before"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="toBefore" upperBound="-1"
+        eType="#//GeneralOrdering" eOpposite="#//GeneralOrdering/after"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CombinedFragment" eSuperTypes="#//InteractionFragment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="interactionOperator" eType="#//InteractionOperatorKind"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interactionoperand" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operand" lowerBound="1"
         upperBound="-1" eType="#//InteractionOperand" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InteractionOperand">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interactionfragment" upperBound="-1"
+  <eClassifiers xsi:type="ecore:EClass" name="InteractionOperand" eSuperTypes="#//InteractionFragment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fragment" upperBound="-1"
         eType="#//InteractionFragment" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StateInvariant" eSuperTypes="#//InteractionFragment">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="lifeline" eType="#//Lifeline"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="invariant" lowerBound="1"
         eType="#//Constraint" containment="true"/>
   </eClassifiers>
@@ -67,9 +78,19 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="execution" lowerBound="1"
         eType="#//ExecutionSpecification" eOpposite="#//ExecutionSpecification/executionOccurenceSpecification"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BehaviorExecutionSpecification" eSuperTypes="#//ExecutionSpecification"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BehaviorExecutionSpecification" eSuperTypes="#//ExecutionSpecification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="start" lowerBound="1" eType="#//OccurrenceSpecification"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="finish" lowerBound="1"
+        eType="#//OccurrenceSpecification"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExecutionSpecification" eSuperTypes="#//InteractionFragment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="executionOccurenceSpecification"
         upperBound="2" eType="#//ExecutionOccurenceSpecification" eOpposite="#//ExecutionOccurenceSpecification/execution"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneralOrdering">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="before" lowerBound="1"
+        eType="#//OccurrenceSpecification" eOpposite="#//OccurrenceSpecification/toAfter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="after" lowerBound="1" eType="#//OccurrenceSpecification"
+        eOpposite="#//OccurrenceSpecification/toBefore"/>
   </eClassifiers>
 </ecore:EPackage>

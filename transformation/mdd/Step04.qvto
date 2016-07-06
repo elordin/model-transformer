@@ -1,8 +1,14 @@
 modeltype BehaviourTable uses BehaviourTable('se.studieren.mdd.transformer.BehaviourTable');
 modeltype IOAutomaton uses IOAutomaton('se.studieren.mdd.transformer.IOAutomaton');
 
-transformation Step04(in behaviorTable: BehaviourTable, out ioAutomaton: IOAutomaton);
+transformation Step04(in bt: BehaviourTable, out ioa: IOAutomaton);
 
 main() {
+	//bt.map toIOAutomaton();
+	bt.rootObjects()[BehaviourTable::Behaviour].map toIOAutomaton();
+}
+
+mapping BehaviourTable::Behaviour::toIOAutomaton() : IOAutomaton::IOAutomaton {
+	// systemobject := self.
 
 }
