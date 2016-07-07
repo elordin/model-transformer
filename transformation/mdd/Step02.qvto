@@ -73,11 +73,13 @@ mapping InteractionDiagram::Message::toSystemCommunication() : ScenarioTable::Sy
 
 	var recipient : InteractionDiagram::Lifeline = self.receiveEvent[InteractionDiagram::MessageOccurenceSpecification]->any(true).covered;
 	
-	var receiveIndex = recipient.coveredBy->indexOf(self.receiveEvent);
+	var receiveIndex = recipient.coveredBy->indexOf(self.receiveEvent[InteractionDiagram::MessageOccurenceSpecification]->any(true));
 	var preReceiveSIs : OrderedSet(InteractionDiagram::StateInvariant) = 
-		recipient.coveredBy[InteractionDiagram::StateInvariant]->select(s | recipient.coveredBy->indexOf(s) < receiveIndex);
+		recipient.coveredBy[InteractionDiagram::StateInvariant]->select(s : InteractionDiagram::StateInvariant | 
+			recipient.coveredBy->indexOf(s) < receiveIndex);
 	var postReceiveSIs : OrderedSet(InteractionDiagram::StateInvariant) = 
-		recipient.coveredBy[InteractionDiagram::StateInvariant]->select(s | recipient.coveredBy->indexOf(s) > receiveIndex);
+		recipient.coveredBy[InteractionDiagram::StateInvariant]->select(s : InteractionDiagram::StateInvariant | 
+			recipient.coveredBy->indexOf(s) > receiveIndex);
 		
 	prestate := preReceiveSIs->last().map transformStateInvariant();
 	poststate := postReceiveSIs->first().map transformStateInvariant();
@@ -100,4 +102,5 @@ helper returnValue(in m : Message) : ScenarioTable::ReturnValue {
 			value := m.name;
 		}
 	else return object ScenarioTable::VoidValue{};
+	return null;
 }

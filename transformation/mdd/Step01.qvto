@@ -11,7 +11,7 @@ mapping UML::Interaction::transformInteraction() : InteractionDiagram::Interacti
 	lifeline += self.ownedElement[UML::Lifeline].map transformLifeline();
 	
 	fragment += self.fragment->asOrderedSet().map transformInteractionFragment();
-
+	
 	message += self.message.map transformMessage();
 }
 
@@ -59,12 +59,14 @@ mapping UML::InteractionFragment::transformInteractionFragment() : InteractionDi
 mapping UML::InteractionOperand::transformInteractionOperand() : InteractionDiagram::InteractionOperand {
 	name := self.name;
 	fragment += self.fragment.map transformInteractionFragment();
+	// covered := self.covered->any(true).map transformLifeline();
 }		  
 
 mapping UML::CombinedFragment::transformCombinedFragment() : InteractionDiagram::CombinedFragment {
 	name := self.name;
 	operand += self.operand.map transformInteractionOperand();
 	interactionOperator := self.transformOperatorKind(self.interactionOperator);
+	// covered := self.covered->any(true).map transformLifeline();
 }
 
 helper UML::CombinedFragment::transformOperatorKind(in k : UML::InteractionOperatorKind) : InteractionDiagram::InteractionOperatorKind {
@@ -75,19 +77,29 @@ mapping UML::BehaviorExecutionSpecification::transformBehaviourExecutionSpecific
 	name := self.name;
 	start := self.start.map transformOccurrenceSpecification();
 	finish := self.finish.map transformOccurrenceSpecification();
+	covered := self.covered->any(true).map transformLifeline();
 }
+
   
 mapping UML::ExecutionSpecification::transformExecutionSpecification() : InteractionDiagram::ExecutionSpecification {
 	name := self.name;
+	// covered := self.covered->any(true).map transformLifeline();
 }
 
-mapping UML::OccurrenceSpecification::transformOccurrenceSpecification() : InteractionDiagram::OccurrenceSpecification {
+mapping UML::OccurrenceSpecification::transformOccurrenceSpecification() : InteractionDiagram::OccurrenceSpecification 
+	disjuncts UML::MessageOccurrenceSpecification::transformMessageOccurenceSpecification,
+	          UML::OccurrenceSpecification::transformRealOccurrenceSpecification;
+
+mapping UML::OccurrenceSpecification::transformRealOccurrenceSpecification() : InteractionDiagram::OccurrenceSpecification {
+	log("OccurenceSpecifictation " + self.name);
 	name := self.name;
+	// covered := self.covered->any(true).map transformLifeline();
 }
 
 mapping UML::StateInvariant::transformStateInvariant() : InteractionDiagram::StateInvariant {
 	name := self.name;
 	invariant := self.invariant.map transformConstraint();
+	// covered := self.covered->any(true).map transformLifeline();
 }
 
 mapping UML::Constraint::transformConstraint() : InteractionDiagram::Constraint {
