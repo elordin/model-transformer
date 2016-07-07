@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="ASCII"?>
 <uriMap:MappingContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:uriMap="http:///www.eclipse.org/m2m/qvt/oml/MModelUriMap/1.0.0">
   <mapping sourceURI="se.studieren.mdd.transformer.InteractionDiagram" targetURI="platform:/resource/model-transformer/model/01_InteractionDiagram/InteractionDiagram.ecore"/>
-  <mapping sourceURI="se.studieren.mdd.transformer.ScenarioTable" targetURI="platform:/resource/model-transformer/model/02_ScenarioTable/Scenario.ecore"/>
   <mapping sourceURI="se.studieren.mdd.transformer.IOAutomaton" targetURI="platform:/resource/model-transformer/model/04_IOAutomaton/IOAutomaton.ecore"/>
   <mapping sourceURI="se.studieren.mdd.transformer.StateMachine" targetURI="platform:/resource/model-transformer/model/05_StateMachine/StateMachine.ecore"/>
   <mapping sourceURI="se.studieren.mdd.transformer.BehaviourTable" targetURI="platform:/resource/model-transformer/model/03_BehaviourTables/BehaviourTable.ecore"/>
   <mapping sourceURI="se.studieren.mdd.transformer.BehaviourTablePackage" targetURI="platform:/resource/model-transformer/model/03_BehaviourTables/BehaviourTablePackage.ecore"/>
   <mapping sourceURI="se.studieren.mdd.transformer.IOAutomatonPackage" targetURI="platform:/resource/model-transformer/model/04_IOAutomaton/IOAutomatonPackage.ecore"/>
+  <mapping sourceURI="se.studieren.mdd.transformer.ScenarioTable" targetURI="platform:/resource/model-transformer/model/02_ScenarioTable/ScenarioTable.ecore"/>
+  <mapping sourceURI="se.studieren.mdd.transformer.ScenarioTablePackage" targetURI="platform:/resource/model-transformer/model/02_ScenarioTable/ScenarioTablePackage.ecore"/>
+  <mapping sourceURI="se.studieren.mdd.transformer.InteractionDiagramPackage" targetURI="platform:/resource/model-transformer/model/01_InteractionDiagram/InteractionDiagramPackage.ecore"/>
+  <mapping sourceURI="se.studieren.mdd.transformer.StateMachinePackage" targetURI="platform:/resource/model-transformer/model/05_StateMachine/StateMachinePackage.ecore"/>
 </uriMap:MappingContainer>

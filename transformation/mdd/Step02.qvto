@@ -1,10 +1,16 @@
 modeltype InteractionDiagram uses InteractionDiagram('se.studieren.mdd.transformer.InteractionDiagram');
+modeltype InteractionDiagramPackage uses InteractionDiagramPackage('se.studieren.mdd.transformer.InteractionDiagramPackage');
 modeltype ScenarioTable uses ScenarioTable('se.studieren.mdd.transformer.ScenarioTable');
+modeltype ScenarioTablePackage uses ScenarioTablePackage('se.studieren.mdd.transformer.ScenarioTablePackage');
 
-transformation Step02(in interactionDiagram: InteractionDiagram, out scenarioTable: ScenarioTable);
+transformation Step02(in interactionDiagramPackage: InteractionDiagram, out scenarioTablePackage: ScenarioTable);
 
 main() {
-	interactionDiagram.objectsOfType(InteractionDiagram::Interaction).map toScenarioTable();
+	interactionDiagramPackage.objectsOfType(InteractionDiagramPackage::InteractionDiagramPackage).map toScenarioTablePackage();
+}
+
+mapping InteractionDiagramPackage::InteractionDiagramPackage::toScenarioTablePackage() : ScenarioTablePackage::ScenarioTablePackage {
+	scenario += self.interaction.map toScenarioTable();
 }
 
 mapping InteractionDiagram::Interaction::toScenarioTable() : ScenarioTable::Scenario {
