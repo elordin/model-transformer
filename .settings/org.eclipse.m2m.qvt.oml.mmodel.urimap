@@ -4,5 +4,7 @@
   <mapping sourceURI="se.studieren.mdd.transformer.ScenarioTable" targetURI="platform:/resource/model-transformer/model/02_ScenarioTable/Scenario.ecore"/>
   <mapping sourceURI="se.studieren.mdd.transformer.IOAutomaton" targetURI="platform:/resource/model-transformer/model/04_IOAutomaton/IOAutomaton.ecore"/>
   <mapping sourceURI="se.studieren.mdd.transformer.StateMachine" targetURI="platform:/resource/model-transformer/model/05_StateMachine/StateMachine.ecore"/>
-  <mapping sourceURI="se.studieren.mdd.transformer.BehaviourTable" targetURI="platform:/resource/model-transformer/model/03_BehaviourTables/behaviour.ecore"/>
+  <mapping sourceURI="se.studieren.mdd.transformer.BehaviourTable" targetURI="platform:/resource/model-transformer/model/03_BehaviourTables/BehaviourTable.ecore"/>
+  <mapping sourceURI="se.studieren.mdd.transformer.BehaviourTablePackage" targetURI="platform:/resource/model-transformer/model/03_BehaviourTables/BehaviourTablePackage.ecore"/>
+  <mapping sourceURI="se.studieren.mdd.transformer.IOAutomatonPackage" targetURI="platform:/resource/model-transformer/model/04_IOAutomaton/IOAutomatonPackage.ecore"/>
 </uriMap:MappingContainer>
