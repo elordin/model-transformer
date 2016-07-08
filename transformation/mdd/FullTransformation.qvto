@@ -14,5 +14,4 @@ modeltype StateMachine uses StateMachine('se.studieren.mdd.transformer.StateMach
 transformation FullTransformation(in umlInteractionDiagram: UML, out umlStateMachine: UML);
 
 main() {
-
 }
