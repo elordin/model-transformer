@@ -1,10 +1,15 @@
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 modeltype InteractionDiagram uses InteractionDiagram('se.studieren.mdd.transformer.InteractionDiagram');
+modeltype InteractionDiagramPackage uses InteractionDiagramPackage('se.studieren.mdd.transformer.InteractionDiagramPackage');
 
 transformation Step01(in umlInteraction: UML, out customInteraction: InteractionDiagram);
 
 main() {
-	umlInteraction.objectsOfType(UML::Model).packagedElement[UML::Interaction].map transformInteraction();
+	umlInteraction.objectsOfType(UML::Model).map transformModel();
+}
+
+mapping UML::Model::transformModel() : InteractionDiagramPackage::InteractionDiagramPackage {
+	interaction := self.packagedElement[UML::Interaction].map transformInteraction();
 }
 
 mapping UML::Interaction::transformInteraction() : InteractionDiagram::Interaction {
