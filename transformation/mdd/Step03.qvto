@@ -4,5 +4,39 @@ modeltype BehaviourTable uses BehaviourTable('se.studieren.mdd.transformer.Behav
 transformation Step03(in scenarioTable: ScenarioTable, out behaviorTable: BehaviourTable);
 
 main() {
+	scenarioTable.objectsOfType(ScenarioTable::Scenario).map transformScenarioTable();
+}
 
+mapping ScenarioTable::Scenario::transformScenarioTable() : BehaviourTable::Behaviour {
+	actor += self.actor.map transformActor();
+	state += self.state.map transformState();
+	
+	block += null; // TODO
+}
+
+mapping ScenarioTable::ActorObject::transformActor() : BehaviourTable::ActorObject
+	disjuncts ScenarioTable::User::transformUser,
+	          ScenarioTable::SystemObject::transformSystemObject;
+
+mapping ScenarioTable::User::transformUser() : BehaviourTable::User {
+}
+
+mapping ScenarioTable::SystemObject::transformSystemObject() : BehaviourTable::SystemObject {
+	name := self.name;
+}
+
+mapping ScenarioTable::State::transformState() : BehaviourTable::State {
+	name := self.name;
+}
+
+mapping ScenarioTable::ReturnValue::transformReturnValue() : BehaviourTable::ReturnValue
+	disjuncts ScenarioTable::VoidValue::transformVoidValue,
+	          ScenarioTable::Value::transformValue;
+
+mapping ScenarioTable::VoidValue::transformVoidValue() : BehaviourTable::VoidValue {
+
+}
+
+mapping ScenarioTable::Value::transformValue() : BehaviourTable::Value {
+	value := self.value;
 }
