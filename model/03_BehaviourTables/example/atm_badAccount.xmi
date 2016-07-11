@@ -4,7 +4,7 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:behaviour="http://www.example.org/behaviour"
-    xsi:schemaLocation="http://www.example.org/behaviour ../behaviour.ecore">
+    xsi:schemaLocation="http://www.example.org/behaviour ../BehaviourTable.ecore">
   <block preState="//@state.0"
       postState="//@state.1">
     <inmessage>

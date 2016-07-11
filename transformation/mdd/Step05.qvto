@@ -1,23 +1,29 @@
 modeltype IOAutomaton uses IOAutomaton('se.studieren.mdd.transformer.IOAutomaton');
+modeltype IOAutomatonPackage uses IOAutomatonPackage('se.studieren.mdd.transformer.IOAutomatonPackage');
 modeltype StateMachine uses StateMachine('se.studieren.mdd.transformer.StateMachine');
+modeltype StateMachinePackage uses StateMachinePackage('se.studieren.mdd.transformer.StateMachinePackage');
 // modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 
-transformation Step05(in ioAutomaton : IOAutomaton, out stateMachine : StateMachine);
+transformation Step05(in ioAutomatonPackage : IOAutomatonPackage, out stateMachinePackage : StateMachinePackage);
 
 main() {
-	ioAutomaton.map toStateMachine();
+	ioAutomatonPackage.objectsOfType(IOAutomatonPackage::IOAutomatonPackage).map toStateMachinePackage();
 }
 
-mapping IOAutomaton::toStateMachine() : StateMachine::StateMachine {
+mapping IOAutomatonPackage::IOAutomatonPackage::toStateMachinePackage() : StateMachinePackage::StateMachinePackage {
+	statemachine += self.ioautomaton.map toStateMachine();
+}
+
+mapping IOAutomaton::IOAutomaton::toStateMachine() : StateMachine::StateMachine {
 	name := null; // self.name;
 	region += self.map toRegion();	
 }
 
-mapping IOAutomaton::toRegion() : StateMachine::Region {
+mapping IOAutomaton::IOAutomaton::toRegion() : StateMachine::Region {
 	name := "Main Region";
 
-	subvertex += self.objectsOfType(InitialState).map toInitialState();
-	subvertex += self.objectsOfType(State).map toStableState();
+	subvertex += self.objectsOfType(IOAutomaton::InitialState).map toInitialState();
+	subvertex += self.objectsOfType(IOAutomaton::State).map toStableState();
 	
 	// TODO Create Activity Diagrams 
 	// TODO Create Submachines

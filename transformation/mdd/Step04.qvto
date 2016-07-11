@@ -1,23 +1,56 @@
+modeltype BehaviourTablePackage uses BehaviourTablePackage('se.studieren.mdd.transformer.BehaviourTablePackage');
 modeltype BehaviourTable uses BehaviourTable('se.studieren.mdd.transformer.BehaviourTable');
+modeltype IOAutomatonPackage uses IOAutomatonPackage('se.studieren.mdd.transformer.IOAutomatonPackage');
 modeltype IOAutomaton uses IOAutomaton('se.studieren.mdd.transformer.IOAutomaton');
 
-transformation Step04(in bt: BehaviourTable, out ioa: IOAutomaton);
+transformation Step04(in btp:BehaviourTablePackage, out ioap:IOAutomatonPackage);
 
 
 main() {
-	bt.rootObjects()[BehaviourTable::Behaviour].map toIOAutomaton();
+	btp.objectsOfType(BehaviourTablePackage::BehaviourTablePackage).map toIOAutomatonPackage();
 }
 
-mapping BehaviourTable::Behaviour::toIOAutomaton() : IOAutomaton::IOAutomaton
+mapping BehaviourTablePackage::BehaviourTablePackage::toIOAutomatonPackage() : IOAutomatonPackage::IOAutomatonPackage
 {
-	systemobject := self.systemobject.map toSystemObject();
-	vertex += self.state.map toState();
-	transition += self.block.map toTransition();
+	var systemobjectNames = self.behaviour->collectNested(systemobject.name)->asSet(); //get unique names of systemobjects behaviour belongs to
+
+	ioautomaton += systemobjectNames.map toIOAutomaton(self.behaviour);	//create one ioatomaton for each unique name
+}
+
+helper String::createIOAutomaton(in bList : OrderedSet(BehaviourTable::Behaviour)) : IOAutomaton::IOAutomaton { 
 	
-	//var test2 = Set{};
-	var test := self.state->asSet();
-	//test2 += self.state->asSet();
+	var behaivors = bList->select(systemobject.name = self);	//get behaivors to be merged into actual ioautomaton
 	
+	var stateNames = behaivors->collectNested(state)->flatten()->collectNested(name); //get unique names of all states	
+	var states = stateNames.map toState();
+	
+	var ioa = object IOAutomaton::IOAutomaton {
+		systemobject := behaivors->at(1).systemobject.map toSystemObject();
+		vertex += states;
+		transition += behaivors->collect(block)->flatten().map toTransition(states);	
+	};
+	return ioa;
+}
+
+mapping String::toIOAutomaton(in allbehaivors : OrderedSet(BehaviourTable::Behaviour)) : IOAutomaton::IOAutomaton { 
+	
+	var behaivors = allbehaivors->select(systemobject.name = self);	
+	var stateNames = behaivors->collectNested(state)->flatten()->collectNested(name); //get names of all states	
+	var states = stateNames.map toState();	
+	
+	var initialState = object IOAutomaton::InitialState{};
+	var initialTransition = object IOAutomaton::Transition{source := initialState; target := states->at(1)};
+	
+	systemobject := behaivors->at(1).systemobject.map toSystemObject();
+	vertex += states;
+	vertex += initialState;
+	transition += behaivors->collect(block)->flatten().map toTransition(states);	
+	transition += initialTransition;
+}
+
+mapping String::toState() : IOAutomaton::State
+{
+	name := self;
 }
 
 mapping BehaviourTable::SystemObject::toSystemObject() : IOAutomaton::SystemObject
@@ -25,18 +58,13 @@ mapping BehaviourTable::SystemObject::toSystemObject() : IOAutomaton::SystemObje
 	name := self.name;
 }
 
-mapping BehaviourTable::State::toState() : IOAutomaton::State
-{
-	name := self.name;	
-}
-
-mapping BehaviourTable::Block::toTransition() : IOAutomaton::Transition
+mapping BehaviourTable::Block::toTransition(in states : Sequence(IOAutomaton::State)) : IOAutomaton::Transition
 {
 	inmessage := self.inmessage.map toInMessage();
 	outmessage += self.activation.outmessages.map toOutMessage();
 	returnvalue := self.activation.returnvalue.map toReturnValue();
-	source :=  self.preState.resolveoneIn(BehaviourTable::State::toState, IOAutomaton::State);
-	target :=  self.postState.resolveoneIn(BehaviourTable::State::toState, IOAutomaton::State);
+	source := states->any(name = self.preState.name);	//set reference to correct state
+	target :=  states->any(name = self.postState.name);	//set reference to correct state
 }
 
 mapping BehaviourTable::InMessage::toInMessage() : IOAutomaton::InMessage
