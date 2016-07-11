@@ -26,6 +26,8 @@
   <semanticResources>model/02_ScenarioTable/ScenarioTablePackage.ecore</semanticResources>
   <semanticResources>model/02_ScenarioTable/ScenarioTable.ecore</semanticResources>
   <semanticResources>model/05_StateMachine/StateMachinePackage.ecore</semanticResources>
+  <semanticResources>model/02_ScenarioTable/example/BadPassword.xmi</semanticResources>
+  <semanticResources>model/03_BehaviourTables/example/Step03.BehaviourTable.xmi</semanticResources>
   <ownedViews xmi:type="viewpoint:DView" xmi:id="_0r2-YEBfEeakZa3xAzqd_Q">
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_2qDJYEBfEeakZa3xAzqd_Q" name="BehaviourTable">
       <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_2qDJYUBfEeakZa3xAzqd_Q" source="DANNOTATION_CUSTOMIZATION_KEY">
@@ -7482,8 +7484,8 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_TAnbgEUwEea3lNXJREoD6A" name="name : EString" tooltipText="">
-          <target xmi:type="ecore:EAttribute" href="model/05_StateMachine/StateMachine.ecore#//State/name"/>
-          <semanticElements xmi:type="ecore:EAttribute" href="model/05_StateMachine/StateMachine.ecore#//State/name"/>
+          <target xmi:type="ecore:EAttribute" href="model/05_StateMachine/StateMachine.ecore#//Vertex/name"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/05_StateMachine/StateMachine.ecore#//Vertex/name"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_TAnbgUUwEea3lNXJREoD6A" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
           </ownedStyle>

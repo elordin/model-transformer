@@ -3,17 +3,83 @@ modeltype ScenarioTablePackage uses ScenarioTablePackage('se.studieren.mdd.trans
 modeltype BehaviourTable uses BehaviourTable('se.studieren.mdd.transformer.BehaviourTable');
 modeltype BehaviourTablePackage uses BehaviourTablePackage('se.studieren.mdd.transformer.BehaviourTablePackage');
 
-transformation Step03(in scenarioTablePackage: ScenarioTablePackage, out behaviorTablePackage: BehaviourTablePackage);
+//transformation Step03(in scenarioTablePackage: ScenarioTablePackage, out behaviorTablePackage: BehaviourTablePackage);
+transformation Step03(in scenarioTable: ScenarioTable, out behaviourTable: BehaviourTable);
 
 main() {
 	scenarioTable.objectsOfType(ScenarioTable::Scenario).map transformScenarioTable();
 }
 
 mapping ScenarioTable::Scenario::transformScenarioTable() : BehaviourTable::Behaviour {
-	actor += self.actor.map transformActor();
+	// at(1) because thats the atm (but thats only for testing, has to be fixed TODO)
+	var sysObjectScenario := self.actor->selectByKind(ScenarioTable::SystemObject)->at(1);
+	systemobject := sysObjectScenario.map transformSystemObject();
 	state += self.state.map transformState();
 	
-	block += null; // TODO
+	var i = 1;
+	var length = self.communication->size();
+	var currentBlock:BehaviourTable::Block = null;
+	
+	while (i <= length) {
+		var c = self.communication->at(i);
+		
+		if(c.oclIsKindOf(ScenarioTable::UserCommunication)) {
+			var userCom = c.oclAsType(ScenarioTable::UserCommunication);
+			var msg := userCom.usermessage.oclAsType(ScenarioTable::UserMessage);
+			if(msg.sender = sysObjectScenario) {
+				// new outmessage to currentBlock
+				currentBlock.activation.outmessages += userCom.map transformCommunicationToOutMessage();
+			}
+			
+		} else if(c.oclIsKindOf(ScenarioTable::SystemCommunication)) {
+			var sysCom := c.oclAsType(ScenarioTable::SystemCommunication);
+			var msg := sysCom.systemmessage.oclAsType(ScenarioTable::SystemMessage);
+			if(msg.receiver = sysObjectScenario) {
+				// inmessage -> new block
+				currentBlock := sysCom.map transformSystemCommunicationToBlock();
+				block += currentBlock;
+			} else if(msg.sender = sysObjectScenario) {
+				// new outmessage to currentBlock
+				currentBlock.activation.outmessages += sysCom.map transformCommunicationToOutMessage();
+			}
+		};
+		
+		i := i + 1;
+	};
+}
+
+mapping ScenarioTable::Communication::transformCommunicationToOutMessage() : BehaviourTable::OutMessage
+	disjuncts 
+		ScenarioTable::UserCommunication::transformUserCommunicationToOutMessage, 
+		ScenarioTable::SystemCommunication::transformSystemCommunicationToOutMessage;
+
+mapping ScenarioTable::UserCommunication::transformUserCommunicationToOutMessage() : BehaviourTable::OutMessage {
+	actorobject := self.usermessage.receiver.map transformUser();
+	operation := self.usermessage.operation.map transformOperation();
+	returnvalue := self.returned.map transformReturnValue();
+}
+
+mapping ScenarioTable::SystemCommunication::transformSystemCommunicationToOutMessage() : BehaviourTable::OutMessage {
+	actorobject := self.systemmessage.receiver.map transformActor();
+	operation := self.systemmessage.operation.map transformOperation();
+	returnvalue := self.returned.map transformReturnValue();
+}
+
+mapping ScenarioTable::SystemCommunication::transformSystemCommunicationToBlock() : BehaviourTable::Block {
+	preState := self.prestate.map transformState();
+	postState := self.poststate.map transformState();
+	inmessage := self.systemmessage.map transformSystemMessageToInMessage();
+	activation := object Activation {
+		returnvalue := self.returned.map transformReturnValue();
+	}
+}
+
+mapping ScenarioTable::SystemMessage::transformSystemMessageToInMessage() : BehaviourTable::InMessage {
+	operation := self.operation.map transformOperation();
+}
+
+mapping ScenarioTable::Operation::transformOperation() : BehaviourTable::Operation {
+	name := self.name;
 }
 
 mapping ScenarioTable::ActorObject::transformActor() : BehaviourTable::ActorObject
