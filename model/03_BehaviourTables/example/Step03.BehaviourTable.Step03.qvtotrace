@@ -1,0 +1,883 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trace:Trace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:trace="http:///www.eclipse.org/m2m/qvt/operational/trace.ecore">
+  <traceRecords>
+    <mappingOperation name="transformScenarioTable" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformScenarioTable"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Scenario">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#/"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Behaviour">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#/"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformSystemObject" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformSystemObject"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="SystemObject">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@actor.1"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="SystemObject">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@systemobject"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformState" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformState"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="State">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@state.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="State">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@state.0"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformState" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformState"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="State">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@state.1"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="State">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@state.1"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformState" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformState"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="State">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@state.2"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="State">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@state.2"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformState" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformState"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="State">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@state.3"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="State">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@state.3"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformSystemCommunicationToBlock" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformSystemCommunicationToBlock"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="SystemCommunication">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Block">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.0"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformSystemMessageToInMessage" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformSystemMessageToInMessage"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="SystemMessage">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.0/@systemmessage"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="InMessage">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.0/@inmessage"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformOperation" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Operation">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.0/@systemmessage/@operation"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.0/@inmessage/@operation"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformVoidValue" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformVoidValue"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="VoidValue">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.0/@returned"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="VoidValue">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.0/@activation/@returnvalue"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformReturnValue" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformReturnValue"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="ReturnValue">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.0/@returned"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="ReturnValue">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.0/@activation/@returnvalue"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformSystemCommunicationToOutMessage" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformSystemCommunicationToOutMessage"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="SystemCommunication">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.1"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="OutMessage">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.0/@activation/@outmessages.0"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformSystemObject" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformSystemObject"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="SystemObject">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@actor.2"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="SystemObject">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.0/@activation/@outmessages.0/@actorobject"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformActor" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformActor"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="ActorObject">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@actor.2"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="ActorObject">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.0/@activation/@outmessages.0/@actorobject"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformOperation" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Operation">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.1/@systemmessage/@operation"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.0/@activation/@outmessages.0/@operation"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformValue" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformValue"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Value">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.1/@returned"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Value">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.0/@activation/@outmessages.0/@returnvalue"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformReturnValue" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformReturnValue"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="ReturnValue">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.1/@returned"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="ReturnValue">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.0/@activation/@outmessages.0/@returnvalue"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformCommunicationToOutMessage" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformCommunicationToOutMessage"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Communication">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.1"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="OutMessage">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.0/@activation/@outmessages.0"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformUserCommunicationToOutMessage" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformUserCommunicationToOutMessage"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="UserCommunication">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.3"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="OutMessage">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.0/@activation/@outmessages.1"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformUser" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformUser"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="User">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@actor.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="User">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.1/@activation/@outmessages.2/@actorobject"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformOperation" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Operation">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.3/@usermessage/@operation"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.0/@activation/@outmessages.1/@operation"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformVoidValue" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformVoidValue"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="VoidValue">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.3/@returned"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="VoidValue">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.0/@activation/@outmessages.1/@returnvalue"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformReturnValue" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformReturnValue"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="ReturnValue">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.3/@returned"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="ReturnValue">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.0/@activation/@outmessages.1/@returnvalue"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformCommunicationToOutMessage" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformCommunicationToOutMessage"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Communication">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.3"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="OutMessage">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.0/@activation/@outmessages.1"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformSystemCommunicationToBlock" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformSystemCommunicationToBlock"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="SystemCommunication">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.4"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Block">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.1"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformSystemMessageToInMessage" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformSystemMessageToInMessage"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="SystemMessage">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.4/@systemmessage"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="InMessage">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.1/@inmessage"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformOperation" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Operation">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.4/@systemmessage/@operation"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.1/@inmessage/@operation"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformVoidValue" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformVoidValue"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="VoidValue">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.4/@returned"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="VoidValue">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.1/@activation/@returnvalue"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformReturnValue" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformReturnValue"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="ReturnValue">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.4/@returned"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="ReturnValue">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.1/@activation/@returnvalue"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformUserCommunicationToOutMessage" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformUserCommunicationToOutMessage"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="UserCommunication">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.5"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="OutMessage">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.1/@activation/@outmessages.0"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformOperation" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Operation">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.5/@usermessage/@operation"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.1/@activation/@outmessages.0/@operation"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformVoidValue" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformVoidValue"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="VoidValue">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.5/@returned"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="VoidValue">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.1/@activation/@outmessages.0/@returnvalue"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformReturnValue" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformReturnValue"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="ReturnValue">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.5/@returned"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="ReturnValue">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.1/@activation/@outmessages.0/@returnvalue"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformCommunicationToOutMessage" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformCommunicationToOutMessage"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Communication">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.5"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="OutMessage">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.1/@activation/@outmessages.0"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformUserCommunicationToOutMessage" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformUserCommunicationToOutMessage"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="UserCommunication">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.6"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="OutMessage">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.1/@activation/@outmessages.1"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformOperation" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Operation">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.6/@usermessage/@operation"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.1/@activation/@outmessages.1/@operation"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformVoidValue" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformVoidValue"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="VoidValue">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.6/@returned"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="VoidValue">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.1/@activation/@outmessages.1/@returnvalue"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformReturnValue" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformReturnValue"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="ReturnValue">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.6/@returned"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="ReturnValue">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.1/@activation/@outmessages.1/@returnvalue"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformCommunicationToOutMessage" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformCommunicationToOutMessage"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Communication">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.6"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="OutMessage">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.1/@activation/@outmessages.1"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformUserCommunicationToOutMessage" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformUserCommunicationToOutMessage"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="UserCommunication">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.7"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="OutMessage">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.1/@activation/@outmessages.2"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformOperation" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Operation">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.7/@usermessage/@operation"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.1/@activation/@outmessages.2/@operation"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformVoidValue" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformVoidValue"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="VoidValue">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.7/@returned"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="VoidValue">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.1/@activation/@outmessages.2/@returnvalue"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformReturnValue" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformReturnValue"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="ReturnValue">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.7/@returned"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="ReturnValue">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.1/@activation/@outmessages.2/@returnvalue"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformCommunicationToOutMessage" package="Step03" module="Step03">
+      <runtimeMappingOperation href="qvto:/module.env#//transformCommunicationToOutMessage"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Communication">
+        <value>
+          <modelElement href="../../02_ScenarioTable/example/BadPassword.xmi#//@communication.7"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="OutMessage">
+        <value>
+          <modelElement href="Step03.BehaviourTable.xmi#//@block.1/@activation/@outmessages.2"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+</trace:Trace>
