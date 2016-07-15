@@ -1,46 +1,148 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mdd:Behaviour xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdd="se.studieren.mdd.transformer.BehaviourTable" xsi:schemaLocation="se.studieren.mdd.transformer.BehaviourTable ../BehaviourTable.ecore">
-  <block preState="//@state.0" postState="//@state.0">
-    <inmessage>
-      <operation name="enterPassword"/>
-    </inmessage>
-    <activation>
-      <outmessages>
-        <actorobject xsi:type="mdd:SystemObject" name="consortium"/>
+<mdd:BehaviourTablePackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdd="se.studieren.mdd.transformer.BehaviourTablePackage" xmlns:mdd_1="se.studieren.mdd.transformer.BehaviourTable" xsi:schemaLocation="se.studieren.mdd.transformer.BehaviourTablePackage ../BehaviourTablePackage.ecore se.studieren.mdd.transformer.BehaviourTable ../BehaviourTable.ecore">
+  <behaviour>
+    <block preState="//@behaviour.2/@state.0" postState="//@behaviour.2/@state.1">
+      <inmessage>
+        <operation name="insertCard"/>
+      </inmessage>
+      <activation>
+        <outmessages>
+          <operation name="requestPassword"/>
+          <returnvalue xsi:type="mdd_1:VoidValue"/>
+        </outmessages>
+        <returnvalue xsi:type="mdd_1:VoidValue"/>
+      </activation>
+    </block>
+    <block preState="//@behaviour.2/@state.1" postState="//@behaviour.2/@state.2">
+      <inmessage>
+        <operation name="enterPassword"/>
+      </inmessage>
+      <activation>
+        <outmessages/>
+        <outmessages>
+          <operation name="badAccountMessage"/>
+          <returnvalue xsi:type="mdd_1:VoidValue"/>
+        </outmessages>
+        <outmessages>
+          <operation name="printReceipt"/>
+          <returnvalue xsi:type="mdd_1:VoidValue"/>
+        </outmessages>
+        <outmessages>
+          <operation name="ejectCard"/>
+          <returnvalue xsi:type="mdd_1:VoidValue"/>
+        </outmessages>
+        <outmessages>
+          <operation name="requestTakeCard"/>
+          <returnvalue xsi:type="mdd_1:VoidValue"/>
+        </outmessages>
+        <returnvalue xsi:type="mdd_1:VoidValue"/>
+      </activation>
+    </block>
+    <block preState="//@behaviour.2/@state.2" postState="//@behaviour.2/@state.0">
+      <inmessage>
+        <operation name="takeCard"/>
+      </inmessage>
+      <activation>
+        <outmessages>
+          <actorobject xsi:type="mdd_1:User"/>
+          <operation name="displayMainScreen"/>
+          <returnvalue xsi:type="mdd_1:VoidValue"/>
+        </outmessages>
+        <returnvalue xsi:type="mdd_1:VoidValue"/>
+      </activation>
+    </block>
+    <systemobject name="atm"/>
+  </behaviour>
+  <behaviour>
+    <block preState="//@behaviour.2/@state.3" postState="//@behaviour.2/@state.3">
+      <inmessage>
         <operation name="verifyAccount"/>
-        <returnvalue xsi:type="mdd:Value" value="badPassword"/>
-      </outmessages>
-      <outmessages>
-        <operation name="requestPassword"/>
-        <returnvalue xsi:type="mdd:VoidValue"/>
-      </outmessages>
-      <returnvalue xsi:type="mdd:VoidValue"/>
-    </activation>
-  </block>
-  <block preState="//@state.0" postState="//@state.3">
-    <inmessage>
-      <operation name="cancel"/>
-    </inmessage>
-    <activation>
-      <outmessages>
-        <operation name="canceledMessage"/>
-        <returnvalue xsi:type="mdd:VoidValue"/>
-      </outmessages>
-      <outmessages>
-        <operation name="ejectCard"/>
-        <returnvalue xsi:type="mdd:VoidValue"/>
-      </outmessages>
-      <outmessages>
-        <actorobject xsi:type="mdd:User"/>
-        <operation name="requestTakeCard"/>
-        <returnvalue xsi:type="mdd:VoidValue"/>
-      </outmessages>
-      <returnvalue xsi:type="mdd:VoidValue"/>
-    </activation>
-  </block>
-  <systemobject name="atm"/>
-  <state name="WaitPassword"/>
-  <state name="WaitVerify"/>
-  <state name="WaitBankVerify"/>
-  <state name="WaitTakeCard"/>
-</mdd:Behaviour>
+      </inmessage>
+      <activation>
+        <outmessages/>
+        <returnvalue xsi:type="mdd_1:Value" value="badAccount"/>
+      </activation>
+    </block>
+    <systemobject name="consortium"/>
+  </behaviour>
+  <behaviour>
+    <block preState="//@behaviour.2/@state.4" postState="//@behaviour.2/@state.4">
+      <inmessage>
+        <operation name="verifyCardWithBank"/>
+      </inmessage>
+      <activation>
+        <returnvalue xsi:type="mdd_1:Value" value="badBankAccount"/>
+      </activation>
+    </block>
+    <systemobject name="bank"/>
+    <state name="WaitCard"/>
+    <state name="WaitPassword"/>
+    <state name="WaitTakeCard"/>
+    <state name="WaitVerify"/>
+    <state name="WaitBankVerify"/>
+  </behaviour>
+  <behaviour>
+    <block preState="//@behaviour.5/@state.0" postState="//@behaviour.5/@state.0">
+      <inmessage>
+        <operation name="enterPassword"/>
+      </inmessage>
+      <activation>
+        <outmessages/>
+        <outmessages>
+          <operation name="requestPassword"/>
+          <returnvalue xsi:type="mdd_1:VoidValue"/>
+        </outmessages>
+        <returnvalue xsi:type="mdd_1:VoidValue"/>
+      </activation>
+    </block>
+    <block preState="//@behaviour.5/@state.0" postState="//@behaviour.5/@state.3">
+      <inmessage>
+        <operation name="cancel"/>
+      </inmessage>
+      <activation>
+        <outmessages>
+          <operation name="canceledMessage"/>
+          <returnvalue xsi:type="mdd_1:VoidValue"/>
+        </outmessages>
+        <outmessages>
+          <operation name="ejectCard"/>
+          <returnvalue xsi:type="mdd_1:VoidValue"/>
+        </outmessages>
+        <outmessages>
+          <actorobject xsi:type="mdd_1:User"/>
+          <operation name="requestTakeCard"/>
+          <returnvalue xsi:type="mdd_1:VoidValue"/>
+        </outmessages>
+        <returnvalue xsi:type="mdd_1:VoidValue"/>
+      </activation>
+    </block>
+    <systemobject name="atm"/>
+  </behaviour>
+  <behaviour>
+    <block preState="//@behaviour.5/@state.1" postState="//@behaviour.5/@state.1">
+      <inmessage>
+        <operation name="verifyAccount"/>
+      </inmessage>
+      <activation>
+        <outmessages/>
+        <returnvalue xsi:type="mdd_1:Value" value="badPassword"/>
+      </activation>
+    </block>
+    <systemobject name="consortium"/>
+  </behaviour>
+  <behaviour>
+    <block preState="//@behaviour.5/@state.2" postState="//@behaviour.5/@state.2">
+      <inmessage>
+        <operation name="verifyCardWithBank"/>
+      </inmessage>
+      <activation>
+        <returnvalue xsi:type="mdd_1:Value" value="badBankPassword"/>
+      </activation>
+    </block>
+    <systemobject name="bank"/>
+    <state name="WaitPassword"/>
+    <state name="WaitVerify"/>
+    <state name="WaitBankVerify"/>
+    <state name="WaitTakeCard"/>
+  </behaviour>
+</mdd:BehaviourTablePackage>

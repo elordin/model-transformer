@@ -28,7 +28,7 @@
   <semanticResources>model/05_StateMachine/StateMachinePackage.ecore</semanticResources>
   <semanticResources>model/02_ScenarioTable/example/BadPassword.xmi</semanticResources>
   <semanticResources>model/03_BehaviourTables/example/Step03.BehaviourTable.xmi</semanticResources>
-  <semanticResources>model/03_BehaviourTables/example/Step03.BehaviourTable.Step03.qvtotrace</semanticResources>
+  <semanticResources>model/02_ScenarioTable/example/Scenarios.xmi</semanticResources>
   <ownedViews xmi:type="viewpoint:DView" xmi:id="_0r2-YEBfEeakZa3xAzqd_Q">
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_2qDJYEBfEeakZa3xAzqd_Q" name="BehaviourTable">
       <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_2qDJYUBfEeakZa3xAzqd_Q" source="DANNOTATION_CUSTOMIZATION_KEY">

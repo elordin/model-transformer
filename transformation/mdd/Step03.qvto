@@ -3,19 +3,38 @@ modeltype ScenarioTablePackage uses ScenarioTablePackage('se.studieren.mdd.trans
 modeltype BehaviourTable uses BehaviourTable('se.studieren.mdd.transformer.BehaviourTable');
 modeltype BehaviourTablePackage uses BehaviourTablePackage('se.studieren.mdd.transformer.BehaviourTablePackage');
 
-//transformation Step03(in scenarioTablePackage: ScenarioTablePackage, out behaviorTablePackage: BehaviourTablePackage);
-transformation Step03(in scenarioTable: ScenarioTable, out behaviourTable: BehaviourTable);
+transformation Step03(in scenarioTablePackage: ScenarioTablePackage, out behaviourTablePackage: BehaviourTablePackage);
 
 main() {
-	scenarioTable.objectsOfType(ScenarioTable::Scenario).map transformScenarioTable();
+	scenarioTablePackage.objectsOfType(ScenarioTablePackage::ScenarioTablePackage).map transformScenarioTablePackage();
 }
 
-mapping ScenarioTable::Scenario::transformScenarioTable() : BehaviourTable::Behaviour {
-	// at(1) because thats the atm (but thats only for testing, has to be fixed TODO)
-	var sysObjectScenario := self.actor->selectByKind(ScenarioTable::SystemObject)->at(1);
-	systemobject := sysObjectScenario.map transformSystemObject();
-	state += self.state.map transformState();
+mapping ScenarioTablePackage::ScenarioTablePackage::transformScenarioTablePackage() : BehaviourTablePackage::BehaviourTablePackage {
+	var i = 1;
+	var iLength = self.scenario->size();
 	
+	while (i <= iLength) {
+		var scenario = self.scenario->at(i);
+		var sysObjects = scenario.actor->selectByKind(ScenarioTable::SystemObject);
+		var o = 1;
+		var oLength = sysObjects->size();
+		
+		while (o <= oLength) {
+			behaviour += scenario.transformScenarioTable(sysObjects->at(o));
+			
+			o := o + 1;
+		};
+	
+		i := i + 1;
+	}
+}
+
+helper ScenarioTable::Scenario::transformScenarioTable(in sysObjectScenario : ScenarioTable::SystemObject) : BehaviourTable::Behaviour {
+	var behaviour = object Behaviour {
+		systemobject := sysObjectScenario.map transformSystemObject();
+		state += self.state.map transformState();
+	};
+
 	var i = 1;
 	var length = self.communication->size();
 	var currentBlock:BehaviourTable::Block = null;
@@ -28,7 +47,6 @@ mapping ScenarioTable::Scenario::transformScenarioTable() : BehaviourTable::Beha
 			var msg := userCom.usermessage.oclAsType(ScenarioTable::UserMessage);
 			if(msg.sender = sysObjectScenario) {
 				// new outmessage to currentBlock
-				log(currentBlock.toString());
 				currentBlock.activation.outmessages += userCom.map transformCommunicationToOutMessage();
 			}
 			
@@ -38,16 +56,17 @@ mapping ScenarioTable::Scenario::transformScenarioTable() : BehaviourTable::Beha
 			if(msg.receiver = sysObjectScenario) {
 				// inmessage -> new block
 				currentBlock := sysCom.map transformSystemCommunicationToBlock();
-				block += currentBlock;
+				behaviour.block += currentBlock;
 			} else if(msg.sender = sysObjectScenario) {
 				// new outmessage to currentBlock
-				log(currentBlock.toString());
 				currentBlock.activation.outmessages += sysCom.map transformCommunicationToOutMessage();
 			}
 		};
 		
 		i := i + 1;
 	};
+	
+	return behaviour;
 }
 
 mapping ScenarioTable::Communication::transformCommunicationToOutMessage() : BehaviourTable::OutMessage
