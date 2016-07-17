@@ -20,7 +20,8 @@ mapping IOAutomaton::IOAutomaton::toStateMachine() : StateMachine::StateMachine 
 	var functionNames := self.getFunctionNames();
 	
 	
-	region += functionNames.map generateSubmachines(self);
+	region += functionNames.generateSubmachines(self);
+	
 	region += self.map toRegion(region);
 	
 }
@@ -36,31 +37,81 @@ mapping IOAutomaton::IOAutomaton::toRegion(in regions : Set(StateMachine::Region
 	// TODO Create Transitions
 }
 
-mapping String::generateSubmachines(in iOAutomaton : IOAutomaton::IOAutomaton ) : StateMachine::Region{
-	name:=self;
+helper String::generateSubmachines(in iOAutomaton : IOAutomaton::IOAutomaton ) : StateMachine::Region{
+	
+	var reg := self.map stringToReg();
 	
 	/// Initial State
-	subvertex += self.map constructInitState();	
+	reg.subvertex += self.map constructInitState();	
 	
 	///Transitions used in this submachine
-	var relatedTransitions = iOAutomaton.transition->select(inmessage != null)->select(inmessage.operation.name=self)->asSet();
+	var relatedTransitions = iOAutomaton.transition->select(inmessage != null)->select(inmessage.operation.name=self)->asSequence();
+	log("test", self);
+	foo(relatedTransitions,1,reg);
 	
+	return reg;
+}
+
+mapping String::stringToReg() : StateMachine::Region{
+	name := self;
+}
+
+helper foo(in corrTransitions : Sequence(IOAutomaton::Transition), in count : Integer, inout reg : StateMachine::Region) : StateMachine::State{
+	var oMessages := corrTransitions->first().outmessage->asSequence();
+	var statename := "do / \n";
+	var i := count;
 	
-	//R(z,in)
-	var outMessages = relatedTransitions.outmessage->asSet();
-	var outMessageSignatures = outMessages->select(returnvalue.oclIsKindOf(Value)).getOutMessageSignature()->asSet();
-	subvertex += outMessageSignatures.map toActionState();
+	while(oMessages->at(i).returnvalue.oclIsKindOf(VoidValue) and i <= oMessages->size()){
+		statename := statename + oMessages->at(i).getOutMessageSignature();
+		i := i + 1;
+	};
 	
-	var results = outMessages->select(returnvalue.oclIsKindOf(Value))->asSet().returnvalue.oclAsType(Value).name->asSet();
-	log("n", name);
-	log("t", relatedTransitions)
+	if( oMessages->at(i).returnvalue.oclIsKindOf(Value) and i <= oMessages->size() ){
+		statename := statename + oMessages->at(i).getOutMessageSignature();
+	};
+	
+	var state := statename.map toActionState();	
+	if(i != count){	//If no return value add state
+		reg.subvertex += state;
+		//TODO transition		
+	};
+	
+	if( oMessages->at(i).returnvalue.oclIsKindOf(Value) and i <= oMessages->size() ){
+		reg.subvertex += state;
+		var results = corrTransitions.getResultsAt(i)->asSet();
+		results->forEach(res){
+			var resultingTransactions :=  corrTransitions->select(outmessage->at(i).returnvalue.oclAsType(Value).name = res);
+			log ("123",resultingTransactions.outmessage->at(i).returnvalue.oclAsType(Value).name);
+			var next := foo(resultingTransactions,i+1,reg);
+			
+		};
+		//TODO transition
+	};
+	
+	//should never occur, as this is loop condition, but to do a complete case for Kind
+	if(oMessages->at(i).returnvalue.oclIsKindOf(VoidValue) and i <= oMessages->size()){
+		log("ERROR","should never be called");
+	};
 	
 
-	//var inMessage = relatedTransitions.inmessage;
+	
+	
+	
+	return state;
+}
+
+
+helper IOAutomaton::Transition::getResultsAt(in i:Integer) : String {
+	return self.outmessage->at(i).returnvalue.oclAsType(Value).name;
 }
 
 helper IOAutomaton::OutMessage::getOutMessageSignature() : String {
-	return "do/ check := "+getRecieverName(self.actorobject)+"."+self.operation.name;
+//TODO check only if return value
+	var ret := "";
+	if(self.returnvalue.oclIsKindOf(Value)){
+		ret := "check := ";
+	};
+	return ret+getRecieverName(self.actorobject)+"."+self.operation.name+"\n";
 }
 mapping String::toActionState() :  StateMachine::State{
 	name := self;
