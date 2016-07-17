@@ -15,26 +15,87 @@ mapping IOAutomatonPackage::IOAutomatonPackage::toStateMachinePackage() : StateM
 }
 
 mapping IOAutomaton::IOAutomaton::toStateMachine() : StateMachine::StateMachine {
-	name := null; // self.name;
-	region += self.map toRegion();	
+	name := self.name; 
+	
+	var functionNames := self.getFunctionNames();
+	
+	
+	region += functionNames.map generateSubmachines(self);
+	region += self.map toRegion(region);
+	
 }
-
-mapping IOAutomaton::IOAutomaton::toRegion() : StateMachine::Region {
+mapping IOAutomaton::IOAutomaton::toRegion(in regions : Set(StateMachine::Region)) : StateMachine::Region {
 	name := "Main Region";
 
-	subvertex += self.objectsOfType(IOAutomaton::InitialState).map toInitialState();
-	subvertex += self.objectsOfType(IOAutomaton::State).map toStableState();
+	subvertex += self.vertex.map toState();
 	
+	
+	//subvertex += activityStates->collect(name);
 	// TODO Create Activity Diagrams 
 	// TODO Create Submachines
 	// TODO Create Transitions
 }
 
+mapping String::generateSubmachines(in iOAutomaton : IOAutomaton::IOAutomaton ) : StateMachine::Region{
+	name:=self;
+	
+	/// Initial State
+	subvertex += self.map constructInitState();	
+	
+	///Transitions used in this submachine
+	var relatedTransitions = iOAutomaton.transition->select(inmessage != null)->select(inmessage.operation.name=self)->asSet();
+	
+	
+	//R(z,in)
+	var outMessages = relatedTransitions.outmessage->asSet();
+	var outMessageSignatures = outMessages->select(returnvalue.oclIsKindOf(Value)).getOutMessageSignature()->asSet();
+	subvertex += outMessageSignatures.map toActionState();
+	
+	var results = outMessages->select(returnvalue.oclIsKindOf(Value))->asSet().returnvalue.oclAsType(Value).name->asSet();
+	log("n", name);
+	log("t", relatedTransitions)
+	
+
+	//var inMessage = relatedTransitions.inmessage;
+}
+
+helper IOAutomaton::OutMessage::getOutMessageSignature() : String {
+	return "do/ check := "+getRecieverName(self.actorobject)+"."+self.operation.name;
+}
+mapping String::toActionState() :  StateMachine::State{
+	name := self;
+}
+
+helper getRecieverName(in act : IOAutomaton::ActorObject) : String {
+	if(act.oclIsKindOf(User))
+		return "User";
+	return act.oclAsType(SystemObject).name;
+}
+
+helper IOAutomaton::IOAutomaton::getFunctionNames() : Set(String) {
+	return self.transition->select(inmessage != null)->collectNested(inmessage.operation.name)->asSet();
+}
+
+mapping String::constructInitState() : StateMachine::PseudoState {
+	name := self;
+	pseudoStateKind := PseudoStateKind::initial;
+}
+
+mapping IOAutomaton::Vertex::toState() : StateMachine::Vertex 	
+	disjuncts IOAutomaton::InitialState::toInitialState,
+	          IOAutomaton::State::toStableState;
+	          
+	          
 mapping IOAutomaton::InitialState::toInitialState() : StateMachine::PseudoState {
 	name := "entry";
 	pseudoStateKind := PseudoStateKind::initial;
 }
 
+
+
 mapping IOAutomaton::State::toStableState() : StateMachine::State {
 	name := self.name;
+}
+mapping IOAutomaton::InMessage::toAcivityState() : StateMachine::State{
+	name := self.operation.name;
 }

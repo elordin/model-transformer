@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdd:StateMachinePackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdd="se.studieren.mdd.transformer.StateMachinePackage" xmlns:mdd_1="se.studieren.mdd.transformer.StateMachine" xsi:schemaLocation="se.studieren.mdd.transformer.StateMachinePackage ../StateMachinePackage.ecore se.studieren.mdd.transformer.StateMachine ../StateMachine.ecore">
+  <statemachine name="consortium">
+    <region name="verifyAccount">
+      <subvertex xsi:type="mdd_1:PseudoState" name="verifyAccount"/>
+      <subvertex xsi:type="mdd_1:State" name="do/ check := bank.verifyCardWithBank"/>
+    </region>
+    <region name="Main Region">
+      <subvertex xsi:type="mdd_1:State" name="WaitVerify"/>
+      <subvertex xsi:type="mdd_1:PseudoState" name="entry"/>
+    </region>
+  </statemachine>
+  <statemachine name="atm">
+    <region name="takeCard">
+      <subvertex xsi:type="mdd_1:PseudoState" name="takeCard"/>
+    </region>
+    <region name="cancel">
+      <subvertex xsi:type="mdd_1:PseudoState" name="cancel"/>
+    </region>
+    <region name="enterPassword">
+      <subvertex xsi:type="mdd_1:PseudoState" name="enterPassword"/>
+      <subvertex xsi:type="mdd_1:State" name="do/ check := consortium.verifyAccount"/>
+    </region>
+    <region name="insertCard">
+      <subvertex xsi:type="mdd_1:PseudoState" name="insertCard"/>
+    </region>
+    <region name="Main Region">
+      <subvertex xsi:type="mdd_1:State" name="WaitCard"/>
+      <subvertex xsi:type="mdd_1:State" name="WaitPassword"/>
+      <subvertex xsi:type="mdd_1:State" name="WaitTakeCard"/>
+      <subvertex xsi:type="mdd_1:PseudoState" name="entry"/>
+    </region>
+  </statemachine>
+</mdd:StateMachinePackage>

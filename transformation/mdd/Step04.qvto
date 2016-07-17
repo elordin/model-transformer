@@ -29,6 +29,7 @@ helper String::createIOAutomaton(in bList : OrderedSet(BehaviourTable::Behaviour
 		vertex += states;
 		transition += behaivors->collect(block)->flatten().map toTransition(states);	
 	};
+	
 	return ioa;
 }
 
@@ -38,6 +39,7 @@ mapping String::toIOAutomaton(in allbehaivors : OrderedSet(BehaviourTable::Behav
 	var stateNames = behaivors->collectNested(state)->flatten()->collectNested(name); //get names of all states	
 	var states = stateNames.map toState();	
 	
+	
 	var initialState = object IOAutomaton::InitialState{};
 	var initialTransition = object IOAutomaton::Transition{source := initialState; target := states->at(1)};
 	
@@ -46,6 +48,7 @@ mapping String::toIOAutomaton(in allbehaivors : OrderedSet(BehaviourTable::Behav
 	vertex += initialState;
 	transition += behaivors->collect(block)->flatten().map toTransition(states);	
 	transition += initialTransition;
+	name := self; 
 }
 
 mapping String::toState() : IOAutomaton::State
