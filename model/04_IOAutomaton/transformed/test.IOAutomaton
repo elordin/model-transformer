@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mdd:IOAutomatonPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdd="se.studieren.mdd.transformer.IOAutomatonPackage" xmlns:mdd_1="se.studieren.mdd.transformer.IOAutomaton" xsi:schemaLocation="se.studieren.mdd.transformer.IOAutomatonPackage ../IOAutomatonPackage.ecore se.studieren.mdd.transformer.IOAutomaton ../IOAutomaton.ecore">
-  <ioautomaton>
+  <ioautomaton name="consortium">
     <vertex xsi:type="mdd_1:State" name="WaitVerify"/>
     <vertex xsi:type="mdd_1:InitialState"/>
     <transition target="//@ioautomaton.0/@vertex.0" source="//@ioautomaton.0/@vertex.0">
@@ -21,14 +21,14 @@
       <outmessage>
         <operation name="verifyCardWithBank"/>
         <actorobject xsi:type="mdd_1:SystemObject" name="bank"/>
-        <returnvalue xsi:type="mdd_1:Value" name="badBankAccount"/>
+        <returnvalue xsi:type="mdd_1:Value" name="badBankPassword"/>
       </outmessage>
       <returnvalue xsi:type="mdd_1:Value" name="badPassword"/>
     </transition>
     <transition target="//@ioautomaton.0/@vertex.0" source="//@ioautomaton.0/@vertex.1"/>
     <systemobject name="consortium"/>
   </ioautomaton>
-  <ioautomaton>
+  <ioautomaton name="atm">
     <vertex xsi:type="mdd_1:State" name="WaitCard"/>
     <vertex xsi:type="mdd_1:State" name="WaitPassword"/>
     <vertex xsi:type="mdd_1:State" name="WaitTakeCard"/>
