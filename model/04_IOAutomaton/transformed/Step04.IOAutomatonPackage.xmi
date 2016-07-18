@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdd:IOAutomatonPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdd="se.studieren.mdd.transformer.IOAutomatonPackage" xmlns:mdd_1="se.studieren.mdd.transformer.IOAutomaton" xsi:schemaLocation="se.studieren.mdd.transformer.IOAutomatonPackage ../IOAutomatonPackage.ecore se.studieren.mdd.transformer.IOAutomaton ../IOAutomaton.ecore">
+  <ioautomaton name="atm">
+    <vertex xsi:type="mdd_1:State" name="WaitCard"/>
+    <vertex xsi:type="mdd_1:State" name="WaitPassword"/>
+    <vertex xsi:type="mdd_1:State" name="WaitTakeCard"/>
+    <vertex xsi:type="mdd_1:InitialState"/>
+    <transition target="//@ioautomaton.0/@vertex.1" source="//@ioautomaton.0/@vertex.0">
+      <inmessage>
+        <operation name="insertCard"/>
+      </inmessage>
+      <outmessage>
+        <operation name="requestPassword"/>
+        <actorobject xsi:type="mdd_1:User"/>
+        <returnvalue xsi:type="mdd_1:VoidValue"/>
+      </outmessage>
+      <returnvalue xsi:type="mdd_1:VoidValue"/>
+    </transition>
+    <transition target="//@ioautomaton.0/@vertex.2" source="//@ioautomaton.0/@vertex.1">
+      <inmessage>
+        <operation name="enterPassword"/>
+      </inmessage>
+      <outmessage>
+        <operation name="verifyAccount"/>
+        <actorobject xsi:type="mdd_1:SystemObject" name="consortium"/>
+        <returnvalue xsi:type="mdd_1:Value" name="badAccount"/>
+      </outmessage>
+      <outmessage>
+        <operation name="badAccountMessage"/>
+        <actorobject xsi:type="mdd_1:User"/>
+        <returnvalue xsi:type="mdd_1:VoidValue"/>
+      </outmessage>
+      <outmessage>
+        <operation name="printReceipt"/>
+        <actorobject xsi:type="mdd_1:User"/>
+        <returnvalue xsi:type="mdd_1:VoidValue"/>
+      </outmessage>
+      <outmessage>
+        <operation name="ejectCard"/>
+        <actorobject xsi:type="mdd_1:User"/>
+        <returnvalue xsi:type="mdd_1:VoidValue"/>
+      </outmessage>
+      <outmessage>
+        <operation name="requestTakeCard"/>
+        <actorobject xsi:type="mdd_1:User"/>
+        <returnvalue xsi:type="mdd_1:VoidValue"/>
+      </outmessage>
+      <returnvalue xsi:type="mdd_1:VoidValue"/>
+    </transition>
+    <transition target="//@ioautomaton.0/@vertex.0" source="//@ioautomaton.0/@vertex.2">
+      <inmessage>
+        <operation name="takeCard"/>
+      </inmessage>
+      <outmessage>
+        <operation name="displayMainScreen"/>
+        <actorobject xsi:type="mdd_1:User"/>
+        <returnvalue xsi:type="mdd_1:VoidValue"/>
+      </outmessage>
+      <returnvalue xsi:type="mdd_1:VoidValue"/>
+    </transition>
+    <transition target="//@ioautomaton.0/@vertex.1" source="//@ioautomaton.0/@vertex.1">
+      <inmessage>
+        <operation name="enterPassword"/>
+      </inmessage>
+      <outmessage>
+        <operation name="verifyAccount"/>
+        <actorobject xsi:type="mdd_1:SystemObject" name="consortium"/>
+        <returnvalue xsi:type="mdd_1:Value" name="badPassword"/>
+      </outmessage>
+      <outmessage>
+        <operation name="requestPassword"/>
+        <actorobject xsi:type="mdd_1:User"/>
+        <returnvalue xsi:type="mdd_1:VoidValue"/>
+      </outmessage>
+      <returnvalue xsi:type="mdd_1:VoidValue"/>
+    </transition>
+    <transition target="//@ioautomaton.0/@vertex.2" source="//@ioautomaton.0/@vertex.1">
+      <inmessage>
+        <operation name="cancel"/>
+      </inmessage>
+      <outmessage>
+        <operation name="canceledMessage"/>
+        <actorobject xsi:type="mdd_1:User"/>
+        <returnvalue xsi:type="mdd_1:VoidValue"/>
+      </outmessage>
+      <outmessage>
+        <operation name="ejectCard"/>
+        <actorobject xsi:type="mdd_1:User"/>
+        <returnvalue xsi:type="mdd_1:VoidValue"/>
+      </outmessage>
+      <outmessage>
+        <operation name="requestTakeCard"/>
+        <actorobject xsi:type="mdd_1:User"/>
+        <returnvalue xsi:type="mdd_1:VoidValue"/>
+      </outmessage>
+      <returnvalue xsi:type="mdd_1:VoidValue"/>
+    </transition>
+    <transition target="//@ioautomaton.0/@vertex.0" source="//@ioautomaton.0/@vertex.3"/>
+    <systemobject name="atm"/>
+  </ioautomaton>
+  <ioautomaton name="consortium">
+    <vertex xsi:type="mdd_1:State" name="WaitVerify"/>
+    <vertex xsi:type="mdd_1:InitialState"/>
+    <transition target="//@ioautomaton.1/@vertex.0" source="//@ioautomaton.1/@vertex.0">
+      <inmessage>
+        <operation name="verifyAccount"/>
+      </inmessage>
+      <outmessage>
+        <operation name="verifyCardWithBank"/>
+        <actorobject xsi:type="mdd_1:SystemObject" name="bank"/>
+        <returnvalue xsi:type="mdd_1:Value" name="badBankAccount"/>
+      </outmessage>
+      <returnvalue xsi:type="mdd_1:Value" name="badAccount"/>
+    </transition>
+    <transition target="//@ioautomaton.1/@vertex.0" source="//@ioautomaton.1/@vertex.0">
+      <inmessage>
+        <operation name="verifyAccount"/>
+      </inmessage>
+      <outmessage>
+        <operation name="verifyCardWithBank"/>
+        <actorobject xsi:type="mdd_1:SystemObject" name="bank"/>
+        <returnvalue xsi:type="mdd_1:Value" name="badBankPassword"/>
+      </outmessage>
+      <returnvalue xsi:type="mdd_1:Value" name="badPassword"/>
+    </transition>
+    <transition target="//@ioautomaton.1/@vertex.0" source="//@ioautomaton.1/@vertex.1"/>
+    <systemobject name="consortium"/>
+  </ioautomaton>
+  <ioautomaton name="bank">
+    <vertex xsi:type="mdd_1:State" name="WaitBankVerify"/>
+    <vertex xsi:type="mdd_1:InitialState"/>
+    <transition target="//@ioautomaton.2/@vertex.0" source="//@ioautomaton.2/@vertex.0">
+      <inmessage>
+        <operation name="verifyCardWithBank"/>
+      </inmessage>
+      <returnvalue xsi:type="mdd_1:Value" name="badBankAccount"/>
+    </transition>
+    <transition target="//@ioautomaton.2/@vertex.0" source="//@ioautomaton.2/@vertex.0">
+      <inmessage>
+        <operation name="verifyCardWithBank"/>
+      </inmessage>
+      <returnvalue xsi:type="mdd_1:Value" name="badBankPassword"/>
+    </transition>
+    <transition target="//@ioautomaton.2/@vertex.0" source="//@ioautomaton.2/@vertex.1"/>
+    <systemobject name="bank"/>
+  </ioautomaton>
+</mdd:IOAutomatonPackage>

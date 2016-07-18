@@ -10,38 +10,26 @@ main() {
 }
 
 mapping ScenarioTablePackage::ScenarioTablePackage::transformScenarioTablePackage() : BehaviourTablePackage::BehaviourTablePackage {
-	var i = 1;
-	var iLength = self.scenario->size();
+	behaviour += self.scenario.transformScenarioTable();
+}
+
+helper ScenarioTable::Scenario::transformScenarioTable() : OrderedSet(BehaviourTable::Behaviour) {
+	var res : OrderedSet(BehaviourTable::Behaviour);
 	
-	while (i <= iLength) {
-		var scenario = self.scenario->at(i);
-		var sysObjects = scenario.actor->selectByKind(ScenarioTable::SystemObject);
-		var o = 1;
-		var oLength = sysObjects->size();
-		
-		while (o <= oLength) {
-			behaviour += scenario.transformScenarioTable(sysObjects->at(o));
-			
-			o := o + 1;
-		};
+	self.actor->selectByKind(ScenarioTable::SystemObject)->forEach(sysObjectScenario) {
+		res += self.transformScenarioTable(sysObjectScenario);
+	};
 	
-		i := i + 1;
-	}
+	return res;
 }
 
 helper ScenarioTable::Scenario::transformScenarioTable(in sysObjectScenario : ScenarioTable::SystemObject) : BehaviourTable::Behaviour {
 	var behaviour = object Behaviour {
 		systemobject := sysObjectScenario.map transformSystemObject();
-		state += self.state.map transformState();
 	};
-
-	var i = 1;
-	var length = self.communication->size();
-	var currentBlock:BehaviourTable::Block = null;
 	
-	while (i <= length) {
-		var c = self.communication->at(i);
-		
+	var currentBlock:BehaviourTable::Block = null;
+	self.communication->forEach(c) {
 		if(c.oclIsKindOf(ScenarioTable::UserCommunication)) {
 			var userCom = c.oclAsType(ScenarioTable::UserCommunication);
 			var msg := userCom.usermessage.oclAsType(ScenarioTable::UserMessage);
@@ -57,13 +45,15 @@ helper ScenarioTable::Scenario::transformScenarioTable(in sysObjectScenario : Sc
 				// inmessage -> new block
 				currentBlock := sysCom.map transformSystemCommunicationToBlock();
 				behaviour.block += currentBlock;
+				
+				// add states
+				behaviour.state += currentBlock.preState;
+				behaviour.state += currentBlock.postState;
 			} else if(msg.sender = sysObjectScenario) {
 				// new outmessage to currentBlock
 				currentBlock.activation.outmessages += sysCom.map transformCommunicationToOutMessage();
 			}
 		};
-		
-		i := i + 1;
 	};
 	
 	return behaviour;
@@ -75,15 +65,25 @@ mapping ScenarioTable::Communication::transformCommunicationToOutMessage() : Beh
 		ScenarioTable::SystemCommunication::transformSystemCommunicationToOutMessage;
 
 mapping ScenarioTable::UserCommunication::transformUserCommunicationToOutMessage() : BehaviourTable::OutMessage {
-	actorobject := self.usermessage.receiver.map transformUser();
-	operation := self.usermessage.operation.map transformOperation();
-	returnvalue := self.returned.map transformReturnValue();
+	// Workaround
+	//actorobject := self.usermessage.receiver.map transformUser();
+	//operation := self.usermessage.operation.map transformOperation();
+	//returnvalue := self.returned.map transformReturnValue();
+	
+	actorobject := self.usermessage.receiver.helperTransformUser();
+	operation := self.usermessage.operation.helperTransformOperation();
+	returnvalue := self.returned.helperTransformReturnValue();
 }
 
 mapping ScenarioTable::SystemCommunication::transformSystemCommunicationToOutMessage() : BehaviourTable::OutMessage {
-	actorobject := self.systemmessage.receiver.map transformActor();
-	operation := self.systemmessage.operation.map transformOperation();
-	returnvalue := self.returned.map transformReturnValue();
+	// Workaround
+	//actorobject := self.systemmessage.receiver.map transformActor();
+	//operation := self.systemmessage.operation.map transformOperation();
+	//returnvalue := self.returned.map transformReturnValue();
+	
+	actorobject := self.systemmessage.receiver.helperTransformActor();
+	operation := self.systemmessage.operation.helperTransformOperation();
+	returnvalue := self.returned.helperTransformReturnValue();
 }
 
 mapping ScenarioTable::SystemCommunication::transformSystemCommunicationToBlock() : BehaviourTable::Block {
@@ -103,6 +103,12 @@ mapping ScenarioTable::Operation::transformOperation() : BehaviourTable::Operati
 	name := self.name;
 }
 
+helper ScenarioTable::Operation::helperTransformOperation() : BehaviourTable::Operation {
+	return object BehaviourTable::Operation {
+		name := self.name;
+	}
+}
+
 mapping ScenarioTable::ActorObject::transformActor() : BehaviourTable::ActorObject
 	disjuncts ScenarioTable::User::transformUser,
 	          ScenarioTable::SystemObject::transformSystemObject;
@@ -114,8 +120,34 @@ mapping ScenarioTable::SystemObject::transformSystemObject() : BehaviourTable::S
 	name := self.name;
 }
 
+helper ScenarioTable::ActorObject::helperTransformActor() : BehaviourTable::ActorObject {
+	if(self.oclIsTypeOf(ScenarioTable::User)) {
+		return self.oclAsType(ScenarioTable::User).helperTransformUser();
+	} else if(self.oclIsTypeOf(ScenarioTable::SystemObject)) {
+		return self.oclAsType(ScenarioTable::SystemObject).helperTransformSystemObject();
+	};
+	
+	return null;
+}
+
+helper ScenarioTable::User::helperTransformUser() : BehaviourTable::User {
+	return object BehaviourTable::User {};
+}
+
+helper ScenarioTable::SystemObject::helperTransformSystemObject() : BehaviourTable::SystemObject {
+	return object BehaviourTable::SystemObject {
+		name := self.name;
+	}
+}
+
 mapping ScenarioTable::State::transformState() : BehaviourTable::State {
 	name := self.name;
+}
+
+helper ScenarioTable::State::helperTransformState() : BehaviourTable::State {
+	return object BehaviourTable::State {
+		name := self.name;
+	}
 }
 
 mapping ScenarioTable::ReturnValue::transformReturnValue() : BehaviourTable::ReturnValue
@@ -128,4 +160,24 @@ mapping ScenarioTable::VoidValue::transformVoidValue() : BehaviourTable::VoidVal
 
 mapping ScenarioTable::Value::transformValue() : BehaviourTable::Value {
 	value := self.value;
+}
+
+helper ScenarioTable::ReturnValue::helperTransformReturnValue() : BehaviourTable::ReturnValue {
+	if(self.oclIsTypeOf(ScenarioTable::Value)) {
+		return self.oclAsType(ScenarioTable::Value).helperTransformValue();
+	} else if(self.oclIsTypeOf(ScenarioTable::VoidValue)) {
+		return self.oclAsType(ScenarioTable::VoidValue).helperTransformVoidValue();
+	};
+	
+	return null;
+}
+
+helper ScenarioTable::VoidValue::helperTransformVoidValue() : BehaviourTable::VoidValue {
+	return object BehaviourTable::VoidValue {};
+}
+
+helper ScenarioTable::Value::helperTransformValue() : BehaviourTable::Value {
+	return object BehaviourTable::Value {
+		value := self.value;
+	}
 }
