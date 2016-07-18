@@ -52,13 +52,14 @@ helper String::generateSubmachines(in iOAutomaton : IOAutomaton::IOAutomaton, in
 	
 	//State for mainRegion, where this function is called define now
 	var submachineState := self.map constructState();
+	submachineState.entryPoint := initState;
 	
 	///Transitions from IOAutomaton used in this submachine
 	var relatedTransitions := iOAutomaton.transition->select(inmessage != null)->select(inmessage.operation.name=self)->asSequence();
 	var first := constructNextStepOfAlgorithm(relatedTransitions,1,reg, mainReg,submachineState); //first Actual state in this Submachine
 	
 	//transition to this state
-	var trans := map constructInternalTransition(initState,first);
+	var trans := map constructTransition(initState,first);
 	reg.transition += trans;
 	
 	//State for mainRegion, where this function is called
@@ -68,7 +69,7 @@ helper String::generateSubmachines(in iOAutomaton : IOAutomaton::IOAutomaton, in
 	//connect inside main region
 	var sourceStateName := relatedTransitions.source->first().oclAsType(State).name; //all calling states are the same
 	var sourceState := mainReg.subvertex->selectByKind(StateMachine::State).oclAsType(StateMachine::State)->select(name=sourceStateName); //can't be pseudo' 
-	var inTrans = map constructInternalTransition(sourceState->first(),submachineState);//first save, as only one possible
+	var inTrans = map constructTransition(sourceState->first(),submachineState);//first save, as only one possible
 	inTrans.trigger := self.map constructTrigger();
 	mainReg.transition += inTrans;
 	
@@ -84,25 +85,26 @@ mapping String::stringToRegion() : StateMachine::Region{
 }
 
 helper constructNextStepOfAlgorithm(in corrTransitions : Sequence(IOAutomaton::Transition),
-		in count : Integer, inout reg : StateMachine::Region, inout mainReg : StateMachine::Region, in submachineState: StateMachine::State) : StateMachine::State{
+		in count : Integer, inout reg : StateMachine::Region, inout mainReg : StateMachine::Region, in submachineState: StateMachine::State) : StateMachine::Vertex{
 	
 	var oMessages := corrTransitions->first().outmessage->asSequence(); //All transitions related to this function
-	var statename := "do / "; //build statename
+	var doActivityCode := ""; //build statename
 	var i := count; //location in message
 	
 	//collect all messages without return type
 	while(oMessages->at(i).returnvalue.oclIsKindOf(VoidValue) and i <= oMessages->size()){
-		statename := statename + oMessages->at(i).getOutMessageSignature();
+		doActivityCode := doActivityCode + oMessages->at(i).getOutMessageSignature();
 		i := i + 1;
 	};
 	
 	//with returntype add call to statename
 	if( oMessages->at(i).returnvalue.oclIsKindOf(Value) and i <= oMessages->size() ){
-		statename := statename + oMessages->at(i).getOutMessageSignature();
+		doActivityCode := doActivityCode + oMessages->at(i).getOutMessageSignature();
 	};
 	
 	//construct states
-	var state := statename.map constructActionState();	
+	var state := doActivityCode.map constructActionState();
+	
 	if(i != count){	
 		reg.subvertex += state;		
 	};
@@ -117,29 +119,32 @@ helper constructNextStepOfAlgorithm(in corrTransitions : Sequence(IOAutomaton::T
 			var next := constructNextStepOfAlgorithm(resultingTransactions,i+1,reg, mainReg,submachineState);
 			//conect this state to the result state
 			var condition := "check = " + res;
-			var trans := condition.map constructInternalGuardedTransition();
+			var trans := condition.map constructGuardedTransition();
 			trans.source := state;
 			trans.target := next;
 			reg.transition += trans;
 		};
 	};
-	
+
 	//should never occur, as this is loop condition, but to do a complete case for Kind
 	if(oMessages->at(i).returnvalue.oclIsKindOf(VoidValue) and i <= oMessages->size()){
 		log("ERROR","should never be called");
 	};
-	
+	if(not((i != count) or (oMessages->at(i).returnvalue.oclIsKindOf(Value) and i <= oMessages->size()))){
+		reg.subvertex +=  state;
+	};
 	//add state to vertex, in this case we have one and only one final state
 	if(i = count or not (oMessages->at(i).returnvalue.oclIsKindOf(Value) and i <= oMessages->size()) ){
 		var exitState := corrTransitions.target.oclAsType(State).name.map constructExitState();
 		reg.subvertex += exitState;
-		reg.transition += map constructInternalTransition(state,exitState->first()); //save there is only one
+		reg.transition += map constructTransition(state,exitState->first()); //save there is only one
 		
 		//Connect Inside Main
 		var targetStateName := corrTransitions.target->first().oclAsType(State).name; //all calling states are the same
 		var targetState := mainReg.subvertex->selectByKind(StateMachine::State).oclAsType(StateMachine::State)->select(name=targetStateName); //can't be pseudo' 
-		var outTrans = map constructInternalTransition(submachineState,targetState->first());//first save, as only one possible
-		//outTrans.effect := self; to what sould we set this?
+		var outTrans = map constructTransition(submachineState,targetState->first());//first save, as only one possible
+		targetState->first().exitPoint := exitState;
+		outTrans.effect := corrTransitions->first().returnvalue.map toEffect(); 
 		mainReg.transition += outTrans;
 	};
 	
@@ -148,19 +153,16 @@ helper constructNextStepOfAlgorithm(in corrTransitions : Sequence(IOAutomaton::T
 }
 
 
-mapping  String::constructInternalGuardedTransition() : StateMachine::Transition{
+mapping  String::constructGuardedTransition() : StateMachine::Transition{
 	guard := self.map constructConstraint();
-	kind := TransitionKind::internal;
 }
 
-mapping  constructInternalTransition(in sou : StateMachine::Vertex, in tar : StateMachine::Vertex) : StateMachine::Transition{
-	kind := TransitionKind::internal;
+mapping  constructTransition(in sou : StateMachine::Vertex, in tar : StateMachine::Vertex) : StateMachine::Transition{
 	source := sou;
 	target := tar;
 }
 
-mapping  constructInternalTransition(in sou : StateMachine::State, in tar : StateMachine::State) : StateMachine::Transition{
-	kind := TransitionKind::internal;
+mapping  constructTransition(in sou : StateMachine::State, in tar : StateMachine::State) : StateMachine::Transition{
 	source := sou;
 	target := tar;
 }
@@ -188,6 +190,11 @@ helper IOAutomaton::OutMessage::getOutMessageSignature() : String {
 }
 mapping String::constructActionState() :  StateMachine::State{
 	name := self;
+	doActivity := self.map constructCodeBlock();
+}
+
+mapping String::constructCodeBlock() : StateMachine::CodeBlock{
+	desc := self;
 }
 
 helper getRecieverName(in act : IOAutomaton::ActorObject) : String {
@@ -245,3 +252,16 @@ mapping IOAutomaton::State::toStableState() : StateMachine::State {
 mapping IOAutomaton::InMessage::toAcivityState() : StateMachine::State{
 	name := self.operation.name;
 }
+
+mapping IOAutomaton::ReturnValue::toEffect() : StateMachine::CodeBlock 
+	disjuncts 
+		 IOAutomaton::Value::toEffect,
+		IOAutomaton::VoidValue::toEffect;
+	
+
+mapping IOAutomaton::Value::toEffect() : StateMachine::CodeBlock {
+	desc := "return " + self.name;
+}
+mapping IOAutomaton::VoidValue::toEffect() : StateMachine::CodeBlock{
+	desc := "return void";
+} 

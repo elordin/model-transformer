@@ -36,8 +36,6 @@ mapping StateMachine::PseudoState::toPseudoState() : UML::Pseudostate{
 	kind := self.pseudoStateKind.getPseudostate();
 }
 
-
-
 helper StateMachine::PseudoStateKind::getPseudostate() : UML::PseudostateKind{
 	if(self = StateMachine::PseudoStateKind::initial) return UML::PseudostateKind::initial;
 	if(self = StateMachine::PseudoStateKind::entryPoint) return UML::PseudostateKind::entryPoint;

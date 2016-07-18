@@ -24,6 +24,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="submachine" eType="#//StateMachine"
         eOpposite="#//StateMachine/submachineState"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entryPoint" eType="#//PseudoState"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exitPoint" upperBound="-1"
+        eType="#//PseudoState" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Vertex">
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" upperBound="-1"
