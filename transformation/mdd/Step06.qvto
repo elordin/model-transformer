@@ -1,0 +1,46 @@
+modeltype StateMachine uses StateMachine('se.studieren.mdd.transformer.StateMachine');
+modeltype StateMachinePackage uses StateMachinePackage('se.studieren.mdd.transformer.StateMachinePackage');
+modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
+
+transformation Step06(in stateMachinePackage : StateMachinePackage, out umlStatemachine: UML );
+
+main() {
+	stateMachinePackage.objectsOfType(StateMachinePackage::StateMachinePackage).map toStateMachinePackage();
+	// ioAutomatonPackage.objectsOfType(IOAutomatonPackage::IOAutomatonPackage).map toStateMachinePackage();
+}
+
+mapping StateMachinePackage::StateMachinePackage::toStateMachinePackage() : UML::Package{
+	packagedElement += self.statemachine.map toStateMachine();	
+}
+
+mapping StateMachine::StateMachine::toStateMachine() : UML::StateMachine{
+	name := self.name;
+	region := self.region.map toRegion();
+}
+
+mapping StateMachine::Region::toRegion() : UML::Region {
+	name := self.name;
+	subvertex := self.subvertex.map toVertex();
+}
+
+mapping StateMachine::Vertex::toVertex() : UML::Vertex
+	disjuncts StateMachine::State::toState,
+				StateMachine::PseudoState::toPseudoState;
+			
+mapping StateMachine::State::toState() : UML::State{
+	name := self.name;
+}
+	
+mapping StateMachine::PseudoState::toPseudoState() : UML::Pseudostate{
+	name := self.name;
+	kind := self.pseudoStateKind.getPseudostate();
+}
+
+
+
+helper StateMachine::PseudoStateKind::getPseudostate() : UML::PseudostateKind{
+	if(self = StateMachine::PseudoStateKind::initial) return UML::PseudostateKind::initial;
+	if(self = StateMachine::PseudoStateKind::entryPoint) return UML::PseudostateKind::entryPoint;
+	if(self = StateMachine::PseudoStateKind::exitPoint) return UML::PseudostateKind::exitPoint;
+	return null;
+}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Package xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_0KUsQE0QEea5OsNE2v8gWg">
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_0KUsQU0QEea5OsNE2v8gWg" name="verifyAccount">
+    <region xmi:id="_0KUsQk0QEea5OsNE2v8gWg" name="verifyAccount">
+      <subvertex xmi:type="uml:State" xmi:id="_0KUsQ00QEea5OsNE2v8gWg" name="do /  check := bank.verifyCardWithBank "/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_0KUsRE0QEea5OsNE2v8gWg" name="WaitVerify" kind="exitPoint"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_0KUsRU0QEea5OsNE2v8gWg" name="verifyAccount" kind="entryPoint"/>
+    </region>
+  </packagedElement>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_0KUsRk0QEea5OsNE2v8gWg" name="insertCard">
+    <region xmi:id="_0KUsR00QEea5OsNE2v8gWg" name="insertCard">
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_0KUsSE0QEea5OsNE2v8gWg" name="insertCard" kind="entryPoint"/>
+    </region>
+  </packagedElement>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_0KUsSU0QEea5OsNE2v8gWg" name="cancel">
+    <region xmi:id="_0KUsSk0QEea5OsNE2v8gWg" name="cancel">
+      <subvertex xmi:type="uml:State" xmi:id="_0KUsS00QEea5OsNE2v8gWg" name="do / User.canceledMessage User.ejectCard User.requestTakeCard "/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_0KUsTE0QEea5OsNE2v8gWg" name="cancel" kind="entryPoint"/>
+    </region>
+  </packagedElement>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_0KUsTU0QEea5OsNE2v8gWg" name="enterPassword">
+    <region xmi:id="_0KUsTk0QEea5OsNE2v8gWg" name="enterPassword">
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_0KUsT00QEea5OsNE2v8gWg" name="enterPassword" kind="entryPoint"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_0KUsUE0QEea5OsNE2v8gWg" name="WaitPassword" kind="exitPoint"/>
+      <subvertex xmi:type="uml:State" xmi:id="_0KUsUU0QEea5OsNE2v8gWg" name="do /  check := consortium.verifyAccount "/>
+      <subvertex xmi:type="uml:State" xmi:id="_0KUsUk0QEea5OsNE2v8gWg" name="do / User.badAccountMessage User.printReceipt User.ejectCard User.requestTakeCard "/>
+      <subvertex xmi:type="uml:State" xmi:id="_0KUsU00QEea5OsNE2v8gWg" name="do / User.requestPassword "/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_0KUsVE0QEea5OsNE2v8gWg" name="WaitTakeCard" kind="exitPoint"/>
+    </region>
+  </packagedElement>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_0KUsVU0QEea5OsNE2v8gWg" name="takeCard">
+    <region xmi:id="_0KUsVk0QEea5OsNE2v8gWg" name="takeCard">
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_0KUsV00QEea5OsNE2v8gWg" name="WaitCard" kind="exitPoint"/>
+      <subvertex xmi:type="uml:State" xmi:id="_0KUsWE0QEea5OsNE2v8gWg" name="do / User.displayMainScreen "/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_0KUsWU0QEea5OsNE2v8gWg" name="takeCard" kind="entryPoint"/>
+    </region>
+  </packagedElement>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_0KUsWk0QEea5OsNE2v8gWg" name="consortium">
+    <region xmi:id="_0KUsW00QEea5OsNE2v8gWg" name="consortium">
+      <subvertex xmi:type="uml:State" xmi:id="_0KUsXE0QEea5OsNE2v8gWg" name="WaitVerify"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_0KUsXU0QEea5OsNE2v8gWg" name="entry"/>
+      <subvertex xmi:type="uml:State" xmi:id="_0KUsXk0QEea5OsNE2v8gWg" name="verifyAccount"/>
+    </region>
+  </packagedElement>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_0KUsX00QEea5OsNE2v8gWg" name="atm">
+    <region xmi:id="_0KUsYE0QEea5OsNE2v8gWg" name="atm">
+      <subvertex xmi:type="uml:State" xmi:id="_0KUsYU0QEea5OsNE2v8gWg" name="enterPassword"/>
+      <subvertex xmi:type="uml:State" xmi:id="_0KUsYk0QEea5OsNE2v8gWg" name="cancel"/>
+      <subvertex xmi:type="uml:State" xmi:id="_0KUsY00QEea5OsNE2v8gWg" name="WaitCard"/>
+      <subvertex xmi:type="uml:State" xmi:id="_0KUsZE0QEea5OsNE2v8gWg" name="insertCard"/>
+      <subvertex xmi:type="uml:State" xmi:id="_0KUsZU0QEea5OsNE2v8gWg" name="takeCard"/>
+      <subvertex xmi:type="uml:State" xmi:id="_0KUsZk0QEea5OsNE2v8gWg" name="WaitPassword"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_0KUsZ00QEea5OsNE2v8gWg" name="entry"/>
+      <subvertex xmi:type="uml:State" xmi:id="_0KUsaE0QEea5OsNE2v8gWg" name="WaitTakeCard"/>
+    </region>
+  </packagedElement>
+</uml:Package>
