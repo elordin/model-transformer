@@ -11,32 +11,29 @@ main() {
 }
 
 mapping IOAutomatonPackage::IOAutomatonPackage::toStateMachinePackage() : StateMachinePackage::StateMachinePackage {
-	var st := OrderedSet{};
-	statemachine += self.ioautomaton.toStateMachine(result);
-	
-	statemachine += st;
-	
-	
+	statemachine += self.ioautomaton.toStateMachine(result);	
 }
+
 
 helper IOAutomaton::IOAutomaton::toStateMachine(inout stp: StateMachinePackage::StateMachinePackage ) : StateMachine::StateMachine {
-	var stateMachine = self.name.map stringToStateMachine(); 
+	var stateMachine = self.name.map stringToStateMachine(); //Each IO-Automaton to a statemachine
 	
-	var functionNames := self.getFunctionNames();
-	var mainRegion = self.map toRegion(stateMachine.region);
-	stateMachine.region += mainRegion;
+	var functionNames := self.getFunctionNames(); //all functions
+	var mainRegion = self.map toRegion();//Region of this Actor StateMachine
+	stateMachine.region += mainRegion; 
 	
+	 //for each function generate a Submachine
 	stp.statemachine += functionNames.generateSubmachines(self, mainRegion)->asSequence();
 
-	return stateMachine
-	
-	
+	return stateMachine	
 }
-mapping IOAutomaton::IOAutomaton::toRegion(in regions : Set(StateMachine::Region)) : StateMachine::Region {
-	name := "Main Region";
+
+mapping IOAutomaton::IOAutomaton::toRegion() : StateMachine::Region {
+	name := self.name;
 
 	subvertex += self.vertex.map toState();
 	
+	transition += self.transition.map toTransition(result);
 	
 	//subvertex += activityStates->collect(name);
 	// TODO Create Activity Diagrams 
@@ -45,26 +42,35 @@ mapping IOAutomaton::IOAutomaton::toRegion(in regions : Set(StateMachine::Region
 }
 
 helper String::generateSubmachines(in iOAutomaton : IOAutomaton::IOAutomaton, inout mainReg : StateMachine::Region ) : StateMachine::StateMachine{
-	
 	var subMach := self.map stringToStateMachine();
 	var reg := self.map stringToRegion();
 	subMach.region := reg;
-	/// Initial State
-	var initState = self.map constructInitState();	
+	
+	/// Etry State
+	var initState = self.map constructEntryState();	
 	reg.subvertex += initState;
 	
-	///Transitions used in this submachine
+	//State for mainRegion, where this function is called define now
+	var submachineState := self.map constructState();
+	
+	///Transitions from IOAutomaton used in this submachine
 	var relatedTransitions := iOAutomaton.transition->select(inmessage != null)->select(inmessage.operation.name=self)->asSequence();
-	log("test", self);
-	var first := foo(relatedTransitions,1,reg);
+	var first := constructNextStepOfAlgorithm(relatedTransitions,1,reg, mainReg,submachineState); //first Actual state in this Submachine
+	
+	//transition to this state
 	var trans := map constructInternalTransition(initState,first);
 	reg.transition += trans;
 	
-	//State for main
-	var submachineState := self.map constructState();
+	//State for mainRegion, where this function is called
 	submachineState.submachine := subMach;
 	mainReg.subvertex += submachineState;
 	
+	//connect inside main region
+	var sourceStateName := relatedTransitions.source->first().oclAsType(State).name; //all calling states are the same
+	var sourceState := mainReg.subvertex->selectByKind(StateMachine::State).oclAsType(StateMachine::State)->select(name=sourceStateName); //can't be pseudo' 
+	var inTrans = map constructInternalTransition(sourceState->first(),submachineState);//first save, as only one possible
+	inTrans.trigger := self.map constructTrigger();
+	mainReg.transition += inTrans;
 	
 	return subMach;
 }
@@ -77,34 +83,40 @@ mapping String::stringToRegion() : StateMachine::Region{
 	name := self;
 }
 
-helper foo(in corrTransitions : Sequence(IOAutomaton::Transition), in count : Integer, inout reg : StateMachine::Region) : StateMachine::State{
-	var oMessages := corrTransitions->first().outmessage->asSequence();
-	var statename := "do / ";
-	var i := count;
+helper constructNextStepOfAlgorithm(in corrTransitions : Sequence(IOAutomaton::Transition),
+		in count : Integer, inout reg : StateMachine::Region, inout mainReg : StateMachine::Region, in submachineState: StateMachine::State) : StateMachine::State{
 	
+	var oMessages := corrTransitions->first().outmessage->asSequence(); //All transitions related to this function
+	var statename := "do / "; //build statename
+	var i := count; //location in message
+	
+	//collect all messages without return type
 	while(oMessages->at(i).returnvalue.oclIsKindOf(VoidValue) and i <= oMessages->size()){
 		statename := statename + oMessages->at(i).getOutMessageSignature();
 		i := i + 1;
 	};
 	
+	//with returntype add call to statename
 	if( oMessages->at(i).returnvalue.oclIsKindOf(Value) and i <= oMessages->size() ){
 		statename := statename + oMessages->at(i).getOutMessageSignature();
 	};
 	
-	var state := statename.map toActionState();	
-	if(i != count){	//If no return value add state
+	//construct states
+	var state := statename.map constructActionState();	
+	if(i != count){	
 		reg.subvertex += state;		
 	};
 	
+	//if return value create branch and connect to state, if this happens we don't have final states yet
 	if( oMessages->at(i).returnvalue.oclIsKindOf(Value) and i <= oMessages->size() ){
 		reg.subvertex += state;
-		var results = corrTransitions.getResultsAt(i)->asSet();
+		var results = corrTransitions.getResultsAt(i)->asSet(); //all different results
 		results->forEach(res){
+			//split by result and call this step again
 			var resultingTransactions :=  corrTransitions->select(outmessage->at(i).returnvalue.oclAsType(Value).name = res);
-			log ("123",resultingTransactions.outmessage->at(i).returnvalue.oclAsType(Value).name);
-			var next := foo(resultingTransactions,i+1,reg);
+			var next := constructNextStepOfAlgorithm(resultingTransactions,i+1,reg, mainReg,submachineState);
+			//conect this state to the result state
 			var condition := "check = " + res;
-			log("cond", condition);
 			var trans := condition.map constructInternalGuardedTransition();
 			trans.source := state;
 			trans.target := next;
@@ -117,11 +129,20 @@ helper foo(in corrTransitions : Sequence(IOAutomaton::Transition), in count : In
 		log("ERROR","should never be called");
 	};
 	
+	//add state to vertex, in this case we have one and only one final state
 	if(i = count or not (oMessages->at(i).returnvalue.oclIsKindOf(Value) and i <= oMessages->size()) ){
-		reg.subvertex += state;
+		var exitState := corrTransitions.target.oclAsType(State).name.map constructExitState();
+		reg.subvertex += exitState;
+		reg.transition += map constructInternalTransition(state,exitState->first()); //save there is only one
+		
+		//Connect Inside Main
+		var targetStateName := corrTransitions.target->first().oclAsType(State).name; //all calling states are the same
+		var targetState := mainReg.subvertex->selectByKind(StateMachine::State).oclAsType(StateMachine::State)->select(name=targetStateName); //can't be pseudo' 
+		var outTrans = map constructInternalTransition(submachineState,targetState->first());//first save, as only one possible
+		//outTrans.effect := self; to what sould we set this?
+		mainReg.transition += outTrans;
 	};
 	
-	//TODO: Missing exitPointsStates
 	
 	return state;
 }
@@ -138,6 +159,12 @@ mapping  constructInternalTransition(in sou : StateMachine::Vertex, in tar : Sta
 	target := tar;
 }
 
+mapping  constructInternalTransition(in sou : StateMachine::State, in tar : StateMachine::State) : StateMachine::Transition{
+	kind := TransitionKind::internal;
+	source := sou;
+	target := tar;
+}
+
 mapping  String::constructConstraint() : StateMachine::Constraint{
 	constraint := self;
 }
@@ -145,6 +172,10 @@ mapping  String::constructConstraint() : StateMachine::Constraint{
 
 helper IOAutomaton::Transition::getResultsAt(in i:Integer) : String {
 	return self.outmessage->at(i).returnvalue.oclAsType(Value).name;
+}
+
+mapping String::constructTrigger() : StateMachine::Trigger{
+	trigger := self;
 }
 
 helper IOAutomaton::OutMessage::getOutMessageSignature() : String {
@@ -155,7 +186,7 @@ helper IOAutomaton::OutMessage::getOutMessageSignature() : String {
 	};
 	return ret+getRecieverName(self.actorobject)+"."+self.operation.name+" ";
 }
-mapping String::toActionState() :  StateMachine::State{
+mapping String::constructActionState() :  StateMachine::State{
 	name := self;
 }
 
@@ -165,7 +196,7 @@ helper getRecieverName(in act : IOAutomaton::ActorObject) : String {
 	return act.oclAsType(SystemObject).name;
 }
 
-helper IOAutomaton::IOAutomaton::getFunctionNames() : Set(String) {
+helper IOAutomaton::IOAutomaton::getFunctionNames() : Set(String) {//getAllFunctions
 	return self.transition->select(inmessage != null)->collectNested(inmessage.operation.name)->asSet();
 }
 
@@ -174,11 +205,31 @@ mapping String::constructInitState() : StateMachine::PseudoState {
 	pseudoStateKind := PseudoStateKind::initial;
 }
 
+mapping String::constructEntryState() : StateMachine::PseudoState {
+	name := self;
+	pseudoStateKind := PseudoStateKind::entryPoint;
+}
+
+mapping String::constructExitState() : StateMachine::PseudoState {
+	name := self;
+	pseudoStateKind := PseudoStateKind::exitPoint;
+}
+
 mapping IOAutomaton::Vertex::toState() : StateMachine::Vertex 	
 	disjuncts IOAutomaton::InitialState::toInitialState,
 	          IOAutomaton::State::toStableState;
 	          
-	          
+mapping IOAutomaton::Transition::toTransition(in mainReg : StateMachine::Region) : StateMachine::Transition
+when{
+	self.source.oclIsKindOf(IOAutomaton::InitialState)
+} 	
+{
+	//there is ony one itialState
+	source := mainReg.subvertex->selectByKind(StateMachine::PseudoState)->oclAsType(StateMachine::PseudoState)->select(pseudoStateKind = PseudoStateKind::initial)->asSequence()->first();
+	target := mainReg.subvertex->selectByKind(StateMachine::State)->select(self.target.oclAsType(State).name = name)->asSequence()->first(); //uniquly by name
+	kind := TransitionKind::internal;
+}
+	          	          
 mapping IOAutomaton::InitialState::toInitialState() : StateMachine::PseudoState {
 	name := "entry";
 	pseudoStateKind := PseudoStateKind::initial;
