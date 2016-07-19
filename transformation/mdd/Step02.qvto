@@ -3,7 +3,7 @@ modeltype InteractionDiagramPackage uses InteractionDiagramPackage('se.studieren
 modeltype ScenarioTable uses ScenarioTable('se.studieren.mdd.transformer.ScenarioTable');
 modeltype ScenarioTablePackage uses ScenarioTablePackage('se.studieren.mdd.transformer.ScenarioTablePackage');
 
-transformation Step02(in interactionDiagramPackage: InteractionDiagram, out scenarioTablePackage: ScenarioTable);
+transformation Step02(in interactionDiagramPackage: InteractionDiagramPackage, out scenarioTablePackage: ScenarioTablePackage);
 
 main() {
 	interactionDiagramPackage.objectsOfType(InteractionDiagramPackage::InteractionDiagramPackage).map toScenarioTablePackage();
@@ -37,12 +37,10 @@ mapping InteractionDiagram::Lifeline::toUserObject() : ScenarioTable::User
 when {
 	isUser(self);		
 }{
-	log("Lifeline to User: " + self.name);
 	name := "User"; // Note that this will not show up in the XMI since it is the default value.
 }
 
 mapping InteractionDiagram::Lifeline::toSystemObject() : ScenarioTable::SystemObject {
-	log("Lifeline to SystemObject: " + self.name);
 	name := self.name;
 }
 
@@ -75,7 +73,10 @@ query isUserMessage(in m : InteractionDiagram::Message) : Boolean {
 	return name = "User" or name = "user";
 }
 
-mapping InteractionDiagram::Message::toSystemCommunication() : ScenarioTable::SystemCommunication {
+mapping InteractionDiagram::Message::toSystemCommunication() : ScenarioTable::SystemCommunication 
+when {
+	self.messageSort != InteractionDiagram::MessageSort::reply
+}{
 
 	var recipient : InteractionDiagram::Lifeline = self.receiveEvent[InteractionDiagram::MessageOccurenceSpecification]->any(true).covered;
 	
@@ -89,8 +90,11 @@ mapping InteractionDiagram::Message::toSystemCommunication() : ScenarioTable::Sy
 		
 	prestate := preReceiveSIs->last().map transformStateInvariant();
 	poststate := postReceiveSIs->first().map transformStateInvariant();
+	
 	systemmessage := self.map toSystemMessage();
+	
 	returned := returnValue(self);
+
 }
 
 mapping InteractionDiagram::Message::toSystemMessage() : ScenarioTable::SystemMessage {
@@ -103,10 +107,27 @@ mapping InteractionDiagram::Message::toSystemMessage() : ScenarioTable::SystemMe
 }
 
 helper returnValue(in m : Message) : ScenarioTable::ReturnValue {
-	if (m.messageSort = InteractionDiagram::MessageSort::reply) 
-		return object ScenarioTable::Value{
-			value := m.name;
+	
+	var sender = m.sendEvent[MessageOccurenceSpecification]->any(true).covered;
+	
+	// Find following message ends
+	var receiveMOC : MessageOccurenceSpecification = m.receiveEvent[MessageOccurenceSpecification]->any(true);
+	var recipient : Lifeline = receiveMOC.covered;
+
+	var receiveIndex = recipient.coveredBy->indexOf(receiveMOC);
+
+	var reply : Message = recipient.coveredBy[MessageOccurenceSpecification]->select(moc | 
+		recipient.coveredBy->indexOf(moc) > receiveIndex and
+		not moc.messageS->isEmpty() and
+		moc.messageS.messageSort = MessageSort::reply and 
+		moc.messageS.receiveEvent[MessageOccurenceSpecification]->any(true).covered = sender)->first().messageS;	
+	
+	// If exists return that message as return value
+	if (not reply->isEmpty()) {
+		return object ScenarioTable::Value {
+			value := reply.name;
 		}
-	else return object ScenarioTable::VoidValue{};
-	return null;
+	};
+	return object ScenarioTable::VoidValue {};
+	
 }

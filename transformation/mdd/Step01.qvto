@@ -2,7 +2,7 @@ modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 modeltype InteractionDiagram uses InteractionDiagram('se.studieren.mdd.transformer.InteractionDiagram');
 modeltype InteractionDiagramPackage uses InteractionDiagramPackage('se.studieren.mdd.transformer.InteractionDiagramPackage');
 
-transformation Step01(in umlInteraction: UML, out customInteraction: InteractionDiagram);
+transformation Step01(in umlInteraction: UML, out customInteraction: InteractionDiagramPackage);
 
 main() {
 	umlInteraction.objectsOfType(UML::Model).map transformModel();
@@ -28,6 +28,10 @@ mapping UML::Lifeline::transformLifeline() : InteractionDiagram::Lifeline {
 mapping UML::Message::transformMessage() : InteractionDiagram::Message {
 	name := self.name;
 	sendEvent := self.sendEvent.map transformMessageEnd();
+	
+	log(self.sendEvent.name);
+	sendEvent.dump();
+	
 	receiveEvent := self.receiveEvent.map transformMessageEnd();
 	messageSort := self.transformMessageSort(self.messageSort);
 }

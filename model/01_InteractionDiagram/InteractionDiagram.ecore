@@ -17,10 +17,17 @@
     <eLiterals name="consider" value="11"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MessageOccurenceSpecification" eSuperTypes="#//MessageEnd #//OccurrenceSpecification"/>
-  <eClassifiers xsi:type="ecore:EClass" name="MessageEnd" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageEnd" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messageR" eType="#//Message"
+        eOpposite="#//Message/receiveEvent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messageS" eType="#//Message"
+        eOpposite="#//Message/sendEvent"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Message">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sendEvent" eType="#//MessageEnd"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="receiveEvent" eType="#//MessageEnd"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sendEvent" eType="#//MessageEnd"
+        eOpposite="#//MessageEnd/messageS"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="receiveEvent" eType="#//MessageEnd"
+        eOpposite="#//MessageEnd/messageR"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageSort" eType="#//MessageSort"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
