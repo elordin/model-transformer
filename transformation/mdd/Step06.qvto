@@ -21,6 +21,38 @@ mapping StateMachine::StateMachine::toStateMachine() : UML::StateMachine{
 mapping StateMachine::Region::toRegion() : UML::Region {
 	name := self.name;
 	subvertex := self.subvertex.map toVertex();
+	transition := self.transition.map toTransition();
+}
+mapping StateMachine::Transition::toTransition() : UML::Transition{
+	source := (self.source).resolveoneIn(StateMachine::Vertex::toVertex,UML::Vertex);
+	if(source.oclAsType(State).isSubmachineState){
+		//get the right exitpoint
+	};
+	target := (self.target).resolveoneIn(StateMachine::Vertex::toVertex,UML::Vertex);
+	
+	if(target.oclAsType(UML::State).submachine!=null){
+		//get Entry Point connnector
+		target := target.oclAsType(UML::State).connection->any(e|not e.entry->isEmpty()); //there is always only one
+	};
+	guard := self.guard.map toGuard();
+	effect := self.effect.map toEffect();
+	trigger := self.trigger.map toTrigger();
+}
+
+mapping StateMachine::Trigger::toTrigger() : UML::Trigger{
+	
+}
+
+mapping StateMachine::Behavior::toEffect() : UML::OpaqueBehavior 
+	disjuncts StateMachine::CodeBlock::toEffect;
+
+mapping StateMachine::CodeBlock::toEffect() : UML::OpaqueBehavior{
+	body := self.desc;
+}
+mapping StateMachine::Constraint::toGuard() : UML::Constraint{
+	specification := object UML::OpaqueExpression{
+		body := self.constraint;
+	};
 }
 
 mapping StateMachine::Vertex::toVertex() : UML::Vertex
@@ -29,6 +61,22 @@ mapping StateMachine::Vertex::toVertex() : UML::Vertex
 			
 mapping StateMachine::State::toState() : UML::State{
 	name := self.name;
+	if(self.submachine != null){
+		var enP := self.entryPoint.resolveoneIn(StateMachine::PseudoState::toPseudoState,UML::Pseudostate);
+		connection += object UML::ConnectionPointReference {
+			name := self.name;
+			entry += enP;
+		};
+		var exPs := self.exitPoint.resolveIn(StateMachine::PseudoState::toPseudoState,UML::Pseudostate);
+		log("exPs", self.exitPoint.name);
+		exPs->forEach(exP){
+			connection += object UML::ConnectionPointReference {
+					name := exP.name;
+					exit := exP;
+				};
+		};
+		submachine := self.submachine.resolveoneIn(StateMachine::StateMachine::toStateMachine,UML::StateMachine);
+	}
 }
 	
 mapping StateMachine::PseudoState::toPseudoState() : UML::Pseudostate{
