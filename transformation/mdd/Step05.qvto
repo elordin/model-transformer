@@ -104,7 +104,7 @@ helper constructNextStepOfAlgorithm(in corrTransitions : Sequence(IOAutomaton::T
 	if(i != count){	
 		reg.subvertex += state;		
 	};
-	
+	var b = false;
 	//if return value create branch and connect to state, if this happens we don't have final states yet
 	if( oMessages->at(i).returnvalue.oclIsKindOf(Value) and i <= oMessages->size() ){
 		reg.subvertex += state;
@@ -112,13 +112,36 @@ helper constructNextStepOfAlgorithm(in corrTransitions : Sequence(IOAutomaton::T
 		results->forEach(res){
 			//split by result and call this step again
 			var resultingTransactions :=  corrTransitions->select(outmessage->at(i).returnvalue.oclAsType(Value).name = res);
-			var next := constructNextStepOfAlgorithm(resultingTransactions,i+1,reg, mainReg,submachineState);
-			//conect this state to the result state
-			var condition := "check = " + res;
-			var trans := condition.map constructGuardedTransition();
-			trans.source := state;
-			trans.target := next;
-			reg.transition += trans;
+			if(i+1<=resultingTransactions->first().outmessage->asSequence()->size()){
+				var next := constructNextStepOfAlgorithm(resultingTransactions,i+1,reg, mainReg,submachineState);
+				//conect this state to the result state
+				var condition := "check = " + res;
+				var trans := condition.map constructGuardedTransition(state,next);
+				reg.transition += trans;
+			};
+			if(not (i+1<=resultingTransactions->first().outmessage->asSequence()->size())){
+				//Final state is next
+				var exitState := resultingTransactions.target.oclAsType(State).name.map constructExitState(submachineState.name,(resultingTransactions->first().returnvalue.map toEffect()).desc);
+				reg.subvertex += exitState;
+				var condition := "check = " + res;
+				//reg.transition += map constructTransition(state,exitState->first()); //save there is only one
+				log("verify",submachineState.name);
+				//Connect Inside Main
+				var targetStateName := resultingTransactions.target->first().oclAsType(State).name; //all calling states are the same
+				var targetState := mainReg.subvertex->selectByKind(StateMachine::State).oclAsType(StateMachine::State)->select(name=targetStateName); //can't be pseudo' 
+				var effect := resultingTransactions->first().returnvalue.map toEffect();
+				var outTrans = map constructTransition(submachineState,targetState->first(),effect);//first save, as only one possible
+
+				//targetState->first().exitPoint += exitState;
+				submachineState.exitPoint += exitState;
+				
+				mainReg.transition += outTrans;
+				//conect this state to the result state
+				
+				var trans := condition.map constructGuardedTransition(state,exitState->first());
+				reg.transition += trans;
+				b:=true;
+			};
 		};
 	};
 
@@ -129,7 +152,10 @@ helper constructNextStepOfAlgorithm(in corrTransitions : Sequence(IOAutomaton::T
 	if(not((i != count) or (oMessages->at(i).returnvalue.oclIsKindOf(Value) and i <= oMessages->size()))){
 		reg.subvertex +=  state;
 	};
-	log("bla",submachineState.name);
+	if(b){
+		return state;
+	};
+	
 	//add state to vertex, in this case we have one and only one final state
 	if(i != count or not (oMessages->at(i).returnvalue.oclIsKindOf(Value) and i <= oMessages->size()) ){
 		var exitState := corrTransitions.target.oclAsType(State).name.map constructExitState(submachineState.name,(corrTransitions->first().returnvalue.map toEffect()).desc);
@@ -153,8 +179,10 @@ helper constructNextStepOfAlgorithm(in corrTransitions : Sequence(IOAutomaton::T
 }
 
 
-mapping  String::constructGuardedTransition() : StateMachine::Transition{
+mapping  String::constructGuardedTransition(in sou : StateMachine::Vertex, in tar : StateMachine::Vertex) : StateMachine::Transition{
 	guard := self.map constructConstraint();
+	source := sou;
+	target := tar;
 }
 
 mapping  constructTransition(in sou : StateMachine::Vertex, in tar : StateMachine::Vertex) : StateMachine::Transition{

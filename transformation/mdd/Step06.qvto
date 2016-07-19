@@ -85,9 +85,16 @@ mapping StateMachine::State::toState() : UML::State{
 				};
 		};
 		submachine := self.submachine.resolveoneIn(StateMachine::StateMachine::toStateMachine,UML::StateMachine);
-	}
+	};
+	doActivity := self.doActivity.map toDoActivity();
 }
-	
+
+mapping StateMachine::Behavior::toDoActivity() : UML::OpaqueBehavior 
+	disjuncts StateMachine::CodeBlock::toDoActivity;
+
+mapping StateMachine::CodeBlock::toDoActivity() : UML::OpaqueBehavior{
+	body := self.desc;
+}	
 mapping StateMachine::PseudoState::toPseudoState() : UML::Pseudostate{
 	name := self.name+":"+self.returnValue;
 	kind := self.pseudoStateKind.getPseudostate();
