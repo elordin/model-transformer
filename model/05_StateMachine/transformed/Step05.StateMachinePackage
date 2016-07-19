@@ -1,134 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdd="se.studieren.mdd.transformer.StateMachinePackage" xmlns:mdd_1="se.studieren.mdd.transformer.StateMachine" xsi:schemaLocation="se.studieren.mdd.transformer.StateMachinePackage ../StateMachinePackage.ecore se.studieren.mdd.transformer.StateMachine ../StateMachine.ecore">
-  <mdd:StateMachinePackage>
-    <statemachine name="verifyAccount" submachineState="/0/@statemachine.5/@region.0/@subvertex.2">
-      <region name="verifyAccount">
-        <subvertex xsi:type="mdd_1:PseudoState" outgoing="/0/@statemachine.0/@region.0/@transition.4" name="verifyAccount" pseudoStateKind="entryPoint"/>
-        <subvertex xsi:type="mdd_1:State" outgoing="/0/@statemachine.0/@region.0/@transition.1 /0/@statemachine.0/@region.0/@transition.2 /0/@statemachine.0/@region.0/@transition.3" incoming="/0/@statemachine.0/@region.0/@transition.4" name=" check := bank.verifyCardWithBank ">
-          <doActivity xsi:type="mdd_1:CodeBlock" desc=" check := bank.verifyCardWithBank "/>
-        </subvertex>
-        <subvertex xsi:type="mdd_1:State" outgoing="/0/@statemachine.0/@region.0/@transition.0" incoming="/0/@statemachine.0/@region.0/@transition.1 /0/@statemachine.0/@region.0/@transition.2" name="">
-          <doActivity xsi:type="mdd_1:CodeBlock" desc=""/>
-        </subvertex>
-        <subvertex xsi:type="mdd_1:PseudoState" incoming="/0/@statemachine.0/@region.0/@transition.0 /0/@statemachine.0/@region.0/@transition.3" name="WaitVerify" pseudoStateKind="exitPoint"/>
-        <transition source="/0/@statemachine.0/@region.0/@subvertex.2" target="/0/@statemachine.0/@region.0/@subvertex.3"/>
-        <transition source="/0/@statemachine.0/@region.0/@subvertex.1" target="/0/@statemachine.0/@region.0/@subvertex.2">
-          <guard constraint="check = badBankAccount"/>
-        </transition>
-        <transition source="/0/@statemachine.0/@region.0/@subvertex.1" target="/0/@statemachine.0/@region.0/@subvertex.2">
-          <guard constraint="check = badBankPassword"/>
-        </transition>
-        <transition source="/0/@statemachine.0/@region.0/@subvertex.1" target="/0/@statemachine.0/@region.0/@subvertex.3"/>
-        <transition source="/0/@statemachine.0/@region.0/@subvertex.0" target="/0/@statemachine.0/@region.0/@subvertex.1"/>
-      </region>
-    </statemachine>
-    <statemachine name="cancel" submachineState="/0/@statemachine.6/@region.0/@subvertex.4">
-      <region name="cancel">
-        <subvertex xsi:type="mdd_1:PseudoState" outgoing="/0/@statemachine.1/@region.0/@transition.1" name="cancel" pseudoStateKind="entryPoint"/>
-        <subvertex xsi:type="mdd_1:State" outgoing="/0/@statemachine.1/@region.0/@transition.0" incoming="/0/@statemachine.1/@region.0/@transition.1" name="User.canceledMessage User.ejectCard User.requestTakeCard ">
-          <doActivity xsi:type="mdd_1:CodeBlock" desc="User.canceledMessage User.ejectCard User.requestTakeCard "/>
-        </subvertex>
-        <transition source="/0/@statemachine.1/@region.0/@subvertex.1" target="/0/@statemachine.4/@region.0/@subvertex.3"/>
-        <transition source="/0/@statemachine.1/@region.0/@subvertex.0" target="/0/@statemachine.1/@region.0/@subvertex.1"/>
-      </region>
-    </statemachine>
-    <statemachine name="takeCard" submachineState="/0/@statemachine.6/@region.0/@subvertex.7">
-      <region name="takeCard">
-        <subvertex xsi:type="mdd_1:PseudoState" outgoing="/0/@statemachine.2/@region.0/@transition.1" name="takeCard" pseudoStateKind="entryPoint"/>
-        <subvertex xsi:type="mdd_1:State" outgoing="/0/@statemachine.2/@region.0/@transition.0" incoming="/0/@statemachine.2/@region.0/@transition.1" name="User.displayMainScreen ">
-          <doActivity xsi:type="mdd_1:CodeBlock" desc="User.displayMainScreen "/>
-        </subvertex>
-        <subvertex xsi:type="mdd_1:PseudoState" incoming="/0/@statemachine.2/@region.0/@transition.0" name="WaitCard" pseudoStateKind="exitPoint"/>
-        <transition source="/0/@statemachine.2/@region.0/@subvertex.1" target="/0/@statemachine.2/@region.0/@subvertex.2"/>
-        <transition source="/0/@statemachine.2/@region.0/@subvertex.0" target="/0/@statemachine.2/@region.0/@subvertex.1"/>
-      </region>
-    </statemachine>
-    <statemachine name="insertCard" submachineState="/0/@statemachine.6/@region.0/@subvertex.5">
-      <region name="insertCard">
-        <subvertex xsi:type="mdd_1:PseudoState" outgoing="/0/@statemachine.3/@region.0/@transition.0" name="insertCard" pseudoStateKind="entryPoint"/>
-        <transition source="/0/@statemachine.3/@region.0/@subvertex.0" target="/0/@statemachine.4/@region.0/@subvertex.4"/>
-      </region>
-    </statemachine>
-    <statemachine name="enterPassword" submachineState="/0/@statemachine.6/@region.0/@subvertex.6">
-      <region name="enterPassword">
-        <subvertex xsi:type="mdd_1:PseudoState" outgoing="/0/@statemachine.4/@region.0/@transition.5" name="enterPassword" pseudoStateKind="entryPoint"/>
-        <subvertex xsi:type="mdd_1:State" outgoing="/0/@statemachine.4/@region.0/@transition.1 /0/@statemachine.4/@region.0/@transition.3 /0/@statemachine.4/@region.0/@transition.4" incoming="/0/@statemachine.4/@region.0/@transition.5" name=" check := consortium.verifyAccount ">
-          <doActivity xsi:type="mdd_1:CodeBlock" desc=" check := consortium.verifyAccount "/>
-        </subvertex>
-        <subvertex xsi:type="mdd_1:State" outgoing="/0/@statemachine.4/@region.0/@transition.0" incoming="/0/@statemachine.4/@region.0/@transition.1" name="User.badAccountMessage User.printReceipt User.ejectCard User.requestTakeCard ">
-          <doActivity xsi:type="mdd_1:CodeBlock" desc="User.badAccountMessage User.printReceipt User.ejectCard User.requestTakeCard "/>
-        </subvertex>
-        <subvertex xsi:type="mdd_1:PseudoState" incoming="/0/@statemachine.1/@region.0/@transition.0 /0/@statemachine.4/@region.0/@transition.0 /0/@statemachine.4/@region.0/@transition.4" name="WaitTakeCard" pseudoStateKind="exitPoint"/>
-        <subvertex xsi:type="mdd_1:State" outgoing="/0/@statemachine.4/@region.0/@transition.2" incoming="/0/@statemachine.3/@region.0/@transition.0 /0/@statemachine.4/@region.0/@transition.3" name="User.requestPassword ">
-          <doActivity xsi:type="mdd_1:CodeBlock" desc="User.requestPassword "/>
-        </subvertex>
-        <subvertex xsi:type="mdd_1:PseudoState" incoming="/0/@statemachine.4/@region.0/@transition.2" name="WaitPassword" pseudoStateKind="exitPoint"/>
-        <transition source="/0/@statemachine.4/@region.0/@subvertex.2" target="/0/@statemachine.4/@region.0/@subvertex.3"/>
-        <transition source="/0/@statemachine.4/@region.0/@subvertex.1" target="/0/@statemachine.4/@region.0/@subvertex.2">
-          <guard constraint="check = badAccount"/>
-        </transition>
-        <transition source="/0/@statemachine.4/@region.0/@subvertex.4" target="/0/@statemachine.4/@region.0/@subvertex.5"/>
-        <transition source="/0/@statemachine.4/@region.0/@subvertex.1" target="/0/@statemachine.4/@region.0/@subvertex.4">
-          <guard constraint="check = badPassword"/>
-        </transition>
-        <transition source="/0/@statemachine.4/@region.0/@subvertex.1" target="/0/@statemachine.4/@region.0/@subvertex.3"/>
-        <transition source="/0/@statemachine.4/@region.0/@subvertex.0" target="/0/@statemachine.4/@region.0/@subvertex.1"/>
-      </region>
-    </statemachine>
-    <statemachine name="consortium">
-      <region name="consortium">
-        <subvertex xsi:type="mdd_1:State" outgoing="/0/@statemachine.5/@region.0/@transition.2" incoming="/0/@statemachine.5/@region.0/@transition.0 /0/@statemachine.5/@region.0/@transition.1" name="WaitVerify"/>
-        <subvertex xsi:type="mdd_1:PseudoState" outgoing="/0/@statemachine.5/@region.0/@transition.0" name="entry"/>
-        <subvertex xsi:type="mdd_1:State" outgoing="/0/@statemachine.5/@region.0/@transition.1" incoming="/0/@statemachine.5/@region.0/@transition.2" name="verifyAccount" submachine="/0/@statemachine.0" entryPoint="/0/@statemachine.0/@region.0/@subvertex.0" exitPoint="/0/@statemachine.0/@region.0/@subvertex.3"/>
-        <transition source="/0/@statemachine.5/@region.0/@subvertex.1" target="/0/@statemachine.5/@region.0/@subvertex.0" kind="internal"/>
-        <transition source="/0/@statemachine.5/@region.0/@subvertex.2" target="/0/@statemachine.5/@region.0/@subvertex.0">
-          <effect xsi:type="mdd_1:CodeBlock" desc="return badAccount"/>
-        </transition>
-        <transition source="/0/@statemachine.5/@region.0/@subvertex.0" target="/0/@statemachine.5/@region.0/@subvertex.2">
-          <trigger trigger="verifyAccount"/>
-        </transition>
-      </region>
-    </statemachine>
-    <statemachine name="atm">
-      <region name="atm">
-        <subvertex xsi:type="mdd_1:State" outgoing="/0/@statemachine.6/@region.0/@transition.4" incoming="/0/@statemachine.6/@region.0/@transition.0 /0/@statemachine.6/@region.0/@transition.8" name="WaitCard"/>
-        <subvertex xsi:type="mdd_1:State" outgoing="/0/@statemachine.6/@region.0/@transition.2 /0/@statemachine.6/@region.0/@transition.7" incoming="/0/@statemachine.6/@region.0/@transition.3 /0/@statemachine.6/@region.0/@transition.6" name="WaitPassword"/>
-        <subvertex xsi:type="mdd_1:State" outgoing="/0/@statemachine.6/@region.0/@transition.9" incoming="/0/@statemachine.6/@region.0/@transition.1 /0/@statemachine.6/@region.0/@transition.5" name="WaitTakeCard"/>
-        <subvertex xsi:type="mdd_1:PseudoState" outgoing="/0/@statemachine.6/@region.0/@transition.0" name="entry"/>
-        <subvertex xsi:type="mdd_1:State" outgoing="/0/@statemachine.6/@region.0/@transition.1" incoming="/0/@statemachine.6/@region.0/@transition.2" name="cancel" submachine="/0/@statemachine.1" entryPoint="/0/@statemachine.1/@region.0/@subvertex.0" exitPoint="/0/@statemachine.4/@region.0/@subvertex.3"/>
-        <subvertex xsi:type="mdd_1:State" outgoing="/0/@statemachine.6/@region.0/@transition.3" incoming="/0/@statemachine.6/@region.0/@transition.4" name="insertCard" submachine="/0/@statemachine.3" entryPoint="/0/@statemachine.3/@region.0/@subvertex.0" exitPoint="/0/@statemachine.4/@region.0/@subvertex.5"/>
-        <subvertex xsi:type="mdd_1:State" outgoing="/0/@statemachine.6/@region.0/@transition.5 /0/@statemachine.6/@region.0/@transition.6" incoming="/0/@statemachine.6/@region.0/@transition.7" name="enterPassword" submachine="/0/@statemachine.4" entryPoint="/0/@statemachine.4/@region.0/@subvertex.0" exitPoint="/0/@statemachine.4/@region.0/@subvertex.3 /0/@statemachine.4/@region.0/@subvertex.5"/>
-        <subvertex xsi:type="mdd_1:State" outgoing="/0/@statemachine.6/@region.0/@transition.8" incoming="/0/@statemachine.6/@region.0/@transition.9" name="takeCard" submachine="/0/@statemachine.2" entryPoint="/0/@statemachine.2/@region.0/@subvertex.0" exitPoint="/0/@statemachine.2/@region.0/@subvertex.2"/>
-        <transition source="/0/@statemachine.6/@region.0/@subvertex.3" target="/0/@statemachine.6/@region.0/@subvertex.0" kind="internal"/>
-        <transition source="/0/@statemachine.6/@region.0/@subvertex.4" target="/0/@statemachine.6/@region.0/@subvertex.2">
-          <effect xsi:type="mdd_1:CodeBlock" desc="return void"/>
-        </transition>
-        <transition source="/0/@statemachine.6/@region.0/@subvertex.1" target="/0/@statemachine.6/@region.0/@subvertex.4">
-          <trigger trigger="cancel"/>
-        </transition>
-        <transition source="/0/@statemachine.6/@region.0/@subvertex.5" target="/0/@statemachine.6/@region.0/@subvertex.1">
-          <effect xsi:type="mdd_1:CodeBlock" desc="return void"/>
-        </transition>
-        <transition source="/0/@statemachine.6/@region.0/@subvertex.0" target="/0/@statemachine.6/@region.0/@subvertex.5">
-          <trigger trigger="insertCard"/>
-        </transition>
-        <transition source="/0/@statemachine.6/@region.0/@subvertex.6" target="/0/@statemachine.6/@region.0/@subvertex.2">
-          <effect xsi:type="mdd_1:CodeBlock" desc="return void"/>
-        </transition>
-        <transition source="/0/@statemachine.6/@region.0/@subvertex.6" target="/0/@statemachine.6/@region.0/@subvertex.1">
-          <effect xsi:type="mdd_1:CodeBlock" desc="return void"/>
-        </transition>
-        <transition source="/0/@statemachine.6/@region.0/@subvertex.1" target="/0/@statemachine.6/@region.0/@subvertex.6">
-          <trigger trigger="enterPassword"/>
-        </transition>
-        <transition source="/0/@statemachine.6/@region.0/@subvertex.7" target="/0/@statemachine.6/@region.0/@subvertex.0">
-          <effect xsi:type="mdd_1:CodeBlock" desc="return void"/>
-        </transition>
-        <transition source="/0/@statemachine.6/@region.0/@subvertex.2" target="/0/@statemachine.6/@region.0/@subvertex.7">
-          <trigger trigger="takeCard"/>
-        </transition>
-      </region>
-    </statemachine>
-  </mdd:StateMachinePackage>
-  <mdd_1:CodeBlock desc="return badPassword"/>
-</xmi:XMI>
+<mdd:StateMachinePackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdd="se.studieren.mdd.transformer.StateMachinePackage" xmlns:mdd_1="se.studieren.mdd.transformer.StateMachine" xsi:schemaLocation="se.studieren.mdd.transformer.StateMachinePackage ../StateMachinePackage.ecore se.studieren.mdd.transformer.StateMachine ../StateMachine.ecore">
+  <statemachine name="verifyAccount" submachineState="//@statemachine.5/@region.0/@subvertex.2">
+    <region name="verifyAccount">
+      <subvertex xsi:type="mdd_1:PseudoState" outgoing="//@statemachine.0/@region.0/@transition.2" name="verifyAccount" pseudoStateKind="entryPoint"/>
+      <subvertex xsi:type="mdd_1:State" outgoing="//@statemachine.0/@region.0/@transition.0 //@statemachine.0/@region.0/@transition.1" incoming="//@statemachine.0/@region.0/@transition.2" name="verifyAccount: check := bank.verifyCardWithBank ">
+        <doActivity xsi:type="mdd_1:CodeBlock" desc=" check := bank.verifyCardWithBank "/>
+      </subvertex>
+      <subvertex xsi:type="mdd_1:PseudoState" incoming="//@statemachine.0/@region.0/@transition.0" name="verifyAccount:WaitVerify" pseudoStateKind="exitPoint" returnValue="return badAccount"/>
+      <subvertex xsi:type="mdd_1:PseudoState" incoming="//@statemachine.0/@region.0/@transition.1" name="verifyAccount:WaitVerify" pseudoStateKind="exitPoint" returnValue="return badPassword"/>
+      <transition source="//@statemachine.0/@region.0/@subvertex.1" target="//@statemachine.0/@region.0/@subvertex.2">
+        <guard constraint="check = badBankAccount"/>
+      </transition>
+      <transition source="//@statemachine.0/@region.0/@subvertex.1" target="//@statemachine.0/@region.0/@subvertex.3">
+        <guard constraint="check = badBankPassword"/>
+      </transition>
+      <transition source="//@statemachine.0/@region.0/@subvertex.0" target="//@statemachine.0/@region.0/@subvertex.1"/>
+    </region>
+  </statemachine>
+  <statemachine name="takeCard" submachineState="//@statemachine.6/@region.0/@subvertex.7">
+    <region name="takeCard">
+      <subvertex xsi:type="mdd_1:PseudoState" outgoing="//@statemachine.1/@region.0/@transition.1" name="takeCard" pseudoStateKind="entryPoint"/>
+      <subvertex xsi:type="mdd_1:State" outgoing="//@statemachine.1/@region.0/@transition.0" incoming="//@statemachine.1/@region.0/@transition.1" name="takeCard:User.displayMainScreen ">
+        <doActivity xsi:type="mdd_1:CodeBlock" desc="User.displayMainScreen "/>
+      </subvertex>
+      <subvertex xsi:type="mdd_1:PseudoState" incoming="//@statemachine.1/@region.0/@transition.0" name="takeCard:WaitCard" pseudoStateKind="exitPoint" returnValue="return void"/>
+      <transition source="//@statemachine.1/@region.0/@subvertex.1" target="//@statemachine.1/@region.0/@subvertex.2"/>
+      <transition source="//@statemachine.1/@region.0/@subvertex.0" target="//@statemachine.1/@region.0/@subvertex.1"/>
+    </region>
+  </statemachine>
+  <statemachine name="insertCard" submachineState="//@statemachine.6/@region.0/@subvertex.5">
+    <region name="insertCard">
+      <subvertex xsi:type="mdd_1:PseudoState" outgoing="//@statemachine.2/@region.0/@transition.1" name="insertCard" pseudoStateKind="entryPoint"/>
+      <subvertex xsi:type="mdd_1:State" outgoing="//@statemachine.2/@region.0/@transition.0" incoming="//@statemachine.2/@region.0/@transition.1" name="insertCard:User.requestPassword "/>
+      <subvertex xsi:type="mdd_1:PseudoState" incoming="//@statemachine.2/@region.0/@transition.0" name="insertCard:WaitPassword" pseudoStateKind="exitPoint" returnValue="return void"/>
+      <transition source="//@statemachine.2/@region.0/@subvertex.1" target="//@statemachine.2/@region.0/@subvertex.2"/>
+      <transition source="//@statemachine.2/@region.0/@subvertex.0" target="//@statemachine.2/@region.0/@subvertex.1"/>
+    </region>
+  </statemachine>
+  <statemachine name="cancel" submachineState="//@statemachine.6/@region.0/@subvertex.4">
+    <region name="cancel">
+      <subvertex xsi:type="mdd_1:PseudoState" outgoing="//@statemachine.3/@region.0/@transition.1" name="cancel" pseudoStateKind="entryPoint"/>
+      <subvertex xsi:type="mdd_1:State" outgoing="//@statemachine.3/@region.0/@transition.0" incoming="//@statemachine.3/@region.0/@transition.1" name="cancel:User.canceledMessage User.ejectCard User.requestTakeCard ">
+        <doActivity xsi:type="mdd_1:CodeBlock" desc="User.canceledMessage User.ejectCard User.requestTakeCard "/>
+      </subvertex>
+      <subvertex xsi:type="mdd_1:PseudoState" incoming="//@statemachine.3/@region.0/@transition.0" name="cancel:WaitTakeCard" pseudoStateKind="exitPoint" returnValue="return void"/>
+      <transition source="//@statemachine.3/@region.0/@subvertex.1" target="//@statemachine.3/@region.0/@subvertex.2"/>
+      <transition source="//@statemachine.3/@region.0/@subvertex.0" target="//@statemachine.3/@region.0/@subvertex.1"/>
+    </region>
+  </statemachine>
+  <statemachine name="enterPassword" submachineState="//@statemachine.6/@region.0/@subvertex.6">
+    <region name="enterPassword">
+      <subvertex xsi:type="mdd_1:PseudoState" outgoing="//@statemachine.4/@region.0/@transition.4" name="enterPassword" pseudoStateKind="entryPoint"/>
+      <subvertex xsi:type="mdd_1:State" outgoing="//@statemachine.4/@region.0/@transition.1 //@statemachine.4/@region.0/@transition.3" incoming="//@statemachine.4/@region.0/@transition.4" name="enterPassword: check := consortium.verifyAccount ">
+        <doActivity xsi:type="mdd_1:CodeBlock" desc=" check := consortium.verifyAccount "/>
+      </subvertex>
+      <subvertex xsi:type="mdd_1:State" outgoing="//@statemachine.4/@region.0/@transition.0" incoming="//@statemachine.4/@region.0/@transition.1" name="enterPassword:User.badAccountMessage User.printReceipt User.ejectCard User.requestTakeCard ">
+        <doActivity xsi:type="mdd_1:CodeBlock" desc="User.badAccountMessage User.printReceipt User.ejectCard User.requestTakeCard "/>
+      </subvertex>
+      <subvertex xsi:type="mdd_1:PseudoState" incoming="//@statemachine.4/@region.0/@transition.0" name="enterPassword:WaitTakeCard" pseudoStateKind="exitPoint" returnValue="return void"/>
+      <subvertex xsi:type="mdd_1:State" outgoing="//@statemachine.4/@region.0/@transition.2" incoming="//@statemachine.4/@region.0/@transition.3" name="enterPassword:User.requestPassword ">
+        <doActivity xsi:type="mdd_1:CodeBlock" desc="User.requestPassword "/>
+      </subvertex>
+      <subvertex xsi:type="mdd_1:PseudoState" incoming="//@statemachine.4/@region.0/@transition.2" name="enterPassword:WaitPassword" pseudoStateKind="exitPoint" returnValue="return void"/>
+      <transition source="//@statemachine.4/@region.0/@subvertex.2" target="//@statemachine.4/@region.0/@subvertex.3"/>
+      <transition source="//@statemachine.4/@region.0/@subvertex.1" target="//@statemachine.4/@region.0/@subvertex.2">
+        <guard constraint="check = badAccount"/>
+      </transition>
+      <transition source="//@statemachine.4/@region.0/@subvertex.4" target="//@statemachine.4/@region.0/@subvertex.5"/>
+      <transition source="//@statemachine.4/@region.0/@subvertex.1" target="//@statemachine.4/@region.0/@subvertex.4">
+        <guard constraint="check = badPassword"/>
+      </transition>
+      <transition source="//@statemachine.4/@region.0/@subvertex.0" target="//@statemachine.4/@region.0/@subvertex.1"/>
+    </region>
+  </statemachine>
+  <statemachine name="consortium">
+    <region name="consortium">
+      <subvertex xsi:type="mdd_1:State" outgoing="//@statemachine.5/@region.0/@transition.3" incoming="//@statemachine.5/@region.0/@transition.0 //@statemachine.5/@region.0/@transition.1 //@statemachine.5/@region.0/@transition.2" name="WaitVerify"/>
+      <subvertex xsi:type="mdd_1:PseudoState" outgoing="//@statemachine.5/@region.0/@transition.0" name="entry"/>
+      <subvertex xsi:type="mdd_1:State" outgoing="//@statemachine.5/@region.0/@transition.1 //@statemachine.5/@region.0/@transition.2" incoming="//@statemachine.5/@region.0/@transition.3" name="verifyAccount" submachine="//@statemachine.0" entryPoint="//@statemachine.0/@region.0/@subvertex.0" exitPoint="//@statemachine.0/@region.0/@subvertex.2 //@statemachine.0/@region.0/@subvertex.3"/>
+      <transition source="//@statemachine.5/@region.0/@subvertex.1" target="//@statemachine.5/@region.0/@subvertex.0"/>
+      <transition source="//@statemachine.5/@region.0/@subvertex.2" target="//@statemachine.5/@region.0/@subvertex.0">
+        <effect xsi:type="mdd_1:CodeBlock" desc="return badAccount"/>
+      </transition>
+      <transition source="//@statemachine.5/@region.0/@subvertex.2" target="//@statemachine.5/@region.0/@subvertex.0">
+        <effect xsi:type="mdd_1:CodeBlock" desc="return badPassword"/>
+      </transition>
+      <transition source="//@statemachine.5/@region.0/@subvertex.0" target="//@statemachine.5/@region.0/@subvertex.2">
+        <trigger trigger="verifyAccount"/>
+      </transition>
+    </region>
+  </statemachine>
+  <statemachine name="atm">
+    <region name="atm">
+      <subvertex xsi:type="mdd_1:State" outgoing="//@statemachine.6/@region.0/@transition.4" incoming="//@statemachine.6/@region.0/@transition.0 //@statemachine.6/@region.0/@transition.8" name="WaitCard"/>
+      <subvertex xsi:type="mdd_1:State" outgoing="//@statemachine.6/@region.0/@transition.2 //@statemachine.6/@region.0/@transition.7" incoming="//@statemachine.6/@region.0/@transition.3 //@statemachine.6/@region.0/@transition.6" name="WaitPassword"/>
+      <subvertex xsi:type="mdd_1:State" outgoing="//@statemachine.6/@region.0/@transition.9" incoming="//@statemachine.6/@region.0/@transition.1 //@statemachine.6/@region.0/@transition.5" name="WaitTakeCard"/>
+      <subvertex xsi:type="mdd_1:PseudoState" outgoing="//@statemachine.6/@region.0/@transition.0" name="entry"/>
+      <subvertex xsi:type="mdd_1:State" outgoing="//@statemachine.6/@region.0/@transition.1" incoming="//@statemachine.6/@region.0/@transition.2" name="cancel" submachine="//@statemachine.3" entryPoint="//@statemachine.3/@region.0/@subvertex.0" exitPoint="//@statemachine.3/@region.0/@subvertex.2"/>
+      <subvertex xsi:type="mdd_1:State" outgoing="//@statemachine.6/@region.0/@transition.3" incoming="//@statemachine.6/@region.0/@transition.4" name="insertCard" submachine="//@statemachine.2" entryPoint="//@statemachine.2/@region.0/@subvertex.0" exitPoint="//@statemachine.2/@region.0/@subvertex.2"/>
+      <subvertex xsi:type="mdd_1:State" outgoing="//@statemachine.6/@region.0/@transition.5 //@statemachine.6/@region.0/@transition.6" incoming="//@statemachine.6/@region.0/@transition.7" name="enterPassword" submachine="//@statemachine.4" entryPoint="//@statemachine.4/@region.0/@subvertex.0" exitPoint="//@statemachine.4/@region.0/@subvertex.3 //@statemachine.4/@region.0/@subvertex.5"/>
+      <subvertex xsi:type="mdd_1:State" outgoing="//@statemachine.6/@region.0/@transition.8" incoming="//@statemachine.6/@region.0/@transition.9" name="takeCard" submachine="//@statemachine.1" entryPoint="//@statemachine.1/@region.0/@subvertex.0" exitPoint="//@statemachine.1/@region.0/@subvertex.2"/>
+      <transition source="//@statemachine.6/@region.0/@subvertex.3" target="//@statemachine.6/@region.0/@subvertex.0"/>
+      <transition source="//@statemachine.6/@region.0/@subvertex.4" target="//@statemachine.6/@region.0/@subvertex.2">
+        <effect xsi:type="mdd_1:CodeBlock" desc="return void"/>
+      </transition>
+      <transition source="//@statemachine.6/@region.0/@subvertex.1" target="//@statemachine.6/@region.0/@subvertex.4">
+        <trigger trigger="cancel"/>
+      </transition>
+      <transition source="//@statemachine.6/@region.0/@subvertex.5" target="//@statemachine.6/@region.0/@subvertex.1">
+        <effect xsi:type="mdd_1:CodeBlock" desc="return void"/>
+      </transition>
+      <transition source="//@statemachine.6/@region.0/@subvertex.0" target="//@statemachine.6/@region.0/@subvertex.5">
+        <trigger trigger="insertCard"/>
+      </transition>
+      <transition source="//@statemachine.6/@region.0/@subvertex.6" target="//@statemachine.6/@region.0/@subvertex.2">
+        <effect xsi:type="mdd_1:CodeBlock" desc="return void"/>
+      </transition>
+      <transition source="//@statemachine.6/@region.0/@subvertex.6" target="//@statemachine.6/@region.0/@subvertex.1">
+        <effect xsi:type="mdd_1:CodeBlock" desc="return void"/>
+      </transition>
+      <transition source="//@statemachine.6/@region.0/@subvertex.1" target="//@statemachine.6/@region.0/@subvertex.6">
+        <trigger trigger="enterPassword"/>
+      </transition>
+      <transition source="//@statemachine.6/@region.0/@subvertex.7" target="//@statemachine.6/@region.0/@subvertex.0">
+        <effect xsi:type="mdd_1:CodeBlock" desc="return void"/>
+      </transition>
+      <transition source="//@statemachine.6/@region.0/@subvertex.2" target="//@statemachine.6/@region.0/@subvertex.7">
+        <trigger trigger="takeCard"/>
+      </transition>
+    </region>
+  </statemachine>
+</mdd:StateMachinePackage>
