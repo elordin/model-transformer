@@ -35,10 +35,6 @@ mapping IOAutomaton::IOAutomaton::toRegion() : StateMachine::Region {
 	
 	transition += self.transition.map toTransition(result);
 	
-	//subvertex += activityStates->collect(name);
-	// TODO Create Activity Diagrams 
-	// TODO Create Submachines
-	// TODO Create Transitions
 }
 
 helper String::generateSubmachines(in iOAutomaton : IOAutomaton::IOAutomaton, inout mainReg : StateMachine::Region ) : StateMachine::StateMachine{
@@ -85,7 +81,7 @@ mapping String::stringToRegion() : StateMachine::Region{
 }
 
 helper constructNextStepOfAlgorithm(in corrTransitions : Sequence(IOAutomaton::Transition),
-		in count : Integer, inout reg : StateMachine::Region, inout mainReg : StateMachine::Region, in submachineState: StateMachine::State) : StateMachine::Vertex{
+		in count : Integer, inout reg : StateMachine::Region, inout mainReg : StateMachine::Region, inout submachineState: StateMachine::State) : StateMachine::Vertex{
 	
 	var oMessages := corrTransitions->first().outmessage->asSequence(); //All transitions related to this function
 	var doActivityCode := ""; //build statename
@@ -143,7 +139,10 @@ helper constructNextStepOfAlgorithm(in corrTransitions : Sequence(IOAutomaton::T
 		var targetStateName := corrTransitions.target->first().oclAsType(State).name; //all calling states are the same
 		var targetState := mainReg.subvertex->selectByKind(StateMachine::State).oclAsType(StateMachine::State)->select(name=targetStateName); //can't be pseudo' 
 		var outTrans = map constructTransition(submachineState,targetState->first());//first save, as only one possible
-		targetState->first().exitPoint := exitState;
+		
+		//targetState->first().exitPoint += exitState;
+		submachineState.exitPoint += exitState;
+		
 		outTrans.effect := corrTransitions->first().returnvalue.map toEffect(); 
 		mainReg.transition += outTrans;
 	};
