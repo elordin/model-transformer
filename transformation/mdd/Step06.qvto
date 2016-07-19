@@ -25,22 +25,30 @@ mapping StateMachine::Region::toRegion() : UML::Region {
 }
 mapping StateMachine::Transition::toTransition() : UML::Transition{
 	source := (self.source).resolveoneIn(StateMachine::Vertex::toVertex,UML::Vertex);
-	if(source.oclAsType(State).isSubmachineState){
-		//get the right exitpoint
-	};
-	target := (self.target).resolveoneIn(StateMachine::Vertex::toVertex,UML::Vertex);
+	effect := self.effect.map toEffect();
 	
+	if(source.oclAsType(UML::State).submachine!=null){
+		//get the right exitpoint
+		log("t",source.oclAsType(UML::State).connection->select(e|(not e.exit->isEmpty())));
+		source := source.oclAsType(UML::State).connection
+			->select(e|(not e.exit->isEmpty()) and (e.name->asSequence()->first() = (self.source.name+":"+self.target.name->asSequence()->first()+":"+effect.oclAsType(UML::OpaqueBehavior).body->first())))->asSequence()->first();
+	};
+	
+	target := (self.target).resolveoneIn(StateMachine::Vertex::toVertex,UML::Vertex);
 	if(target.oclAsType(UML::State).submachine!=null){
 		//get Entry Point connnector
 		target := target.oclAsType(UML::State).connection->any(e|not e.entry->isEmpty()); //there is always only one
 	};
 	guard := self.guard.map toGuard();
-	effect := self.effect.map toEffect();
+	
 	trigger := self.trigger.map toTrigger();
 }
 
 mapping StateMachine::Trigger::toTrigger() : UML::Trigger{
-	
+	name := self.trigger;
+	event := object UML::AnyReceiveEvent{
+		name := self.trigger;
+	};
 }
 
 mapping StateMachine::Behavior::toEffect() : UML::OpaqueBehavior 
@@ -50,6 +58,7 @@ mapping StateMachine::CodeBlock::toEffect() : UML::OpaqueBehavior{
 	body := self.desc;
 }
 mapping StateMachine::Constraint::toGuard() : UML::Constraint{
+	name := self.constraint;
 	specification := object UML::OpaqueExpression{
 		body := self.constraint;
 	};
@@ -80,7 +89,7 @@ mapping StateMachine::State::toState() : UML::State{
 }
 	
 mapping StateMachine::PseudoState::toPseudoState() : UML::Pseudostate{
-	name := self.name;
+	name := self.name+":"+self.returnValue;
 	kind := self.pseudoStateKind.getPseudostate();
 }
 

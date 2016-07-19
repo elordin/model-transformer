@@ -1,161 +1,178 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Package xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_H0efcE3REea_PrBQWVCCMg">
-  <packagedElement xmi:type="uml:StateMachine" xmi:id="_H0efcU3REea_PrBQWVCCMg" name="verifyAccount" submachineState="_H0efrE3REea_PrBQWVCCMg">
-    <region xmi:id="_H0efck3REea_PrBQWVCCMg" name="verifyAccount">
-      <transition xmi:id="_H0efc03REea_PrBQWVCCMg" source="_H0eff03REea_PrBQWVCCMg" target="_H0effU3REea_PrBQWVCCMg"/>
-      <transition xmi:id="_H0efdE3REea_PrBQWVCCMg" source="_H0effE3REea_PrBQWVCCMg" target="_H0eff03REea_PrBQWVCCMg"/>
-      <transition xmi:id="_H0efdU3REea_PrBQWVCCMg" guard="_H0efdk3REea_PrBQWVCCMg" source="_H0eff03REea_PrBQWVCCMg" target="_H0effk3REea_PrBQWVCCMg">
-        <ownedRule xmi:id="_H0efdk3REea_PrBQWVCCMg">
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="_H0efd03REea_PrBQWVCCMg">
-            <body>check = badBankPassword</body>
-          </specification>
-        </ownedRule>
-      </transition>
-      <transition xmi:id="_H0efeE3REea_PrBQWVCCMg" guard="_H0efeU3REea_PrBQWVCCMg" source="_H0eff03REea_PrBQWVCCMg" target="_H0effk3REea_PrBQWVCCMg">
-        <ownedRule xmi:id="_H0efeU3REea_PrBQWVCCMg">
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="_H0efek3REea_PrBQWVCCMg">
-            <body>check = badBankAccount</body>
-          </specification>
-        </ownedRule>
-      </transition>
-      <transition xmi:id="_H0efe03REea_PrBQWVCCMg" source="_H0effk3REea_PrBQWVCCMg" target="_H0effU3REea_PrBQWVCCMg"/>
-      <subvertex xmi:type="uml:Pseudostate" xmi:id="_H0effE3REea_PrBQWVCCMg" name="verifyAccount" kind="entryPoint"/>
-      <subvertex xmi:type="uml:Pseudostate" xmi:id="_H0effU3REea_PrBQWVCCMg" name="WaitVerify" kind="exitPoint"/>
-      <subvertex xmi:type="uml:State" xmi:id="_H0effk3REea_PrBQWVCCMg" name=""/>
-      <subvertex xmi:type="uml:State" xmi:id="_H0eff03REea_PrBQWVCCMg" name=" check := bank.verifyCardWithBank "/>
-    </region>
-  </packagedElement>
-  <packagedElement xmi:type="uml:StateMachine" xmi:id="_H0efgE3REea_PrBQWVCCMg" name="cancel" submachineState="_H0efz03REea_PrBQWVCCMg">
-    <region xmi:id="_H0efgU3REea_PrBQWVCCMg" name="cancel">
-      <transition xmi:id="_H0efgk3REea_PrBQWVCCMg" source="_H0efhE3REea_PrBQWVCCMg"/>
-      <transition xmi:id="_H0efg03REea_PrBQWVCCMg" source="_H0efhU3REea_PrBQWVCCMg" target="_H0efhE3REea_PrBQWVCCMg"/>
-      <subvertex xmi:type="uml:State" xmi:id="_H0efhE3REea_PrBQWVCCMg" name="User.canceledMessage User.ejectCard User.requestTakeCard "/>
-      <subvertex xmi:type="uml:Pseudostate" xmi:id="_H0efhU3REea_PrBQWVCCMg" name="cancel" kind="entryPoint"/>
-    </region>
-  </packagedElement>
-  <packagedElement xmi:type="uml:StateMachine" xmi:id="_H0efhk3REea_PrBQWVCCMg" name="takeCard" submachineState="_H0efy03REea_PrBQWVCCMg">
-    <region xmi:id="_H0efh03REea_PrBQWVCCMg" name="takeCard">
-      <transition xmi:id="_H0efiE3REea_PrBQWVCCMg" source="_H0efi03REea_PrBQWVCCMg" target="_H0efik3REea_PrBQWVCCMg"/>
-      <transition xmi:id="_H0efiU3REea_PrBQWVCCMg" source="_H0efik3REea_PrBQWVCCMg" target="_H0efjE3REea_PrBQWVCCMg"/>
-      <subvertex xmi:type="uml:State" xmi:id="_H0efik3REea_PrBQWVCCMg" name="User.displayMainScreen "/>
-      <subvertex xmi:type="uml:Pseudostate" xmi:id="_H0efi03REea_PrBQWVCCMg" name="takeCard" kind="entryPoint"/>
-      <subvertex xmi:type="uml:Pseudostate" xmi:id="_H0efjE3REea_PrBQWVCCMg" name="WaitCard" kind="exitPoint"/>
-    </region>
-  </packagedElement>
-  <packagedElement xmi:type="uml:StateMachine" xmi:id="_H0efjU3REea_PrBQWVCCMg" name="insertCard" submachineState="_H0ef0k3REea_PrBQWVCCMg">
-    <region xmi:id="_H0efjk3REea_PrBQWVCCMg" name="insertCard">
-      <transition xmi:id="_H0efj03REea_PrBQWVCCMg" source="_H0efkE3REea_PrBQWVCCMg"/>
-      <subvertex xmi:type="uml:Pseudostate" xmi:id="_H0efkE3REea_PrBQWVCCMg" name="insertCard" kind="entryPoint"/>
-    </region>
-  </packagedElement>
-  <packagedElement xmi:type="uml:StateMachine" xmi:id="_H0efkU3REea_PrBQWVCCMg" name="enterPassword" submachineState="_H0efxU3REea_PrBQWVCCMg">
-    <region xmi:id="_H0efkk3REea_PrBQWVCCMg" name="enterPassword">
-      <transition xmi:id="_H0efk03REea_PrBQWVCCMg" source="_H0efnU3REea_PrBQWVCCMg" target="_H0efok3REea_PrBQWVCCMg"/>
-      <transition xmi:id="_H0eflE3REea_PrBQWVCCMg" source="_H0efoE3REea_PrBQWVCCMg" target="_H0efoU3REea_PrBQWVCCMg"/>
-      <transition xmi:id="_H0eflU3REea_PrBQWVCCMg" source="_H0efok3REea_PrBQWVCCMg" target="_H0efn03REea_PrBQWVCCMg"/>
-      <transition xmi:id="_H0eflk3REea_PrBQWVCCMg" source="_H0efnk3REea_PrBQWVCCMg" target="_H0efn03REea_PrBQWVCCMg"/>
-      <transition xmi:id="_H0efl03REea_PrBQWVCCMg" guard="_H0efmE3REea_PrBQWVCCMg" source="_H0efok3REea_PrBQWVCCMg" target="_H0efnk3REea_PrBQWVCCMg">
-        <ownedRule xmi:id="_H0efmE3REea_PrBQWVCCMg">
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="_H0efmU3REea_PrBQWVCCMg">
-            <body>check = badAccount</body>
-          </specification>
-        </ownedRule>
-      </transition>
-      <transition xmi:id="_H0efmk3REea_PrBQWVCCMg" guard="_H0efm03REea_PrBQWVCCMg" source="_H0efok3REea_PrBQWVCCMg" target="_H0efoE3REea_PrBQWVCCMg">
-        <ownedRule xmi:id="_H0efm03REea_PrBQWVCCMg">
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="_H0efnE3REea_PrBQWVCCMg">
-            <body>check = badPassword</body>
-          </specification>
-        </ownedRule>
-      </transition>
-      <subvertex xmi:type="uml:Pseudostate" xmi:id="_H0efnU3REea_PrBQWVCCMg" name="enterPassword" kind="entryPoint"/>
-      <subvertex xmi:type="uml:State" xmi:id="_H0efnk3REea_PrBQWVCCMg" name="User.badAccountMessage User.printReceipt User.ejectCard User.requestTakeCard "/>
-      <subvertex xmi:type="uml:Pseudostate" xmi:id="_H0efn03REea_PrBQWVCCMg" name="WaitTakeCard" kind="exitPoint"/>
-      <subvertex xmi:type="uml:State" xmi:id="_H0efoE3REea_PrBQWVCCMg" name="User.requestPassword "/>
-      <subvertex xmi:type="uml:Pseudostate" xmi:id="_H0efoU3REea_PrBQWVCCMg" name="WaitPassword" kind="exitPoint"/>
-      <subvertex xmi:type="uml:State" xmi:id="_H0efok3REea_PrBQWVCCMg" name=" check := consortium.verifyAccount "/>
-    </region>
-  </packagedElement>
-  <packagedElement xmi:type="uml:StateMachine" xmi:id="_H0efo03REea_PrBQWVCCMg" name="consortium">
-    <region xmi:id="_H0efpE3REea_PrBQWVCCMg" name="consortium">
-      <transition xmi:id="_H0efpU3REea_PrBQWVCCMg" source="_H0efq03REea_PrBQWVCCMg" target="_H0efqk3REea_PrBQWVCCMg"/>
-      <transition xmi:id="_H0efpk3REea_PrBQWVCCMg" source="_H0efrE3REea_PrBQWVCCMg" target="_H0efqk3REea_PrBQWVCCMg">
-        <effect xmi:type="uml:OpaqueBehavior" xmi:id="_H0efp03REea_PrBQWVCCMg">
-          <body>return badAccount</body>
-        </effect>
-      </transition>
-      <transition xmi:id="_H0efqE3REea_PrBQWVCCMg" source="_H0efqk3REea_PrBQWVCCMg" target="_H0efrU3REea_PrBQWVCCMg">
-        <trigger xmi:id="_H0efqU3REea_PrBQWVCCMg"/>
-      </transition>
-      <subvertex xmi:type="uml:State" xmi:id="_H0efqk3REea_PrBQWVCCMg" name="WaitVerify"/>
-      <subvertex xmi:type="uml:Pseudostate" xmi:id="_H0efq03REea_PrBQWVCCMg" name="entry"/>
-      <subvertex xmi:type="uml:State" xmi:id="_H0efrE3REea_PrBQWVCCMg" name="verifyAccount" submachine="_H0efcU3REea_PrBQWVCCMg">
-        <connection xmi:id="_H0efrU3REea_PrBQWVCCMg" name="verifyAccount" entry="_H0effE3REea_PrBQWVCCMg"/>
-        <connection xmi:id="_H0efrk3REea_PrBQWVCCMg" name="WaitVerify" exit="_H0effU3REea_PrBQWVCCMg"/>
-      </subvertex>
-    </region>
-  </packagedElement>
-  <packagedElement xmi:type="uml:StateMachine" xmi:id="_H0efr03REea_PrBQWVCCMg" name="atm">
-    <region xmi:id="_H0efsE3REea_PrBQWVCCMg" name="atm">
-      <transition xmi:id="_H0efsU3REea_PrBQWVCCMg" source="_H0efyk3REea_PrBQWVCCMg" target="_H0ef0E3REea_PrBQWVCCMg">
-        <trigger xmi:id="_H0efsk3REea_PrBQWVCCMg"/>
-      </transition>
-      <transition xmi:id="_H0efs03REea_PrBQWVCCMg" source="_H0efy03REea_PrBQWVCCMg" target="_H0efyU3REea_PrBQWVCCMg">
-        <effect xmi:type="uml:OpaqueBehavior" xmi:id="_H0eftE3REea_PrBQWVCCMg">
-          <body>return void</body>
-        </effect>
-      </transition>
-      <transition xmi:id="_H0eftU3REea_PrBQWVCCMg" source="_H0efz03REea_PrBQWVCCMg" target="_H0efxE3REea_PrBQWVCCMg">
-        <effect xmi:type="uml:OpaqueBehavior" xmi:id="_H0eftk3REea_PrBQWVCCMg">
-          <body>return void</body>
-        </effect>
-      </transition>
-      <transition xmi:id="_H0eft03REea_PrBQWVCCMg" source="_H0efzk3REea_PrBQWVCCMg" target="_H0efyU3REea_PrBQWVCCMg"/>
-      <transition xmi:id="_H0efuE3REea_PrBQWVCCMg" source="_H0ef0k3REea_PrBQWVCCMg" target="_H0efyk3REea_PrBQWVCCMg">
-        <effect xmi:type="uml:OpaqueBehavior" xmi:id="_H0efuU3REea_PrBQWVCCMg">
-          <body>return void</body>
-        </effect>
-      </transition>
-      <transition xmi:id="_H0efuk3REea_PrBQWVCCMg" source="_H0efxU3REea_PrBQWVCCMg" target="_H0efyk3REea_PrBQWVCCMg">
-        <effect xmi:type="uml:OpaqueBehavior" xmi:id="_H0efu03REea_PrBQWVCCMg">
-          <body>return void</body>
-        </effect>
-      </transition>
-      <transition xmi:id="_H0efvE3REea_PrBQWVCCMg" source="_H0efyk3REea_PrBQWVCCMg" target="_H0efxk3REea_PrBQWVCCMg">
-        <trigger xmi:id="_H0efvU3REea_PrBQWVCCMg"/>
-      </transition>
-      <transition xmi:id="_H0efvk3REea_PrBQWVCCMg" source="_H0efxE3REea_PrBQWVCCMg" target="_H0efzE3REea_PrBQWVCCMg">
-        <trigger xmi:id="_H0efv03REea_PrBQWVCCMg"/>
-      </transition>
-      <transition xmi:id="_H0efwE3REea_PrBQWVCCMg" source="_H0efxU3REea_PrBQWVCCMg" target="_H0efxE3REea_PrBQWVCCMg">
-        <effect xmi:type="uml:OpaqueBehavior" xmi:id="_H0efwU3REea_PrBQWVCCMg">
-          <body>return void</body>
-        </effect>
-      </transition>
-      <transition xmi:id="_H0efwk3REea_PrBQWVCCMg" source="_H0efyU3REea_PrBQWVCCMg" target="_H0ef003REea_PrBQWVCCMg">
-        <trigger xmi:id="_H0efw03REea_PrBQWVCCMg"/>
-      </transition>
-      <subvertex xmi:type="uml:State" xmi:id="_H0efxE3REea_PrBQWVCCMg" name="WaitTakeCard"/>
-      <subvertex xmi:type="uml:State" xmi:id="_H0efxU3REea_PrBQWVCCMg" name="enterPassword" submachine="_H0efkU3REea_PrBQWVCCMg">
-        <connection xmi:id="_H0efxk3REea_PrBQWVCCMg" name="enterPassword" entry="_H0efnU3REea_PrBQWVCCMg"/>
-        <connection xmi:id="_H0efx03REea_PrBQWVCCMg" name="WaitTakeCard" exit="_H0efn03REea_PrBQWVCCMg"/>
-        <connection xmi:id="_H0efyE3REea_PrBQWVCCMg" name="WaitPassword" exit="_H0efoU3REea_PrBQWVCCMg"/>
-      </subvertex>
-      <subvertex xmi:type="uml:State" xmi:id="_H0efyU3REea_PrBQWVCCMg" name="WaitCard"/>
-      <subvertex xmi:type="uml:State" xmi:id="_H0efyk3REea_PrBQWVCCMg" name="WaitPassword"/>
-      <subvertex xmi:type="uml:State" xmi:id="_H0efy03REea_PrBQWVCCMg" name="takeCard" submachine="_H0efhk3REea_PrBQWVCCMg">
-        <connection xmi:id="_H0efzE3REea_PrBQWVCCMg" name="takeCard" entry="_H0efi03REea_PrBQWVCCMg"/>
-        <connection xmi:id="_H0efzU3REea_PrBQWVCCMg" name="WaitCard" exit="_H0efjE3REea_PrBQWVCCMg"/>
-      </subvertex>
-      <subvertex xmi:type="uml:Pseudostate" xmi:id="_H0efzk3REea_PrBQWVCCMg" name="entry"/>
-      <subvertex xmi:type="uml:State" xmi:id="_H0efz03REea_PrBQWVCCMg" name="cancel" submachine="_H0efgE3REea_PrBQWVCCMg">
-        <connection xmi:id="_H0ef0E3REea_PrBQWVCCMg" name="cancel" entry="_H0efhU3REea_PrBQWVCCMg"/>
-        <connection xmi:id="_H0ef0U3REea_PrBQWVCCMg" name="WaitTakeCard" exit="_H0efn03REea_PrBQWVCCMg"/>
-      </subvertex>
-      <subvertex xmi:type="uml:State" xmi:id="_H0ef0k3REea_PrBQWVCCMg" name="insertCard" submachine="_H0efjU3REea_PrBQWVCCMg">
-        <connection xmi:id="_H0ef003REea_PrBQWVCCMg" name="insertCard" entry="_H0efkE3REea_PrBQWVCCMg"/>
-        <connection xmi:id="_H0ef1E3REea_PrBQWVCCMg" name="WaitPassword" exit="_H0efoU3REea_PrBQWVCCMg"/>
-      </subvertex>
-    </region>
-  </packagedElement>
-</uml:Package>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Package xmi:id="_XnxnAE37Eea2Ja96Le6yRA">
+    <packagedElement xmi:type="uml:StateMachine" xmi:id="_XnxnAU37Eea2Ja96Le6yRA" name="verifyAccount" submachineState="_XnxnQU37Eea2Ja96Le6yRA">
+      <region xmi:id="_XnxnAk37Eea2Ja96Le6yRA" name="verifyAccount">
+        <transition xmi:id="_XnxnA037Eea2Ja96Le6yRA" source="_XnxnDU37Eea2Ja96Le6yRA" target="_XnxnEE37Eea2Ja96Le6yRA"/>
+        <transition xmi:id="_XnxnBE37Eea2Ja96Le6yRA" guard="_XnxnBU37Eea2Ja96Le6yRA" source="_XnxnDk37Eea2Ja96Le6yRA" target="_XnxnDU37Eea2Ja96Le6yRA">
+          <ownedRule xmi:id="_XnxnBU37Eea2Ja96Le6yRA" name="check = badBankAccount">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_XnxnBk37Eea2Ja96Le6yRA">
+              <body>check = badBankAccount</body>
+            </specification>
+          </ownedRule>
+        </transition>
+        <transition xmi:id="_XnxnB037Eea2Ja96Le6yRA" guard="_XnxnCE37Eea2Ja96Le6yRA" source="_XnxnDk37Eea2Ja96Le6yRA" target="_XnxnDU37Eea2Ja96Le6yRA">
+          <ownedRule xmi:id="_XnxnCE37Eea2Ja96Le6yRA" name="check = badBankPassword">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_XnxnCU37Eea2Ja96Le6yRA">
+              <body>check = badBankPassword</body>
+            </specification>
+          </ownedRule>
+        </transition>
+        <transition xmi:id="_XnxnCk37Eea2Ja96Le6yRA" source="_XnxnDU37Eea2Ja96Le6yRA" target="_XnxnDE37Eea2Ja96Le6yRA"/>
+        <transition xmi:id="_XnxnC037Eea2Ja96Le6yRA" source="_XnxnD037Eea2Ja96Le6yRA" target="_XnxnDk37Eea2Ja96Le6yRA"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_XnxnDE37Eea2Ja96Le6yRA" name="verifyAccount:WaitVerify:return badPassword" kind="exitPoint"/>
+        <subvertex xmi:type="uml:State" xmi:id="_XnxnDU37Eea2Ja96Le6yRA" name="verifyAccount:"/>
+        <subvertex xmi:type="uml:State" xmi:id="_XnxnDk37Eea2Ja96Le6yRA" name="verifyAccount: check := bank.verifyCardWithBank "/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_XnxnD037Eea2Ja96Le6yRA" kind="entryPoint"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_XnxnEE37Eea2Ja96Le6yRA" name="verifyAccount:WaitVerify:return badAccount" kind="exitPoint"/>
+      </region>
+    </packagedElement>
+    <packagedElement xmi:type="uml:StateMachine" xmi:id="_XnxnEU37Eea2Ja96Le6yRA" name="takeCard" submachineState="_XnxnYk37Eea2Ja96Le6yRA">
+      <region xmi:id="_XnxnEk37Eea2Ja96Le6yRA" name="takeCard">
+        <transition xmi:id="_XnxnE037Eea2Ja96Le6yRA" source="_XnxnFk37Eea2Ja96Le6yRA" target="_XnxnFU37Eea2Ja96Le6yRA"/>
+        <transition xmi:id="_XnxnFE37Eea2Ja96Le6yRA" source="_XnxnF037Eea2Ja96Le6yRA" target="_XnxnFk37Eea2Ja96Le6yRA"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_XnxnFU37Eea2Ja96Le6yRA" name="takeCard:WaitCard:return void" kind="exitPoint"/>
+        <subvertex xmi:type="uml:State" xmi:id="_XnxnFk37Eea2Ja96Le6yRA" name="takeCard:User.displayMainScreen "/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_XnxnF037Eea2Ja96Le6yRA" kind="entryPoint"/>
+      </region>
+    </packagedElement>
+    <packagedElement xmi:type="uml:StateMachine" xmi:id="_XnxnGE37Eea2Ja96Le6yRA" name="cancel" submachineState="_XnxnaU37Eea2Ja96Le6yRA">
+      <region xmi:id="_XnxnGU37Eea2Ja96Le6yRA" name="cancel">
+        <transition xmi:id="_XnxnGk37Eea2Ja96Le6yRA" source="_XnxnHU37Eea2Ja96Le6yRA" target="_XnxnHk37Eea2Ja96Le6yRA"/>
+        <transition xmi:id="_XnxnG037Eea2Ja96Le6yRA" source="_XnxnHk37Eea2Ja96Le6yRA" target="_XnxnHE37Eea2Ja96Le6yRA"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_XnxnHE37Eea2Ja96Le6yRA" name="cancel:WaitTakeCard:return void" kind="exitPoint"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_XnxnHU37Eea2Ja96Le6yRA" kind="entryPoint"/>
+        <subvertex xmi:type="uml:State" xmi:id="_XnxnHk37Eea2Ja96Le6yRA" name="cancel:User.canceledMessage User.ejectCard User.requestTakeCard "/>
+      </region>
+    </packagedElement>
+    <packagedElement xmi:type="uml:StateMachine" xmi:id="_XnxnH037Eea2Ja96Le6yRA" name="insertCard" submachineState="_XnxnZU37Eea2Ja96Le6yRA">
+      <region xmi:id="_XnxnIE37Eea2Ja96Le6yRA" name="insertCard">
+        <transition xmi:id="_XnxnIU37Eea2Ja96Le6yRA" source="_XnxnI037Eea2Ja96Le6yRA" target="_XnxnJU37Eea2Ja96Le6yRA"/>
+        <transition xmi:id="_XnxnIk37Eea2Ja96Le6yRA" source="_XnxnJU37Eea2Ja96Le6yRA" target="_XnxnJE37Eea2Ja96Le6yRA"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_XnxnI037Eea2Ja96Le6yRA" kind="entryPoint"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_XnxnJE37Eea2Ja96Le6yRA" name="insertCard:WaitPassword:return void" kind="exitPoint"/>
+        <subvertex xmi:type="uml:State" xmi:id="_XnxnJU37Eea2Ja96Le6yRA" name="insertCard:User.requestPassword "/>
+      </region>
+    </packagedElement>
+    <packagedElement xmi:type="uml:StateMachine" xmi:id="_XnxnJk37Eea2Ja96Le6yRA" name="enterPassword" submachineState="_XnxnXE37Eea2Ja96Le6yRA">
+      <region xmi:id="_XnxnJ037Eea2Ja96Le6yRA" name="enterPassword">
+        <transition xmi:id="_XnxnKE37Eea2Ja96Le6yRA" source="_XnxnNU37Eea2Ja96Le6yRA" target="_XnxnNk37Eea2Ja96Le6yRA"/>
+        <transition xmi:id="_XnxnKU37Eea2Ja96Le6yRA" guard="_XnxnKk37Eea2Ja96Le6yRA" source="_XnxnMU37Eea2Ja96Le6yRA" target="_XnxnM037Eea2Ja96Le6yRA">
+          <ownedRule xmi:id="_XnxnKk37Eea2Ja96Le6yRA" name="check = badPassword">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_XnxnK037Eea2Ja96Le6yRA">
+              <body>check = badPassword</body>
+            </specification>
+          </ownedRule>
+        </transition>
+        <transition xmi:id="_XnxnLE37Eea2Ja96Le6yRA" source="_XnxnM037Eea2Ja96Le6yRA" target="_XnxnMk37Eea2Ja96Le6yRA"/>
+        <transition xmi:id="_XnxnLU37Eea2Ja96Le6yRA" guard="_XnxnLk37Eea2Ja96Le6yRA" source="_XnxnMU37Eea2Ja96Le6yRA" target="_XnxnNU37Eea2Ja96Le6yRA">
+          <ownedRule xmi:id="_XnxnLk37Eea2Ja96Le6yRA" name="check = badAccount">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_XnxnL037Eea2Ja96Le6yRA">
+              <body>check = badAccount</body>
+            </specification>
+          </ownedRule>
+        </transition>
+        <transition xmi:id="_XnxnME37Eea2Ja96Le6yRA" source="_XnxnNE37Eea2Ja96Le6yRA" target="_XnxnMU37Eea2Ja96Le6yRA"/>
+        <subvertex xmi:type="uml:State" xmi:id="_XnxnMU37Eea2Ja96Le6yRA" name="enterPassword: check := consortium.verifyAccount "/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_XnxnMk37Eea2Ja96Le6yRA" name="enterPassword:WaitPassword:return void" kind="exitPoint"/>
+        <subvertex xmi:type="uml:State" xmi:id="_XnxnM037Eea2Ja96Le6yRA" name="enterPassword:User.requestPassword "/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_XnxnNE37Eea2Ja96Le6yRA" kind="entryPoint"/>
+        <subvertex xmi:type="uml:State" xmi:id="_XnxnNU37Eea2Ja96Le6yRA" name="enterPassword:User.badAccountMessage User.printReceipt User.ejectCard User.requestTakeCard "/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_XnxnNk37Eea2Ja96Le6yRA" name="enterPassword:WaitTakeCard:return void" kind="exitPoint"/>
+      </region>
+    </packagedElement>
+    <packagedElement xmi:type="uml:StateMachine" xmi:id="_XnxnN037Eea2Ja96Le6yRA" name="consortium">
+      <region xmi:id="_XnxnOE37Eea2Ja96Le6yRA" name="consortium">
+        <transition xmi:id="_XnxnOU37Eea2Ja96Le6yRA" source="_XnxnRE37Eea2Ja96Le6yRA" target="_XnxnRU37Eea2Ja96Le6yRA">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_XnxnOk37Eea2Ja96Le6yRA">
+            <body>return badPassword</body>
+          </effect>
+        </transition>
+        <transition xmi:id="_XnxnO037Eea2Ja96Le6yRA" source="_XnxnQE37Eea2Ja96Le6yRA" target="_XnxnRU37Eea2Ja96Le6yRA"/>
+        <transition xmi:id="_XnxnPE37Eea2Ja96Le6yRA" source="_XnxnRU37Eea2Ja96Le6yRA" target="_XnxnQk37Eea2Ja96Le6yRA">
+          <trigger xmi:id="_XnxnPU37Eea2Ja96Le6yRA" name="verifyAccount" event="_XnxnbE37Eea2Ja96Le6yRA"/>
+        </transition>
+        <transition xmi:id="_XnxnPk37Eea2Ja96Le6yRA" source="_XnxnQ037Eea2Ja96Le6yRA" target="_XnxnRU37Eea2Ja96Le6yRA">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_XnxnP037Eea2Ja96Le6yRA">
+            <body>return badAccount</body>
+          </effect>
+        </transition>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_XnxnQE37Eea2Ja96Le6yRA"/>
+        <subvertex xmi:type="uml:State" xmi:id="_XnxnQU37Eea2Ja96Le6yRA" name="verifyAccount" submachine="_XnxnAU37Eea2Ja96Le6yRA">
+          <connection xmi:id="_XnxnQk37Eea2Ja96Le6yRA" name="verifyAccount" entry="_XnxnD037Eea2Ja96Le6yRA"/>
+          <connection xmi:id="_XnxnQ037Eea2Ja96Le6yRA" name="verifyAccount:WaitVerify:return badAccount" exit="_XnxnEE37Eea2Ja96Le6yRA"/>
+          <connection xmi:id="_XnxnRE37Eea2Ja96Le6yRA" name="verifyAccount:WaitVerify:return badPassword" exit="_XnxnDE37Eea2Ja96Le6yRA"/>
+        </subvertex>
+        <subvertex xmi:type="uml:State" xmi:id="_XnxnRU37Eea2Ja96Le6yRA" name="WaitVerify"/>
+      </region>
+    </packagedElement>
+    <packagedElement xmi:type="uml:StateMachine" xmi:id="_XnxnRk37Eea2Ja96Le6yRA" name="atm">
+      <region xmi:id="_XnxnR037Eea2Ja96Le6yRA" name="atm">
+        <transition xmi:id="_XnxnSE37Eea2Ja96Le6yRA" source="_Xnxna037Eea2Ja96Le6yRA" target="_XnxnYU37Eea2Ja96Le6yRA">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_XnxnSU37Eea2Ja96Le6yRA">
+            <body>return void</body>
+          </effect>
+        </transition>
+        <transition xmi:id="_XnxnSk37Eea2Ja96Le6yRA" source="_XnxnW037Eea2Ja96Le6yRA" target="_XnxnZk37Eea2Ja96Le6yRA">
+          <trigger xmi:id="_XnxnS037Eea2Ja96Le6yRA" name="insertCard" event="_Xnxnbk37Eea2Ja96Le6yRA"/>
+        </transition>
+        <transition xmi:id="_XnxnTE37Eea2Ja96Le6yRA" source="_XnxnYU37Eea2Ja96Le6yRA" target="_XnxnY037Eea2Ja96Le6yRA">
+          <trigger xmi:id="_XnxnTU37Eea2Ja96Le6yRA" name="takeCard" event="_XnxncE37Eea2Ja96Le6yRA"/>
+        </transition>
+        <transition xmi:id="_XnxnTk37Eea2Ja96Le6yRA" source="_XnxnaE37Eea2Ja96Le6yRA" target="_XnxnW037Eea2Ja96Le6yRA"/>
+        <transition xmi:id="_XnxnT037Eea2Ja96Le6yRA" source="_XnxnYE37Eea2Ja96Le6yRA" target="_Xnxnak37Eea2Ja96Le6yRA">
+          <trigger xmi:id="_XnxnUE37Eea2Ja96Le6yRA" name="cancel" event="_XnxnbU37Eea2Ja96Le6yRA"/>
+        </transition>
+        <transition xmi:id="_XnxnUU37Eea2Ja96Le6yRA" source="_XnxnXk37Eea2Ja96Le6yRA" target="_XnxnYU37Eea2Ja96Le6yRA">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_XnxnUk37Eea2Ja96Le6yRA">
+            <body>return void</body>
+          </effect>
+        </transition>
+        <transition xmi:id="_XnxnU037Eea2Ja96Le6yRA" source="_XnxnZE37Eea2Ja96Le6yRA" target="_XnxnW037Eea2Ja96Le6yRA">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_XnxnVE37Eea2Ja96Le6yRA">
+            <body>return void</body>
+          </effect>
+        </transition>
+        <transition xmi:id="_XnxnVU37Eea2Ja96Le6yRA" source="_XnxnX037Eea2Ja96Le6yRA" target="_XnxnYE37Eea2Ja96Le6yRA">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_XnxnVk37Eea2Ja96Le6yRA">
+            <body>return void</body>
+          </effect>
+        </transition>
+        <transition xmi:id="_XnxnV037Eea2Ja96Le6yRA" source="_XnxnZ037Eea2Ja96Le6yRA" target="_XnxnYE37Eea2Ja96Le6yRA">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_XnxnWE37Eea2Ja96Le6yRA">
+            <body>return void</body>
+          </effect>
+        </transition>
+        <transition xmi:id="_XnxnWU37Eea2Ja96Le6yRA" source="_XnxnYE37Eea2Ja96Le6yRA" target="_XnxnXU37Eea2Ja96Le6yRA">
+          <trigger xmi:id="_XnxnWk37Eea2Ja96Le6yRA" name="enterPassword" event="_Xnxnb037Eea2Ja96Le6yRA"/>
+        </transition>
+        <subvertex xmi:type="uml:State" xmi:id="_XnxnW037Eea2Ja96Le6yRA" name="WaitCard"/>
+        <subvertex xmi:type="uml:State" xmi:id="_XnxnXE37Eea2Ja96Le6yRA" name="enterPassword" submachine="_XnxnJk37Eea2Ja96Le6yRA">
+          <connection xmi:id="_XnxnXU37Eea2Ja96Le6yRA" name="enterPassword" entry="_XnxnNE37Eea2Ja96Le6yRA"/>
+          <connection xmi:id="_XnxnXk37Eea2Ja96Le6yRA" name="enterPassword:WaitTakeCard:return void" exit="_XnxnNk37Eea2Ja96Le6yRA"/>
+          <connection xmi:id="_XnxnX037Eea2Ja96Le6yRA" name="enterPassword:WaitPassword:return void" exit="_XnxnMk37Eea2Ja96Le6yRA"/>
+        </subvertex>
+        <subvertex xmi:type="uml:State" xmi:id="_XnxnYE37Eea2Ja96Le6yRA" name="WaitPassword"/>
+        <subvertex xmi:type="uml:State" xmi:id="_XnxnYU37Eea2Ja96Le6yRA" name="WaitTakeCard"/>
+        <subvertex xmi:type="uml:State" xmi:id="_XnxnYk37Eea2Ja96Le6yRA" name="takeCard" submachine="_XnxnEU37Eea2Ja96Le6yRA">
+          <connection xmi:id="_XnxnY037Eea2Ja96Le6yRA" name="takeCard" entry="_XnxnF037Eea2Ja96Le6yRA"/>
+          <connection xmi:id="_XnxnZE37Eea2Ja96Le6yRA" name="takeCard:WaitCard:return void" exit="_XnxnFU37Eea2Ja96Le6yRA"/>
+        </subvertex>
+        <subvertex xmi:type="uml:State" xmi:id="_XnxnZU37Eea2Ja96Le6yRA" name="insertCard" submachine="_XnxnH037Eea2Ja96Le6yRA">
+          <connection xmi:id="_XnxnZk37Eea2Ja96Le6yRA" name="insertCard" entry="_XnxnI037Eea2Ja96Le6yRA"/>
+          <connection xmi:id="_XnxnZ037Eea2Ja96Le6yRA" name="insertCard:WaitPassword:return void" exit="_XnxnJE37Eea2Ja96Le6yRA"/>
+        </subvertex>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_XnxnaE37Eea2Ja96Le6yRA"/>
+        <subvertex xmi:type="uml:State" xmi:id="_XnxnaU37Eea2Ja96Le6yRA" name="cancel" submachine="_XnxnGE37Eea2Ja96Le6yRA">
+          <connection xmi:id="_Xnxnak37Eea2Ja96Le6yRA" name="cancel" entry="_XnxnHU37Eea2Ja96Le6yRA"/>
+          <connection xmi:id="_Xnxna037Eea2Ja96Le6yRA" name="cancel:WaitTakeCard:return void" exit="_XnxnHE37Eea2Ja96Le6yRA"/>
+        </subvertex>
+      </region>
+    </packagedElement>
+  </uml:Package>
+  <uml:AnyReceiveEvent xmi:id="_XnxnbE37Eea2Ja96Le6yRA" name="verifyAccount"/>
+  <uml:AnyReceiveEvent xmi:id="_XnxnbU37Eea2Ja96Le6yRA" name="cancel"/>
+  <uml:AnyReceiveEvent xmi:id="_Xnxnbk37Eea2Ja96Le6yRA" name="insertCard"/>
+  <uml:AnyReceiveEvent xmi:id="_Xnxnb037Eea2Ja96Le6yRA" name="enterPassword"/>
+  <uml:AnyReceiveEvent xmi:id="_XnxncE37Eea2Ja96Le6yRA" name="takeCard"/>
+</xmi:XMI>

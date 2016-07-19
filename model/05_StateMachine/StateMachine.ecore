@@ -23,7 +23,6 @@
         changeable="false" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="submachine" eType="#//StateMachine"
         eOpposite="#//StateMachine/submachineState"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entryPoint" eType="#//PseudoState"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="exitPoint" upperBound="-1"
         eType="#//PseudoState"/>
@@ -45,6 +44,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PseudoState" eSuperTypes="#//Vertex">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pseudoStateKind" eType="#//PseudoStateKind"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnValue" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StateMachine" eSuperTypes="#//Behavior">
     <eStructuralFeatures xsi:type="ecore:EReference" name="region" lowerBound="1"
@@ -66,6 +66,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//TransitionKind"
         defaultValueLiteral="external"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Behavior"/>
   <eClassifiers xsi:type="ecore:EClass" name="Trigger">
