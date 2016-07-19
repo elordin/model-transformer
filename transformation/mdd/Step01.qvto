@@ -29,9 +29,6 @@ mapping UML::Message::transformMessage() : InteractionDiagram::Message {
 	name := self.name;
 	sendEvent := self.sendEvent.map transformMessageEnd();
 	
-	log(self.sendEvent.name);
-	sendEvent.dump();
-	
 	receiveEvent := self.receiveEvent.map transformMessageEnd();
 	messageSort := self.transformMessageSort(self.messageSort);
 }
@@ -41,7 +38,6 @@ mapping UML::MessageEnd::transformMessageEnd() : InteractionDiagram::MessageEnd
 	
 mapping UML::MessageOccurrenceSpecification::transformMessageOccurenceSpecification() : InteractionDiagram::MessageOccurenceSpecification {
 	name := self.name;
-	// covered := self.covered->any(true).map transformLifeline();
 }
 
 helper UML::Message::transformMessageSort(in s : UML::MessageSort) : InteractionDiagram::MessageSort {
@@ -68,14 +64,12 @@ mapping UML::InteractionFragment::transformInteractionFragment() : InteractionDi
 mapping UML::InteractionOperand::transformInteractionOperand() : InteractionDiagram::InteractionOperand {
 	name := self.name;
 	fragment += self.fragment.map transformInteractionFragment();
-	// covered := self.covered->any(true).map transformLifeline();
 }		  
 
 mapping UML::CombinedFragment::transformCombinedFragment() : InteractionDiagram::CombinedFragment {
 	name := self.name;
 	operand += self.operand.map transformInteractionOperand();
 	interactionOperator := self.transformOperatorKind(self.interactionOperator);
-	// covered := self.covered->any(true).map transformLifeline();
 }
 
 helper UML::CombinedFragment::transformOperatorKind(in k : UML::InteractionOperatorKind) : InteractionDiagram::InteractionOperatorKind {
@@ -92,7 +86,6 @@ mapping UML::BehaviorExecutionSpecification::transformBehaviourExecutionSpecific
   
 mapping UML::ExecutionSpecification::transformExecutionSpecification() : InteractionDiagram::ExecutionSpecification {
 	name := self.name;
-	// covered := self.covered->any(true).map transformLifeline();
 }
 
 mapping UML::OccurrenceSpecification::transformOccurrenceSpecification() : InteractionDiagram::OccurrenceSpecification 
@@ -102,13 +95,11 @@ mapping UML::OccurrenceSpecification::transformOccurrenceSpecification() : Inter
 mapping UML::OccurrenceSpecification::transformRealOccurrenceSpecification() : InteractionDiagram::OccurrenceSpecification {
 	log("OccurenceSpecifictation " + self.name);
 	name := self.name;
-	// covered := self.covered->any(true).map transformLifeline();
 }
 
 mapping UML::StateInvariant::transformStateInvariant() : InteractionDiagram::StateInvariant {
 	name := self.name;
 	invariant := self.invariant.map transformConstraint();
-	// covered := self.covered->any(true).map transformLifeline();
 }
 
 mapping UML::Constraint::transformConstraint() : InteractionDiagram::Constraint {
