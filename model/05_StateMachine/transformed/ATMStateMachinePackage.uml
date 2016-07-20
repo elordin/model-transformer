@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdd:StateMachinePackage xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdd="se.studieren.mdd.transformer.StateMachinePackage" xmlns:mdd_1="se.studieren.mdd.transformer.StateMachine" xsi:schemaLocation="se.studieren.mdd.transformer.StateMachinePackage ../StateMachinePackage.ecore se.studieren.mdd.transformer.StateMachine ../StateMachine.ecore" xmi:id="_8whOoE7UEeaqGKhxzrkIRQ">
+  <statemachine xmi:id="_8whOoU7UEeaqGKhxzrkIRQ" name="takeCard" submachineState="_8whO507UEeaqGKhxzrkIRQ">
+    <region xmi:id="_8whOok7UEeaqGKhxzrkIRQ" name="takeCard">
+      <subvertex xmi:type="mdd_1:PseudoState" xmi:id="_8whOo07UEeaqGKhxzrkIRQ" outgoing="_8whOqE7UEeaqGKhxzrkIRQ" name="takeCard" pseudoStateKind="entryPoint"/>
+      <subvertex xmi:type="mdd_1:State" xmi:id="_8whOpE7UEeaqGKhxzrkIRQ" outgoing="_8whOp07UEeaqGKhxzrkIRQ" incoming="_8whOqE7UEeaqGKhxzrkIRQ" name="takeCard:User.displayMainScreen ">
+        <doActivity xmi:type="mdd_1:CodeBlock" xmi:id="_8whOpU7UEeaqGKhxzrkIRQ" desc="User.displayMainScreen "/>
+      </subvertex>
+      <subvertex xmi:type="mdd_1:PseudoState" xmi:id="_8whOpk7UEeaqGKhxzrkIRQ" incoming="_8whOp07UEeaqGKhxzrkIRQ" name="takeCard:WaitCard" pseudoStateKind="exitPoint" returnValue="return void"/>
+      <transition xmi:id="_8whOp07UEeaqGKhxzrkIRQ" source="_8whOpE7UEeaqGKhxzrkIRQ" target="_8whOpk7UEeaqGKhxzrkIRQ"/>
+      <transition xmi:id="_8whOqE7UEeaqGKhxzrkIRQ" source="_8whOo07UEeaqGKhxzrkIRQ" target="_8whOpE7UEeaqGKhxzrkIRQ"/>
+    </region>
+  </statemachine>
+  <statemachine xmi:id="_8whOqU7UEeaqGKhxzrkIRQ" name="insertCard" submachineState="_8whO5U7UEeaqGKhxzrkIRQ">
+    <region xmi:id="_8whOqk7UEeaqGKhxzrkIRQ" name="insertCard">
+      <subvertex xmi:type="mdd_1:PseudoState" xmi:id="_8whOq07UEeaqGKhxzrkIRQ" outgoing="_8whOr07UEeaqGKhxzrkIRQ" name="insertCard" pseudoStateKind="entryPoint"/>
+      <subvertex xmi:type="mdd_1:State" xmi:id="_8whOrE7UEeaqGKhxzrkIRQ" outgoing="_8whOrk7UEeaqGKhxzrkIRQ" incoming="_8whOr07UEeaqGKhxzrkIRQ" name="insertCard:User.requestPassword "/>
+      <subvertex xmi:type="mdd_1:PseudoState" xmi:id="_8whOrU7UEeaqGKhxzrkIRQ" incoming="_8whOrk7UEeaqGKhxzrkIRQ" name="insertCard:WaitPassword" pseudoStateKind="exitPoint" returnValue="return void"/>
+      <transition xmi:id="_8whOrk7UEeaqGKhxzrkIRQ" source="_8whOrE7UEeaqGKhxzrkIRQ" target="_8whOrU7UEeaqGKhxzrkIRQ"/>
+      <transition xmi:id="_8whOr07UEeaqGKhxzrkIRQ" source="_8whOq07UEeaqGKhxzrkIRQ" target="_8whOrE7UEeaqGKhxzrkIRQ"/>
+    </region>
+  </statemachine>
+  <statemachine xmi:id="_8whOsE7UEeaqGKhxzrkIRQ" name="enterPassword" submachineState="_8whO5k7UEeaqGKhxzrkIRQ">
+    <region xmi:id="_8whOsU7UEeaqGKhxzrkIRQ" name="enterPassword">
+      <subvertex xmi:type="mdd_1:PseudoState" xmi:id="_8whOsk7UEeaqGKhxzrkIRQ" outgoing="_8whOwU7UEeaqGKhxzrkIRQ" name="enterPassword" pseudoStateKind="entryPoint"/>
+      <subvertex xmi:type="mdd_1:State" xmi:id="_8whOs07UEeaqGKhxzrkIRQ" outgoing="_8whOvE7UEeaqGKhxzrkIRQ _8whOv07UEeaqGKhxzrkIRQ" incoming="_8whOwU7UEeaqGKhxzrkIRQ" name="enterPassword: check := consortium.verifyAccount ">
+        <doActivity xmi:type="mdd_1:CodeBlock" xmi:id="_8whOtE7UEeaqGKhxzrkIRQ" desc=" check := consortium.verifyAccount "/>
+      </subvertex>
+      <subvertex xmi:type="mdd_1:State" xmi:id="_8whOtU7UEeaqGKhxzrkIRQ" outgoing="_8whOu07UEeaqGKhxzrkIRQ" incoming="_8whOvE7UEeaqGKhxzrkIRQ" name="enterPassword:User.badAccountMessage User.printReceipt User.ejectCard User.requestTakeCard ">
+        <doActivity xmi:type="mdd_1:CodeBlock" xmi:id="_8whOtk7UEeaqGKhxzrkIRQ" desc="User.badAccountMessage User.printReceipt User.ejectCard User.requestTakeCard "/>
+      </subvertex>
+      <subvertex xmi:type="mdd_1:PseudoState" xmi:id="_8whOt07UEeaqGKhxzrkIRQ" incoming="_8whOu07UEeaqGKhxzrkIRQ" name="enterPassword:WaitTakeCard" pseudoStateKind="exitPoint" returnValue="return void"/>
+      <subvertex xmi:type="mdd_1:State" xmi:id="_8whOuE7UEeaqGKhxzrkIRQ" outgoing="_8whOvk7UEeaqGKhxzrkIRQ" incoming="_8whOv07UEeaqGKhxzrkIRQ" name="enterPassword:User.requestPassword ">
+        <doActivity xmi:type="mdd_1:CodeBlock" xmi:id="_8whOuU7UEeaqGKhxzrkIRQ" desc="User.requestPassword "/>
+      </subvertex>
+      <subvertex xmi:type="mdd_1:PseudoState" xmi:id="_8whOuk7UEeaqGKhxzrkIRQ" incoming="_8whOvk7UEeaqGKhxzrkIRQ" name="enterPassword:WaitPassword" pseudoStateKind="exitPoint" returnValue="return void"/>
+      <transition xmi:id="_8whOu07UEeaqGKhxzrkIRQ" source="_8whOtU7UEeaqGKhxzrkIRQ" target="_8whOt07UEeaqGKhxzrkIRQ"/>
+      <transition xmi:id="_8whOvE7UEeaqGKhxzrkIRQ" source="_8whOs07UEeaqGKhxzrkIRQ" target="_8whOtU7UEeaqGKhxzrkIRQ">
+        <guard xmi:id="_8whOvU7UEeaqGKhxzrkIRQ" constraint="check = 06_:badAccount"/>
+      </transition>
+      <transition xmi:id="_8whOvk7UEeaqGKhxzrkIRQ" source="_8whOuE7UEeaqGKhxzrkIRQ" target="_8whOuk7UEeaqGKhxzrkIRQ"/>
+      <transition xmi:id="_8whOv07UEeaqGKhxzrkIRQ" source="_8whOs07UEeaqGKhxzrkIRQ" target="_8whOuE7UEeaqGKhxzrkIRQ">
+        <guard xmi:id="_8whOwE7UEeaqGKhxzrkIRQ" constraint="check = 04_:badPassword"/>
+      </transition>
+      <transition xmi:id="_8whOwU7UEeaqGKhxzrkIRQ" source="_8whOsk7UEeaqGKhxzrkIRQ" target="_8whOs07UEeaqGKhxzrkIRQ"/>
+    </region>
+  </statemachine>
+  <statemachine xmi:id="_8whOwk7UEeaqGKhxzrkIRQ" name="cancel" submachineState="_8whO5E7UEeaqGKhxzrkIRQ">
+    <region xmi:id="_8whOw07UEeaqGKhxzrkIRQ" name="cancel">
+      <subvertex xmi:type="mdd_1:PseudoState" xmi:id="_8whOxE7UEeaqGKhxzrkIRQ" outgoing="_8whOyU7UEeaqGKhxzrkIRQ" name="cancel" pseudoStateKind="entryPoint"/>
+      <subvertex xmi:type="mdd_1:State" xmi:id="_8whOxU7UEeaqGKhxzrkIRQ" outgoing="_8whOyE7UEeaqGKhxzrkIRQ" incoming="_8whOyU7UEeaqGKhxzrkIRQ" name="cancel:User.canceledMessage User.ejectCard User.requestTakeCard ">
+        <doActivity xmi:type="mdd_1:CodeBlock" xmi:id="_8whOxk7UEeaqGKhxzrkIRQ" desc="User.canceledMessage User.ejectCard User.requestTakeCard "/>
+      </subvertex>
+      <subvertex xmi:type="mdd_1:PseudoState" xmi:id="_8whOx07UEeaqGKhxzrkIRQ" incoming="_8whOyE7UEeaqGKhxzrkIRQ" name="cancel:WaitTakeCard" pseudoStateKind="exitPoint" returnValue="return void"/>
+      <transition xmi:id="_8whOyE7UEeaqGKhxzrkIRQ" source="_8whOxU7UEeaqGKhxzrkIRQ" target="_8whOx07UEeaqGKhxzrkIRQ"/>
+      <transition xmi:id="_8whOyU7UEeaqGKhxzrkIRQ" source="_8whOxE7UEeaqGKhxzrkIRQ" target="_8whOxU7UEeaqGKhxzrkIRQ"/>
+    </region>
+  </statemachine>
+  <statemachine xmi:id="_8whOyk7UEeaqGKhxzrkIRQ" name="verifyCardWithBank" submachineState="_8whO_07UEeaqGKhxzrkIRQ">
+    <region xmi:id="_8whOy07UEeaqGKhxzrkIRQ" name="verifyCardWithBank">
+      <subvertex xmi:type="mdd_1:PseudoState" xmi:id="_8whOzE7UEeaqGKhxzrkIRQ" outgoing="_8whO0U7UEeaqGKhxzrkIRQ" name="verifyCardWithBank" pseudoStateKind="entryPoint"/>
+      <subvertex xmi:type="mdd_1:State" xmi:id="_8whOzU7UEeaqGKhxzrkIRQ" outgoing="_8whO0E7UEeaqGKhxzrkIRQ" incoming="_8whO0U7UEeaqGKhxzrkIRQ" name="verifyCardWithBank:">
+        <doActivity xmi:type="mdd_1:CodeBlock" xmi:id="_8whOzk7UEeaqGKhxzrkIRQ" desc=""/>
+      </subvertex>
+      <subvertex xmi:type="mdd_1:PseudoState" xmi:id="_8whOz07UEeaqGKhxzrkIRQ" incoming="_8whO0E7UEeaqGKhxzrkIRQ" name="verifyCardWithBank:WaitBankVerify" pseudoStateKind="exitPoint" returnValue="return 05_:badBankAccount"/>
+      <transition xmi:id="_8whO0E7UEeaqGKhxzrkIRQ" source="_8whOzU7UEeaqGKhxzrkIRQ" target="_8whOz07UEeaqGKhxzrkIRQ"/>
+      <transition xmi:id="_8whO0U7UEeaqGKhxzrkIRQ" source="_8whOzE7UEeaqGKhxzrkIRQ" target="_8whOzU7UEeaqGKhxzrkIRQ"/>
+    </region>
+  </statemachine>
+  <statemachine xmi:id="_8whO0k7UEeaqGKhxzrkIRQ" name="verifyAccount" submachineState="_8whPCU7UEeaqGKhxzrkIRQ">
+    <region xmi:id="_8whO007UEeaqGKhxzrkIRQ" name="verifyAccount">
+      <subvertex xmi:type="mdd_1:PseudoState" xmi:id="_8whO1E7UEeaqGKhxzrkIRQ" outgoing="_8whO3U7UEeaqGKhxzrkIRQ" name="verifyAccount" pseudoStateKind="entryPoint"/>
+      <subvertex xmi:type="mdd_1:State" xmi:id="_8whO1U7UEeaqGKhxzrkIRQ" outgoing="_8whO2U7UEeaqGKhxzrkIRQ _8whO207UEeaqGKhxzrkIRQ" incoming="_8whO3U7UEeaqGKhxzrkIRQ" name="verifyAccount: check := bank.verifyCardWithBank ">
+        <doActivity xmi:type="mdd_1:CodeBlock" xmi:id="_8whO1k7UEeaqGKhxzrkIRQ" desc=" check := bank.verifyCardWithBank "/>
+      </subvertex>
+      <subvertex xmi:type="mdd_1:PseudoState" xmi:id="_8whO107UEeaqGKhxzrkIRQ" incoming="_8whO2U7UEeaqGKhxzrkIRQ" name="verifyAccount:WaitVerify" pseudoStateKind="exitPoint" returnValue="return 06_:badAccount"/>
+      <subvertex xmi:type="mdd_1:PseudoState" xmi:id="_8whO2E7UEeaqGKhxzrkIRQ" incoming="_8whO207UEeaqGKhxzrkIRQ" name="verifyAccount:WaitVerify" pseudoStateKind="exitPoint" returnValue="return 04_:badPassword"/>
+      <transition xmi:id="_8whO2U7UEeaqGKhxzrkIRQ" source="_8whO1U7UEeaqGKhxzrkIRQ" target="_8whO107UEeaqGKhxzrkIRQ">
+        <guard xmi:id="_8whO2k7UEeaqGKhxzrkIRQ" constraint="check = 05_:badBankAccount"/>
+      </transition>
+      <transition xmi:id="_8whO207UEeaqGKhxzrkIRQ" source="_8whO1U7UEeaqGKhxzrkIRQ" target="_8whO2E7UEeaqGKhxzrkIRQ">
+        <guard xmi:id="_8whO3E7UEeaqGKhxzrkIRQ" constraint="check = 03_:badBankPassword"/>
+      </transition>
+      <transition xmi:id="_8whO3U7UEeaqGKhxzrkIRQ" source="_8whO1E7UEeaqGKhxzrkIRQ" target="_8whO1U7UEeaqGKhxzrkIRQ"/>
+    </region>
+  </statemachine>
+  <statemachine xmi:id="_8whO3k7UEeaqGKhxzrkIRQ" name="atm">
+    <region xmi:id="_8whO307UEeaqGKhxzrkIRQ" name="atm">
+      <subvertex xmi:type="mdd_1:State" xmi:id="_8whO4E7UEeaqGKhxzrkIRQ" outgoing="_8whO707UEeaqGKhxzrkIRQ" incoming="_8whO6E7UEeaqGKhxzrkIRQ _8whO907UEeaqGKhxzrkIRQ" name="WaitCard"/>
+      <subvertex xmi:type="mdd_1:State" xmi:id="_8whO4U7UEeaqGKhxzrkIRQ" outgoing="_8whO607UEeaqGKhxzrkIRQ _8whO9U7UEeaqGKhxzrkIRQ" incoming="_8whO7U7UEeaqGKhxzrkIRQ _8whO807UEeaqGKhxzrkIRQ" name="WaitPassword"/>
+      <subvertex xmi:type="mdd_1:State" xmi:id="_8whO4k7UEeaqGKhxzrkIRQ" outgoing="_8whO-U7UEeaqGKhxzrkIRQ" incoming="_8whO6U7UEeaqGKhxzrkIRQ _8whO8U7UEeaqGKhxzrkIRQ" name="WaitTakeCard"/>
+      <subvertex xmi:type="mdd_1:PseudoState" xmi:id="_8whO407UEeaqGKhxzrkIRQ" outgoing="_8whO6E7UEeaqGKhxzrkIRQ" name="entry"/>
+      <subvertex xmi:type="mdd_1:State" xmi:id="_8whO5E7UEeaqGKhxzrkIRQ" outgoing="_8whO6U7UEeaqGKhxzrkIRQ" incoming="_8whO607UEeaqGKhxzrkIRQ" name="cancel" submachine="_8whOwk7UEeaqGKhxzrkIRQ" entryPoint="_8whOxE7UEeaqGKhxzrkIRQ" exitPoint="_8whOx07UEeaqGKhxzrkIRQ"/>
+      <subvertex xmi:type="mdd_1:State" xmi:id="_8whO5U7UEeaqGKhxzrkIRQ" outgoing="_8whO7U7UEeaqGKhxzrkIRQ" incoming="_8whO707UEeaqGKhxzrkIRQ" name="insertCard" submachine="_8whOqU7UEeaqGKhxzrkIRQ" entryPoint="_8whOq07UEeaqGKhxzrkIRQ" exitPoint="_8whOrU7UEeaqGKhxzrkIRQ"/>
+      <subvertex xmi:type="mdd_1:State" xmi:id="_8whO5k7UEeaqGKhxzrkIRQ" outgoing="_8whO8U7UEeaqGKhxzrkIRQ _8whO807UEeaqGKhxzrkIRQ" incoming="_8whO9U7UEeaqGKhxzrkIRQ" name="enterPassword" submachine="_8whOsE7UEeaqGKhxzrkIRQ" entryPoint="_8whOsk7UEeaqGKhxzrkIRQ" exitPoint="_8whOt07UEeaqGKhxzrkIRQ _8whOuk7UEeaqGKhxzrkIRQ"/>
+      <subvertex xmi:type="mdd_1:State" xmi:id="_8whO507UEeaqGKhxzrkIRQ" outgoing="_8whO907UEeaqGKhxzrkIRQ" incoming="_8whO-U7UEeaqGKhxzrkIRQ" name="takeCard" submachine="_8whOoU7UEeaqGKhxzrkIRQ" entryPoint="_8whOo07UEeaqGKhxzrkIRQ" exitPoint="_8whOpk7UEeaqGKhxzrkIRQ"/>
+      <transition xmi:id="_8whO6E7UEeaqGKhxzrkIRQ" source="_8whO407UEeaqGKhxzrkIRQ" target="_8whO4E7UEeaqGKhxzrkIRQ"/>
+      <transition xmi:id="_8whO6U7UEeaqGKhxzrkIRQ" source="_8whO5E7UEeaqGKhxzrkIRQ" target="_8whO4k7UEeaqGKhxzrkIRQ">
+        <effect xmi:type="mdd_1:CodeBlock" xmi:id="_8whO6k7UEeaqGKhxzrkIRQ" desc="return void"/>
+      </transition>
+      <transition xmi:id="_8whO607UEeaqGKhxzrkIRQ" source="_8whO4U7UEeaqGKhxzrkIRQ" target="_8whO5E7UEeaqGKhxzrkIRQ">
+        <trigger xmi:id="_8whO7E7UEeaqGKhxzrkIRQ" trigger="cancel"/>
+      </transition>
+      <transition xmi:id="_8whO7U7UEeaqGKhxzrkIRQ" source="_8whO5U7UEeaqGKhxzrkIRQ" target="_8whO4U7UEeaqGKhxzrkIRQ">
+        <effect xmi:type="mdd_1:CodeBlock" xmi:id="_8whO7k7UEeaqGKhxzrkIRQ" desc="return void"/>
+      </transition>
+      <transition xmi:id="_8whO707UEeaqGKhxzrkIRQ" source="_8whO4E7UEeaqGKhxzrkIRQ" target="_8whO5U7UEeaqGKhxzrkIRQ">
+        <trigger xmi:id="_8whO8E7UEeaqGKhxzrkIRQ" trigger="insertCard"/>
+      </transition>
+      <transition xmi:id="_8whO8U7UEeaqGKhxzrkIRQ" source="_8whO5k7UEeaqGKhxzrkIRQ" target="_8whO4k7UEeaqGKhxzrkIRQ">
+        <effect xmi:type="mdd_1:CodeBlock" xmi:id="_8whO8k7UEeaqGKhxzrkIRQ" desc="return void"/>
+      </transition>
+      <transition xmi:id="_8whO807UEeaqGKhxzrkIRQ" source="_8whO5k7UEeaqGKhxzrkIRQ" target="_8whO4U7UEeaqGKhxzrkIRQ">
+        <effect xmi:type="mdd_1:CodeBlock" xmi:id="_8whO9E7UEeaqGKhxzrkIRQ" desc="return void"/>
+      </transition>
+      <transition xmi:id="_8whO9U7UEeaqGKhxzrkIRQ" source="_8whO4U7UEeaqGKhxzrkIRQ" target="_8whO5k7UEeaqGKhxzrkIRQ">
+        <trigger xmi:id="_8whO9k7UEeaqGKhxzrkIRQ" trigger="enterPassword"/>
+      </transition>
+      <transition xmi:id="_8whO907UEeaqGKhxzrkIRQ" source="_8whO507UEeaqGKhxzrkIRQ" target="_8whO4E7UEeaqGKhxzrkIRQ">
+        <effect xmi:type="mdd_1:CodeBlock" xmi:id="_8whO-E7UEeaqGKhxzrkIRQ" desc="return void"/>
+      </transition>
+      <transition xmi:id="_8whO-U7UEeaqGKhxzrkIRQ" source="_8whO4k7UEeaqGKhxzrkIRQ" target="_8whO507UEeaqGKhxzrkIRQ">
+        <trigger xmi:id="_8whO-k7UEeaqGKhxzrkIRQ" trigger="takeCard"/>
+      </transition>
+    </region>
+  </statemachine>
+  <statemachine xmi:id="_8whO-07UEeaqGKhxzrkIRQ" name="bank">
+    <region xmi:id="_8whO_E7UEeaqGKhxzrkIRQ" name="bank">
+      <subvertex xmi:type="mdd_1:State" xmi:id="_8whO_U7UEeaqGKhxzrkIRQ" outgoing="_8whPA07UEeaqGKhxzrkIRQ" incoming="_8whPAE7UEeaqGKhxzrkIRQ _8whPAU7UEeaqGKhxzrkIRQ" name="WaitBankVerify"/>
+      <subvertex xmi:type="mdd_1:PseudoState" xmi:id="_8whO_k7UEeaqGKhxzrkIRQ" outgoing="_8whPAE7UEeaqGKhxzrkIRQ" name="entry"/>
+      <subvertex xmi:type="mdd_1:State" xmi:id="_8whO_07UEeaqGKhxzrkIRQ" outgoing="_8whPAU7UEeaqGKhxzrkIRQ" incoming="_8whPA07UEeaqGKhxzrkIRQ" name="verifyCardWithBank" submachine="_8whOyk7UEeaqGKhxzrkIRQ" entryPoint="_8whOzE7UEeaqGKhxzrkIRQ" exitPoint="_8whOz07UEeaqGKhxzrkIRQ"/>
+      <transition xmi:id="_8whPAE7UEeaqGKhxzrkIRQ" source="_8whO_k7UEeaqGKhxzrkIRQ" target="_8whO_U7UEeaqGKhxzrkIRQ"/>
+      <transition xmi:id="_8whPAU7UEeaqGKhxzrkIRQ" source="_8whO_07UEeaqGKhxzrkIRQ" target="_8whO_U7UEeaqGKhxzrkIRQ">
+        <effect xmi:type="mdd_1:CodeBlock" xmi:id="_8whPAk7UEeaqGKhxzrkIRQ" desc="return 05_:badBankAccount"/>
+      </transition>
+      <transition xmi:id="_8whPA07UEeaqGKhxzrkIRQ" source="_8whO_U7UEeaqGKhxzrkIRQ" target="_8whO_07UEeaqGKhxzrkIRQ">
+        <trigger xmi:id="_8whPBE7UEeaqGKhxzrkIRQ" trigger="verifyCardWithBank"/>
+      </transition>
+    </region>
+  </statemachine>
+  <statemachine xmi:id="_8whPBU7UEeaqGKhxzrkIRQ" name="consortium">
+    <region xmi:id="_8whPBk7UEeaqGKhxzrkIRQ" name="consortium">
+      <subvertex xmi:type="mdd_1:State" xmi:id="_8whPB07UEeaqGKhxzrkIRQ" outgoing="_8whPD07UEeaqGKhxzrkIRQ" incoming="_8whPCk7UEeaqGKhxzrkIRQ _8whPC07UEeaqGKhxzrkIRQ _8whPDU7UEeaqGKhxzrkIRQ" name="WaitVerify"/>
+      <subvertex xmi:type="mdd_1:PseudoState" xmi:id="_8whPCE7UEeaqGKhxzrkIRQ" outgoing="_8whPCk7UEeaqGKhxzrkIRQ" name="entry"/>
+      <subvertex xmi:type="mdd_1:State" xmi:id="_8whPCU7UEeaqGKhxzrkIRQ" outgoing="_8whPC07UEeaqGKhxzrkIRQ _8whPDU7UEeaqGKhxzrkIRQ" incoming="_8whPD07UEeaqGKhxzrkIRQ" name="verifyAccount" submachine="_8whO0k7UEeaqGKhxzrkIRQ" entryPoint="_8whO1E7UEeaqGKhxzrkIRQ" exitPoint="_8whO107UEeaqGKhxzrkIRQ _8whO2E7UEeaqGKhxzrkIRQ"/>
+      <transition xmi:id="_8whPCk7UEeaqGKhxzrkIRQ" source="_8whPCE7UEeaqGKhxzrkIRQ" target="_8whPB07UEeaqGKhxzrkIRQ"/>
+      <transition xmi:id="_8whPC07UEeaqGKhxzrkIRQ" source="_8whPCU7UEeaqGKhxzrkIRQ" target="_8whPB07UEeaqGKhxzrkIRQ">
+        <effect xmi:type="mdd_1:CodeBlock" xmi:id="_8whPDE7UEeaqGKhxzrkIRQ" desc="return 06_:badAccount"/>
+      </transition>
+      <transition xmi:id="_8whPDU7UEeaqGKhxzrkIRQ" source="_8whPCU7UEeaqGKhxzrkIRQ" target="_8whPB07UEeaqGKhxzrkIRQ">
+        <effect xmi:type="mdd_1:CodeBlock" xmi:id="_8whPDk7UEeaqGKhxzrkIRQ" desc="return 04_:badPassword"/>
+      </transition>
+      <transition xmi:id="_8whPD07UEeaqGKhxzrkIRQ" source="_8whPB07UEeaqGKhxzrkIRQ" target="_8whPCU7UEeaqGKhxzrkIRQ">
+        <trigger xmi:id="_8whPEE7UEeaqGKhxzrkIRQ" trigger="verifyAccount"/>
+      </transition>
+    </region>
+  </statemachine>
+</mdd:StateMachinePackage>
