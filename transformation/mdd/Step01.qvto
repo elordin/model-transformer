@@ -13,6 +13,8 @@ mapping UML::Model::transformModel() : InteractionDiagramPackage::InteractionDia
 }
 
 mapping UML::Interaction::transformInteraction() : InteractionDiagram::Interaction {
+	name := self.name;
+	
 	lifeline += self.ownedElement[UML::Lifeline].map transformLifeline();
 	
 	fragment += self.fragment->asOrderedSet().map transformInteractionFragment();
@@ -22,7 +24,7 @@ mapping UML::Interaction::transformInteraction() : InteractionDiagram::Interacti
 
 mapping UML::Lifeline::transformLifeline() : InteractionDiagram::Lifeline {
 	name := self.name;
-	coveredBy += self.coveredBy[UML::InteractionFragment].map transformInteractionFragment();
+	coveredBy += self.coveredBy->asOrderedSet()[UML::InteractionFragment].map transformInteractionFragment();
 }
 
 mapping UML::Message::transformMessage() : InteractionDiagram::Message {
@@ -38,6 +40,8 @@ mapping UML::MessageEnd::transformMessageEnd() : InteractionDiagram::MessageEnd
 	
 mapping UML::MessageOccurrenceSpecification::transformMessageOccurenceSpecification() : InteractionDiagram::MessageOccurenceSpecification {
 	name := self.name;
+	covered := self.covered->any(true).map transformLifeline();
+	enclosingInteraction := self.enclosingInteraction.map transformInteraction();
 }
 
 helper UML::Message::transformMessageSort(in s : UML::MessageSort) : InteractionDiagram::MessageSort {
@@ -65,13 +69,15 @@ mapping UML::InteractionOperand::transformInteractionOperand() : InteractionDiag
 	name := self.name;
 	fragment += self.fragment.map transformInteractionFragment();
 	covered := self.covered->any(true).map transformLifeline();
-}		  
+	enclosingInteraction := self.enclosingInteraction.map transformInteraction();
+}
 
 mapping UML::CombinedFragment::transformCombinedFragment() : InteractionDiagram::CombinedFragment {
 	name := self.name;
 	operand += self.operand.map transformInteractionOperand();
 	interactionOperator := self.transformOperatorKind(self.interactionOperator);
 	covered := self.covered->any(true).map transformLifeline();
+	enclosingInteraction := self.enclosingInteraction.map transformInteraction();
 }
 
 helper UML::CombinedFragment::transformOperatorKind(in k : UML::InteractionOperatorKind) : InteractionDiagram::InteractionOperatorKind {
@@ -83,12 +89,14 @@ mapping UML::BehaviorExecutionSpecification::transformBehaviourExecutionSpecific
 	start := self.start.map transformOccurrenceSpecification();
 	finish := self.finish.map transformOccurrenceSpecification();
 	covered := self.covered->any(true).map transformLifeline();
+	enclosingInteraction := self.enclosingInteraction.map transformInteraction();
 }
 
   
 mapping UML::ExecutionSpecification::transformExecutionSpecification() : InteractionDiagram::ExecutionSpecification {
 	name := self.name;
 	covered := self.covered->any(true).map transformLifeline();
+	enclosingInteraction := self.enclosingInteraction.map transformInteraction();
 }
 
 mapping UML::OccurrenceSpecification::transformOccurrenceSpecification() : InteractionDiagram::OccurrenceSpecification 
@@ -99,12 +107,14 @@ mapping UML::OccurrenceSpecification::transformRealOccurrenceSpecification() : I
 	log("OccurenceSpecifictation " + self.name);
 	name := self.name;
 	covered := self.covered->any(true).map transformLifeline();
+	enclosingInteraction := self.enclosingInteraction.map transformInteraction();
 }
 
 mapping UML::StateInvariant::transformStateInvariant() : InteractionDiagram::StateInvariant {
 	name := self.name;
 	invariant := self.invariant.map transformConstraint();
 	covered := self.covered->any(true).map transformLifeline();
+	enclosingInteraction := self.enclosingInteraction.map transformInteraction();
 }
 
 mapping UML::Constraint::transformConstraint() : InteractionDiagram::Constraint {

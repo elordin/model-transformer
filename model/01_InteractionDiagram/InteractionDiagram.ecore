@@ -37,7 +37,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="lifeline" upperBound="-1"
         eType="#//Lifeline" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fragment" upperBound="-1"
-        eType="#//InteractionFragment" containment="true" eOpposite="#//InteractionFragment/enclosingInteraction"/>
+        eType="#//InteractionFragment" derived="true" containment="true" eOpposite="#//InteractionFragment/enclosingInteraction"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Lifeline">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -48,8 +48,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="enclosingInteraction" eType="#//Interaction"
         eOpposite="#//Interaction/fragment"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="covered" lowerBound="1"
-        eType="#//Lifeline" eOpposite="#//Lifeline/coveredBy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="covered" eType="#//Lifeline"
+        eOpposite="#//Lifeline/coveredBy"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="generalordering" upperBound="-1"
         eType="#//GeneralOrdering" containment="true"/>
   </eClassifiers>
