@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdd:InteractionDiagramPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdd="se.studieren.mdd.transformer.InteractionDiagramPackage" xmlns:mdd_1="se.studieren.mdd.transformer.InteractionDiagram" xsi:schemaLocation="se.studieren.mdd.transformer.InteractionDiagramPackage ../InteractionDiagramPackage.ecore se.studieren.mdd.transformer.InteractionDiagram ../InteractionDiagram.ecore">
+  <interaction xmi:id="_YOyqsU2uEeanJsNeYAM_hQ" name="BadPassword">
+    <message xmi:id="MessageEjectCard"          sendEvent="MessageEjectCardSend"            receiveEvent="MessageEjectCardReceive"          messageSort="asynchCall"    name="ejectCard"/>
+    <message xmi:id="MessageBadPassword"        sendEvent="MessageBadPasswordSend"          receiveEvent="MessageBadPasswordReceive"        messageSort="reply"         name=":badPassword"/>
+    <message xmi:id="MessageRequestPassword"    sendEvent="MessageRequestPasswordSend"      receiveEvent="MessageRequestPasswordReceive"    messageSort="asynchCall"    name="requestPassword"/>
+    <message xmi:id="MessageVerifyAccount"      sendEvent="MessageVerifyAccountSend"        receiveEvent="MessageVerifyAccountReceive"                                  name="verifyAccount"/>
+    <message xmi:id="MessageEnterPassword"      sendEvent="MessageEnterPasswordSend"        receiveEvent="MessageEnterPasswordReceive"                                  name="enterPassword"/>
+    <message xmi:id="MessageBadBankPassword"    sendEvent="MessageBadBankPasswordSend"      receiveEvent="MessageBadBankPasswordReceive"    messageSort="reply"         name=":badBankPassword"/>
+    <message xmi:id="MessageVerifyCardWithBank" sendEvent="MessageVerifyCardWithBankSend"   receiveEvent="MessageVerifyCardWithBankReceive"                             name="verifyCardWithBank"/>
+    <message xmi:id="MessageCancel"             sendEvent="MessageCancelSend"               receiveEvent="MessageCancelReceive"                                         name="cancel"/>
+    <message xmi:id="MessageCanceledMessage"    sendEvent="MessageCanceledMessageSend"      receiveEvent="MessageCanceledMessageReceive"    messageSort="asynchCall"    name="canceledMessage"/>
+    <message xmi:id="MessageRequestTakeCard"    sendEvent="MessageRequestTakeCardSend"      receiveEvent="MessageRequestTakeCardReceive"    messageSort="asynchCall"    name="requestTakeCard"/>
+    <lifeline xmi:id="LifeLineConsortium" name="consortium"
+        coveredBy="
+                    SIWaitVerify1
+                    _YOyqzE2uEeanJsNeYAM_hQ
+                    MessageVerifyAccountReceive
+                    MessageVerifyCardWithBankSend
+                    MessageBadBankPasswordReceive
+                    MessageBadPasswordSend
+                    _YOyq102uEeanJsNeYAM_hQ
+                    SIWaitVerify2"
+    />
+    <lifeline xmi:id="LifeLineUser" name="User"
+        coveredBy=" _YOyqwU2uEeanJsNeYAM_hQ
+                    MessageEnterPasswordSend
+                    MessageRequestPasswordReceive
+                    MessageCancelSend
+                    MessageCanceledMessageReceive
+                    MessageEjectCardReceive
+                    MessageRequestTakeCardReceive
+                    _YOyqwE2uEeanJsNeYAM_hQ
+                    _YOyq9k2uEeanJsNeYAM_hQ
+                    "
+    />
+    <lifeline xmi:id="LifeLineBank" name="bank"
+        coveredBy=" SIWaitBankVerify1
+                    _YOyqz02uEeanJsNeYAM_hQ
+                    MessageVerifyCardWithBankReceive
+                    MessageBadBankPasswordSend
+                    _YOyq0k2uEeanJsNeYAM_hQ
+                    SIWaitBankVerify2"
+    />
+    <lifeline xmi:id="LifeLineATM" name="atm"
+        coveredBy=" SIWaitPassword1
+                    _YOyqyU2uEeanJsNeYAM_hQ
+                    MessageEnterPasswordReceive
+                    MessageVerifyAccountSend
+                    MessageBadPasswordReceive
+                    MessageRequestPasswordSend
+                    _YOyq202uEeanJsNeYAM_hQ
+                    SIWaitPassword2
+                    _YOyq4E2uEeanJsNeYAM_hQ
+                    MessageCancelReceive
+                    MessageCanceledMessageSend
+                    MessageEjectCardSend
+                    MessageRequestTakeCardSend
+                    _YOyq6E2uEeanJsNeYAM_hQ
+                    SIWaitTakeCard"
+    />
+
+
+    <fragment xmi:type="mdd_1:OccurrenceSpecification" xmi:id="_YOyqwE2uEeanJsNeYAM_hQ" name="BehaviorExecSpecStart" covered="LifeLineUser"/>
+    <fragment xmi:type="mdd_1:BehaviorExecutionSpecification" xmi:id="_YOyqwU2uEeanJsNeYAM_hQ" name="BehaviorExecSpec" covered="LifeLineUser" start="_YOyqwE2uEeanJsNeYAM_hQ" finish="_YOyq9k2uEeanJsNeYAM_hQ"/>
+    <fragment xmi:type="mdd_1:StateInvariant" xmi:id="SIWaitBankVerify1" name="WaitBankVerify" covered="LifeLineBank">
+      <invariant xmi:id="_YOyqw02uEeanJsNeYAM_hQ"/>
+    </fragment>
+    <fragment xmi:type="mdd_1:StateInvariant" xmi:id="SIWaitVerify1" name="WaitVerify" covered="LifeLineConsortium">
+      <invariant xmi:id="_YOyqxU2uEeanJsNeYAM_hQ"/>
+    </fragment>
+    <fragment xmi:type="mdd_1:StateInvariant" xmi:id="SIWaitPassword1" name="WaitPassword" covered="LifeLineATM">
+      <invariant xmi:id="_YOyqx02uEeanJsNeYAM_hQ"/>
+    </fragment>
+    <fragment xmi:type="mdd_1:MessageOccurenceSpecification" xmi:id="MessageEnterPasswordSend" messageS="MessageEnterPassword" name="MessageSend" covered="LifeLineUser"/>
+    <fragment xmi:type="mdd_1:BehaviorExecutionSpecification" xmi:id="_YOyqyU2uEeanJsNeYAM_hQ" name="BehaviorExecSpec0" covered="LifeLineATM" start="MessageEnterPasswordReceive" finish="_YOyq202uEeanJsNeYAM_hQ"/>
+    <fragment xmi:type="mdd_1:MessageOccurenceSpecification" xmi:id="MessageEnterPasswordReceive" messageR="MessageEnterPassword" name="MessageRecv" covered="LifeLineATM"/>
+    <fragment xmi:type="mdd_1:MessageOccurenceSpecification" xmi:id="MessageVerifyAccountSend" messageS="MessageVerifyAccount" name="MessageSend0" covered="LifeLineATM"/>
+    <fragment xmi:type="mdd_1:BehaviorExecutionSpecification" xmi:id="_YOyqzE2uEeanJsNeYAM_hQ" name="BehaviorExecSpec1" covered="LifeLineConsortium" start="MessageVerifyAccountReceive" finish="_YOyq102uEeanJsNeYAM_hQ"/>
+    <fragment xmi:type="mdd_1:MessageOccurenceSpecification" xmi:id="MessageVerifyAccountReceive" messageR="MessageVerifyAccount" name="MessageRecv0" covered="LifeLineConsortium"/>
+    <fragment xmi:type="mdd_1:MessageOccurenceSpecification" xmi:id="MessageVerifyCardWithBankSend" messageS="MessageVerifyCardWithBank" name="MessageSend1" covered="LifeLineConsortium"/>
+    <fragment xmi:type="mdd_1:BehaviorExecutionSpecification" xmi:id="_YOyqz02uEeanJsNeYAM_hQ" name="BehaviorExecSpec2" covered="LifeLineBank" start="MessageVerifyCardWithBankReceive" finish="_YOyq0k2uEeanJsNeYAM_hQ"/>
+    <fragment xmi:type="mdd_1:MessageOccurenceSpecification" xmi:id="MessageVerifyCardWithBankReceive" messageR="MessageVerifyCardWithBank" name="MessageRecv1" covered="LifeLineBank"/>
+    <fragment xmi:type="mdd_1:MessageOccurenceSpecification" xmi:id="MessageBadBankPasswordSend" messageS="MessageBadBankPassword" name="MessageSend2" covered="LifeLineBank"/>
+    <fragment xmi:type="mdd_1:OccurrenceSpecification" xmi:id="_YOyq0k2uEeanJsNeYAM_hQ" name="BehaviorExecSpec2Finish" covered="LifeLineBank"/>
+    <fragment xmi:type="mdd_1:MessageOccurenceSpecification" xmi:id="MessageRequestPasswordSend" messageS="MessageRequestPassword" name="MessageSend9" covered="LifeLineATM"/>
+    <fragment xmi:type="mdd_1:MessageOccurenceSpecification" xmi:id="MessageRequestPasswordReceive" messageR="MessageRequestPassword" name="MessageRecv9" covered="LifeLineUser"/>
+    <fragment xmi:type="mdd_1:MessageOccurenceSpecification" xmi:id="MessageBadBankPasswordReceive" messageR="MessageBadBankPassword" name="MessageRecv2" covered="LifeLineConsortium"/>
+    <fragment xmi:type="mdd_1:MessageOccurenceSpecification" xmi:id="MessageBadPasswordSend" messageS="MessageBadPassword" name="MessageSend3" covered="LifeLineConsortium"/>
+    <fragment xmi:type="mdd_1:OccurrenceSpecification" xmi:id="_YOyq102uEeanJsNeYAM_hQ" name="BehaviorExecSpec1Finish" covered="LifeLineConsortium"/>
+    <fragment xmi:type="mdd_1:MessageOccurenceSpecification" xmi:id="MessageBadPasswordReceive" messageR="MessageBadPassword" name="MessageRecv3" covered="LifeLineATM"/>
+    <fragment xmi:type="mdd_1:OccurrenceSpecification" xmi:id="_YOyq2U2uEeanJsNeYAM_hQ" name="BehaviorExecSpec3Start"/>
+    <fragment xmi:type="mdd_1:BehaviorExecutionSpecification" xmi:id="_YOyq2k2uEeanJsNeYAM_hQ" name="BehaviorExecSpec3" start="_YOyq2U2uEeanJsNeYAM_hQ"/>
+    <fragment xmi:type="mdd_1:OccurrenceSpecification" xmi:id="_YOyq202uEeanJsNeYAM_hQ" name="BehaviorExecSpec0Finish" covered="LifeLineATM"/>
+    <fragment xmi:type="mdd_1:OccurrenceSpecification" xmi:id="_YOyq3E2uEeanJsNeYAM_hQ" name="BehaviorExecSpec3Start"/>
+    <fragment xmi:type="mdd_1:StateInvariant" xmi:id="SIWaitPassword2" name="WaitPassword" covered="LifeLineATM">
+      <invariant xmi:id="_YOyq3k2uEeanJsNeYAM_hQ"/>
+    </fragment>
+    <fragment xmi:type="mdd_1:MessageOccurenceSpecification" xmi:id="MessageCancelSend" messageS="MessageCancel" name="MessageSend5" covered="LifeLineUser"/>
+    <fragment xmi:type="mdd_1:BehaviorExecutionSpecification" xmi:id="_YOyq4E2uEeanJsNeYAM_hQ" name="BehaviorExecSpec4" covered="LifeLineATM" start="MessageCancelReceive" finish="_YOyq6E2uEeanJsNeYAM_hQ"/>
+    <fragment xmi:type="mdd_1:MessageOccurenceSpecification" xmi:id="MessageCancelReceive" messageR="MessageCancel" name="MessageRecv5" covered="LifeLineATM"/>
+    <fragment xmi:type="mdd_1:MessageOccurenceSpecification" xmi:id="MessageCanceledMessageSend" messageS="MessageCanceledMessage" name="MessageSend10" covered="LifeLineATM"/>
+    <fragment xmi:type="mdd_1:MessageOccurenceSpecification" xmi:id="MessageCanceledMessageReceive" messageR="MessageCanceledMessage" name="MessageRecv10" covered="LifeLineUser"/>
+    <fragment xmi:type="mdd_1:MessageOccurenceSpecification" xmi:id="MessageEjectCardSend" messageS="MessageEjectCard" name="MessageSend11" covered="LifeLineATM"/>
+    <fragment xmi:type="mdd_1:MessageOccurenceSpecification" xmi:id="MessageEjectCardReceive" messageR="MessageEjectCard" name="MessageRecv11" covered="LifeLineUser"/>
+    <fragment xmi:type="mdd_1:MessageOccurenceSpecification" xmi:id="MessageRequestTakeCardSend" messageS="MessageRequestTakeCard" name="MessageSend12" covered="LifeLineATM"/>
+    <fragment xmi:type="mdd_1:MessageOccurenceSpecification" xmi:id="MessageRequestTakeCardReceive" messageR="MessageRequestTakeCard" name="MessageRecv12" covered="LifeLineUser"/>
+    <fragment xmi:type="mdd_1:OccurrenceSpecification" xmi:id="_YOyq6E2uEeanJsNeYAM_hQ" name="BehaviorExecSpec4Finish" covered="LifeLineATM"/>
+    <fragment xmi:type="mdd_1:BehaviorExecutionSpecification" xmi:id="_YOyq6U2uEeanJsNeYAM_hQ" name="BehaviorExecSpec6" finish="_YOyq8k2uEeanJsNeYAM_hQ"/>
+    <fragment xmi:type="mdd_1:OccurrenceSpecification" xmi:id="_YOyq6k2uEeanJsNeYAM_hQ" name="BehaviorExecSpec6Start"/>
+    <fragment xmi:type="mdd_1:OccurrenceSpecification" xmi:id="_YOyq602uEeanJsNeYAM_hQ" name="BehaviorExecSpec7Start"/>
+    <fragment xmi:type="mdd_1:BehaviorExecutionSpecification" xmi:id="_YOyq7E2uEeanJsNeYAM_hQ" name="BehaviorExecSpec7" start="_YOyq602uEeanJsNeYAM_hQ"/>
+    <fragment xmi:type="mdd_1:StateInvariant" xmi:id="SIWaitVerify2" name="WaitVerify" covered="LifeLineConsortium">
+      <invariant xmi:id="_YOyq7k2uEeanJsNeYAM_hQ"/>
+    </fragment>
+    <fragment xmi:type="mdd_1:StateInvariant" xmi:id="SIWaitTakeCard" name="WaitTakeCard" covered="LifeLineATM">
+      <invariant xmi:id="_YOyq8E2uEeanJsNeYAM_hQ"/>
+    </fragment>
+    <fragment xmi:type="mdd_1:OccurrenceSpecification" xmi:id="_YOyq8U2uEeanJsNeYAM_hQ" name="BehaviorExecSpec5Start"/>
+    <fragment xmi:type="mdd_1:OccurrenceSpecification" xmi:id="_YOyq8k2uEeanJsNeYAM_hQ" name="BehaviorExecSpec6Finish"/>
+    <fragment xmi:type="mdd_1:StateInvariant" xmi:id="SIWaitBankVerify2" name="WaitBankVerify" covered="LifeLineBank">
+      <invariant xmi:id="_YOyq9E2uEeanJsNeYAM_hQ"/>
+    </fragment>
+    <fragment xmi:type="mdd_1:OccurrenceSpecification" xmi:id="_YOyq9U2uEeanJsNeYAM_hQ" name="BehaviorExecSpec7Start"/>
+    <fragment xmi:type="mdd_1:OccurrenceSpecification" xmi:id="_YOyq9k2uEeanJsNeYAM_hQ" name="BehaviorExecSpecFinish" covered="LifeLineUser"/>
+  </interaction>
+  <interaction name="BadAccount">
+    <message sendEvent="//@interaction.1/@fragment.39" receiveEvent="//@interaction.1/@fragment.40" name="verifyAccount"/>
+    <message sendEvent="//@interaction.1/@fragment.45" receiveEvent="//@interaction.1/@fragment.46" messageSort="reply" name=":badAccount"/>
+    <message sendEvent="//@interaction.1/@fragment.35" receiveEvent="//@interaction.1/@fragment.36" name="requestPassword"/>
+    <message sendEvent="//@interaction.1/@fragment.55" receiveEvent="//@interaction.1/@fragment.56" name="takeCard"/>
+    <message sendEvent="//@interaction.1/@fragment.47" receiveEvent="//@interaction.1/@fragment.48" name="badAccountMessage"/>
+    <message sendEvent="//@interaction.1/@fragment.43" receiveEvent="//@interaction.1/@fragment.44" messageSort="reply" name=":badBankAccount"/>
+    <message sendEvent="//@interaction.1/@fragment.37" receiveEvent="//@interaction.1/@fragment.38" name="enterPassword"/>
+    <message sendEvent="//@interaction.1/@fragment.41" receiveEvent="//@interaction.1/@fragment.42" name="verifyCardWithBank"/>
+    <message sendEvent="//@interaction.1/@fragment.53" receiveEvent="//@interaction.1/@fragment.54" name="requestTakeCard"/>
+    <message sendEvent="//@interaction.1/@fragment.33" receiveEvent="//@interaction.1/@fragment.34" name="insertCard"/>
+    <message sendEvent="//@interaction.1/@fragment.49" receiveEvent="//@interaction.1/@fragment.50" name="printReceipt"/>
+    <message sendEvent="//@interaction.1/@fragment.57" receiveEvent="//@interaction.1/@fragment.58" name="displayMainScreen"/>
+    <message sendEvent="//@interaction.1/@fragment.51" receiveEvent="//@interaction.1/@fragment.52" name="ejectCard"/>
+    <lifeline name="consortium" coveredBy="//@interaction.1/@fragment.44 //@interaction.1/@fragment.40 //@interaction.1/@fragment.0 //@interaction.1/@fragment.1 //@interaction.1/@fragment.2 //@interaction.1/@fragment.3 //@interaction.1/@fragment.45 //@interaction.1/@fragment.41"/>
+    <lifeline name="User" coveredBy="//@interaction.1/@fragment.33 //@interaction.1/@fragment.4 //@interaction.1/@fragment.37 //@interaction.1/@fragment.5 //@interaction.1/@fragment.55 //@interaction.1/@fragment.6 //@interaction.1/@fragment.7"/>
+    <lifeline name="bank" coveredBy="//@interaction.1/@fragment.17 //@interaction.1/@fragment.18 //@interaction.1/@fragment.42 //@interaction.1/@fragment.19 //@interaction.1/@fragment.43 //@interaction.1/@fragment.20"/>
+    <lifeline name="atm" coveredBy="//@interaction.1/@fragment.57 //@interaction.1/@fragment.38 //@interaction.1/@fragment.56 //@interaction.1/@fragment.8 //@interaction.1/@fragment.9 //@interaction.1/@fragment.35 //@interaction.1/@fragment.10 //@interaction.1/@fragment.39 //@interaction.1/@fragment.53 //@interaction.1/@fragment.11 //@interaction.1/@fragment.47 //@interaction.1/@fragment.51 //@interaction.1/@fragment.12 //@interaction.1/@fragment.46 //@interaction.1/@fragment.13 //@interaction.1/@fragment.34 //@interaction.1/@fragment.14 //@interaction.1/@fragment.49 //@interaction.1/@fragment.15 //@interaction.1/@fragment.16"/>
+    <fragment xsi:type="mdd_1:OccurrenceSpecification" name="BehaviorExecSpec3Finish" covered="//@interaction.1/@lifeline.0"/>
+    <fragment xsi:type="mdd_1:BehaviorExecutionSpecification" name="BehaviorExecSpec3" covered="//@interaction.1/@lifeline.0" start="//@interaction.1/@fragment.40" finish="//@interaction.1/@fragment.0"/>
+    <fragment xsi:type="mdd_1:StateInvariant" name="WaitVerify" covered="//@interaction.1/@lifeline.0">
+      <invariant/>
+    </fragment>
+    <fragment xsi:type="mdd_1:StateInvariant" name="WaitVerify" covered="//@interaction.1/@lifeline.0">
+      <invariant/>
+    </fragment>
+    <fragment xsi:type="mdd_1:OccurrenceSpecification" name="BehaviorExecSpecStart" covered="//@interaction.1/@lifeline.1"/>
+    <fragment xsi:type="mdd_1:OccurrenceSpecification" name="BehaviorExecSpecFinish" covered="//@interaction.1/@lifeline.1"/>
+    <fragment xsi:type="mdd_1:OccurrenceSpecification" name="BehaviorExecSpecStart" covered="//@interaction.1/@lifeline.1"/>
+    <fragment xsi:type="mdd_1:BehaviorExecutionSpecification" name="BehaviorExecSpec" covered="//@interaction.1/@lifeline.1" start="//@interaction.1/@fragment.6" finish="//@interaction.1/@fragment.5"/>
+    <fragment xsi:type="mdd_1:OccurrenceSpecification" name="BehaviorExecSpec9Finish" covered="//@interaction.1/@lifeline.3"/>
+    <fragment xsi:type="mdd_1:BehaviorExecutionSpecification" name="BehaviorExecSpec9" covered="//@interaction.1/@lifeline.3" start="//@interaction.1/@fragment.56" finish="//@interaction.1/@fragment.8"/>
+    <fragment xsi:type="mdd_1:StateInvariant" name="WaitPassword" covered="//@interaction.1/@lifeline.3">
+      <invariant/>
+    </fragment>
+    <fragment xsi:type="mdd_1:OccurrenceSpecification" name="BehaviorExecSpec0Finish" covered="//@interaction.1/@lifeline.3"/>
+    <fragment xsi:type="mdd_1:BehaviorExecutionSpecification" name="BehaviorExecSpec2" covered="//@interaction.1/@lifeline.3" start="//@interaction.1/@fragment.38" finish="//@interaction.1/@fragment.56"/>
+    <fragment xsi:type="mdd_1:StateInvariant" name="WaitCard" covered="//@interaction.1/@lifeline.3">
+      <invariant/>
+    </fragment>
+    <fragment xsi:type="mdd_1:BehaviorExecutionSpecification" name="BehaviorExecSpec0" covered="//@interaction.1/@lifeline.3" start="//@interaction.1/@fragment.34" finish="//@interaction.1/@fragment.11"/>
+    <fragment xsi:type="mdd_1:StateInvariant" name="WaitCard" covered="//@interaction.1/@lifeline.3">
+      <invariant/>
+    </fragment>
+    <fragment xsi:type="mdd_1:StateInvariant" name="WaitTakeCard" covered="//@interaction.1/@lifeline.3">
+      <invariant/>
+    </fragment>
+    <fragment xsi:type="mdd_1:OccurrenceSpecification" name="BehaviorExecSpec4Finish" covered="//@interaction.1/@lifeline.2"/>
+    <fragment xsi:type="mdd_1:StateInvariant" name="WaitBankVerify" covered="//@interaction.1/@lifeline.2">
+      <invariant/>
+    </fragment>
+    <fragment xsi:type="mdd_1:BehaviorExecutionSpecification" name="BehaviorExecSpec4" covered="//@interaction.1/@lifeline.2" start="//@interaction.1/@fragment.42" finish="//@interaction.1/@fragment.17"/>
+    <fragment xsi:type="mdd_1:StateInvariant" name="WaitBankVerify" covered="//@interaction.1/@lifeline.2">
+      <invariant/>
+    </fragment>
+    <fragment xsi:type="mdd_1:OccurrenceSpecification" name="BehaviorExecSpec1Finish"/>
+    <fragment xsi:type="mdd_1:BehaviorExecutionSpecification" name="BehaviorExecSpec1" start="//@interaction.1/@fragment.36" finish="//@interaction.1/@fragment.21"/>
+    <fragment xsi:type="mdd_1:OccurrenceSpecification" name="BehaviorExecSpec5Finish"/>
+    <fragment xsi:type="mdd_1:BehaviorExecutionSpecification" name="BehaviorExecSpec5" start="//@interaction.1/@fragment.48" finish="//@interaction.1/@fragment.23"/>
+    <fragment xsi:type="mdd_1:OccurrenceSpecification" name="BehaviorExecSpec6Finish"/>
+    <fragment xsi:type="mdd_1:BehaviorExecutionSpecification" name="BehaviorExecSpec6" start="//@interaction.1/@fragment.50" finish="//@interaction.1/@fragment.25"/>
+    <fragment xsi:type="mdd_1:OccurrenceSpecification" name="BehaviorExecSpec7Finish"/>
+    <fragment xsi:type="mdd_1:BehaviorExecutionSpecification" name="BehaviorExecSpec7" start="//@interaction.1/@fragment.52" finish="//@interaction.1/@fragment.27"/>
+    <fragment xsi:type="mdd_1:OccurrenceSpecification" name="BehaviorExecSpec8Finish"/>
+    <fragment xsi:type="mdd_1:BehaviorExecutionSpecification" name="BehaviorExecSpec8" start="//@interaction.1/@fragment.54" finish="//@interaction.1/@fragment.29"/>
+    <fragment xsi:type="mdd_1:OccurrenceSpecification" name="BehaviorExecSpec10Finish"/>
+    <fragment xsi:type="mdd_1:BehaviorExecutionSpecification" name="BehaviorExecSpec10" start="//@interaction.1/@fragment.58" finish="//@interaction.1/@fragment.31"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageS="//@interaction.1/@message.9" name="MessageSend" covered="//@interaction.1/@lifeline.1"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageR="//@interaction.1/@message.9" name="MessageRecv" covered="//@interaction.1/@lifeline.3"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageS="//@interaction.1/@message.2" name="MessageSend0" covered="//@interaction.1/@lifeline.3"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageR="//@interaction.1/@message.2" name="MessageRecv0"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageS="//@interaction.1/@message.6" name="MessageSend1" covered="//@interaction.1/@lifeline.1"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageR="//@interaction.1/@message.6" name="MessageRecv1" covered="//@interaction.1/@lifeline.3"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageS="//@interaction.1/@message.0" name="MessageSend2" covered="//@interaction.1/@lifeline.3"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageR="//@interaction.1/@message.0" name="MessageRecv2" covered="//@interaction.1/@lifeline.0"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageS="//@interaction.1/@message.7" name="MessageSend3" covered="//@interaction.1/@lifeline.0"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageR="//@interaction.1/@message.7" name="MessageRecv3" covered="//@interaction.1/@lifeline.2"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageS="//@interaction.1/@message.5" name="MessageSend4" covered="//@interaction.1/@lifeline.2"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageR="//@interaction.1/@message.5" name="MessageRecv4" covered="//@interaction.1/@lifeline.0"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageS="//@interaction.1/@message.1" name="MessageSend5" covered="//@interaction.1/@lifeline.0"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageR="//@interaction.1/@message.1" name="MessageRecv5" covered="//@interaction.1/@lifeline.3"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageS="//@interaction.1/@message.4" name="MessageSend6" covered="//@interaction.1/@lifeline.3"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageR="//@interaction.1/@message.4" name="MessageRecv6"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageS="//@interaction.1/@message.10" name="MessageSend7" covered="//@interaction.1/@lifeline.3"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageR="//@interaction.1/@message.10" name="MessageRecv7"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageS="//@interaction.1/@message.12" name="MessageSend8" covered="//@interaction.1/@lifeline.3"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageR="//@interaction.1/@message.12" name="MessageRecv8"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageS="//@interaction.1/@message.8" name="MessageSend9" covered="//@interaction.1/@lifeline.3"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageR="//@interaction.1/@message.8" name="MessageRecv9"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageS="//@interaction.1/@message.3" name="MessageSend10" covered="//@interaction.1/@lifeline.1"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageR="//@interaction.1/@message.3" name="MessageRecv10" covered="//@interaction.1/@lifeline.3"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageS="//@interaction.1/@message.11" name="MessageSend11" covered="//@interaction.1/@lifeline.3"/>
+    <fragment xsi:type="mdd_1:MessageOccurenceSpecification" messageR="//@interaction.1/@message.11" name="MessageRecv11"/>
+  </interaction>
+</mdd:InteractionDiagramPackage>
