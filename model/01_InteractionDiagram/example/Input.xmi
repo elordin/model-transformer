@@ -454,9 +454,9 @@
           _E2SR8Dr3Eeak-76QglXo-w
           _E2Rq4Dr3Eeak-76QglXo-w
           2event_requestPasswordSend
-          2event_enterPasswordReceive
           _hAEAEDr3Eeak-76QglXo-w
           SI2_WaitPassword1
+          2event_enterPasswordReceive
           2event_verifyAccountSend
           2event__badAccountReceive
           2event_badAccountMessageSend
@@ -585,7 +585,7 @@
     <fragment
         xsi:type="uml:StateInvariant"
         xmi:id="SI2_WaitPassword1"
-        name="07_WaitPassword"
+        name="06_WaitPassword"
         covered="2Lifeline_ATM">
       <invariant
           xmi:id="_qM_psDr3Eeak-76QglXo-w"
@@ -600,14 +600,14 @@
     <fragment
         xsi:type="uml:BehaviorExecutionSpecification"
         xmi:id="_hAEAEDr3Eeak-76QglXo-w"
-        name="06_BehaviorExecSpec2"
+        name="05_BehaviorExecSpec2"
         covered="2Lifeline_ATM"
         finish="2event_takeCardReceive"
         start="2event_enterPasswordReceive"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
         xmi:id="2event_enterPasswordReceive"
-        name="05_MessageRecv1"
+        name="07_MessageRecv1"
         covered="2Lifeline_ATM"
         message="msg_enterPassword"/>
     <fragment
