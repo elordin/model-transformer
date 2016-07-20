@@ -1,17 +1,33 @@
-import Step01;
-import Step02;
+import Step12;
 import Step03;
 import Step04;
 import Step05;
+import Step06;
 
+modeltype ScenarioTablePackage uses ScenarioTablePackage('se.studieren.mdd.transformer.ScenarioTablePackage');
+modeltype BehaviourTablePackage uses BehaviourTablePackage('se.studieren.mdd.transformer.BehaviourTablePackage');
+modeltype IOAutomatonPackage uses IOAutomatonPackage('se.studieren.mdd.transformer.IOAutomatonPackage');
+modeltype StateMachinePackage uses StateMachinePackage('se.studieren.mdd.transformer.StateMachinePackage');
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
-modeltype InteractionDiagram uses InteractionDiagram('se.studieren.mdd.transformer.InteractionDiagram');
-modeltype ScenarioTable uses ScenarioTable('se.studieren.mdd.transformer.ScenarioTable');
-modeltype BehaviourTable uses BehaviourTable('se.studieren.mdd.transformer.BehaviourTable');
-modeltype IOAutomaton uses IOAutomaton('se.studieren.mdd.transformer.IOAutomaton');
-modeltype StateMachine uses StateMachine('se.studieren.mdd.transformer.StateMachine');
 
 transformation FullTransformation(in umlInteractionDiagram: UML, out umlStateMachine: UML);
 
 main() {
+	
+	var ScenarioTable  := ScenarioTablePackage.createEmptyModel();
+	var BehaviourTable := BehaviourTablePackage.createEmptyModel();
+	var IOAutomaton    := IOAutomatonPackage.createEmptyModel();
+	var StateMachine2  := StateMachinePackage.createEmptyModel();
+	
+	var toScenario     := new Step12(umlInteractionDiagram,ScenarioTable);
+	var toBehaviour    := new Step03(ScenarioTable,BehaviourTable);
+	var toIOAutomaton  := new Step04(BehaviourTable,IOAutomaton);
+	var toStateMachine := new Step05(IOAutomaton,StateMachine2);
+	var toUML          := new Step06(StateMachine2,umlStateMachine);
+	
+	toScenario.transform();
+	toBehaviour.transform();
+	toIOAutomaton.transform();
+	toStateMachine.transform();
+	toUML.transform();
 }

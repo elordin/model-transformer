@@ -2,7 +2,7 @@ modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 modeltype ScenarioTable uses ScenarioTable('se.studieren.mdd.transformer.ScenarioTable');
 modeltype ScenarioTablePackage uses ScenarioTablePackage('se.studieren.mdd.transformer.ScenarioTablePackage');
 
-transformation Step02(in uml: UML, out scenarioTablePackage: ScenarioTablePackage);
+transformation Step12(in uml: UML, out scenarioTablePackage: ScenarioTablePackage);
 
 main() {
 	uml.objectsOfType(Model).map toScenarioTablePackage();
