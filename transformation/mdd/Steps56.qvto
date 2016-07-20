@@ -1,0 +1,19 @@
+import Step05;
+import Step06;
+
+modeltype IOAutomatonPackage uses IOAutomatonPackage('se.studieren.mdd.transformer.IOAutomatonPackage');
+modeltype StateMachinePackage uses StateMachinePackage('se.studieren.mdd.transformer.StateMachinePackage');
+modeltype UMLMachine uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
+
+transformation steps36(in iOAutomaton: IOAutomatonPackage, out umlStateMachine: UMLMachine);
+
+main() {
+	
+	var StateMachine2 := StateMachinePackage.createEmptyModel();
+	
+	var toStateMachine := new Step05(iOAutomaton,StateMachine2);
+	var toUML := new Step06(StateMachine2,umlStateMachine);
+
+	toStateMachine.transform();
+	toUML.transform();
+}
