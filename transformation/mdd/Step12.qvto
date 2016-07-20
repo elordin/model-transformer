@@ -13,7 +13,7 @@ mapping UML::Model::toScenarioTablePackage() : ScenarioTablePackage::ScenarioTab
 }
 
 mapping Interaction::toScenarioTable() : ScenarioTable::Scenario {
-
+	name := self.name;
 	state += self.fragment[StateInvariant].map transformStateInvariant();
 	actor += self.lifeline.map transformLifeline();
 	communication += self.message.map transformMessage();
@@ -25,7 +25,7 @@ query isUser(in l : Lifeline) : Boolean {
 }
 
 mapping StateInvariant::transformStateInvariant() : ScenarioTable::State {
-	name := self.name;
+	name := self.name.substring(4,self.name.length());
 }
 
 mapping Lifeline::transformLifeline() : ScenarioTable::ActorObject
@@ -117,47 +117,14 @@ helper returnValue(in m : Message) : ScenarioTable::ReturnValue {
 
 	var recipientCoveredBy : OrderedSet(InteractionFragment) = recipient.coveredBy->sortedBy(f | f.name.substring(1,2).toInteger());
 	var receiveIndex = recipientCoveredBy->indexOf(receiveMOC);
-			
-	if (m.name = "verifyAccount" or m.name = "verifyCardWithBank") {
-	
-
-	log(m.name);
-	log("ReceiveIndex:\t" + receiveIndex.toString());
-	log("MOC\t" + receiveMOC.toString());
-	log("Recipient\t" + receiveMOC.covered->any(true).name);
-	log("");
-	log("1\t" + recipientCoveredBy[MessageOccurrenceSpecification]->select(true)->size().toString());
-	log("2\t" + recipientCoveredBy[MessageOccurrenceSpecification]->select(moc | 
-		recipientCoveredBy->indexOf(moc) > receiveIndex)->size().toString());
-	log("3\t" + recipientCoveredBy[MessageOccurrenceSpecification]->select(moc | 
-		recipientCoveredBy->indexOf(moc) > receiveIndex and
-		(not moc.message->oclIsInvalid())
-		)->size().toString());
-	
-	log(">\t" + recipientCoveredBy[MessageOccurrenceSpecification]->select(moc | 
-		recipientCoveredBy->indexOf(moc) > receiveIndex and
-		(not moc.message->oclIsInvalid())
-		)->first().message.toString());
-	
-	log(">\t" + recipientCoveredBy[MessageOccurrenceSpecification]->select(moc | 
-		recipientCoveredBy->indexOf(moc) > receiveIndex and
-		(not moc.message->oclIsInvalid())
-		)->first().message.messageSort.toString());
-	
-	log("4\t" + recipientCoveredBy[MessageOccurrenceSpecification]->select(moc | 
-		recipientCoveredBy->indexOf(moc) > receiveIndex and
-		(not moc.message->oclIsInvalid()) and
-		moc.message.messageSort = MessageSort::reply)->size().toString());
 		
-	};
 	
 	var reply : Message = recipientCoveredBy[MessageOccurrenceSpecification]->select(moc | 
 		recipientCoveredBy->indexOf(moc) > receiveIndex and
 		(not moc.message->oclIsInvalid()) and
 		moc.message.messageSort = MessageSort::reply and 
 		moc.message.receiveEvent[MessageOccurrenceSpecification]->any(true).covered = sender)->first().message;	
-	
-	log("\t" + reply.name);
+		
 	// If exists return that message as return value
 	if (not reply->isEmpty()) {
 		return object ScenarioTable::Value {

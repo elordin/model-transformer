@@ -51,7 +51,7 @@
           _RvEa4Dr6Eeak-76QglXo-w
           _RvDz0Dr6Eeak-76QglXo-w
           event_verifyCardWithBankSend
-          event_:badBankPasswordReceive
+          event__badBankPasswordReceive
           event_badPasswordSend
           SI_WaitVerify2"/>
     <lifeline
@@ -62,7 +62,7 @@
           event_verifyCardWithBankReceive
           _Ux_ZUTr6Eeak-76QglXo-w
           _Ux_ZUDr6Eeak-76QglXo-w
-          event_:badBankPasswordSend
+          event__badBankPasswordSend
           SI_WaitBankVerify2"/>
     <fragment
         xsi:type="uml:ExecutionOccurrenceSpecification"
@@ -163,10 +163,10 @@
         message="msg_verifyCardWithBank"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="event_:badBankPasswordSend"
-        name="04_event_:badBankPasswordSend"
+        xmi:id="event__badBankPasswordSend"
+        name="04_event__badBankPasswordSend"
         covered="Lifeline_Bank"
-        message="msg_:badBankPassword"/>
+        message="msg__badBankPassword"/>
     <fragment
         xsi:type="uml:ExecutionOccurrenceSpecification"
         xmi:id="_Ux_ZUTr6Eeak-76QglXo-w"
@@ -175,22 +175,22 @@
         execution="_Ux_ZUDr6Eeak-76QglXo-w"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="event_:badBankPasswordReceive"
-        name="05_event_:badBankPasswordReceive"
+        xmi:id="event__badBankPasswordReceive"
+        name="05_event__badBankPasswordReceive"
         covered="Lifeline_Consortium"
-        message="msg_:badBankPassword"/>
+        message="msg__badBankPassword"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
         xmi:id="event_badPasswordSend"
         name="06_event_badPasswordSend"
         covered="Lifeline_Consortium"
-        message="msg_:badPassword"/>
+        message="msg__badPassword"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
         xmi:id="event_badPasswordReceive"
         name="04_event_badPasswordReceive"
         covered="Lifeline_ATM"
-        message="msg_:badPassword"/>
+        message="msg__badPassword"/>
     <fragment
         xsi:type="uml:ExecutionOccurrenceSpecification"
         xmi:id="_RvEa4Dr6Eeak-76QglXo-w"
@@ -381,13 +381,13 @@
         receiveEvent="event_verifyCardWithBankReceive"
         sendEvent="event_verifyCardWithBankSend"/>
     <message
-        xmi:id="msg_:badBankPassword"
+        xmi:id="msg__badBankPassword"
         name=":badBankPassword"
         messageSort="reply"
-        receiveEvent="event_:badBankPasswordReceive"
-        sendEvent="event_:badBankPasswordSend"/>
+        receiveEvent="event__badBankPasswordReceive"
+        sendEvent="event__badBankPasswordSend"/>
     <message
-        xmi:id="msg_:badPassword"
+        xmi:id="msg__badPassword"
         name=":badPassword"
         messageSort="reply"
         receiveEvent="event_badPasswordReceive"
@@ -423,29 +423,80 @@
         receiveEvent="event_requestTakeCardReceive"
         sendEvent="event_requestTakeCardSend"/>
   </packagedElement>
-<!--  <packagedElement
+  <packagedElement
       xsi:type="uml:Interaction"
       xmi:id="_2EobgDr2Eeak-76QglXo-w"
       name="Bad account">
     <lifeline
-        xmi:id="_37ZI0Dr2Eeak-76QglXo-w"
+        xmi:id="2Lifeline_User"
         name="User"
-        coveredBy="_DO75oDr3Eeak-76QglXo-w _DO7SkDr3Eeak-76QglXo-w _EeZ9cDr3Eeak-76QglXo-w _goChoDr3Eeak-76QglXo-w _sEb3ADr4Eeak-76QglXo-w _ZVM7QDr5Eeak-76QglXo-w _ZVOJYDr5Eeak-76QglXo-w"/>
+        coveredBy="
+          _DO75oDr3Eeak-76QglXo-w
+          _DO7SkDr3Eeak-76QglXo-w
+          event_insertCardSend
+          event_requestPasswordReceive
+          event_enterPasswordSend
+          event_badAccountMessageReceive
+          event_printReceiptReceive
+          event_ejectCardReceive
+          event_requestTakeCardReceive
+          event_takeCardSend
+          event_displayMainScreenReceive
+          _ZVM7QDr5Eeak-76QglXo-w
+          _ZVOJYDr5Eeak-76QglXo-w
+        "/>
     <lifeline
-        xmi:id="_5TqjUDr2Eeak-76QglXo-w"
+        xmi:id="2Lifeline_ATM"
         name="atm"
-        coveredBy="_937_wDr2Eeak-76QglXo-w _EeakgDr3Eeak-76QglXo-w _E2SR8Dr3Eeak-76QglXo-w _E2Rq4Dr3Eeak-76QglXo-w _IzGs0Dr3Eeak-76QglXo-w _goChoTr3Eeak-76QglXo-w _hAEAEDr3Eeak-76QglXo-w _qM_CoDr3Eeak-76QglXo-w _t63CkDr3Eeak-76QglXo-w _7c32EDr3Eeak-76QglXo-w _CMP4IDr4Eeak-76QglXo-w _IZVsgDr4Eeak-76QglXo-w _NoJTsDr4Eeak-76QglXo-w _Tq_m8Dr4Eeak-76QglXo-w _dfvegDr4Eeak-76QglXo-w _sEceEDr4Eeak-76QglXo-w _sQpuETr4Eeak-76QglXo-w _sQpuEDr4Eeak-76QglXo-w _aviyUDr5Eeak-76QglXo-w _i5PdUDr5Eeak-76QglXo-w"/>
+        coveredBy="
+          SI2_WaitCard1
+          event_insertCardReceive
+          _E2SR8Dr3Eeak-76QglXo-w
+          _E2Rq4Dr3Eeak-76QglXo-w
+          event_requestPasswordSend
+          event_enterPasswordReceive
+          _hAEAEDr3Eeak-76QglXo-w
+          SI2_WaitPassword1
+          event_verifyAccountSend
+          event__badAccountReceive
+          event_badAccountMessageSend
+          event_printReceiptSend
+          event_ejectCardSend
+          event_requestTakeCardSend
+          SI2_WaitTakeCard1
+          event_takeCardReceive
+          _sQpuETr4Eeak-76QglXo-w
+          _sQpuEDr4Eeak-76QglXo-w
+          event_displayMainScreenSend
+          SI2_WaitCard2
+        "/>
     <lifeline
         xmi:id="_6cyukDr2Eeak-76QglXo-w"
         name="consortium"
-        coveredBy="_-v4UYDr2Eeak-76QglXo-w _t63poDr3Eeak-76QglXo-w _uIxiwDr3Eeak-76QglXo-w _uIw7sDr3Eeak-76QglXo-w _w560sDr3Eeak-76QglXo-w _0f410Tr3Eeak-76QglXo-w _7c3PADr3Eeak-76QglXo-w _lPp7EDr5Eeak-76QglXo-w"/>
+        coveredBy="
+          SI2_WaitVerify1
+          event_verifyAccountReceive
+          _uIxiwDr3Eeak-76QglXo-w
+          _uIw7sDr3Eeak-76QglXo-w
+          event_verifyCardWithBankSend
+          event__badBankAccountReceive
+          event__badAccountSend
+          SI2_WaitVerify2
+        "/>
     <lifeline
         xmi:id="_7WhL4Dr2Eeak-76QglXo-w"
         name="bank"
-        coveredBy="__m-7gDr2Eeak-76QglXo-w _w57bwDr3Eeak-76QglXo-w _xGEaUTr3Eeak-76QglXo-w _xGEaUDr3Eeak-76QglXo-w _0f410Dr3Eeak-76QglXo-w _nH2LwDr5Eeak-76QglXo-w"/>
+        coveredBy="
+          SI2_WaitBankVerify1
+          event_verifyCardWithBankReceive
+          _xGEaUTr3Eeak-76QglXo-w
+          _xGEaUDr3Eeak-76QglXo-w
+          event__badBankAccountSend
+          SI2_WaitBankVerify2
+        "/>
     <fragment
         xsi:type="uml:StateInvariant"
-        xmi:id="__m-7gDr2Eeak-76QglXo-w"
+        xmi:id="SI2_WaitBankVerify1"
         name="WaitBankVerify"
         covered="_7WhL4Dr2Eeak-76QglXo-w">
       <invariant
@@ -454,7 +505,7 @@
     </fragment>
     <fragment
         xsi:type="uml:StateInvariant"
-        xmi:id="_-v4UYDr2Eeak-76QglXo-w"
+        xmi:id="SI2_WaitVerify1"
         name="WaitVerify"
         covered="_6cyukDr2Eeak-76QglXo-w">
       <invariant
@@ -463,9 +514,9 @@
     </fragment>
     <fragment
         xsi:type="uml:StateInvariant"
-        xmi:id="_937_wDr2Eeak-76QglXo-w"
-        name="WaitCard"
-        covered="_5TqjUDr2Eeak-76QglXo-w">
+        xmi:id="SI2_WaitCard1"
+        name="00_WaitCard"
+        covered="2Lifeline_ATM">
       <invariant
           xmi:id="_937_wTr2Eeak-76QglXo-w"
           name=""/>
@@ -473,57 +524,58 @@
     <fragment
         xsi:type="uml:ExecutionOccurrenceSpecification"
         xmi:id="_ZVOJYDr5Eeak-76QglXo-w"
-        name="BehaviorExecSpecStart"
-        covered="_37ZI0Dr2Eeak-76QglXo-w"
+        name="13_BehaviorExecSpecStart"
+        covered="2Lifeline_User"
         execution="_DO7SkDr3Eeak-76QglXo-w"/>
     <fragment
         xsi:type="uml:BehaviorExecutionSpecification"
         xmi:id="_DO7SkDr3Eeak-76QglXo-w"
-        name="BehaviorExecSpec"
-        covered="_37ZI0Dr2Eeak-76QglXo-w"
+        name="02_BehaviorExecSpec"
+        covered="2Lifeline_User"
         finish="_DO75oDr3Eeak-76QglXo-w"
         start="_ZVOJYDr5Eeak-76QglXo-w"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_EeZ9cDr3Eeak-76QglXo-w"
-        name="MessageSend"
-        covered="_37ZI0Dr2Eeak-76QglXo-w"
-        message="_EeZWYDr3Eeak-76QglXo-w"/>
+        xmi:id="event_insertCardSend"
+        name="03_MessageSend"
+        covered="2Lifeline_User"
+        message="msg_insertCard"/>
     <fragment
         xsi:type="uml:BehaviorExecutionSpecification"
         xmi:id="_E2Rq4Dr3Eeak-76QglXo-w"
-        name="BehaviorExecSpec0"
-        covered="_5TqjUDr2Eeak-76QglXo-w"
+        name="03_BehaviorExecSpec0"
+        covered="2Lifeline_ATM"
         finish="_E2SR8Dr3Eeak-76QglXo-w"
-        start="_EeakgDr3Eeak-76QglXo-w"/>
+        start="event_insertCardReceive"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_EeakgDr3Eeak-76QglXo-w"
-        name="MessageRecv"
-        covered="_5TqjUDr2Eeak-76QglXo-w"
-        message="_EeZWYDr3Eeak-76QglXo-w"/>
+        xmi:id="event_insertCardReceive"
+        name="01_MessageRecv"
+        covered="2Lifeline_ATM"
+        message="msg_insertCard"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_IzGs0Dr3Eeak-76QglXo-w"
-        name="MessageSend0"
-        covered="_5TqjUDr2Eeak-76QglXo-w"
-        message="_IzGFwDr3Eeak-76QglXo-w"/>
+        xmi:id="event_requestPasswordSend"
+        name="04_MessageSend0"
+        covered="2Lifeline_ATM"
+        message="msg_requestPassword"/>
     <fragment
         xsi:type="uml:BehaviorExecutionSpecification"
         xmi:id="_JCrZ4Dr3Eeak-76QglXo-w"
         name="BehaviorExecSpec1"
         finish="_JCsA8Dr3Eeak-76QglXo-w"
-        start="_IzHT4Dr3Eeak-76QglXo-w"/>
+        start="event_requestPasswordReceive"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_IzHT4Dr3Eeak-76QglXo-w"
-        name="MessageRecv0"
-        message="_IzGFwDr3Eeak-76QglXo-w"/>
+        xmi:id="event_requestPasswordReceive"
+        covered="2Lifeline_User"
+        name="04_MessageRecv0"
+        message="msg_requestPassword"/>
     <fragment
         xsi:type="uml:ExecutionOccurrenceSpecification"
         xmi:id="_E2SR8Dr3Eeak-76QglXo-w"
-        name="BehaviorExecSpec0Finish"
-        covered="_5TqjUDr2Eeak-76QglXo-w"
+        name="02_BehaviorExecSpec0Finish"
+        covered="2Lifeline_ATM"
         execution="_E2Rq4Dr3Eeak-76QglXo-w"/>
     <fragment
         xsi:type="uml:ExecutionOccurrenceSpecification"
@@ -532,76 +584,76 @@
         execution="_JCrZ4Dr3Eeak-76QglXo-w"/>
     <fragment
         xsi:type="uml:StateInvariant"
-        xmi:id="_qM_CoDr3Eeak-76QglXo-w"
-        name="WaitPassword"
-        covered="_5TqjUDr2Eeak-76QglXo-w">
+        xmi:id="SI2_WaitPassword1"
+        name="07_WaitPassword"
+        covered="2Lifeline_ATM">
       <invariant
           xmi:id="_qM_psDr3Eeak-76QglXo-w"
           name=""/>
     </fragment>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_goChoDr3Eeak-76QglXo-w"
-        name="MessageSend1"
-        covered="_37ZI0Dr2Eeak-76QglXo-w"
-        message="_goB6kDr3Eeak-76QglXo-w"/>
+        xmi:id="event_enterPasswordSend"
+        name="05_MessageSend1"
+        covered="2Lifeline_User"
+        message="msg_enterPassword"/>
     <fragment
         xsi:type="uml:BehaviorExecutionSpecification"
         xmi:id="_hAEAEDr3Eeak-76QglXo-w"
-        name="BehaviorExecSpec2"
-        covered="_5TqjUDr2Eeak-76QglXo-w"
-        finish="_sEceEDr4Eeak-76QglXo-w"
-        start="_goChoTr3Eeak-76QglXo-w"/>
+        name="06_BehaviorExecSpec2"
+        covered="2Lifeline_ATM"
+        finish="event_takeCardReceive"
+        start="event_enterPasswordReceive"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_goChoTr3Eeak-76QglXo-w"
-        name="MessageRecv1"
-        covered="_5TqjUDr2Eeak-76QglXo-w"
-        message="_goB6kDr3Eeak-76QglXo-w"/>
+        xmi:id="event_enterPasswordReceive"
+        name="05_MessageRecv1"
+        covered="2Lifeline_ATM"
+        message="msg_enterPassword"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_t63CkDr3Eeak-76QglXo-w"
-        name="MessageSend2"
-        covered="_5TqjUDr2Eeak-76QglXo-w"
-        message="_t61NYDr3Eeak-76QglXo-w"/>
+        xmi:id="event_verifyAccountSend"
+        name="08_MessageSend2"
+        covered="2Lifeline_ATM"
+        message="msg_verifyAccount"/>
     <fragment
         xsi:type="uml:BehaviorExecutionSpecification"
         xmi:id="_uIw7sDr3Eeak-76QglXo-w"
         name="BehaviorExecSpec3"
         covered="_6cyukDr2Eeak-76QglXo-w"
         finish="_uIxiwDr3Eeak-76QglXo-w"
-        start="_t63poDr3Eeak-76QglXo-w"/>
+        start="event_verifyAccountReceive"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_t63poDr3Eeak-76QglXo-w"
+        xmi:id="event_verifyAccountReceive"
         name="MessageRecv2"
         covered="_6cyukDr2Eeak-76QglXo-w"
-        message="_t61NYDr3Eeak-76QglXo-w"/>
+        message="msg_verifyAccount"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_w560sDr3Eeak-76QglXo-w"
+        xmi:id="event_verifyCardWithBankSend"
         name="MessageSend3"
         covered="_6cyukDr2Eeak-76QglXo-w"
-        message="_w56NoDr3Eeak-76QglXo-w"/>
+        message="msg_verifyCardWithBank"/>
     <fragment
         xsi:type="uml:BehaviorExecutionSpecification"
         xmi:id="_xGEaUDr3Eeak-76QglXo-w"
         name="BehaviorExecSpec4"
         covered="_7WhL4Dr2Eeak-76QglXo-w"
         finish="_xGEaUTr3Eeak-76QglXo-w"
-        start="_w57bwDr3Eeak-76QglXo-w"/>
+        start="event_verifyCardWithBankReceive"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_w57bwDr3Eeak-76QglXo-w"
+        xmi:id="event_verifyCardWithBankReceive"
         name="MessageRecv3"
         covered="_7WhL4Dr2Eeak-76QglXo-w"
-        message="_w56NoDr3Eeak-76QglXo-w"/>
+        message="msg_verifyCardWithBank"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_0f410Dr3Eeak-76QglXo-w"
+        xmi:id="event__badBankAccountSend"
         name="MessageSend4"
         covered="_7WhL4Dr2Eeak-76QglXo-w"
-        message="_0f3nsDr3Eeak-76QglXo-w"/>
+        message="msg__badBankAccount"/>
     <fragment
         xsi:type="uml:ExecutionOccurrenceSpecification"
         xmi:id="_xGEaUTr3Eeak-76QglXo-w"
@@ -610,16 +662,16 @@
         execution="_xGEaUDr3Eeak-76QglXo-w"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_0f410Tr3Eeak-76QglXo-w"
+        xmi:id="event__badBankAccountReceive"
         name="MessageRecv4"
         covered="_6cyukDr2Eeak-76QglXo-w"
-        message="_0f3nsDr3Eeak-76QglXo-w"/>
+        message="msg__badBankAccount"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_7c3PADr3Eeak-76QglXo-w"
+        xmi:id="event__badAccountSend"
         name="MessageSend5"
         covered="_6cyukDr2Eeak-76QglXo-w"
-        message="_7c2n8Dr3Eeak-76QglXo-w"/>
+        message="msg__badAccount"/>
     <fragment
         xsi:type="uml:ExecutionOccurrenceSpecification"
         xmi:id="_uIxiwDr3Eeak-76QglXo-w"
@@ -628,27 +680,28 @@
         execution="_uIw7sDr3Eeak-76QglXo-w"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_7c32EDr3Eeak-76QglXo-w"
-        name="MessageRecv5"
-        covered="_5TqjUDr2Eeak-76QglXo-w"
-        message="_7c2n8Dr3Eeak-76QglXo-w"/>
+        xmi:id="event__badAccountReceive"
+        name="09_MessageRecv5"
+        covered="2Lifeline_ATM"
+        message="msg__badAccount"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_CMP4IDr4Eeak-76QglXo-w"
-        name="MessageSend6"
-        covered="_5TqjUDr2Eeak-76QglXo-w"
-        message="_CMOqADr4Eeak-76QglXo-w"/>
+        xmi:id="event_badAccountMessageSend"
+        name="10_MessageSend6"
+        covered="2Lifeline_ATM"
+        message="msg_badAccountMessage"/>
     <fragment
         xsi:type="uml:BehaviorExecutionSpecification"
         xmi:id="_CXoBsDr4Eeak-76QglXo-w"
         name="BehaviorExecSpec5"
         finish="_CXoBsTr4Eeak-76QglXo-w"
-        start="_CMP4ITr4Eeak-76QglXo-w"/>
+        start="event_badAccountMessageReceive"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_CMP4ITr4Eeak-76QglXo-w"
-        name="MessageRecv6"
-        message="_CMOqADr4Eeak-76QglXo-w"/>
+        xmi:id="event_badAccountMessageReceive"
+        name="06_MessageRecv6"
+        covered="2Lifeline_User"
+        message="msg_badAccountMessage"/>
     <fragment
         xsi:type="uml:ExecutionOccurrenceSpecification"
         xmi:id="_CXoBsTr4Eeak-76QglXo-w"
@@ -656,21 +709,22 @@
         execution="_CXoBsDr4Eeak-76QglXo-w"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_IZVsgDr4Eeak-76QglXo-w"
-        name="MessageSend7"
-        covered="_5TqjUDr2Eeak-76QglXo-w"
-        message="_IZVFcDr4Eeak-76QglXo-w"/>
+        xmi:id="event_printReceiptSend"
+        name="11_MessageSend7"
+        covered="2Lifeline_ATM"
+        message="msg_printReceipt"/>
     <fragment
         xsi:type="uml:BehaviorExecutionSpecification"
         xmi:id="_Ity5kDr4Eeak-76QglXo-w"
         name="BehaviorExecSpec6"
         finish="_ItzgoDr4Eeak-76QglXo-w"
-        start="_IZWTkDr4Eeak-76QglXo-w"/>
+        start="event_printReceiptReceive"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_IZWTkDr4Eeak-76QglXo-w"
-        name="MessageRecv7"
-        message="_IZVFcDr4Eeak-76QglXo-w"/>
+        xmi:id="event_printReceiptReceive"
+        covered="2Lifeline_User"
+        name="07_MessageRecv7"
+        message="msg_printReceipt"/>
     <fragment
         xsi:type="uml:ExecutionOccurrenceSpecification"
         xmi:id="_ItzgoDr4Eeak-76QglXo-w"
@@ -678,21 +732,22 @@
         execution="_Ity5kDr4Eeak-76QglXo-w"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_NoJTsDr4Eeak-76QglXo-w"
-        name="MessageSend8"
-        covered="_5TqjUDr2Eeak-76QglXo-w"
-        message="_NoIsoDr4Eeak-76QglXo-w"/>
+        xmi:id="event_ejectCardSend"
+        name="122_MessageSend8"
+        covered="2Lifeline_ATM"
+        message="msg_ejectCard"/>
     <fragment
         xsi:type="uml:BehaviorExecutionSpecification"
         xmi:id="_Ny81gDr4Eeak-76QglXo-w"
         name="BehaviorExecSpec7"
         finish="_Ny9ckDr4Eeak-76QglXo-w"
-        start="_NoJTsTr4Eeak-76QglXo-w"/>
+        start="event_ejectCardReceive"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_NoJTsTr4Eeak-76QglXo-w"
-        name="MessageRecv8"
-        message="_NoIsoDr4Eeak-76QglXo-w"/>
+        xmi:id="event_ejectCardReceive"
+        covered="2Lifeline_User"
+        name="08_MessageRecv8"
+        message="msg_ejectCard"/>
     <fragment
         xsi:type="uml:ExecutionOccurrenceSpecification"
         xmi:id="_Ny9ckDr4Eeak-76QglXo-w"
@@ -700,21 +755,22 @@
         execution="_Ny81gDr4Eeak-76QglXo-w"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_Tq_m8Dr4Eeak-76QglXo-w"
-        name="MessageSend9"
-        covered="_5TqjUDr2Eeak-76QglXo-w"
-        message="_Tq-_4Dr4Eeak-76QglXo-w"/>
+        xmi:id="event_requestTakeCardSend"
+        name="13_MessageSend9"
+        covered="2Lifeline_ATM"
+        message="msg_requestTakeCard"/>
     <fragment
         xsi:type="uml:BehaviorExecutionSpecification"
         xmi:id="_T68HcDr4Eeak-76QglXo-w"
         name="BehaviorExecSpec8"
         finish="_T68HcTr4Eeak-76QglXo-w"
-        start="_TrAOADr4Eeak-76QglXo-w"/>
+        start="event_requestTakeCardReceive"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_TrAOADr4Eeak-76QglXo-w"
-        name="MessageRecv9"
-        message="_Tq-_4Dr4Eeak-76QglXo-w"/>
+        xmi:id="event_requestTakeCardReceive"
+        covered="2Lifeline_User"
+        name="09_MessageRecv9"
+        message="msg_requestTakeCard"/>
     <fragment
         xsi:type="uml:ExecutionOccurrenceSpecification"
         xmi:id="_T68HcTr4Eeak-76QglXo-w"
@@ -722,54 +778,55 @@
         execution="_T68HcDr4Eeak-76QglXo-w"/>
     <fragment
         xsi:type="uml:StateInvariant"
-        xmi:id="_dfvegDr4Eeak-76QglXo-w"
-        name="WaitTakeCard"
-        covered="_5TqjUDr2Eeak-76QglXo-w">
+        xmi:id="SI2_WaitTakeCard1"
+        name="14_WaitTakeCard"
+        covered="2Lifeline_ATM">
       <invariant
           xmi:id="_dfwsoDr4Eeak-76QglXo-w"
           name=""/>
     </fragment>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_sEb3ADr4Eeak-76QglXo-w"
-        name="MessageSend10"
-        covered="_37ZI0Dr2Eeak-76QglXo-w"
-        message="_sEbP8Dr4Eeak-76QglXo-w"/>
+        xmi:id="event_takeCardSend"
+        name="10_MessageSend10"
+        covered="2Lifeline_User"
+        message="msg_takeCard"/>
     <fragment
         xsi:type="uml:BehaviorExecutionSpecification"
         xmi:id="_sQpuEDr4Eeak-76QglXo-w"
-        name="BehaviorExecSpec9"
-        covered="_5TqjUDr2Eeak-76QglXo-w"
+        name="17_BehaviorExecSpec9"
+        covered="2Lifeline_ATM"
         finish="_sQpuETr4Eeak-76QglXo-w"
-        start="_sEceEDr4Eeak-76QglXo-w"/>
+        start="event_takeCardReceive"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_sEceEDr4Eeak-76QglXo-w"
-        name="MessageRecv10"
-        covered="_5TqjUDr2Eeak-76QglXo-w"
-        message="_sEbP8Dr4Eeak-76QglXo-w"/>
+        xmi:id="event_takeCardReceive"
+        name="15_MessageRecv10"
+        covered="2Lifeline_ATM"
+        message="msg_takeCard"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_aviyUDr5Eeak-76QglXo-w"
-        name="MessageSend11"
-        covered="_5TqjUDr2Eeak-76QglXo-w"
-        message="_avhkMDr5Eeak-76QglXo-w"/>
+        xmi:id="event_displayMainScreenSend"
+        name="18_MessageSend11"
+        covered="2Lifeline_ATM"
+        message="msg_displayMainScreen"/>
     <fragment
         xsi:type="uml:BehaviorExecutionSpecification"
         xmi:id="_a6674Dr5Eeak-76QglXo-w"
         name="BehaviorExecSpec10"
         finish="_a6674Tr5Eeak-76QglXo-w"
-        start="_aviyUTr5Eeak-76QglXo-w"/>
+        start="event_displayMainScreenReceive"/>
     <fragment
         xsi:type="uml:MessageOccurrenceSpecification"
-        xmi:id="_aviyUTr5Eeak-76QglXo-w"
-        name="MessageRecv11"
-        message="_avhkMDr5Eeak-76QglXo-w"/>
+        xmi:id="event_displayMainScreenReceive"
+        covered="2Lifeline_User"
+        name="11_MessageRecv11"
+        message="msg_displayMainScreen"/>
     <fragment
         xsi:type="uml:ExecutionOccurrenceSpecification"
         xmi:id="_sQpuETr4Eeak-76QglXo-w"
-        name="BehaviorExecSpec9Finish"
-        covered="_5TqjUDr2Eeak-76QglXo-w"
+        name="16_BehaviorExecSpec9Finish"
+        covered="2Lifeline_ATM"
         execution="_sQpuEDr4Eeak-76QglXo-w"/>
     <fragment
         xsi:type="uml:ExecutionOccurrenceSpecification"
@@ -778,7 +835,7 @@
         execution="_a6674Dr5Eeak-76QglXo-w"/>
     <fragment
         xsi:type="uml:StateInvariant"
-        xmi:id="_nH2LwDr5Eeak-76QglXo-w"
+        xmi:id="SI2_WaitBankVerify2"
         name="WaitBankVerify"
         covered="_7WhL4Dr2Eeak-76QglXo-w">
       <invariant
@@ -787,7 +844,7 @@
     </fragment>
     <fragment
         xsi:type="uml:StateInvariant"
-        xmi:id="_lPp7EDr5Eeak-76QglXo-w"
+        xmi:id="SI2_WaitVerify2"
         name="WaitVerify"
         covered="_6cyukDr2Eeak-76QglXo-w">
       <invariant
@@ -796,9 +853,9 @@
     </fragment>
     <fragment
         xsi:type="uml:StateInvariant"
-        xmi:id="_i5PdUDr5Eeak-76QglXo-w"
-        name="WaitCard"
-        covered="_5TqjUDr2Eeak-76QglXo-w">
+        xmi:id="SI2_WaitCard2"
+        name="19_WaitCard"
+        covered="2Lifeline_ATM">
       <invariant
           xmi:id="_i5QrcDr5Eeak-76QglXo-w"
           name=""/>
@@ -806,81 +863,92 @@
     <fragment
         xsi:type="uml:ExecutionOccurrenceSpecification"
         xmi:id="_ZVM7QDr5Eeak-76QglXo-w"
-        name="BehaviorExecSpecStart"
-        covered="_37ZI0Dr2Eeak-76QglXo-w"
+        name="12_BehaviorExecSpecStart"
+        covered="2Lifeline_User"
         execution="_DO7SkDr3Eeak-76QglXo-w"/>
     <fragment
         xsi:type="uml:ExecutionOccurrenceSpecification"
         xmi:id="_DO75oDr3Eeak-76QglXo-w"
-        name="BehaviorExecSpecFinish"
-        covered="_37ZI0Dr2Eeak-76QglXo-w"
+        name="00_BehaviorExecSpecFinish"
+        covered="2Lifeline_User"
         execution="_DO7SkDr3Eeak-76QglXo-w"/>
     <message
-        xmi:id="_EeZWYDr3Eeak-76QglXo-w"
+        xmi:id="msg_insertCard"
         name="insertCard"
-        receiveEvent="_EeakgDr3Eeak-76QglXo-w"
-        sendEvent="_EeZ9cDr3Eeak-76QglXo-w"/>
+        messageSort="synchCall"
+        receiveEvent="event_insertCardReceive"
+        sendEvent="event_insertCardSend"/>
     <message
-        xmi:id="_IzGFwDr3Eeak-76QglXo-w"
+        xmi:id="msg_requestPassword"
         name="requestPassword"
-        receiveEvent="_IzHT4Dr3Eeak-76QglXo-w"
-        sendEvent="_IzGs0Dr3Eeak-76QglXo-w"/>
+        messageSort="synchCall"
+        receiveEvent="event_requestPasswordReceive"
+        sendEvent="event_requestPasswordSend"/>
     <message
-        xmi:id="_goB6kDr3Eeak-76QglXo-w"
+        xmi:id="msg_enterPassword"
         name="enterPassword"
-        receiveEvent="_goChoTr3Eeak-76QglXo-w"
-        sendEvent="_goChoDr3Eeak-76QglXo-w"/>
+        messageSort="synchCall"
+        receiveEvent="event_enterPasswordReceive"
+        sendEvent="event_enterPasswordSend"/>
     <message
-        xmi:id="_t61NYDr3Eeak-76QglXo-w"
+        xmi:id="msg_verifyAccount"
         name="verifyAccount"
-        receiveEvent="_t63poDr3Eeak-76QglXo-w"
-        sendEvent="_t63CkDr3Eeak-76QglXo-w"/>
+        messageSort="synchCall"
+        receiveEvent="event_verifyAccountReceive"
+        sendEvent="event_verifyAccountSend"/>
     <message
-        xmi:id="_w56NoDr3Eeak-76QglXo-w"
+        xmi:id="msg_verifyCardWithBank"
         name="verifyCardWithBank"
-        receiveEvent="_w57bwDr3Eeak-76QglXo-w"
-        sendEvent="_w560sDr3Eeak-76QglXo-w"/>
+        messageSort="synchCall"
+        receiveEvent="event_verifyCardWithBankReceive"
+        sendEvent="event_verifyCardWithBankSend"/>
     <message
-        xmi:id="_0f3nsDr3Eeak-76QglXo-w"
+        xmi:id="msg__badBankAccount"
         name=":badBankAccount"
         messageSort="reply"
-        receiveEvent="_0f410Tr3Eeak-76QglXo-w"
-        sendEvent="_0f410Dr3Eeak-76QglXo-w"/>
+        receiveEvent="event__badBankAccountReceive"
+        sendEvent="event__badBankAccountSend"/>
     <message
-        xmi:id="_7c2n8Dr3Eeak-76QglXo-w"
+        xmi:id="msg__badAccount"
         name=":badAccount"
         messageSort="reply"
-        receiveEvent="_7c32EDr3Eeak-76QglXo-w"
-        sendEvent="_7c3PADr3Eeak-76QglXo-w"/>
+        receiveEvent="event__badAccountReceive"
+        sendEvent="event__badAccountSend"/>
     <message
-        xmi:id="_CMOqADr4Eeak-76QglXo-w"
+        xmi:id="msg_badAccountMessage"
         name="badAccountMessage"
-        receiveEvent="_CMP4ITr4Eeak-76QglXo-w"
-        sendEvent="_CMP4IDr4Eeak-76QglXo-w"/>
+        messageSort="synchCall"
+        receiveEvent="event_badAccountMessageReceive"
+        sendEvent="event_badAccountMessageSend"/>
     <message
-        xmi:id="_IZVFcDr4Eeak-76QglXo-w"
+        xmi:id="msg_printReceipt"
         name="printReceipt"
-        receiveEvent="_IZWTkDr4Eeak-76QglXo-w"
-        sendEvent="_IZVsgDr4Eeak-76QglXo-w"/>
+        messageSort="synchCall"
+        receiveEvent="event_printReceiptReceive"
+        sendEvent="event_printReceiptSend"/>
     <message
-        xmi:id="_NoIsoDr4Eeak-76QglXo-w"
+        xmi:id="msg_ejectCard"
         name="ejectCard"
-        receiveEvent="_NoJTsTr4Eeak-76QglXo-w"
-        sendEvent="_NoJTsDr4Eeak-76QglXo-w"/>
+        messageSort="synchCall"
+        receiveEvent="event_ejectCardReceive"
+        sendEvent="event_ejectCardSend"/>
     <message
-        xmi:id="_Tq-_4Dr4Eeak-76QglXo-w"
+        xmi:id="msg_requestTakeCard"
         name="requestTakeCard"
-        receiveEvent="_TrAOADr4Eeak-76QglXo-w"
-        sendEvent="_Tq_m8Dr4Eeak-76QglXo-w"/>
+        messageSort="synchCall"
+        receiveEvent="event_requestTakeCardReceive"
+        sendEvent="event_requestTakeCardSend"/>
     <message
-        xmi:id="_sEbP8Dr4Eeak-76QglXo-w"
+        xmi:id="msg_takeCard"
         name="takeCard"
-        receiveEvent="_sEceEDr4Eeak-76QglXo-w"
-        sendEvent="_sEb3ADr4Eeak-76QglXo-w"/>
+        messageSort="synchCall"
+        receiveEvent="event_takeCardReceive"
+        sendEvent="event_takeCardSend"/>
     <message
-        xmi:id="_avhkMDr5Eeak-76QglXo-w"
+        xmi:id="msg_displayMainScreen"
         name="displayMainScreen"
-        receiveEvent="_aviyUTr5Eeak-76QglXo-w"
-        sendEvent="_aviyUDr5Eeak-76QglXo-w"/>
-  </packagedElement> -->
+        messageSort="synchCall"
+        receiveEvent="event_displayMainScreenReceive"
+        sendEvent="event_displayMainScreenSend"/>
+  </packagedElement>
 </uml:Model>
