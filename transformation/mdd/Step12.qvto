@@ -16,7 +16,7 @@ mapping Interaction::toScenarioTable() : ScenarioTable::Scenario {
 	name := self.name;
 	state += self.fragment[StateInvariant].map transformStateInvariant();
 	actor += self.lifeline.map transformLifeline();
-	communication += self.message.map transformMessage();
+	communication += self.message->sortedBy(m | m.name.substring(1,2).toInteger()).map transformMessage();
 	
 }
 
@@ -53,16 +53,18 @@ when {
 }{
 	usermessage := self.map toUserMessage();
 	returned := returnValue(self);
+	order := self.name.substring(1,2).toInteger();
+	name := self.name.substring(4,self.name.length());
 }
 
 mapping Message::toUserMessage() : ScenarioTable::UserMessage 
 when {
 	isUserMessage(self);
 }{
-	name := self.name;
+	name := self.name.substring(4,self.name.length());
 	receiver := self.receiveEvent[MessageOccurrenceSpecification]->any(true).covered->any(true).map toUserObject();
 	operation := object ScenarioTable::Operation{
-		name := self.name;
+		name := self.name.substring(4,self.name.length());
 	};
 	sender := self.sendEvent[MessageOccurrenceSpecification]->any(true).covered->any(true).map transformLifeline();
 }
@@ -95,14 +97,15 @@ when {
 	systemmessage := self.map toSystemMessage();
 	
 	returned := returnValue(self);
-
+	order := self.name.substring(1,2).toInteger();
+	name := self.name.substring(4,self.name.length());
 }
 
 mapping Message::toSystemMessage() : ScenarioTable::SystemMessage {
-	name := self.name;
+	name := self.name.substring(4,self.name.length());
 	sender := self.sendEvent[MessageOccurrenceSpecification]->any(true).covered->any(true).map transformLifeline();
 	operation := object ScenarioTable::Operation{
-		name := self.name;
+		name := self.name.substring(4,self.name.length());
 	};
 	receiver := self.receiveEvent[MessageOccurrenceSpecification]->any(true).covered->any(true).map toSystemObject();
 }

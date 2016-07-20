@@ -364,61 +364,61 @@
         execution="_BcwqATr6Eeak-76QglXo-w"/>
     <message
         xmi:id="msg_enterPassword"
-        name="enterPassword"
+        name="00_enterPassword"
         messageSort="synchCall"
         receiveEvent="event_enterPasswordReceive"
         sendEvent="event_enterPasswordSend"/>
     <message
         xmi:id="msg_verifyAccount"
-        name="verifyAccount"
+        name="01_verifyAccount"
         messageSort="synchCall"
         receiveEvent="event_verifyAccountReceieve"
         sendEvent="event_verifyAccountSend"/>
     <message
         xmi:id="msg_verifyCardWithBank"
-        name="verifyCardWithBank"
+        name="02_verifyCardWithBank"
         messageSort="synchCall"
         receiveEvent="event_verifyCardWithBankReceive"
         sendEvent="event_verifyCardWithBankSend"/>
     <message
         xmi:id="msg__badBankPassword"
-        name=":badBankPassword"
+        name="03_:badBankPassword"
         messageSort="reply"
         receiveEvent="event__badBankPasswordReceive"
         sendEvent="event__badBankPasswordSend"/>
     <message
         xmi:id="msg__badPassword"
-        name=":badPassword"
+        name="04_:badPassword"
         messageSort="reply"
         receiveEvent="event_badPasswordReceive"
         sendEvent="event_badPasswordSend"/>
     <message
         xmi:id="msg_requestPassword"
-        name="requestPassword"
+        name="05_requestPassword"
         messageSort="synchCall"
         receiveEvent="event_requestPasswordReceive"
         sendEvent="event_requestPasswordSend"/>
     <message
         xmi:id="msg_cancel"
-        name="cancel"
+        name="06_cancel"
         messageSort="synchCall"
         receiveEvent="event_cancelReceive"
         sendEvent="event_cancelSend"/>
     <message
         xmi:id="msg_canceledMessage"
-        name="canceledMessage"
+        name="07_canceledMessage"
         messageSort="synchCall"
         receiveEvent="event_canceledMessageReceive"
         sendEvent="event_canceledMessage_send"/>
     <message
         xmi:id="msg_ejectCard"
-        name="ejectCard"
+        name="08_ejectCard"
         messageSort="synchCall"
         receiveEvent="event_ejectCardReceive"
         sendEvent="event_ejectCardSend"/>
     <message
         xmi:id="msg_requestTakeCard"
-        name="requestTakeCard"
+        name="09_requestTakeCard"
         messageSort="synchCall"
         receiveEvent="event_requestTakeCardReceive"
         sendEvent="event_requestTakeCardSend"/>
@@ -874,79 +874,79 @@
         execution="_DO7SkDr3Eeak-76QglXo-w"/>
     <message
         xmi:id="msg_insertCard"
-        name="insertCard"
+        name="00_insertCard"
         messageSort="synchCall"
         receiveEvent="2event_insertCardReceive"
         sendEvent="2event_insertCardSend"/>
     <message
         xmi:id="msg_requestPassword"
-        name="requestPassword"
+        name="01_requestPassword"
         messageSort="synchCall"
         receiveEvent="2event_requestPasswordReceive"
         sendEvent="2event_requestPasswordSend"/>
     <message
         xmi:id="msg_enterPassword"
-        name="enterPassword"
+        name="02_enterPassword"
         messageSort="synchCall"
         receiveEvent="2event_enterPasswordReceive"
         sendEvent="2event_enterPasswordSend"/>
     <message
         xmi:id="msg_verifyAccount"
-        name="verifyAccount"
+        name="03_verifyAccount"
         messageSort="synchCall"
         receiveEvent="2event_verifyAccountReceive"
         sendEvent="2event_verifyAccountSend"/>
     <message
         xmi:id="msg_verifyCardWithBank"
-        name="verifyCardWithBank"
+        name="04_verifyCardWithBank"
         messageSort="synchCall"
         receiveEvent="2event_verifyCardWithBankReceive"
         sendEvent="2event_verifyCardWithBankSend"/>
     <message
         xmi:id="msg__badBankAccount"
-        name=":badBankAccount"
+        name="05_:badBankAccount"
         messageSort="reply"
         receiveEvent="2event__badBankAccountReceive"
         sendEvent="2event__badBankAccountSend"/>
     <message
         xmi:id="msg__badAccount"
-        name=":badAccount"
+        name="06_:badAccount"
         messageSort="reply"
         receiveEvent="2event__badAccountReceive"
         sendEvent="2event__badAccountSend"/>
     <message
         xmi:id="msg_badAccountMessage"
-        name="badAccountMessage"
+        name="07_badAccountMessage"
         messageSort="synchCall"
         receiveEvent="2event_badAccountMessageReceive"
         sendEvent="2event_badAccountMessageSend"/>
     <message
         xmi:id="msg_printReceipt"
-        name="printReceipt"
+        name="08_printReceipt"
         messageSort="synchCall"
         receiveEvent="2event_printReceiptReceive"
         sendEvent="2event_printReceiptSend"/>
     <message
         xmi:id="msg_ejectCard"
-        name="ejectCard"
+        name="09_ejectCard"
         messageSort="synchCall"
         receiveEvent="2event_ejectCardReceive"
         sendEvent="2event_ejectCardSend"/>
     <message
         xmi:id="msg_requestTakeCard"
-        name="requestTakeCard"
+        name="10_requestTakeCard"
         messageSort="synchCall"
         receiveEvent="2event_requestTakeCardReceive"
         sendEvent="2event_requestTakeCardSend"/>
     <message
         xmi:id="msg_takeCard"
-        name="takeCard"
+        name="11_takeCard"
         messageSort="synchCall"
         receiveEvent="2event_takeCardReceive"
         sendEvent="2event_takeCardSend"/>
     <message
         xmi:id="msg_displayMainScreen"
-        name="displayMainScreen"
+        name="12_displayMainScreen"
         messageSort="synchCall"
         receiveEvent="2event_displayMainScreenReceive"
         sendEvent="2event_displayMainScreenSend"/>

@@ -11,7 +11,10 @@
         eType="#//ActorObject" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Communication" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Communication" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UserCommunication" eSuperTypes="#//Communication">
     <eStructuralFeatures xsi:type="ecore:EReference" name="usermessage" lowerBound="1"
         eType="#//UserMessage" containment="true"/>
