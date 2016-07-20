@@ -1,0 +1,30 @@
+//import Step12;
+import Step03;
+import Step04;
+import Step05;
+import Step06;
+
+modeltype ScenarioTablePackage uses ScenarioTablePackage('se.studieren.mdd.transformer.ScenarioTablePackage');
+modeltype BehaviourTablePackage uses BehaviourTablePackage('se.studieren.mdd.transformer.BehaviourTablePackage');
+modeltype IOAutomatonPackage uses IOAutomatonPackage('se.studieren.mdd.transformer.IOAutomatonPackage');
+modeltype StateMachinePackage uses StateMachinePackage('se.studieren.mdd.transformer.StateMachinePackage');
+modeltype UMLMachine uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
+
+transformation steps36(in scenarioTablePackage: ScenarioTablePackage, out umlStateMachine: UMLMachine);
+
+main() {
+	
+	var BehaviourTable := BehaviourTablePackage.createEmptyModel();
+	var IOAutomaton := IOAutomatonPackage.createEmptyModel();
+	var StateMachine2 := StateMachinePackage.createEmptyModel();
+	
+	var toBehaviour := new Step03(scenarioTablePackage,BehaviourTable);
+	var toIOAutomaton := new Step04(BehaviourTable,IOAutomaton);
+	var toStateMachine := new Step05(IOAutomaton,StateMachine2);
+	var toUML := new Step06(StateMachine2,umlStateMachine);
+	
+	toBehaviour.transform();
+	toIOAutomaton.transform();
+	toStateMachine.transform();
+	toUML.transform();
+}
