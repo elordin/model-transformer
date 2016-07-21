@@ -131,7 +131,7 @@ helper returnValue(in m : Message) : ScenarioTable::ReturnValue {
 	// If exists return that message as return value
 	if (not reply->isEmpty()) {
 		return object ScenarioTable::Value {
-			value := reply.name;
+			value := reply.name.substring(4,reply.name.length());
 		}
 	};
 	return object ScenarioTable::VoidValue {};
