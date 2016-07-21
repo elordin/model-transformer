@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Package>
+    <packagedElement xsi:type="uml:StateMachine" name="cancel" submachineState="/0/atm/atm/cancel">
+      <region name="cancel">
+        <transition source="/0/cancel/cancel/@subvertex.1" target="/0/cancel/cancel/cancel:User.canceledMessage%20User.ejectCard%20User.requestTakeCard%20"/>
+        <transition source="/0/cancel/cancel/cancel:User.canceledMessage%20User.ejectCard%20User.requestTakeCard%20" target="/0/cancel/cancel/cancel:WaitTakeCard:return%20void"/>
+        <subvertex xsi:type="uml:State" name="cancel:User.canceledMessage User.ejectCard User.requestTakeCard ">
+          <doActivity xsi:type="uml:OpaqueBehavior">
+            <body>User.canceledMessage User.ejectCard User.requestTakeCard </body>
+          </doActivity>
+        </subvertex>
+        <subvertex xsi:type="uml:Pseudostate" kind="entryPoint"/>
+        <subvertex xsi:type="uml:Pseudostate" name="cancel:WaitTakeCard:return void" kind="exitPoint"/>
+      </region>
+    </packagedElement>
+    <packagedElement xsi:type="uml:StateMachine" name="insertCard" submachineState="/0/atm/atm/insertCard">
+      <region name="insertCard">
+        <transition source="/0/insertCard/insertCard/insertCard:User.requestPassword%20" target="/0/insertCard/insertCard/insertCard:WaitPassword:return%20void"/>
+        <transition source="/0/insertCard/insertCard/@subvertex.1" target="/0/insertCard/insertCard/insertCard:User.requestPassword%20"/>
+        <subvertex xsi:type="uml:State" name="insertCard:User.requestPassword "/>
+        <subvertex xsi:type="uml:Pseudostate" kind="entryPoint"/>
+        <subvertex xsi:type="uml:Pseudostate" name="insertCard:WaitPassword:return void" kind="exitPoint"/>
+      </region>
+    </packagedElement>
+    <packagedElement xsi:type="uml:StateMachine" name="enterPassword" submachineState="/0/atm/atm/enterPassword">
+      <region name="enterPassword">
+        <transition source="/0/enterPassword/enterPassword/@subvertex.5" target="/0/enterPassword/enterPassword/enterPassword:%20check%20:=%20consortium.verifyAccount%20"/>
+        <transition source="/0/enterPassword/enterPassword/enterPassword:User.badAccountMessage%20User.printReceipt%20User.ejectCard%20User.requestTakeCard%20" target="/0/enterPassword/enterPassword/enterPassword:WaitTakeCard:return%20void"/>
+        <transition source="/0/enterPassword/enterPassword/enterPassword:User.requestPassword%20" target="/0/enterPassword/enterPassword/enterPassword:WaitPassword:return%20void"/>
+        <transition guard="/0/enterPassword/enterPassword/@transition.3/check%20=%2004_:badPassword" source="/0/enterPassword/enterPassword/enterPassword:%20check%20:=%20consortium.verifyAccount%20" target="/0/enterPassword/enterPassword/enterPassword:User.requestPassword%20">
+          <ownedRule name="check = 04_:badPassword">
+            <specification xsi:type="uml:OpaqueExpression">
+              <body>check = 04_:badPassword</body>
+            </specification>
+          </ownedRule>
+        </transition>
+        <transition guard="/0/enterPassword/enterPassword/@transition.4/check%20=%2006_:badAccount" source="/0/enterPassword/enterPassword/enterPassword:%20check%20:=%20consortium.verifyAccount%20" target="/0/enterPassword/enterPassword/enterPassword:User.badAccountMessage%20User.printReceipt%20User.ejectCard%20User.requestTakeCard%20">
+          <ownedRule name="check = 06_:badAccount">
+            <specification xsi:type="uml:OpaqueExpression">
+              <body>check = 06_:badAccount</body>
+            </specification>
+          </ownedRule>
+        </transition>
+        <subvertex xsi:type="uml:State" name="enterPassword: check := consortium.verifyAccount ">
+          <doActivity xsi:type="uml:OpaqueBehavior">
+            <body> check := consortium.verifyAccount </body>
+          </doActivity>
+        </subvertex>
+        <subvertex xsi:type="uml:State" name="enterPassword:User.badAccountMessage User.printReceipt User.ejectCard User.requestTakeCard ">
+          <doActivity xsi:type="uml:OpaqueBehavior">
+            <body>User.badAccountMessage User.printReceipt User.ejectCard User.requestTakeCard </body>
+          </doActivity>
+        </subvertex>
+        <subvertex xsi:type="uml:Pseudostate" name="enterPassword:WaitTakeCard:return void" kind="exitPoint"/>
+        <subvertex xsi:type="uml:State" name="enterPassword:User.requestPassword ">
+          <doActivity xsi:type="uml:OpaqueBehavior">
+            <body>User.requestPassword </body>
+          </doActivity>
+        </subvertex>
+        <subvertex xsi:type="uml:Pseudostate" name="enterPassword:WaitPassword:return void" kind="exitPoint"/>
+        <subvertex xsi:type="uml:Pseudostate" kind="entryPoint"/>
+      </region>
+    </packagedElement>
+    <packagedElement xsi:type="uml:StateMachine" name="takeCard" submachineState="/0/atm/atm/takeCard">
+      <region name="takeCard">
+        <transition source="/0/takeCard/takeCard/@subvertex.2" target="/0/takeCard/takeCard/takeCard:User.displayMainScreen%20"/>
+        <transition source="/0/takeCard/takeCard/takeCard:User.displayMainScreen%20" target="/0/takeCard/takeCard/takeCard:WaitCard:return%20void"/>
+        <subvertex xsi:type="uml:Pseudostate" name="takeCard:WaitCard:return void" kind="exitPoint"/>
+        <subvertex xsi:type="uml:State" name="takeCard:User.displayMainScreen ">
+          <doActivity xsi:type="uml:OpaqueBehavior">
+            <body>User.displayMainScreen </body>
+          </doActivity>
+        </subvertex>
+        <subvertex xsi:type="uml:Pseudostate" kind="entryPoint"/>
+      </region>
+    </packagedElement>
+    <packagedElement xsi:type="uml:StateMachine" name="verifyCardWithBank" submachineState="/0/bank/bank/verifyCardWithBank">
+      <region name="verifyCardWithBank">
+        <transition source="/0/verifyCardWithBank/verifyCardWithBank/verifyCardWithBank:" target="/0/verifyCardWithBank/verifyCardWithBank/verifyCardWithBank:WaitBankVerify:return%2005_:badBankAccount"/>
+        <transition source="/0/verifyCardWithBank/verifyCardWithBank/@subvertex.2" target="/0/verifyCardWithBank/verifyCardWithBank/verifyCardWithBank:"/>
+        <subvertex xsi:type="uml:Pseudostate" name="verifyCardWithBank:WaitBankVerify:return 05_:badBankAccount" kind="exitPoint"/>
+        <subvertex xsi:type="uml:State" name="verifyCardWithBank:">
+          <doActivity xsi:type="uml:OpaqueBehavior">
+            <body></body>
+          </doActivity>
+        </subvertex>
+        <subvertex xsi:type="uml:Pseudostate" kind="entryPoint"/>
+      </region>
+    </packagedElement>
+    <packagedElement xsi:type="uml:StateMachine" name="verifyAccount" submachineState="/0/consortium/consortium/verifyAccount">
+      <region name="verifyAccount">
+        <transition source="/0/verifyAccount/verifyAccount/@subvertex.0" target="/0/verifyAccount/verifyAccount/verifyAccount:%20check%20:=%20bank.verifyCardWithBank%20"/>
+        <transition guard="/0/verifyAccount/verifyAccount/@transition.1/check%20=%2005_:badBankAccount" source="/0/verifyAccount/verifyAccount/verifyAccount:%20check%20:=%20bank.verifyCardWithBank%20" target="/0/verifyAccount/verifyAccount/verifyAccount:WaitVerify:return%2006_:badAccount">
+          <ownedRule name="check = 05_:badBankAccount">
+            <specification xsi:type="uml:OpaqueExpression">
+              <body>check = 05_:badBankAccount</body>
+            </specification>
+          </ownedRule>
+        </transition>
+        <transition guard="/0/verifyAccount/verifyAccount/@transition.2/check%20=%2003_:badBankPassword" source="/0/verifyAccount/verifyAccount/verifyAccount:%20check%20:=%20bank.verifyCardWithBank%20" target="/0/verifyAccount/verifyAccount/verifyAccount:WaitVerify:return%2004_:badPassword">
+          <ownedRule name="check = 03_:badBankPassword">
+            <specification xsi:type="uml:OpaqueExpression">
+              <body>check = 03_:badBankPassword</body>
+            </specification>
+          </ownedRule>
+        </transition>
+        <subvertex xsi:type="uml:Pseudostate" kind="entryPoint"/>
+        <subvertex xsi:type="uml:Pseudostate" name="verifyAccount:WaitVerify:return 04_:badPassword" kind="exitPoint"/>
+        <subvertex xsi:type="uml:Pseudostate" name="verifyAccount:WaitVerify:return 06_:badAccount" kind="exitPoint"/>
+        <subvertex xsi:type="uml:State" name="verifyAccount: check := bank.verifyCardWithBank ">
+          <doActivity xsi:type="uml:OpaqueBehavior">
+            <body> check := bank.verifyCardWithBank </body>
+          </doActivity>
+        </subvertex>
+      </region>
+    </packagedElement>
+    <packagedElement xsi:type="uml:StateMachine" name="atm">
+      <region name="atm">
+        <transition source="/0/atm/atm/cancel/cancel:WaitTakeCard:return%20void" target="/0/atm/atm/WaitTakeCard">
+          <effect xsi:type="uml:OpaqueBehavior">
+            <body>return void</body>
+          </effect>
+        </transition>
+        <transition source="/0/atm/atm/@subvertex.2" target="/0/atm/atm/WaitCard"/>
+        <transition source="/0/atm/atm/enterPassword/enterPassword:WaitPassword:return%20void" target="/0/atm/atm/WaitPassword">
+          <effect xsi:type="uml:OpaqueBehavior">
+            <body>return void</body>
+          </effect>
+        </transition>
+        <transition source="/0/atm/atm/WaitPassword" target="/0/atm/atm/enterPassword/enterPassword">
+          <trigger name="enterPassword" event="/3"/>
+        </transition>
+        <transition source="/0/atm/atm/WaitCard" target="/0/atm/atm/insertCard/insertCard">
+          <trigger name="insertCard" event="/2"/>
+        </transition>
+        <transition source="/0/atm/atm/takeCard/takeCard:WaitCard:return%20void" target="/0/atm/atm/WaitCard">
+          <effect xsi:type="uml:OpaqueBehavior">
+            <body>return void</body>
+          </effect>
+        </transition>
+        <transition source="/0/atm/atm/WaitPassword" target="/0/atm/atm/cancel/cancel">
+          <trigger name="cancel" event="/1"/>
+        </transition>
+        <transition source="/0/atm/atm/insertCard/insertCard:WaitPassword:return%20void" target="/0/atm/atm/WaitPassword">
+          <effect xsi:type="uml:OpaqueBehavior">
+            <body>return void</body>
+          </effect>
+        </transition>
+        <transition source="/0/atm/atm/enterPassword/enterPassword:WaitTakeCard:return%20void" target="/0/atm/atm/WaitTakeCard">
+          <effect xsi:type="uml:OpaqueBehavior">
+            <body>return void</body>
+          </effect>
+        </transition>
+        <transition source="/0/atm/atm/WaitTakeCard" target="/0/atm/atm/takeCard/takeCard">
+          <trigger name="takeCard" event="/4"/>
+        </transition>
+        <subvertex xsi:type="uml:State" name="WaitTakeCard"/>
+        <subvertex xsi:type="uml:State" name="enterPassword" submachine="/0/enterPassword">
+          <connection name="enterPassword" entry="/0/enterPassword/enterPassword/@subvertex.5"/>
+          <connection name="enterPassword:WaitTakeCard:return void" exit="/0/enterPassword/enterPassword/enterPassword:WaitTakeCard:return%20void"/>
+          <connection name="enterPassword:WaitPassword:return void" exit="/0/enterPassword/enterPassword/enterPassword:WaitPassword:return%20void"/>
+        </subvertex>
+        <subvertex xsi:type="uml:Pseudostate"/>
+        <subvertex xsi:type="uml:State" name="WaitPassword"/>
+        <subvertex xsi:type="uml:State" name="takeCard" submachine="/0/takeCard">
+          <connection name="takeCard" entry="/0/takeCard/takeCard/@subvertex.2"/>
+          <connection name="takeCard:WaitCard:return void" exit="/0/takeCard/takeCard/takeCard:WaitCard:return%20void"/>
+        </subvertex>
+        <subvertex xsi:type="uml:State" name="insertCard" submachine="/0/insertCard">
+          <connection name="insertCard" entry="/0/insertCard/insertCard/@subvertex.1"/>
+          <connection name="insertCard:WaitPassword:return void" exit="/0/insertCard/insertCard/insertCard:WaitPassword:return%20void"/>
+        </subvertex>
+        <subvertex xsi:type="uml:State" name="WaitCard"/>
+        <subvertex xsi:type="uml:State" name="cancel" submachine="/0/cancel">
+          <connection name="cancel" entry="/0/cancel/cancel/@subvertex.1"/>
+          <connection name="cancel:WaitTakeCard:return void" exit="/0/cancel/cancel/cancel:WaitTakeCard:return%20void"/>
+        </subvertex>
+      </region>
+    </packagedElement>
+    <packagedElement xsi:type="uml:StateMachine" name="bank">
+      <region name="bank">
+        <transition source="/0/bank/bank/WaitBankVerify" target="/0/bank/bank/verifyCardWithBank/verifyCardWithBank">
+          <trigger name="verifyCardWithBank" event="/5"/>
+        </transition>
+        <transition source="/0/bank/bank/@subvertex.1" target="/0/bank/bank/WaitBankVerify"/>
+        <transition source="/0/bank/bank/verifyCardWithBank/verifyCardWithBank:WaitBankVerify:return%2005_:badBankAccount" target="/0/bank/bank/WaitBankVerify">
+          <effect xsi:type="uml:OpaqueBehavior">
+            <body>return 05_:badBankAccount</body>
+          </effect>
+        </transition>
+        <subvertex xsi:type="uml:State" name="verifyCardWithBank" submachine="/0/verifyCardWithBank">
+          <connection name="verifyCardWithBank" entry="/0/verifyCardWithBank/verifyCardWithBank/@subvertex.2"/>
+          <connection name="verifyCardWithBank:WaitBankVerify:return 05_:badBankAccount" exit="/0/verifyCardWithBank/verifyCardWithBank/verifyCardWithBank:WaitBankVerify:return%2005_:badBankAccount"/>
+        </subvertex>
+        <subvertex xsi:type="uml:Pseudostate"/>
+        <subvertex xsi:type="uml:State" name="WaitBankVerify"/>
+      </region>
+    </packagedElement>
+    <packagedElement xsi:type="uml:StateMachine" name="consortium">
+      <region name="consortium">
+        <transition source="/0/consortium/consortium/verifyAccount/verifyAccount:WaitVerify:return%2004_:badPassword" target="/0/consortium/consortium/WaitVerify">
+          <effect xsi:type="uml:OpaqueBehavior">
+            <body>return 04_:badPassword</body>
+          </effect>
+        </transition>
+        <transition source="/0/consortium/consortium/@subvertex.1" target="/0/consortium/consortium/WaitVerify"/>
+        <transition source="/0/consortium/consortium/verifyAccount/verifyAccount:WaitVerify:return%2006_:badAccount" target="/0/consortium/consortium/WaitVerify">
+          <effect xsi:type="uml:OpaqueBehavior">
+            <body>return 06_:badAccount</body>
+          </effect>
+        </transition>
+        <transition source="/0/consortium/consortium/WaitVerify" target="/0/consortium/consortium/verifyAccount/verifyAccount">
+          <trigger name="verifyAccount" event="/6"/>
+        </transition>
+        <subvertex xsi:type="uml:State" name="WaitVerify"/>
+        <subvertex xsi:type="uml:Pseudostate"/>
+        <subvertex xsi:type="uml:State" name="verifyAccount" submachine="/0/verifyAccount">
+          <connection name="verifyAccount" entry="/0/verifyAccount/verifyAccount/@subvertex.0"/>
+          <connection name="verifyAccount:WaitVerify:return 06_:badAccount" exit="/0/verifyAccount/verifyAccount/verifyAccount:WaitVerify:return%2006_:badAccount"/>
+          <connection name="verifyAccount:WaitVerify:return 04_:badPassword" exit="/0/verifyAccount/verifyAccount/verifyAccount:WaitVerify:return%2004_:badPassword"/>
+        </subvertex>
+      </region>
+    </packagedElement>
+  </uml:Package>
+  <uml:AnyReceiveEvent name="cancel"/>
+  <uml:AnyReceiveEvent name="insertCard"/>
+  <uml:AnyReceiveEvent name="enterPassword"/>
+  <uml:AnyReceiveEvent name="takeCard"/>
+  <uml:AnyReceiveEvent name="verifyCardWithBank"/>
+  <uml:AnyReceiveEvent name="verifyAccount"/>
+</xmi:XMI>
