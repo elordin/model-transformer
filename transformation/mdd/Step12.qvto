@@ -9,7 +9,9 @@ main() {
 }
 
 mapping UML::Model::toScenarioTablePackage() : ScenarioTablePackage::ScenarioTablePackage {
-	scenario += self.packagedElement[Interaction].map toScenarioTable();
+	scenario += self.packagedElement[Interaction].map toScenarioTable()->sortedBy(
+		s | s.name.substring(1,2).toInteger()
+	);
 }
 
 mapping Interaction::toScenarioTable() : ScenarioTable::Scenario {
@@ -121,7 +123,6 @@ helper returnValue(in m : Message) : ScenarioTable::ReturnValue {
 	var recipientCoveredBy : OrderedSet(InteractionFragment) = recipient.coveredBy->sortedBy(f | f.name.substring(1,2).toInteger());
 	var receiveIndex = recipientCoveredBy->indexOf(receiveMOC);
 		
-	
 	var reply : Message = recipientCoveredBy[MessageOccurrenceSpecification]->select(moc | 
 		recipientCoveredBy->indexOf(moc) > receiveIndex and
 		(not moc.message->oclIsInvalid()) and

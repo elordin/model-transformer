@@ -10,7 +10,7 @@ modeltype IOAutomatonPackage uses IOAutomatonPackage('se.studieren.mdd.transform
 modeltype StateMachinePackage uses StateMachinePackage('se.studieren.mdd.transformer.StateMachinePackage');
 modeltype UMLMachine uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 
-transformation steps36(in scenarioTablePackage: ScenarioTablePackage, out umlStateMachine: UMLMachine);
+transformation Steps36(in scenarioTablePackage: ScenarioTablePackage, out umlStateMachine: UMLMachine);
 
 main() {
 	

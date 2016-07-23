@@ -8,7 +8,7 @@
   <packagedElement
       xsi:type="uml:Interaction"
       xmi:id="_4W7G4Dr5Eeak-76QglXo-w"
-      name="Bad password">
+      name="01_Bad_password">
     <lifeline
         xmi:id="Lifeline_User"
         name="User"
@@ -426,7 +426,7 @@
   <packagedElement
       xsi:type="uml:Interaction"
       xmi:id="_2EobgDr2Eeak-76QglXo-w"
-      name="Bad account">
+      name="00_Bad_account">
     <lifeline
         xmi:id="2Lifeline_User"
         name="User"

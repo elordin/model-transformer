@@ -10,8 +10,7 @@ main() {
 	btp.objectsOfType(BehaviourTablePackage::BehaviourTablePackage).map toIOAutomatonPackage();
 }
 
-mapping BehaviourTablePackage::BehaviourTablePackage::toIOAutomatonPackage() : IOAutomatonPackage::IOAutomatonPackage
-{
+mapping BehaviourTablePackage::BehaviourTablePackage::toIOAutomatonPackage() : IOAutomatonPackage::IOAutomatonPackage {
 	var systemobjectNames = self.behaviour->collectNested(systemobject.name)->asSet(); //get unique names of systemobjects behaviour belongs to
 
 	ioautomaton += systemobjectNames.map toIOAutomaton(self.behaviour);	//create one ioatomaton for each unique name
@@ -34,11 +33,9 @@ helper String::createIOAutomaton(in bList : OrderedSet(BehaviourTable::Behaviour
 }
 
 mapping String::toIOAutomaton(in allbehaivors : OrderedSet(BehaviourTable::Behaviour)) : IOAutomaton::IOAutomaton { 
-	
 	var behaivors = allbehaivors->select(systemobject.name = self);	
 	var stateNames = behaivors->collectNested(state)->flatten()->collectNested(name); //get names of all states	
 	var states = stateNames.map toState();	
-	
 	
 	var initialState = object IOAutomaton::InitialState{};
 	var initialTransition = object IOAutomaton::Transition{source := initialState; target := states->at(1)};
@@ -48,21 +45,18 @@ mapping String::toIOAutomaton(in allbehaivors : OrderedSet(BehaviourTable::Behav
 	vertex += initialState;
 	transition += behaivors->collect(block)->flatten().map toTransition(states);	
 	transition += initialTransition;
-	name := self; 
-}
-
-mapping String::toState() : IOAutomaton::State
-{
 	name := self;
 }
 
-mapping BehaviourTable::SystemObject::toSystemObject() : IOAutomaton::SystemObject
-{
+mapping String::toState() : IOAutomaton::State {
+	name := self;
+}
+
+mapping BehaviourTable::SystemObject::toSystemObject() : IOAutomaton::SystemObject {
 	name := self.name;
 }
 
-mapping BehaviourTable::Block::toTransition(in states : Sequence(IOAutomaton::State)) : IOAutomaton::Transition
-{
+mapping BehaviourTable::Block::toTransition(in states : Sequence(IOAutomaton::State)) : IOAutomaton::Transition {
 	inmessage := self.inmessage.map toInMessage();
 	outmessage += self.activation.outmessages.map toOutMessage();
 	returnvalue := self.activation.returnvalue.map toReturnValue();
@@ -70,41 +64,35 @@ mapping BehaviourTable::Block::toTransition(in states : Sequence(IOAutomaton::St
 	target :=  states->any(name = self.postState.name);	//set reference to correct state
 }
 
-mapping BehaviourTable::InMessage::toInMessage() : IOAutomaton::InMessage
-{
+mapping BehaviourTable::InMessage::toInMessage() : IOAutomaton::InMessage {
 	operation := self.operation.map toOperation();	
 }
 
-mapping BehaviourTable::Operation::toOperation() : IOAutomaton::Operation
-{
+mapping BehaviourTable::Operation::toOperation() : IOAutomaton::Operation {
 	name := self.name;	
 }
 
-mapping BehaviourTable::OutMessage::toOutMessage() : IOAutomaton::OutMessage
-{
+mapping BehaviourTable::OutMessage::toOutMessage() : IOAutomaton::OutMessage {
 	operation := self.operation.map toOperation();
 	returnvalue := self.returnvalue.map toReturnValue();
 	actorobject := self.actorobject.map toActorObject();
 }
 
 mapping BehaviourTable::ReturnValue::toReturnValue() : IOAutomaton::ReturnValue
-disjuncts BehaviourTable::VoidValue::toVoidValue, BehaviourTable::Value::toValue
-{}
+disjuncts BehaviourTable::VoidValue::toVoidValue, BehaviourTable::Value::toValue;
 
-mapping BehaviourTable::VoidValue::toVoidValue() : IOAutomaton::VoidValue
-{}
 
-mapping BehaviourTable::Value::toValue() : IOAutomaton::Value
-{	
+mapping BehaviourTable::VoidValue::toVoidValue() : IOAutomaton::VoidValue;
+
+mapping BehaviourTable::Value::toValue() : IOAutomaton::Value {	
 	name:=self.value;
 }
 
 mapping BehaviourTable::ActorObject::toActorObject() : IOAutomaton::ActorObject
-disjuncts BehaviourTable::User::toUser, BehaviourTable::SystemObject::toSystemObject
-{}
+disjuncts BehaviourTable::User::toUser, BehaviourTable::SystemObject::toSystemObject;
 
-mapping BehaviourTable::User::toUser() : IOAutomaton::User
-{}
+
+mapping BehaviourTable::User::toUser() : IOAutomaton::User;
 
 
 

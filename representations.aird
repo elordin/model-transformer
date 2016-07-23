@@ -5891,6 +5891,10 @@
           <children xmi:type="notation:Node" xmi:id="_r9puoERxEeauTeiYJiMBPQ" type="2003" element="_r9iZ4ERxEeauTeiYJiMBPQ">
             <children xmi:type="notation:Node" xmi:id="_r9qVsERxEeauTeiYJiMBPQ" type="5007"/>
             <children xmi:type="notation:Node" xmi:id="_r9q8wERxEeauTeiYJiMBPQ" type="7004">
+              <children xmi:type="notation:Node" xmi:id="_YPB9IE8gEea2T4KierPP2A" type="3010" element="_YONdwE8gEea2T4KierPP2A">
+                <styles xmi:type="notation:FontStyle" xmi:id="_YPB9IU8gEea2T4KierPP2A" fontName="Segoe UI" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_YPB9Ik8gEea2T4KierPP2A"/>
+              </children>
               <styles xmi:type="notation:SortingStyle" xmi:id="_r9q8wURxEeauTeiYJiMBPQ"/>
               <styles xmi:type="notation:FilteringStyle" xmi:id="_r9q8wkRxEeauTeiYJiMBPQ"/>
             </children>
@@ -5900,6 +5904,14 @@
           <children xmi:type="notation:Node" xmi:id="_socYEERxEeauTeiYJiMBPQ" type="2003" element="_soW4gERxEeauTeiYJiMBPQ">
             <children xmi:type="notation:Node" xmi:id="_soc_IERxEeauTeiYJiMBPQ" type="5007"/>
             <children xmi:type="notation:Node" xmi:id="_soc_IURxEeauTeiYJiMBPQ" type="7004">
+              <children xmi:type="notation:Node" xmi:id="_YPcM0E8gEea2T4KierPP2A" type="3010" element="_YORvME8gEea2T4KierPP2A">
+                <styles xmi:type="notation:FontStyle" xmi:id="_YPcM0U8gEea2T4KierPP2A" fontName="Segoe UI" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_YPcM0k8gEea2T4KierPP2A"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_YPcz4E8gEea2T4KierPP2A" type="3010" element="_YOS9UU8gEea2T4KierPP2A">
+                <styles xmi:type="notation:FontStyle" xmi:id="_YPcz4U8gEea2T4KierPP2A" fontName="Segoe UI" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_YPcz4k8gEea2T4KierPP2A"/>
+              </children>
               <styles xmi:type="notation:SortingStyle" xmi:id="_soc_IkRxEeauTeiYJiMBPQ"/>
               <styles xmi:type="notation:FilteringStyle" xmi:id="_soc_I0RxEeauTeiYJiMBPQ"/>
             </children>
@@ -6383,6 +6395,14 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_YONdwE8gEea2T4KierPP2A" name="name : EString" tooltipText="">
+          <target xmi:type="ecore:EAttribute" href="model/02_ScenarioTable/ScenarioTable.ecore#//Scenario/name"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/02_ScenarioTable/ScenarioTable.ecore#//Scenario/name"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_YOP6AE8gEea2T4KierPP2A" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+        </ownedElements>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_soW4gERxEeauTeiYJiMBPQ" name="Communication" tooltipText="" incomingEdges="_soai4ERxEeauTeiYJiMBPQ _vV5c0ERxEeauTeiYJiMBPQ _wNaToERxEeauTeiYJiMBPQ" width="12" height="10">
         <target xmi:type="ecore:EClass" href="model/02_ScenarioTable/ScenarioTable.ecore#//Communication"/>
@@ -6395,6 +6415,22 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@conditionnalStyles.1/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_YORvME8gEea2T4KierPP2A" name="order : EInt" tooltipText="">
+          <target xmi:type="ecore:EAttribute" href="model/02_ScenarioTable/ScenarioTable.ecore#//Communication/order"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/02_ScenarioTable/ScenarioTable.ecore#//Communication/order"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_YOS9UE8gEea2T4KierPP2A" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_YOS9UU8gEea2T4KierPP2A" name="name : EString" tooltipText="">
+          <target xmi:type="ecore:EAttribute" href="model/02_ScenarioTable/ScenarioTable.ecore#//Communication/name"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/02_ScenarioTable/ScenarioTable.ecore#//Communication/name"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_YOTkYE8gEea2T4KierPP2A" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+        </ownedElements>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_soai4ERxEeauTeiYJiMBPQ" name="[1..*] communication" sourceNode="_r9iZ4ERxEeauTeiYJiMBPQ" targetNode="_soW4gERxEeauTeiYJiMBPQ">
         <target xmi:type="ecore:EReference" href="model/02_ScenarioTable/ScenarioTable.ecore#//Scenario/communication"/>

@@ -1,144 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mdd:ScenarioTablePackage xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdd="se.studieren.mdd.transformer.ScenarioTablePackage" xmlns:mdd_1="se.studieren.mdd.transformer.ScenarioTable" xsi:schemaLocation="se.studieren.mdd.transformer.ScenarioTablePackage ../ScenarioTablePackage.ecore se.studieren.mdd.transformer.ScenarioTable ../ScenarioTable.ecore" xmi:id="_d3BowE8SEea2T4KierPP2A">
-  <scenario xmi:id="_d3BowU8SEea2T4KierPP2A" name="Bad password">
-    <communication xmi:type="mdd_1:SystemCommunication" xmi:id="_d3Bowk8SEea2T4KierPP2A" name="enterPassword" prestate="_d3Bo5E8SEea2T4KierPP2A" poststate="_d3Bo5U8SEea2T4KierPP2A">
-      <returned xmi:type="mdd_1:VoidValue" xmi:id="_d3Bow08SEea2T4KierPP2A"/>
-      <systemmessage xmi:id="_d3BoxE8SEea2T4KierPP2A" name="enterPassword" sender="_d3Bo608SEea2T4KierPP2A" receiver="_d3Bo6k8SEea2T4KierPP2A">
-        <operation xmi:id="_d3BoxU8SEea2T4KierPP2A" name="enterPassword"/>
+<mdd:ScenarioTablePackage xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdd="se.studieren.mdd.transformer.ScenarioTablePackage" xmlns:mdd_1="se.studieren.mdd.transformer.ScenarioTable" xsi:schemaLocation="se.studieren.mdd.transformer.ScenarioTablePackage ../ScenarioTablePackage.ecore se.studieren.mdd.transformer.ScenarioTable ../ScenarioTable.ecore" xmi:id="_eMKikE8jEea2T4KierPP2A">
+  <scenario xmi:id="_eMKikU8jEea2T4KierPP2A" name="00_Bad_account">
+    <communication xmi:type="mdd_1:SystemCommunication" xmi:id="_eMKikk8jEea2T4KierPP2A" name="insertCard" prestate="_eMKiwE8jEea2T4KierPP2A" poststate="_eMKiwU8jEea2T4KierPP2A">
+      <returned xmi:type="mdd_1:VoidValue" xmi:id="_eMKik08jEea2T4KierPP2A"/>
+      <systemmessage xmi:id="_eMKilE8jEea2T4KierPP2A" name="insertCard" sender="_eMKiyU8jEea2T4KierPP2A" receiver="_eMKix08jEea2T4KierPP2A">
+        <operation xmi:id="_eMKilU8jEea2T4KierPP2A" name="insertCard"/>
       </systemmessage>
     </communication>
-    <communication xmi:type="mdd_1:SystemCommunication" xmi:id="_d3Boxk8SEea2T4KierPP2A" order="1" name="verifyAccount" prestate="_d3Bo408SEea2T4KierPP2A" poststate="_d3Bo508SEea2T4KierPP2A">
-      <returned xmi:type="mdd_1:Value" xmi:id="_d3Box08SEea2T4KierPP2A" value=":badPassword"/>
-      <systemmessage xmi:id="_d3BoyE8SEea2T4KierPP2A" name="verifyAccount" sender="_d3Bo6k8SEea2T4KierPP2A" receiver="_d3Bo7E8SEea2T4KierPP2A">
-        <operation xmi:id="_d3BoyU8SEea2T4KierPP2A" name="verifyAccount"/>
+    <communication xmi:type="mdd_1:UserCommunication" xmi:id="_eMKilk8jEea2T4KierPP2A" order="1" name="requestPassword">
+      <usermessage xmi:id="_eMKil08jEea2T4KierPP2A" name="requestPassword" sender="_eMKix08jEea2T4KierPP2A" receiver="_eMKiyU8jEea2T4KierPP2A">
+        <operation xmi:id="_eMKimE8jEea2T4KierPP2A" name="requestPassword"/>
+      </usermessage>
+      <returned xmi:type="mdd_1:VoidValue" xmi:id="_eMKimU8jEea2T4KierPP2A"/>
+    </communication>
+    <communication xmi:type="mdd_1:SystemCommunication" xmi:id="_eMKimk8jEea2T4KierPP2A" order="2" name="enterPassword" prestate="_eMKiwU8jEea2T4KierPP2A" poststate="_eMKiwk8jEea2T4KierPP2A">
+      <returned xmi:type="mdd_1:VoidValue" xmi:id="_eMKim08jEea2T4KierPP2A"/>
+      <systemmessage xmi:id="_eMKinE8jEea2T4KierPP2A" name="enterPassword" sender="_eMKiyU8jEea2T4KierPP2A" receiver="_eMKix08jEea2T4KierPP2A">
+        <operation xmi:id="_eMKinU8jEea2T4KierPP2A" name="enterPassword"/>
       </systemmessage>
     </communication>
-    <communication xmi:type="mdd_1:SystemCommunication" xmi:id="_d3Boyk8SEea2T4KierPP2A" order="2" name="verifyCardWithBank" prestate="_d3Bo4k8SEea2T4KierPP2A" poststate="_d3Bo5k8SEea2T4KierPP2A">
-      <returned xmi:type="mdd_1:Value" xmi:id="_d3Boy08SEea2T4KierPP2A" value=":badBankPassword"/>
-      <systemmessage xmi:id="_d3BozE8SEea2T4KierPP2A" name="verifyCardWithBank" sender="_d3Bo7E8SEea2T4KierPP2A" receiver="_d3Bo6U8SEea2T4KierPP2A">
-        <operation xmi:id="_d3BozU8SEea2T4KierPP2A" name="verifyCardWithBank"/>
+    <communication xmi:type="mdd_1:SystemCommunication" xmi:id="_eMKink8jEea2T4KierPP2A" order="3" name="verifyAccount" prestate="_eMKiv08jEea2T4KierPP2A" poststate="_eMKixE8jEea2T4KierPP2A">
+      <returned xmi:type="mdd_1:Value" xmi:id="_eMKin08jEea2T4KierPP2A" value=":badAccount"/>
+      <systemmessage xmi:id="_eMKioE8jEea2T4KierPP2A" name="verifyAccount" sender="_eMKix08jEea2T4KierPP2A" receiver="_eMKiyE8jEea2T4KierPP2A">
+        <operation xmi:id="_eMKioU8jEea2T4KierPP2A" name="verifyAccount"/>
       </systemmessage>
     </communication>
-    <communication xmi:type="mdd_1:UserCommunication" xmi:id="_d3Bozk8SEea2T4KierPP2A" order="5" name="requestPassword">
-      <usermessage xmi:id="_d3Boz08SEea2T4KierPP2A" name="requestPassword" sender="_d3Bo6k8SEea2T4KierPP2A" receiver="_d3Bo608SEea2T4KierPP2A">
-        <operation xmi:id="_d3Bo0E8SEea2T4KierPP2A" name="requestPassword"/>
-      </usermessage>
-      <returned xmi:type="mdd_1:VoidValue" xmi:id="_d3Bo0U8SEea2T4KierPP2A"/>
-    </communication>
-    <communication xmi:type="mdd_1:SystemCommunication" xmi:id="_d3Bo0k8SEea2T4KierPP2A" order="6" name="cancel" prestate="_d3Bo5U8SEea2T4KierPP2A" poststate="_d3Bo6E8SEea2T4KierPP2A">
-      <returned xmi:type="mdd_1:VoidValue" xmi:id="_d3Bo008SEea2T4KierPP2A"/>
-      <systemmessage xmi:id="_d3Bo1E8SEea2T4KierPP2A" name="cancel" sender="_d3Bo608SEea2T4KierPP2A" receiver="_d3Bo6k8SEea2T4KierPP2A">
-        <operation xmi:id="_d3Bo1U8SEea2T4KierPP2A" name="cancel"/>
+    <communication xmi:type="mdd_1:SystemCommunication" xmi:id="_eMKiok8jEea2T4KierPP2A" order="4" name="verifyCardWithBank" prestate="_eMKivk8jEea2T4KierPP2A" poststate="_eMKiw08jEea2T4KierPP2A">
+      <returned xmi:type="mdd_1:Value" xmi:id="_eMKio08jEea2T4KierPP2A" value=":badBankAccount"/>
+      <systemmessage xmi:id="_eMKipE8jEea2T4KierPP2A" name="verifyCardWithBank" sender="_eMKiyE8jEea2T4KierPP2A" receiver="_eMKixk8jEea2T4KierPP2A">
+        <operation xmi:id="_eMKipU8jEea2T4KierPP2A" name="verifyCardWithBank"/>
       </systemmessage>
     </communication>
-    <communication xmi:type="mdd_1:UserCommunication" xmi:id="_d3Bo1k8SEea2T4KierPP2A" order="7" name="canceledMessage">
-      <usermessage xmi:id="_d3Bo108SEea2T4KierPP2A" name="canceledMessage" sender="_d3Bo6k8SEea2T4KierPP2A" receiver="_d3Bo608SEea2T4KierPP2A">
-        <operation xmi:id="_d3Bo2E8SEea2T4KierPP2A" name="canceledMessage"/>
+    <communication xmi:type="mdd_1:UserCommunication" xmi:id="_eMKipk8jEea2T4KierPP2A" order="7" name="badAccountMessage">
+      <usermessage xmi:id="_eMKip08jEea2T4KierPP2A" name="badAccountMessage" sender="_eMKix08jEea2T4KierPP2A" receiver="_eMKiyU8jEea2T4KierPP2A">
+        <operation xmi:id="_eMKiqE8jEea2T4KierPP2A" name="badAccountMessage"/>
       </usermessage>
-      <returned xmi:type="mdd_1:VoidValue" xmi:id="_d3Bo2U8SEea2T4KierPP2A"/>
+      <returned xmi:type="mdd_1:VoidValue" xmi:id="_eMKiqU8jEea2T4KierPP2A"/>
     </communication>
-    <communication xmi:type="mdd_1:UserCommunication" xmi:id="_d3Bo2k8SEea2T4KierPP2A" order="8" name="ejectCard">
-      <usermessage xmi:id="_d3Bo208SEea2T4KierPP2A" name="ejectCard" sender="_d3Bo6k8SEea2T4KierPP2A" receiver="_d3Bo608SEea2T4KierPP2A">
-        <operation xmi:id="_d3Bo3E8SEea2T4KierPP2A" name="ejectCard"/>
+    <communication xmi:type="mdd_1:UserCommunication" xmi:id="_eMKiqk8jEea2T4KierPP2A" order="8" name="printReceipt">
+      <usermessage xmi:id="_eMKiq08jEea2T4KierPP2A" name="printReceipt" sender="_eMKix08jEea2T4KierPP2A" receiver="_eMKiyU8jEea2T4KierPP2A">
+        <operation xmi:id="_eMKirE8jEea2T4KierPP2A" name="printReceipt"/>
       </usermessage>
-      <returned xmi:type="mdd_1:VoidValue" xmi:id="_d3Bo3U8SEea2T4KierPP2A"/>
+      <returned xmi:type="mdd_1:VoidValue" xmi:id="_eMKirU8jEea2T4KierPP2A"/>
     </communication>
-    <communication xmi:type="mdd_1:UserCommunication" xmi:id="_d3Bo3k8SEea2T4KierPP2A" order="9" name="requestTakeCard">
-      <usermessage xmi:id="_d3Bo308SEea2T4KierPP2A" name="requestTakeCard" sender="_d3Bo6k8SEea2T4KierPP2A" receiver="_d3Bo608SEea2T4KierPP2A">
-        <operation xmi:id="_d3Bo4E8SEea2T4KierPP2A" name="requestTakeCard"/>
+    <communication xmi:type="mdd_1:UserCommunication" xmi:id="_eMKirk8jEea2T4KierPP2A" order="9" name="ejectCard">
+      <usermessage xmi:id="_eMKir08jEea2T4KierPP2A" name="ejectCard" sender="_eMKix08jEea2T4KierPP2A" receiver="_eMKiyU8jEea2T4KierPP2A">
+        <operation xmi:id="_eMKisE8jEea2T4KierPP2A" name="ejectCard"/>
       </usermessage>
-      <returned xmi:type="mdd_1:VoidValue" xmi:id="_d3Bo4U8SEea2T4KierPP2A"/>
+      <returned xmi:type="mdd_1:VoidValue" xmi:id="_eMKisU8jEea2T4KierPP2A"/>
     </communication>
-    <state xmi:id="_d3Bo4k8SEea2T4KierPP2A" name="WaitBankVerify"/>
-    <state xmi:id="_d3Bo408SEea2T4KierPP2A" name="WaitVerify"/>
-    <state xmi:id="_d3Bo5E8SEea2T4KierPP2A" name="WaitPassword"/>
-    <state xmi:id="_d3Bo5U8SEea2T4KierPP2A" name="WaitPassword"/>
-    <state xmi:id="_d3Bo5k8SEea2T4KierPP2A" name="WaitBankVerify"/>
-    <state xmi:id="_d3Bo508SEea2T4KierPP2A" name="WaitVerify"/>
-    <state xmi:id="_d3Bo6E8SEea2T4KierPP2A" name="WaitTakeCard"/>
-    <actor xmi:type="mdd_1:SystemObject" xmi:id="_d3Bo6U8SEea2T4KierPP2A" name="bank"/>
-    <actor xmi:type="mdd_1:SystemObject" xmi:id="_d3Bo6k8SEea2T4KierPP2A" name="atm"/>
-    <actor xmi:type="mdd_1:User" xmi:id="_d3Bo608SEea2T4KierPP2A"/>
-    <actor xmi:type="mdd_1:SystemObject" xmi:id="_d3Bo7E8SEea2T4KierPP2A" name="consortium"/>
+    <communication xmi:type="mdd_1:UserCommunication" xmi:id="_eMKisk8jEea2T4KierPP2A" order="10" name="requestTakeCard">
+      <usermessage xmi:id="_eMKis08jEea2T4KierPP2A" name="requestTakeCard" sender="_eMKix08jEea2T4KierPP2A" receiver="_eMKiyU8jEea2T4KierPP2A">
+        <operation xmi:id="_eMKitE8jEea2T4KierPP2A" name="requestTakeCard"/>
+      </usermessage>
+      <returned xmi:type="mdd_1:VoidValue" xmi:id="_eMKitU8jEea2T4KierPP2A"/>
+    </communication>
+    <communication xmi:type="mdd_1:SystemCommunication" xmi:id="_eMKitk8jEea2T4KierPP2A" order="11" name="takeCard" prestate="_eMKiwk8jEea2T4KierPP2A" poststate="_eMKixU8jEea2T4KierPP2A">
+      <returned xmi:type="mdd_1:VoidValue" xmi:id="_eMKit08jEea2T4KierPP2A"/>
+      <systemmessage xmi:id="_eMKiuE8jEea2T4KierPP2A" name="takeCard" sender="_eMKiyU8jEea2T4KierPP2A" receiver="_eMKix08jEea2T4KierPP2A">
+        <operation xmi:id="_eMKiuU8jEea2T4KierPP2A" name="takeCard"/>
+      </systemmessage>
+    </communication>
+    <communication xmi:type="mdd_1:UserCommunication" xmi:id="_eMKiuk8jEea2T4KierPP2A" order="12" name="displayMainScreen">
+      <usermessage xmi:id="_eMKiu08jEea2T4KierPP2A" name="displayMainScreen" sender="_eMKix08jEea2T4KierPP2A" receiver="_eMKiyU8jEea2T4KierPP2A">
+        <operation xmi:id="_eMKivE8jEea2T4KierPP2A" name="displayMainScreen"/>
+      </usermessage>
+      <returned xmi:type="mdd_1:VoidValue" xmi:id="_eMKivU8jEea2T4KierPP2A"/>
+    </communication>
+    <state xmi:id="_eMKivk8jEea2T4KierPP2A" name="WaitBankVerify"/>
+    <state xmi:id="_eMKiv08jEea2T4KierPP2A" name="WaitVerify"/>
+    <state xmi:id="_eMKiwE8jEea2T4KierPP2A" name="WaitCard"/>
+    <state xmi:id="_eMKiwU8jEea2T4KierPP2A" name="WaitPassword"/>
+    <state xmi:id="_eMKiwk8jEea2T4KierPP2A" name="WaitTakeCard"/>
+    <state xmi:id="_eMKiw08jEea2T4KierPP2A" name="WaitBankVerify"/>
+    <state xmi:id="_eMKixE8jEea2T4KierPP2A" name="WaitVerify"/>
+    <state xmi:id="_eMKixU8jEea2T4KierPP2A" name="WaitCard"/>
+    <actor xmi:type="mdd_1:SystemObject" xmi:id="_eMKixk8jEea2T4KierPP2A" name="bank"/>
+    <actor xmi:type="mdd_1:SystemObject" xmi:id="_eMKix08jEea2T4KierPP2A" name="atm"/>
+    <actor xmi:type="mdd_1:SystemObject" xmi:id="_eMKiyE8jEea2T4KierPP2A" name="consortium"/>
+    <actor xmi:type="mdd_1:User" xmi:id="_eMKiyU8jEea2T4KierPP2A"/>
   </scenario>
-  <scenario xmi:id="_d3Bo7U8SEea2T4KierPP2A" name="Bad account">
-    <communication xmi:type="mdd_1:SystemCommunication" xmi:id="_d3Bo7k8SEea2T4KierPP2A" name="insertCard" prestate="_d3BpHE8SEea2T4KierPP2A" poststate="_d3BpHU8SEea2T4KierPP2A">
-      <returned xmi:type="mdd_1:VoidValue" xmi:id="_d3Bo708SEea2T4KierPP2A"/>
-      <systemmessage xmi:id="_d3Bo8E8SEea2T4KierPP2A" name="insertCard" sender="_d3BpIk8SEea2T4KierPP2A" receiver="_d3BpJE8SEea2T4KierPP2A">
-        <operation xmi:id="_d3Bo8U8SEea2T4KierPP2A" name="insertCard"/>
+  <scenario xmi:id="_eMKiyk8jEea2T4KierPP2A" name="01_Bad_password">
+    <communication xmi:type="mdd_1:SystemCommunication" xmi:id="_eMKiy08jEea2T4KierPP2A" name="enterPassword" prestate="_eMKi7U8jEea2T4KierPP2A" poststate="_eMKi7k8jEea2T4KierPP2A">
+      <returned xmi:type="mdd_1:VoidValue" xmi:id="_eMKizE8jEea2T4KierPP2A"/>
+      <systemmessage xmi:id="_eMKizU8jEea2T4KierPP2A" name="enterPassword" sender="_eMKi9E8jEea2T4KierPP2A" receiver="_eMKi9U8jEea2T4KierPP2A">
+        <operation xmi:id="_eMKizk8jEea2T4KierPP2A" name="enterPassword"/>
       </systemmessage>
     </communication>
-    <communication xmi:type="mdd_1:UserCommunication" xmi:id="_d3Bo8k8SEea2T4KierPP2A" order="1" name="requestPassword">
-      <usermessage xmi:id="_d3Bo808SEea2T4KierPP2A" name="requestPassword" sender="_d3BpJE8SEea2T4KierPP2A" receiver="_d3BpIk8SEea2T4KierPP2A">
-        <operation xmi:id="_d3Bo9E8SEea2T4KierPP2A" name="requestPassword"/>
-      </usermessage>
-      <returned xmi:type="mdd_1:VoidValue" xmi:id="_d3Bo9U8SEea2T4KierPP2A"/>
-    </communication>
-    <communication xmi:type="mdd_1:SystemCommunication" xmi:id="_d3Bo9k8SEea2T4KierPP2A" order="2" name="enterPassword" prestate="_d3BpHU8SEea2T4KierPP2A" poststate="_d3BpHk8SEea2T4KierPP2A">
-      <returned xmi:type="mdd_1:VoidValue" xmi:id="_d3Bo908SEea2T4KierPP2A"/>
-      <systemmessage xmi:id="_d3Bo-E8SEea2T4KierPP2A" name="enterPassword" sender="_d3BpIk8SEea2T4KierPP2A" receiver="_d3BpJE8SEea2T4KierPP2A">
-        <operation xmi:id="_d3Bo-U8SEea2T4KierPP2A" name="enterPassword"/>
+    <communication xmi:type="mdd_1:SystemCommunication" xmi:id="_eMKiz08jEea2T4KierPP2A" order="1" name="verifyAccount" prestate="_eMKi7E8jEea2T4KierPP2A" poststate="_eMKi8E8jEea2T4KierPP2A">
+      <returned xmi:type="mdd_1:Value" xmi:id="_eMKi0E8jEea2T4KierPP2A" value=":badPassword"/>
+      <systemmessage xmi:id="_eMKi0U8jEea2T4KierPP2A" name="verifyAccount" sender="_eMKi9U8jEea2T4KierPP2A" receiver="_eMKi808jEea2T4KierPP2A">
+        <operation xmi:id="_eMKi0k8jEea2T4KierPP2A" name="verifyAccount"/>
       </systemmessage>
     </communication>
-    <communication xmi:type="mdd_1:SystemCommunication" xmi:id="_d3Bo-k8SEea2T4KierPP2A" order="3" name="verifyAccount" prestate="_d3BpG08SEea2T4KierPP2A" poststate="_d3BpIE8SEea2T4KierPP2A">
-      <returned xmi:type="mdd_1:Value" xmi:id="_d3Bo-08SEea2T4KierPP2A" value=":badAccount"/>
-      <systemmessage xmi:id="_d3Bo_E8SEea2T4KierPP2A" name="verifyAccount" sender="_d3BpJE8SEea2T4KierPP2A" receiver="_d3BpJU8SEea2T4KierPP2A">
-        <operation xmi:id="_d3Bo_U8SEea2T4KierPP2A" name="verifyAccount"/>
+    <communication xmi:type="mdd_1:SystemCommunication" xmi:id="_eMKi008jEea2T4KierPP2A" order="2" name="verifyCardWithBank" prestate="_eMKi608jEea2T4KierPP2A" poststate="_eMKi708jEea2T4KierPP2A">
+      <returned xmi:type="mdd_1:Value" xmi:id="_eMKi1E8jEea2T4KierPP2A" value=":badBankPassword"/>
+      <systemmessage xmi:id="_eMKi1U8jEea2T4KierPP2A" name="verifyCardWithBank" sender="_eMKi808jEea2T4KierPP2A" receiver="_eMKi8k8jEea2T4KierPP2A">
+        <operation xmi:id="_eMKi1k8jEea2T4KierPP2A" name="verifyCardWithBank"/>
       </systemmessage>
     </communication>
-    <communication xmi:type="mdd_1:SystemCommunication" xmi:id="_d3Bo_k8SEea2T4KierPP2A" order="4" name="verifyCardWithBank" prestate="_d3BpGk8SEea2T4KierPP2A" poststate="_d3BpH08SEea2T4KierPP2A">
-      <returned xmi:type="mdd_1:Value" xmi:id="_d3Bo_08SEea2T4KierPP2A" value=":badBankAccount"/>
-      <systemmessage xmi:id="_d3BpAE8SEea2T4KierPP2A" name="verifyCardWithBank" sender="_d3BpJU8SEea2T4KierPP2A" receiver="_d3BpI08SEea2T4KierPP2A">
-        <operation xmi:id="_d3BpAU8SEea2T4KierPP2A" name="verifyCardWithBank"/>
+    <communication xmi:type="mdd_1:UserCommunication" xmi:id="_eMKi108jEea2T4KierPP2A" order="5" name="requestPassword">
+      <usermessage xmi:id="_eMKi2E8jEea2T4KierPP2A" name="requestPassword" sender="_eMKi9U8jEea2T4KierPP2A" receiver="_eMKi9E8jEea2T4KierPP2A">
+        <operation xmi:id="_eMKi2U8jEea2T4KierPP2A" name="requestPassword"/>
+      </usermessage>
+      <returned xmi:type="mdd_1:VoidValue" xmi:id="_eMKi2k8jEea2T4KierPP2A"/>
+    </communication>
+    <communication xmi:type="mdd_1:SystemCommunication" xmi:id="_eMKi208jEea2T4KierPP2A" order="6" name="cancel" prestate="_eMKi7k8jEea2T4KierPP2A" poststate="_eMKi8U8jEea2T4KierPP2A">
+      <returned xmi:type="mdd_1:VoidValue" xmi:id="_eMKi3E8jEea2T4KierPP2A"/>
+      <systemmessage xmi:id="_eMKi3U8jEea2T4KierPP2A" name="cancel" sender="_eMKi9E8jEea2T4KierPP2A" receiver="_eMKi9U8jEea2T4KierPP2A">
+        <operation xmi:id="_eMKi3k8jEea2T4KierPP2A" name="cancel"/>
       </systemmessage>
     </communication>
-    <communication xmi:type="mdd_1:UserCommunication" xmi:id="_d3BpAk8SEea2T4KierPP2A" order="7" name="badAccountMessage">
-      <usermessage xmi:id="_d3BpA08SEea2T4KierPP2A" name="badAccountMessage" sender="_d3BpJE8SEea2T4KierPP2A" receiver="_d3BpIk8SEea2T4KierPP2A">
-        <operation xmi:id="_d3BpBE8SEea2T4KierPP2A" name="badAccountMessage"/>
+    <communication xmi:type="mdd_1:UserCommunication" xmi:id="_eMKi308jEea2T4KierPP2A" order="7" name="canceledMessage">
+      <usermessage xmi:id="_eMKi4E8jEea2T4KierPP2A" name="canceledMessage" sender="_eMKi9U8jEea2T4KierPP2A" receiver="_eMKi9E8jEea2T4KierPP2A">
+        <operation xmi:id="_eMKi4U8jEea2T4KierPP2A" name="canceledMessage"/>
       </usermessage>
-      <returned xmi:type="mdd_1:VoidValue" xmi:id="_d3BpBU8SEea2T4KierPP2A"/>
+      <returned xmi:type="mdd_1:VoidValue" xmi:id="_eMKi4k8jEea2T4KierPP2A"/>
     </communication>
-    <communication xmi:type="mdd_1:UserCommunication" xmi:id="_d3BpBk8SEea2T4KierPP2A" order="8" name="printReceipt">
-      <usermessage xmi:id="_d3BpB08SEea2T4KierPP2A" name="printReceipt" sender="_d3BpJE8SEea2T4KierPP2A" receiver="_d3BpIk8SEea2T4KierPP2A">
-        <operation xmi:id="_d3BpCE8SEea2T4KierPP2A" name="printReceipt"/>
+    <communication xmi:type="mdd_1:UserCommunication" xmi:id="_eMKi408jEea2T4KierPP2A" order="8" name="ejectCard">
+      <usermessage xmi:id="_eMKi5E8jEea2T4KierPP2A" name="ejectCard" sender="_eMKi9U8jEea2T4KierPP2A" receiver="_eMKi9E8jEea2T4KierPP2A">
+        <operation xmi:id="_eMKi5U8jEea2T4KierPP2A" name="ejectCard"/>
       </usermessage>
-      <returned xmi:type="mdd_1:VoidValue" xmi:id="_d3BpCU8SEea2T4KierPP2A"/>
+      <returned xmi:type="mdd_1:VoidValue" xmi:id="_eMKi5k8jEea2T4KierPP2A"/>
     </communication>
-    <communication xmi:type="mdd_1:UserCommunication" xmi:id="_d3BpCk8SEea2T4KierPP2A" order="9" name="ejectCard">
-      <usermessage xmi:id="_d3BpC08SEea2T4KierPP2A" name="ejectCard" sender="_d3BpJE8SEea2T4KierPP2A" receiver="_d3BpIk8SEea2T4KierPP2A">
-        <operation xmi:id="_d3BpDE8SEea2T4KierPP2A" name="ejectCard"/>
+    <communication xmi:type="mdd_1:UserCommunication" xmi:id="_eMKi508jEea2T4KierPP2A" order="9" name="requestTakeCard">
+      <usermessage xmi:id="_eMKi6E8jEea2T4KierPP2A" name="requestTakeCard" sender="_eMKi9U8jEea2T4KierPP2A" receiver="_eMKi9E8jEea2T4KierPP2A">
+        <operation xmi:id="_eMKi6U8jEea2T4KierPP2A" name="requestTakeCard"/>
       </usermessage>
-      <returned xmi:type="mdd_1:VoidValue" xmi:id="_d3BpDU8SEea2T4KierPP2A"/>
+      <returned xmi:type="mdd_1:VoidValue" xmi:id="_eMKi6k8jEea2T4KierPP2A"/>
     </communication>
-    <communication xmi:type="mdd_1:UserCommunication" xmi:id="_d3BpDk8SEea2T4KierPP2A" order="10" name="requestTakeCard">
-      <usermessage xmi:id="_d3BpD08SEea2T4KierPP2A" name="requestTakeCard" sender="_d3BpJE8SEea2T4KierPP2A" receiver="_d3BpIk8SEea2T4KierPP2A">
-        <operation xmi:id="_d3BpEE8SEea2T4KierPP2A" name="requestTakeCard"/>
-      </usermessage>
-      <returned xmi:type="mdd_1:VoidValue" xmi:id="_d3BpEU8SEea2T4KierPP2A"/>
-    </communication>
-    <communication xmi:type="mdd_1:SystemCommunication" xmi:id="_d3BpEk8SEea2T4KierPP2A" order="11" name="takeCard" prestate="_d3BpHk8SEea2T4KierPP2A" poststate="_d3BpIU8SEea2T4KierPP2A">
-      <returned xmi:type="mdd_1:VoidValue" xmi:id="_d3BpE08SEea2T4KierPP2A"/>
-      <systemmessage xmi:id="_d3BpFE8SEea2T4KierPP2A" name="takeCard" sender="_d3BpIk8SEea2T4KierPP2A" receiver="_d3BpJE8SEea2T4KierPP2A">
-        <operation xmi:id="_d3BpFU8SEea2T4KierPP2A" name="takeCard"/>
-      </systemmessage>
-    </communication>
-    <communication xmi:type="mdd_1:UserCommunication" xmi:id="_d3BpFk8SEea2T4KierPP2A" order="12" name="displayMainScreen">
-      <usermessage xmi:id="_d3BpF08SEea2T4KierPP2A" name="displayMainScreen" sender="_d3BpJE8SEea2T4KierPP2A" receiver="_d3BpIk8SEea2T4KierPP2A">
-        <operation xmi:id="_d3BpGE8SEea2T4KierPP2A" name="displayMainScreen"/>
-      </usermessage>
-      <returned xmi:type="mdd_1:VoidValue" xmi:id="_d3BpGU8SEea2T4KierPP2A"/>
-    </communication>
-    <state xmi:id="_d3BpGk8SEea2T4KierPP2A" name="WaitBankVerify"/>
-    <state xmi:id="_d3BpG08SEea2T4KierPP2A" name="WaitVerify"/>
-    <state xmi:id="_d3BpHE8SEea2T4KierPP2A" name="WaitCard"/>
-    <state xmi:id="_d3BpHU8SEea2T4KierPP2A" name="WaitPassword"/>
-    <state xmi:id="_d3BpHk8SEea2T4KierPP2A" name="WaitTakeCard"/>
-    <state xmi:id="_d3BpH08SEea2T4KierPP2A" name="WaitBankVerify"/>
-    <state xmi:id="_d3BpIE8SEea2T4KierPP2A" name="WaitVerify"/>
-    <state xmi:id="_d3BpIU8SEea2T4KierPP2A" name="WaitCard"/>
-    <actor xmi:type="mdd_1:User" xmi:id="_d3BpIk8SEea2T4KierPP2A"/>
-    <actor xmi:type="mdd_1:SystemObject" xmi:id="_d3BpI08SEea2T4KierPP2A" name="bank"/>
-    <actor xmi:type="mdd_1:SystemObject" xmi:id="_d3BpJE8SEea2T4KierPP2A" name="atm"/>
-    <actor xmi:type="mdd_1:SystemObject" xmi:id="_d3BpJU8SEea2T4KierPP2A" name="consortium"/>
+    <state xmi:id="_eMKi608jEea2T4KierPP2A" name="WaitBankVerify"/>
+    <state xmi:id="_eMKi7E8jEea2T4KierPP2A" name="WaitVerify"/>
+    <state xmi:id="_eMKi7U8jEea2T4KierPP2A" name="WaitPassword"/>
+    <state xmi:id="_eMKi7k8jEea2T4KierPP2A" name="WaitPassword"/>
+    <state xmi:id="_eMKi708jEea2T4KierPP2A" name="WaitBankVerify"/>
+    <state xmi:id="_eMKi8E8jEea2T4KierPP2A" name="WaitVerify"/>
+    <state xmi:id="_eMKi8U8jEea2T4KierPP2A" name="WaitTakeCard"/>
+    <actor xmi:type="mdd_1:SystemObject" xmi:id="_eMKi8k8jEea2T4KierPP2A" name="bank"/>
+    <actor xmi:type="mdd_1:SystemObject" xmi:id="_eMKi808jEea2T4KierPP2A" name="consortium"/>
+    <actor xmi:type="mdd_1:User" xmi:id="_eMKi9E8jEea2T4KierPP2A"/>
+    <actor xmi:type="mdd_1:SystemObject" xmi:id="_eMKi9U8jEea2T4KierPP2A" name="atm"/>
   </scenario>
 </mdd:ScenarioTablePackage>

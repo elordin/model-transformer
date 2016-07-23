@@ -1,178 +1,178 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mdd:BehaviourTablePackage xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdd="se.studieren.mdd.transformer.BehaviourTablePackage" xmlns:mdd_1="se.studieren.mdd.transformer.BehaviourTable" xsi:schemaLocation="se.studieren.mdd.transformer.BehaviourTablePackage ../BehaviourTablePackage.ecore se.studieren.mdd.transformer.BehaviourTable ../BehaviourTable.ecore" xmi:id="_wPBAcE7VEeaqGKhxzrkIRQ">
-  <behaviour xmi:id="_wPBAcU7VEeaqGKhxzrkIRQ">
-    <block xmi:id="_wPBAck7VEeaqGKhxzrkIRQ" preState="_wPBAfE7VEeaqGKhxzrkIRQ" postState="_wPBAfU7VEeaqGKhxzrkIRQ">
-      <inmessage xmi:id="_wPBAc07VEeaqGKhxzrkIRQ">
-        <operation xmi:id="_wPBAdE7VEeaqGKhxzrkIRQ" name="verifyAccount"/>
+<mdd:BehaviourTablePackage xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdd="se.studieren.mdd.transformer.BehaviourTablePackage" xmlns:mdd_1="se.studieren.mdd.transformer.BehaviourTable" xsi:schemaLocation="se.studieren.mdd.transformer.BehaviourTablePackage ../BehaviourTablePackage.ecore se.studieren.mdd.transformer.BehaviourTable ../BehaviourTable.ecore" xmi:id="_joF_wE8jEea2T4KierPP2A">
+  <behaviour xmi:id="_joF_wU8jEea2T4KierPP2A">
+    <block xmi:id="_joF_wk8jEea2T4KierPP2A" preState="_joF_yE8jEea2T4KierPP2A" postState="_joF_yU8jEea2T4KierPP2A">
+      <inmessage xmi:id="_joF_w08jEea2T4KierPP2A">
+        <operation xmi:id="_joF_xE8jEea2T4KierPP2A" name="verifyCardWithBank"/>
       </inmessage>
-      <activation xmi:id="_wPBAdU7VEeaqGKhxzrkIRQ">
-        <outmessages xmi:id="_wPBAdk7VEeaqGKhxzrkIRQ">
-          <actorobject xmi:type="mdd_1:SystemObject" xmi:id="_wPBAd07VEeaqGKhxzrkIRQ" name="bank"/>
-          <operation xmi:id="_wPBAeE7VEeaqGKhxzrkIRQ" name="verifyCardWithBank"/>
-          <returnvalue xmi:type="mdd_1:Value" xmi:id="_wPBAeU7VEeaqGKhxzrkIRQ" value="05_:badBankAccount"/>
-        </outmessages>
-        <returnvalue xmi:type="mdd_1:Value" xmi:id="_wPBAek7VEeaqGKhxzrkIRQ" value="06_:badAccount"/>
+      <activation xmi:id="_joF_xU8jEea2T4KierPP2A">
+        <returnvalue xmi:type="mdd_1:Value" xmi:id="_joF_xk8jEea2T4KierPP2A" value=":badBankAccount"/>
       </activation>
     </block>
-    <systemobject xmi:id="_wPBAe07VEeaqGKhxzrkIRQ" name="consortium"/>
-    <state xmi:id="_wPBAfE7VEeaqGKhxzrkIRQ" name="WaitVerify"/>
-    <state xmi:id="_wPBAfU7VEeaqGKhxzrkIRQ" name="WaitVerify"/>
+    <systemobject xmi:id="_joF_x08jEea2T4KierPP2A" name="bank"/>
+    <state xmi:id="_joF_yE8jEea2T4KierPP2A" name="WaitBankVerify"/>
+    <state xmi:id="_joF_yU8jEea2T4KierPP2A" name="WaitBankVerify"/>
   </behaviour>
-  <behaviour xmi:id="_wPBAfk7VEeaqGKhxzrkIRQ">
-    <block xmi:id="_wPBAf07VEeaqGKhxzrkIRQ" preState="_wPBAhU7VEeaqGKhxzrkIRQ" postState="_wPBAhk7VEeaqGKhxzrkIRQ">
-      <inmessage xmi:id="_wPBAgE7VEeaqGKhxzrkIRQ">
-        <operation xmi:id="_wPBAgU7VEeaqGKhxzrkIRQ" name="verifyCardWithBank"/>
+  <behaviour xmi:id="_joF_yk8jEea2T4KierPP2A">
+    <block xmi:id="_joF_y08jEea2T4KierPP2A" preState="_joF_908jEea2T4KierPP2A" postState="_joF_-E8jEea2T4KierPP2A">
+      <inmessage xmi:id="_joF_zE8jEea2T4KierPP2A">
+        <operation xmi:id="_joF_zU8jEea2T4KierPP2A" name="insertCard"/>
       </inmessage>
-      <activation xmi:id="_wPBAgk7VEeaqGKhxzrkIRQ">
-        <returnvalue xmi:type="mdd_1:Value" xmi:id="_wPBAg07VEeaqGKhxzrkIRQ" value="05_:badBankAccount"/>
+      <activation xmi:id="_joF_zk8jEea2T4KierPP2A">
+        <outmessages xmi:id="_joF_z08jEea2T4KierPP2A">
+          <actorobject xmi:type="mdd_1:User" xmi:id="_joF_0E8jEea2T4KierPP2A"/>
+          <operation xmi:id="_joF_0U8jEea2T4KierPP2A" name="requestPassword"/>
+          <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_joF_0k8jEea2T4KierPP2A"/>
+        </outmessages>
+        <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_joF_008jEea2T4KierPP2A"/>
       </activation>
     </block>
-    <systemobject xmi:id="_wPBAhE7VEeaqGKhxzrkIRQ" name="bank"/>
-    <state xmi:id="_wPBAhU7VEeaqGKhxzrkIRQ" name="WaitBankVerify"/>
-    <state xmi:id="_wPBAhk7VEeaqGKhxzrkIRQ" name="WaitBankVerify"/>
+    <block xmi:id="_joF_1E8jEea2T4KierPP2A" preState="_joF_-E8jEea2T4KierPP2A" postState="_joF_-U8jEea2T4KierPP2A">
+      <inmessage xmi:id="_joF_1U8jEea2T4KierPP2A">
+        <operation xmi:id="_joF_1k8jEea2T4KierPP2A" name="enterPassword"/>
+      </inmessage>
+      <activation xmi:id="_joF_108jEea2T4KierPP2A">
+        <outmessages xmi:id="_joF_2E8jEea2T4KierPP2A">
+          <actorobject xmi:type="mdd_1:SystemObject" xmi:id="_joF_2U8jEea2T4KierPP2A" name="consortium"/>
+          <operation xmi:id="_joF_2k8jEea2T4KierPP2A" name="verifyAccount"/>
+          <returnvalue xmi:type="mdd_1:Value" xmi:id="_joF_208jEea2T4KierPP2A" value=":badAccount"/>
+        </outmessages>
+        <outmessages xmi:id="_joF_3E8jEea2T4KierPP2A">
+          <actorobject xmi:type="mdd_1:User" xmi:id="_joF_3U8jEea2T4KierPP2A"/>
+          <operation xmi:id="_joF_3k8jEea2T4KierPP2A" name="badAccountMessage"/>
+          <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_joF_308jEea2T4KierPP2A"/>
+        </outmessages>
+        <outmessages xmi:id="_joF_4E8jEea2T4KierPP2A">
+          <actorobject xmi:type="mdd_1:User" xmi:id="_joF_4U8jEea2T4KierPP2A"/>
+          <operation xmi:id="_joF_4k8jEea2T4KierPP2A" name="printReceipt"/>
+          <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_joF_408jEea2T4KierPP2A"/>
+        </outmessages>
+        <outmessages xmi:id="_joF_5E8jEea2T4KierPP2A">
+          <actorobject xmi:type="mdd_1:User" xmi:id="_joF_5U8jEea2T4KierPP2A"/>
+          <operation xmi:id="_joF_5k8jEea2T4KierPP2A" name="ejectCard"/>
+          <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_joF_508jEea2T4KierPP2A"/>
+        </outmessages>
+        <outmessages xmi:id="_joF_6E8jEea2T4KierPP2A">
+          <actorobject xmi:type="mdd_1:User" xmi:id="_joF_6U8jEea2T4KierPP2A"/>
+          <operation xmi:id="_joF_6k8jEea2T4KierPP2A" name="requestTakeCard"/>
+          <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_joF_608jEea2T4KierPP2A"/>
+        </outmessages>
+        <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_joF_7E8jEea2T4KierPP2A"/>
+      </activation>
+    </block>
+    <block xmi:id="_joF_7U8jEea2T4KierPP2A" preState="_joF_-U8jEea2T4KierPP2A" postState="_joF_-k8jEea2T4KierPP2A">
+      <inmessage xmi:id="_joF_7k8jEea2T4KierPP2A">
+        <operation xmi:id="_joF_708jEea2T4KierPP2A" name="takeCard"/>
+      </inmessage>
+      <activation xmi:id="_joF_8E8jEea2T4KierPP2A">
+        <outmessages xmi:id="_joF_8U8jEea2T4KierPP2A">
+          <actorobject xmi:type="mdd_1:User" xmi:id="_joF_8k8jEea2T4KierPP2A"/>
+          <operation xmi:id="_joF_808jEea2T4KierPP2A" name="displayMainScreen"/>
+          <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_joF_9E8jEea2T4KierPP2A"/>
+        </outmessages>
+        <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_joF_9U8jEea2T4KierPP2A"/>
+      </activation>
+    </block>
+    <systemobject xmi:id="_joF_9k8jEea2T4KierPP2A" name="atm"/>
+    <state xmi:id="_joF_908jEea2T4KierPP2A" name="WaitCard"/>
+    <state xmi:id="_joF_-E8jEea2T4KierPP2A" name="WaitPassword"/>
+    <state xmi:id="_joF_-U8jEea2T4KierPP2A" name="WaitTakeCard"/>
+    <state xmi:id="_joF_-k8jEea2T4KierPP2A" name="WaitCard"/>
   </behaviour>
-  <behaviour xmi:id="_wPBAh07VEeaqGKhxzrkIRQ">
-    <block xmi:id="_wPBAiE7VEeaqGKhxzrkIRQ" preState="_wPBAtE7VEeaqGKhxzrkIRQ" postState="_wPBAtU7VEeaqGKhxzrkIRQ">
-      <inmessage xmi:id="_wPBAiU7VEeaqGKhxzrkIRQ">
-        <operation xmi:id="_wPBAik7VEeaqGKhxzrkIRQ" name="insertCard"/>
+  <behaviour xmi:id="_joF_-08jEea2T4KierPP2A">
+    <block xmi:id="_joF__E8jEea2T4KierPP2A" preState="_joGABk8jEea2T4KierPP2A" postState="_joGAB08jEea2T4KierPP2A">
+      <inmessage xmi:id="_joF__U8jEea2T4KierPP2A">
+        <operation xmi:id="_joF__k8jEea2T4KierPP2A" name="verifyAccount"/>
       </inmessage>
-      <activation xmi:id="_wPBAi07VEeaqGKhxzrkIRQ">
-        <outmessages xmi:id="_wPBAjE7VEeaqGKhxzrkIRQ">
-          <actorobject xmi:type="mdd_1:User" xmi:id="_wPBAjU7VEeaqGKhxzrkIRQ"/>
-          <operation xmi:id="_wPBAjk7VEeaqGKhxzrkIRQ" name="requestPassword"/>
-          <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_wPBAj07VEeaqGKhxzrkIRQ"/>
+      <activation xmi:id="_joF__08jEea2T4KierPP2A">
+        <outmessages xmi:id="_joGAAE8jEea2T4KierPP2A">
+          <actorobject xmi:type="mdd_1:SystemObject" xmi:id="_joGAAU8jEea2T4KierPP2A" name="bank"/>
+          <operation xmi:id="_joGAAk8jEea2T4KierPP2A" name="verifyCardWithBank"/>
+          <returnvalue xmi:type="mdd_1:Value" xmi:id="_joGAA08jEea2T4KierPP2A" value=":badBankAccount"/>
         </outmessages>
-        <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_wPBAkE7VEeaqGKhxzrkIRQ"/>
+        <returnvalue xmi:type="mdd_1:Value" xmi:id="_joGABE8jEea2T4KierPP2A" value=":badAccount"/>
       </activation>
     </block>
-    <block xmi:id="_wPBAkU7VEeaqGKhxzrkIRQ" preState="_wPBAtU7VEeaqGKhxzrkIRQ" postState="_wPBAtk7VEeaqGKhxzrkIRQ">
-      <inmessage xmi:id="_wPBAkk7VEeaqGKhxzrkIRQ">
-        <operation xmi:id="_wPBAk07VEeaqGKhxzrkIRQ" name="enterPassword"/>
-      </inmessage>
-      <activation xmi:id="_wPBAlE7VEeaqGKhxzrkIRQ">
-        <outmessages xmi:id="_wPBAlU7VEeaqGKhxzrkIRQ">
-          <actorobject xmi:type="mdd_1:SystemObject" xmi:id="_wPBAlk7VEeaqGKhxzrkIRQ" name="consortium"/>
-          <operation xmi:id="_wPBAl07VEeaqGKhxzrkIRQ" name="verifyAccount"/>
-          <returnvalue xmi:type="mdd_1:Value" xmi:id="_wPBAmE7VEeaqGKhxzrkIRQ" value="06_:badAccount"/>
-        </outmessages>
-        <outmessages xmi:id="_wPBAmU7VEeaqGKhxzrkIRQ">
-          <actorobject xmi:type="mdd_1:User" xmi:id="_wPBAmk7VEeaqGKhxzrkIRQ"/>
-          <operation xmi:id="_wPBAm07VEeaqGKhxzrkIRQ" name="badAccountMessage"/>
-          <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_wPBAnE7VEeaqGKhxzrkIRQ"/>
-        </outmessages>
-        <outmessages xmi:id="_wPBAnU7VEeaqGKhxzrkIRQ">
-          <actorobject xmi:type="mdd_1:User" xmi:id="_wPBAnk7VEeaqGKhxzrkIRQ"/>
-          <operation xmi:id="_wPBAn07VEeaqGKhxzrkIRQ" name="printReceipt"/>
-          <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_wPBAoE7VEeaqGKhxzrkIRQ"/>
-        </outmessages>
-        <outmessages xmi:id="_wPBAoU7VEeaqGKhxzrkIRQ">
-          <actorobject xmi:type="mdd_1:User" xmi:id="_wPBAok7VEeaqGKhxzrkIRQ"/>
-          <operation xmi:id="_wPBAo07VEeaqGKhxzrkIRQ" name="ejectCard"/>
-          <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_wPBApE7VEeaqGKhxzrkIRQ"/>
-        </outmessages>
-        <outmessages xmi:id="_wPBApU7VEeaqGKhxzrkIRQ">
-          <actorobject xmi:type="mdd_1:User" xmi:id="_wPBApk7VEeaqGKhxzrkIRQ"/>
-          <operation xmi:id="_wPBAp07VEeaqGKhxzrkIRQ" name="requestTakeCard"/>
-          <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_wPBAqE7VEeaqGKhxzrkIRQ"/>
-        </outmessages>
-        <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_wPBAqU7VEeaqGKhxzrkIRQ"/>
-      </activation>
-    </block>
-    <block xmi:id="_wPBAqk7VEeaqGKhxzrkIRQ" preState="_wPBAtk7VEeaqGKhxzrkIRQ" postState="_wPBAt07VEeaqGKhxzrkIRQ">
-      <inmessage xmi:id="_wPBAq07VEeaqGKhxzrkIRQ">
-        <operation xmi:id="_wPBArE7VEeaqGKhxzrkIRQ" name="takeCard"/>
-      </inmessage>
-      <activation xmi:id="_wPBArU7VEeaqGKhxzrkIRQ">
-        <outmessages xmi:id="_wPBArk7VEeaqGKhxzrkIRQ">
-          <actorobject xmi:type="mdd_1:User" xmi:id="_wPBAr07VEeaqGKhxzrkIRQ"/>
-          <operation xmi:id="_wPBAsE7VEeaqGKhxzrkIRQ" name="displayMainScreen"/>
-          <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_wPBAsU7VEeaqGKhxzrkIRQ"/>
-        </outmessages>
-        <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_wPBAsk7VEeaqGKhxzrkIRQ"/>
-      </activation>
-    </block>
-    <systemobject xmi:id="_wPBAs07VEeaqGKhxzrkIRQ" name="atm"/>
-    <state xmi:id="_wPBAtE7VEeaqGKhxzrkIRQ" name="WaitCard"/>
-    <state xmi:id="_wPBAtU7VEeaqGKhxzrkIRQ" name="WaitPassword"/>
-    <state xmi:id="_wPBAtk7VEeaqGKhxzrkIRQ" name="WaitTakeCard"/>
-    <state xmi:id="_wPBAt07VEeaqGKhxzrkIRQ" name="WaitCard"/>
+    <systemobject xmi:id="_joGABU8jEea2T4KierPP2A" name="consortium"/>
+    <state xmi:id="_joGABk8jEea2T4KierPP2A" name="WaitVerify"/>
+    <state xmi:id="_joGAB08jEea2T4KierPP2A" name="WaitVerify"/>
   </behaviour>
-  <behaviour xmi:id="_wPBAuE7VEeaqGKhxzrkIRQ">
-    <block xmi:id="_wPBAuU7VEeaqGKhxzrkIRQ" preState="_wPBAv07VEeaqGKhxzrkIRQ" postState="_wPBAwE7VEeaqGKhxzrkIRQ">
-      <inmessage xmi:id="_wPBAuk7VEeaqGKhxzrkIRQ">
-        <operation xmi:id="_wPBAu07VEeaqGKhxzrkIRQ" name="verifyCardWithBank"/>
+  <behaviour xmi:id="_joGACE8jEea2T4KierPP2A">
+    <block xmi:id="_joGACU8jEea2T4KierPP2A" preState="_joGAD08jEea2T4KierPP2A" postState="_joGAEE8jEea2T4KierPP2A">
+      <inmessage xmi:id="_joGACk8jEea2T4KierPP2A">
+        <operation xmi:id="_joGAC08jEea2T4KierPP2A" name="verifyCardWithBank"/>
       </inmessage>
-      <activation xmi:id="_wPBAvE7VEeaqGKhxzrkIRQ">
-        <returnvalue xmi:type="mdd_1:Value" xmi:id="_wPBAvU7VEeaqGKhxzrkIRQ" value="03_:badBankPassword"/>
+      <activation xmi:id="_joGADE8jEea2T4KierPP2A">
+        <returnvalue xmi:type="mdd_1:Value" xmi:id="_joGADU8jEea2T4KierPP2A" value=":badBankPassword"/>
       </activation>
     </block>
-    <systemobject xmi:id="_wPBAvk7VEeaqGKhxzrkIRQ" name="bank"/>
-    <state xmi:id="_wPBAv07VEeaqGKhxzrkIRQ" name="WaitBankVerify"/>
-    <state xmi:id="_wPBAwE7VEeaqGKhxzrkIRQ" name="WaitBankVerify"/>
+    <systemobject xmi:id="_joGADk8jEea2T4KierPP2A" name="bank"/>
+    <state xmi:id="_joGAD08jEea2T4KierPP2A" name="WaitBankVerify"/>
+    <state xmi:id="_joGAEE8jEea2T4KierPP2A" name="WaitBankVerify"/>
   </behaviour>
-  <behaviour xmi:id="_wPBAwU7VEeaqGKhxzrkIRQ">
-    <block xmi:id="_wPBAwk7VEeaqGKhxzrkIRQ" preState="_wPBA4U7VEeaqGKhxzrkIRQ" postState="_wPBA4k7VEeaqGKhxzrkIRQ">
-      <inmessage xmi:id="_wPBAw07VEeaqGKhxzrkIRQ">
-        <operation xmi:id="_wPBAxE7VEeaqGKhxzrkIRQ" name="enterPassword"/>
+  <behaviour xmi:id="_joGAEU8jEea2T4KierPP2A">
+    <block xmi:id="_joGAEk8jEea2T4KierPP2A" preState="_joGAHE8jEea2T4KierPP2A" postState="_joGAHU8jEea2T4KierPP2A">
+      <inmessage xmi:id="_joGAE08jEea2T4KierPP2A">
+        <operation xmi:id="_joGAFE8jEea2T4KierPP2A" name="verifyAccount"/>
       </inmessage>
-      <activation xmi:id="_wPBAxU7VEeaqGKhxzrkIRQ">
-        <outmessages xmi:id="_wPBAxk7VEeaqGKhxzrkIRQ">
-          <actorobject xmi:type="mdd_1:SystemObject" xmi:id="_wPBAx07VEeaqGKhxzrkIRQ" name="consortium"/>
-          <operation xmi:id="_wPBAyE7VEeaqGKhxzrkIRQ" name="verifyAccount"/>
-          <returnvalue xmi:type="mdd_1:Value" xmi:id="_wPBAyU7VEeaqGKhxzrkIRQ" value="04_:badPassword"/>
+      <activation xmi:id="_joGAFU8jEea2T4KierPP2A">
+        <outmessages xmi:id="_joGAFk8jEea2T4KierPP2A">
+          <actorobject xmi:type="mdd_1:SystemObject" xmi:id="_joGAF08jEea2T4KierPP2A" name="bank"/>
+          <operation xmi:id="_joGAGE8jEea2T4KierPP2A" name="verifyCardWithBank"/>
+          <returnvalue xmi:type="mdd_1:Value" xmi:id="_joGAGU8jEea2T4KierPP2A" value=":badBankPassword"/>
         </outmessages>
-        <outmessages xmi:id="_wPBAyk7VEeaqGKhxzrkIRQ">
-          <actorobject xmi:type="mdd_1:User" xmi:id="_wPBAy07VEeaqGKhxzrkIRQ"/>
-          <operation xmi:id="_wPBAzE7VEeaqGKhxzrkIRQ" name="requestPassword"/>
-          <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_wPBAzU7VEeaqGKhxzrkIRQ"/>
-        </outmessages>
-        <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_wPBAzk7VEeaqGKhxzrkIRQ"/>
+        <returnvalue xmi:type="mdd_1:Value" xmi:id="_joGAGk8jEea2T4KierPP2A" value=":badPassword"/>
       </activation>
     </block>
-    <block xmi:id="_wPBAz07VEeaqGKhxzrkIRQ" preState="_wPBA4k7VEeaqGKhxzrkIRQ" postState="_wPBA407VEeaqGKhxzrkIRQ">
-      <inmessage xmi:id="_wPBA0E7VEeaqGKhxzrkIRQ">
-        <operation xmi:id="_wPBA0U7VEeaqGKhxzrkIRQ" name="cancel"/>
-      </inmessage>
-      <activation xmi:id="_wPBA0k7VEeaqGKhxzrkIRQ">
-        <outmessages xmi:id="_wPBA007VEeaqGKhxzrkIRQ">
-          <actorobject xmi:type="mdd_1:User" xmi:id="_wPBA1E7VEeaqGKhxzrkIRQ"/>
-          <operation xmi:id="_wPBA1U7VEeaqGKhxzrkIRQ" name="canceledMessage"/>
-          <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_wPBA1k7VEeaqGKhxzrkIRQ"/>
-        </outmessages>
-        <outmessages xmi:id="_wPBA107VEeaqGKhxzrkIRQ">
-          <actorobject xmi:type="mdd_1:User" xmi:id="_wPBA2E7VEeaqGKhxzrkIRQ"/>
-          <operation xmi:id="_wPBA2U7VEeaqGKhxzrkIRQ" name="ejectCard"/>
-          <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_wPBA2k7VEeaqGKhxzrkIRQ"/>
-        </outmessages>
-        <outmessages xmi:id="_wPBA207VEeaqGKhxzrkIRQ">
-          <actorobject xmi:type="mdd_1:User" xmi:id="_wPBA3E7VEeaqGKhxzrkIRQ"/>
-          <operation xmi:id="_wPBA3U7VEeaqGKhxzrkIRQ" name="requestTakeCard"/>
-          <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_wPBA3k7VEeaqGKhxzrkIRQ"/>
-        </outmessages>
-        <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_wPBA307VEeaqGKhxzrkIRQ"/>
-      </activation>
-    </block>
-    <systemobject xmi:id="_wPBA4E7VEeaqGKhxzrkIRQ" name="atm"/>
-    <state xmi:id="_wPBA4U7VEeaqGKhxzrkIRQ" name="WaitPassword"/>
-    <state xmi:id="_wPBA4k7VEeaqGKhxzrkIRQ" name="WaitPassword"/>
-    <state xmi:id="_wPBA407VEeaqGKhxzrkIRQ" name="WaitTakeCard"/>
+    <systemobject xmi:id="_joGAG08jEea2T4KierPP2A" name="consortium"/>
+    <state xmi:id="_joGAHE8jEea2T4KierPP2A" name="WaitVerify"/>
+    <state xmi:id="_joGAHU8jEea2T4KierPP2A" name="WaitVerify"/>
   </behaviour>
-  <behaviour xmi:id="_wPBA5E7VEeaqGKhxzrkIRQ">
-    <block xmi:id="_wPBA5U7VEeaqGKhxzrkIRQ" preState="_wPBA707VEeaqGKhxzrkIRQ" postState="_wPBA8E7VEeaqGKhxzrkIRQ">
-      <inmessage xmi:id="_wPBA5k7VEeaqGKhxzrkIRQ">
-        <operation xmi:id="_wPBA507VEeaqGKhxzrkIRQ" name="verifyAccount"/>
+  <behaviour xmi:id="_joGAHk8jEea2T4KierPP2A">
+    <block xmi:id="_joGAH08jEea2T4KierPP2A" preState="_joGAPk8jEea2T4KierPP2A" postState="_joGAP08jEea2T4KierPP2A">
+      <inmessage xmi:id="_joGAIE8jEea2T4KierPP2A">
+        <operation xmi:id="_joGAIU8jEea2T4KierPP2A" name="enterPassword"/>
       </inmessage>
-      <activation xmi:id="_wPBA6E7VEeaqGKhxzrkIRQ">
-        <outmessages xmi:id="_wPBA6U7VEeaqGKhxzrkIRQ">
-          <actorobject xmi:type="mdd_1:SystemObject" xmi:id="_wPBA6k7VEeaqGKhxzrkIRQ" name="bank"/>
-          <operation xmi:id="_wPBA607VEeaqGKhxzrkIRQ" name="verifyCardWithBank"/>
-          <returnvalue xmi:type="mdd_1:Value" xmi:id="_wPBA7E7VEeaqGKhxzrkIRQ" value="03_:badBankPassword"/>
+      <activation xmi:id="_joGAIk8jEea2T4KierPP2A">
+        <outmessages xmi:id="_joGAI08jEea2T4KierPP2A">
+          <actorobject xmi:type="mdd_1:SystemObject" xmi:id="_joGAJE8jEea2T4KierPP2A" name="consortium"/>
+          <operation xmi:id="_joGAJU8jEea2T4KierPP2A" name="verifyAccount"/>
+          <returnvalue xmi:type="mdd_1:Value" xmi:id="_joGAJk8jEea2T4KierPP2A" value=":badPassword"/>
         </outmessages>
-        <returnvalue xmi:type="mdd_1:Value" xmi:id="_wPBA7U7VEeaqGKhxzrkIRQ" value="04_:badPassword"/>
+        <outmessages xmi:id="_joGAJ08jEea2T4KierPP2A">
+          <actorobject xmi:type="mdd_1:User" xmi:id="_joGAKE8jEea2T4KierPP2A"/>
+          <operation xmi:id="_joGAKU8jEea2T4KierPP2A" name="requestPassword"/>
+          <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_joGAKk8jEea2T4KierPP2A"/>
+        </outmessages>
+        <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_joGAK08jEea2T4KierPP2A"/>
       </activation>
     </block>
-    <systemobject xmi:id="_wPBA7k7VEeaqGKhxzrkIRQ" name="consortium"/>
-    <state xmi:id="_wPBA707VEeaqGKhxzrkIRQ" name="WaitVerify"/>
-    <state xmi:id="_wPBA8E7VEeaqGKhxzrkIRQ" name="WaitVerify"/>
+    <block xmi:id="_joGALE8jEea2T4KierPP2A" preState="_joGAP08jEea2T4KierPP2A" postState="_joGAQE8jEea2T4KierPP2A">
+      <inmessage xmi:id="_joGALU8jEea2T4KierPP2A">
+        <operation xmi:id="_joGALk8jEea2T4KierPP2A" name="cancel"/>
+      </inmessage>
+      <activation xmi:id="_joGAL08jEea2T4KierPP2A">
+        <outmessages xmi:id="_joGAME8jEea2T4KierPP2A">
+          <actorobject xmi:type="mdd_1:User" xmi:id="_joGAMU8jEea2T4KierPP2A"/>
+          <operation xmi:id="_joGAMk8jEea2T4KierPP2A" name="canceledMessage"/>
+          <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_joGAM08jEea2T4KierPP2A"/>
+        </outmessages>
+        <outmessages xmi:id="_joGANE8jEea2T4KierPP2A">
+          <actorobject xmi:type="mdd_1:User" xmi:id="_joGANU8jEea2T4KierPP2A"/>
+          <operation xmi:id="_joGANk8jEea2T4KierPP2A" name="ejectCard"/>
+          <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_joGAN08jEea2T4KierPP2A"/>
+        </outmessages>
+        <outmessages xmi:id="_joGAOE8jEea2T4KierPP2A">
+          <actorobject xmi:type="mdd_1:User" xmi:id="_joGAOU8jEea2T4KierPP2A"/>
+          <operation xmi:id="_joGAOk8jEea2T4KierPP2A" name="requestTakeCard"/>
+          <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_joGAO08jEea2T4KierPP2A"/>
+        </outmessages>
+        <returnvalue xmi:type="mdd_1:VoidValue" xmi:id="_joGAPE8jEea2T4KierPP2A"/>
+      </activation>
+    </block>
+    <systemobject xmi:id="_joGAPU8jEea2T4KierPP2A" name="atm"/>
+    <state xmi:id="_joGAPk8jEea2T4KierPP2A" name="WaitPassword"/>
+    <state xmi:id="_joGAP08jEea2T4KierPP2A" name="WaitPassword"/>
+    <state xmi:id="_joGAQE8jEea2T4KierPP2A" name="WaitTakeCard"/>
   </behaviour>
 </mdd:BehaviourTablePackage>
